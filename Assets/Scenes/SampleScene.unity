@@ -1245,10 +1245,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 854497619}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000023842, y: 187.1}
-  m_SizeDelta: {x: 1337, y: 1150.9}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 199.04999}
+  m_SizeDelta: {x: -317.19998, y: -1196.8999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1819255458
 CanvasRenderer:
@@ -1270,13 +1270,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b25e90bb0d194abea6787fdf8af0db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterCount: 80
+  characterCount: 100
   splitNameLimit: 15
   checkListParent: {fileID: 1819255455}
   checkPrefabAuto: {fileID: 4747364754279814429, guid: bd3ad479a36485348ab964bdc7602051, type: 3}
-  checkPrefabManual: {fileID: 4747364754279814429, guid: b88cd302a656e954d8cdef9be565e830, type: 3}
+  checkPrefab: {fileID: 4747364754279814429, guid: ff02684577f1be44dbe7f6b5c7053e5f, type: 3}
   checksTMP: {fileID: 0}
-  checkInstaceManual: {fileID: 0}
   checkInstaceAuto: {fileID: 0}
 --- !u!114 &1819255460
 MonoBehaviour:
@@ -1295,9 +1294,9 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 1
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
+  m_ChildAlignment: 0
+  m_Spacing: 50
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0

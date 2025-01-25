@@ -51,4 +51,43 @@ public class Check
         if (Checked || Overridden) stringBuilder.Append("</color>");
         return stringBuilder.ToString();
     }
+<<<<<<< Updated upstream
+=======
+
+    public GameObject GetObj(GameObject checkPrefabManual, GameObject checkListParent, int characterCount, int splitNameLimit,int i)
+    {
+        var newObj= Instantiate(checkPrefabManual, checkListParent.transform, false);
+        newObj.GetComponentInChildren<TMP_Text>().text = Text(characterCount, splitNameLimit);
+        newObj.GetComponentInChildren<TMP_Text>().rectTransform.offsetMin = new Vector2(-700, newObj.GetComponentInChildren<TMP_Text>().rectTransform.offsetMin.y);
+        newObj.GetComponentInChildren<TMP_Text>().rectTransform.offsetMax = new Vector2(700, newObj.GetComponentInChildren<TMP_Text>().rectTransform.offsetMax.y);
+        var button = newObj.GetComponentInChildren<Button>();
+        button.onClick.AddListener(() =>
+        {
+            TriggerCheck(checkListParent, i, newObj, characterCount, splitNameLimit);
+        });
+        Debug.Log(button.onClick);
+        return newObj;
+    }
+
+    private void TriggerCheck(GameObject checklistRendererHolder, int i, GameObject checkObject, int characterCount, int splitNameLimit)
+    {
+        Checked = !Checked;
+        checklistRendererHolder.GetComponent<ChecklistRenderer>().OnCheckboxClick(i, Checked);
+        checkObject.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>().enabled = Checked;
+        checkObject.GetComponentInChildren<TMP_Text>().text = Text(characterCount, splitNameLimit);
+    }
+
+    private void TriggerOverride()
+    {
+        Overridden = true;
+    }
+
+    private void TriggerSelect()
+    {
+        
+    }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 }
