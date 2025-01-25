@@ -1,13 +1,16 @@
 using System;
 using System.Text;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Check
+public class Check : MonoBehaviour
 {
     public string Name;
     public string ExpectedValue;
     public bool Checked;
     public bool Overridden;
+    public bool isManual;
 
     public void MarkOverridden()
     {
@@ -51,8 +54,6 @@ public class Check
         if (Checked || Overridden) stringBuilder.Append("</color>");
         return stringBuilder.ToString();
     }
-<<<<<<< Updated upstream
-=======
 
     public GameObject GetObj(GameObject checkPrefabManual, GameObject checkListParent, int characterCount, int splitNameLimit,int i)
     {
@@ -86,8 +87,4 @@ public class Check
     {
         
     }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 }
