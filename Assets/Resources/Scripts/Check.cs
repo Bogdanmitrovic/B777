@@ -1,7 +1,9 @@
 using System;
 using System.Text;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Check : MonoBehaviour
@@ -10,8 +12,15 @@ public class Check : MonoBehaviour
     public string ExpectedValue;
     public bool Checked;
     public bool Overridden;
-    public bool isManual;
+    public bool isAutomatic;
+    public GameObject CheckObject;
+    public Image CheckImageComponent;
+    public TMP_Text CheckTextComponent;
 
+    // public Check(string name, string expectedValue, bool automatic)
+    // {
+    //     
+    // }
     public void MarkOverridden()
     {
         Checked = false;
@@ -28,7 +37,7 @@ public class Check : MonoBehaviour
     {
         var stringBuilder = new StringBuilder();
         if (Checked) stringBuilder.Append("<color=green>");
-        else if (Overridden) stringBuilder.Append("<color=#3ba4c2>");
+        if (Overridden) stringBuilder = new StringBuilder().Append("<color=#3ba4c2>");
         var count = 0;
         var names = Name.Split(' ');
         for (var i = 0; i < names.Length; i++)
@@ -55,32 +64,58 @@ public class Check : MonoBehaviour
         return stringBuilder.ToString();
     }
 
-    public GameObject GetObj(GameObject checkPrefabManual, GameObject checkListParent, int characterCount, int splitNameLimit,int i)
+    public GameObject GetObj(GameObject checkPrefabManual, GameObject checkListParent, int characterCount, int splitNameLimit, int i)
     {
-        var newObj= Instantiate(checkPrefabManual, checkListParent.transform, false);
-        newObj.GetComponentInChildren<TMP_Text>().text = Text(characterCount, splitNameLimit);
-        newObj.GetComponentInChildren<TMP_Text>().rectTransform.offsetMin = new Vector2(-700, newObj.GetComponentInChildren<TMP_Text>().rectTransform.offsetMin.y);
-        newObj.GetComponentInChildren<TMP_Text>().rectTransform.offsetMax = new Vector2(700, newObj.GetComponentInChildren<TMP_Text>().rectTransform.offsetMax.y);
-        var button = newObj.GetComponentInChildren<Button>();
-        button.onClick.AddListener(() =>
+        CheckObject = Instantiate(checkPrefabManual, checkListParent.transform, false);
+        CheckTextComponent = CheckObject.GetComponentInChildren<TMP_Text>();
+        CheckImageComponent = CheckObject.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>();
+        
+        CheckTextComponent.text = Text(characterCount, splitNameLimit);
+        CheckTextComponent.rectTransform.offsetMin = new Vector2(-700, CheckTextComponent.rectTransform.offsetMin.y);
+        CheckTextComponent.rectTransform.offsetMax = new Vector2(700, CheckTextComponent.rectTransform.offsetMax.y);
+        
+        var button = CheckObject.GetComponentInChildren<Button>();
+        if (!isAutomatic)
         {
-            TriggerCheck(checkListParent, i, newObj, characterCount, splitNameLimit);
-        });
+            button.onClick.AddListener(() =>
+            {
+                TriggerCheck(checkListParent, i, characterCount, splitNameLimit);
+            });
+            
+        }
+        else
+        {
+            //za sad je onclick na sliku checkmarka za override!!!
+            button = CheckObject.transform.GetChild(0).GetChild(0).AddComponent<Button>();
+            button.onClick.AddListener(() =>
+            {
+                TriggerOverride(characterCount, splitNameLimit);
+                
+            });
+            TriggerCheck(checkListParent, i, characterCount, splitNameLimit);
+            CheckObject.transform.GetChild(0).GetComponent<Image>().enabled = false;
+        }
+        
         Debug.Log(button.onClick);
-        return newObj;
+        return CheckObject;
     }
 
-    private void TriggerCheck(GameObject checklistRendererHolder, int i, GameObject checkObject, int characterCount, int splitNameLimit)
+    private void TriggerCheck(GameObject checklistRendererHolder, int i, int characterCount, int splitNameLimit)
     {
         Checked = !Checked;
         checklistRendererHolder.GetComponent<ChecklistRenderer>().OnCheckboxClick(i, Checked);
-        checkObject.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>().enabled = Checked;
-        checkObject.GetComponentInChildren<TMP_Text>().text = Text(characterCount, splitNameLimit);
+        CheckImageComponent.enabled = Checked;
+        CheckObject.transform.GetComponent<Image>().enabled = Checked;
+        
+        CheckTextComponent.text = Text(characterCount, splitNameLimit);
     }
 
-    private void TriggerOverride()
+    private void TriggerOverride( int characterCount, int splitNameLimit)
     {
         Overridden = true;
+
+        CheckTextComponent.text = Text(characterCount, splitNameLimit);
+        CheckImageComponent.color = new Color(.23f, .64f, .76f, 1);
     }
 
     private void TriggerSelect()
