@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,28 +11,31 @@ public class ChecklistRenderer : MonoBehaviour
     public int splitNameLimit = 20;
     public GameObject checkListParent;
     public GameObject checkPrefabAuto;
-    public GameObject checkPrefabManual;
+    public GameObject checkPrefab;
     public TMP_Text checksTMP;
-    public GameObject checkInstaceManual;
+    private List<GameObject> _checkObjects;
     public GameObject checkInstaceAuto;
     void Start()
     {
         Checklist checklist = new Checklist();
+        _checkObjects = new List<GameObject>();
         checklist.Checks.Add(new Check { Name = "Check 1", ExpectedValue = "Expected 1" });
         checklist.Checks.Add(new Check { Name = "Check 2", ExpectedValue = "Expected 2" });
         checklist.Checks.Add(new Check { Name = "Checkcheckcheckcheckcheck 3", ExpectedValue = "Expected 3 AAAAA aa :)" });
         var checkTexts = checklist.CheckTexts(characterCount, splitNameLimit);
         string allText = string.Join("\n", checkTexts);
         _verticalLayoutGroup = checkListParent.GetComponent<VerticalLayoutGroup>();
-        
-        foreach (var check in checklist.Checks)
+
+        for (var i = 0; i < checklist.Checks.Count; i++)
         {
-            checkInstaceManual = Instantiate(checkPrefabManual);
-            checkInstaceManual.GetComponentInChildren<TMP_Text>().text = check.Text(characterCount, splitNameLimit);
-            checkInstaceManual.transform.SetParent(checkListParent.transform, false);
-            checkInstaceManual.GetComponentInChildren<TMP_Text>().rectTransform.offsetMin = new Vector2(-700, checkInstaceManual.GetComponentInChildren<TMP_Text>().rectTransform.offsetMin.y);
-            checkInstaceManual.GetComponentInChildren<TMP_Text>().rectTransform.offsetMax = new Vector2(700, checkInstaceManual.GetComponentInChildren<TMP_Text>().rectTransform.offsetMax.y);
+            var check = checklist.Checks[i];
+            var newObj = check.GetObj(checkPrefab, checkListParent, characterCount, splitNameLimit, i);
         }
+    }
+
+    public void OnCheckboxClick(int index, bool value)
+    {
+        Debug.Log("Kliknuo " + index + ": " + value);
     }
 
     void Update()
