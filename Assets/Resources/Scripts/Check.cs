@@ -77,4 +77,14 @@ public class Check : MonoBehaviour
         checkObject.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>().enabled = Checked;
         checkObject.GetComponentInChildren<TMP_Text>().text = Text(characterCount, splitNameLimit);
     }
+
+    private void TriggerOverride()
+    {
+        Overridden = true;
+    }
+
+    private void TriggerSelect()
+    {
+        
+    }
 }
