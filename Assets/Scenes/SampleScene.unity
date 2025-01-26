@@ -1270,8 +1270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b25e90bb0d194abea6787fdf8af0db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterCount: 100
-  splitNameLimit: 15
+  characterCount: 54
+  splitNameLimit: 10
   checkListParent: {fileID: 1819255455}
   checkPrefabAuto: {fileID: 4747364754279814429, guid: bd3ad479a36485348ab964bdc7602051, type: 3}
   checkPrefab: {fileID: 4747364754279814429, guid: ff02684577f1be44dbe7f6b5c7053e5f, type: 3}
@@ -1295,7 +1295,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 50
+  m_Spacing: 20
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0

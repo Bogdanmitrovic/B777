@@ -19,9 +19,10 @@ public class ChecklistRenderer : MonoBehaviour
     {
         Checklist checklist = new Checklist();
         _checkObjects = new List<GameObject>();
-        checklist.Checks.Add(new Check { Name = "Check 1", ExpectedValue = "Expected 1" });
-        checklist.Checks.Add(new Check { Name = "Check 2", ExpectedValue = "Expected 2" });
-        checklist.Checks.Add(new Check { Name = "Checkcheckcheckcheckcheck 3", ExpectedValue = "Expected 3 AAAAA aa :)" });
+        checklist.Checks.Add(new Check { Name = "Oxygen", ExpectedValue = "Tested 100%" , isAutomatic = false});
+        checklist.Checks.Add(new Check { Name = "Flight instruments", ExpectedValue = "Heading ___, Altimeter ___" , isAutomatic = false});
+        checklist.Checks.Add(new Check { Name = "Parking brake", ExpectedValue = "Set", isAutomatic = true});
+        checklist.Checks.Add(new Check { Name = "Fuel Control Switches", ExpectedValue = "CUTOFF", isAutomatic = true});
         var checkTexts = checklist.CheckTexts(characterCount, splitNameLimit);
         string allText = string.Join("\n", checkTexts);
         _verticalLayoutGroup = checkListParent.GetComponent<VerticalLayoutGroup>();
