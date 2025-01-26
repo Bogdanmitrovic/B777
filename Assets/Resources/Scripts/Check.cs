@@ -17,22 +17,6 @@ public class Check : MonoBehaviour
     private Image _checkImageComponent;
     private TMP_Text _checkTextComponent;
 
-    // public Check(string name, string expectedValue, bool automatic)
-    // {
-    //     
-    // }
-    public void MarkOverridden()
-    {
-        Checked = false;
-        Overridden = true;
-    }
-
-    public void MarkChecked()
-    {
-        Checked = true;
-        Overridden = false;
-    }
-
     public string Text(int characterCount, int splitNameLimit)
     {
         var stringBuilder = new StringBuilder();
@@ -73,6 +57,12 @@ public class Check : MonoBehaviour
         _checkTextComponent.text = Text(characterCount, splitNameLimit);
         _checkTextComponent.rectTransform.offsetMin = new Vector2(-700, _checkTextComponent.rectTransform.offsetMin.y);
         _checkTextComponent.rectTransform.offsetMax = new Vector2(700, _checkTextComponent.rectTransform.offsetMax.y);
+
+        var textButton = _checkObject.transform.GetChild(1).GetComponent<Button>();
+        textButton.onClick.AddListener(() =>
+        {
+            checkListParent.GetComponent<ChecklistRenderer>().OnCheckSelect(i);
+        });
         
         var button = _checkObject.GetComponentInChildren<Button>();
         if (!isAutomatic)
@@ -102,6 +92,8 @@ public class Check : MonoBehaviour
 
     private void TriggerCheck(GameObject checklistRendererHolder, int i, int characterCount, int splitNameLimit)
     {
+        if (Overridden || isAutomatic) return;
+        
         Checked = !Checked;
         checklistRendererHolder.GetComponent<ChecklistRenderer>().OnCheckboxClick(i, Checked);
         _checkImageComponent.enabled = Checked;
@@ -110,7 +102,7 @@ public class Check : MonoBehaviour
         _checkTextComponent.text = Text(characterCount, splitNameLimit);
     }
 
-    private void TriggerOverride( int characterCount, int splitNameLimit)
+    public void TriggerOverride( int characterCount, int splitNameLimit)
     {
         Checked = false;
         Overridden = true;
@@ -119,8 +111,18 @@ public class Check : MonoBehaviour
         _checkImageComponent.color = new Color(.23f, .64f, .76f, 1);
     }
 
-    private void TriggerSelect()
+    public void TriggerSelect()
     {
         
     }
+
+    public void TriggerReset()
+    {
+        
+    }
+    public void DestroyCheck()
+    {
+        
+    }
+    
 }
