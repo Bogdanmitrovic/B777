@@ -1,35 +1,48 @@
-using System;
 using System.Text;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Check : MonoBehaviour
 {
-    public string Name;
-    public string ExpectedValue;
-    public bool Checked;
-    public bool Overridden;
-    public bool isAutomatic;
+    // data
+    private readonly string _name;
+    private readonly string _expectedValue;
+    private bool _checked;
+    private bool _overridden;
+    private readonly bool _isAutomatic;
+    // gameobjects & components
     private GameObject _checkObject;
-    private Image _checkImageComponent;
+    private Image _checkmarkImage;
+    private Image _checkmarkBackgroundImage;
     private TMP_Text _checkTextComponent;
+    private Outline _outline;
+    private int _characterCount;
+    private int _splitNameLimit;
 
-    public string Text(int characterCount, int splitNameLimit)
+    public Check(string name, string expectedValue, bool isAutomatic)
+    {
+        _name = name;
+        _expectedValue = expectedValue;
+        _isAutomatic = isAutomatic;
+        _checked = false;
+        _overridden = false;
+    }
+
+    public bool IsDone => _checked || _overridden;
+    private string Text()
     {
         var stringBuilder = new StringBuilder();
-        if (Checked) stringBuilder.Append("<color=green>");
-        else if (Overridden) stringBuilder = new StringBuilder().Append("<color=#3ba4c2>");
+        if (_checked) stringBuilder.Append("<color=green>");
+        else if (_overridden) stringBuilder = new StringBuilder().Append("<color=#3ba4c2>");
         var count = 0;
-        var names = Name.Split(' ');
+        var names = _name.Split(' ');
         for (var i = 0; i < names.Length; i++)
         {
             var name = names[i];
             stringBuilder.Append(name);
             count += name.Length;
-            if (i != names.Length - 1 && count >= splitNameLimit)
+            if (i != names.Length - 1 && count >= _splitNameLimit)
             {
                 stringBuilder.Append("\n");
                 count = 0;
@@ -41,31 +54,35 @@ public class Check : MonoBehaviour
             }
         }
 
-        count += ExpectedValue.Length;
-        stringBuilder.Append(new string('.', characterCount - count));
-        stringBuilder.Append(ExpectedValue);
-        if (Checked || Overridden) stringBuilder.Append("</color>");
+        count += _expectedValue.Length;
+        stringBuilder.Append(new string('.', _characterCount - count));
+        stringBuilder.Append(_expectedValue);
+        if (_checked || _overridden) stringBuilder.Append("</color>");
         return stringBuilder.ToString();
     }
 
     public GameObject GetObj(GameObject checkPrefabManual, GameObject checkListParent, int characterCount, int splitNameLimit, int i)
     {
+        _characterCount = characterCount;
+        _splitNameLimit = splitNameLimit;
         _checkObject = Instantiate(checkPrefabManual, checkListParent.transform, false);
         _checkTextComponent = _checkObject.GetComponentInChildren<TMP_Text>();
-        _checkImageComponent = _checkObject.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>();
+        _checkmarkImage = _checkObject.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>();
+        _outline = _checkObject.GetComponent<Outline>();
+        _checkmarkBackgroundImage = _checkObject.transform.GetChild(0).GetComponent<Image>();
         
-        _checkTextComponent.text = Text(characterCount, splitNameLimit);
+        _checkTextComponent.text = Text();
         _checkTextComponent.rectTransform.offsetMin = new Vector2(-700, _checkTextComponent.rectTransform.offsetMin.y);
         _checkTextComponent.rectTransform.offsetMax = new Vector2(700, _checkTextComponent.rectTransform.offsetMax.y);
 
-        var textButton = _checkObject.transform.GetChild(1).GetComponent<Button>();
+        var textButton = _checkObject.GetComponent<Button>();
         textButton.onClick.AddListener(() =>
         {
             checkListParent.GetComponent<ChecklistRenderer>().OnCheckSelect(i);
         });
         
-        var button = _checkObject.GetComponentInChildren<Button>();
-        if (!isAutomatic)
+        var button = _checkmarkBackgroundImage.GetComponent<Button>();
+        if (!_isAutomatic)
         {
             button.onClick.AddListener(() =>
             {
@@ -75,15 +92,7 @@ public class Check : MonoBehaviour
         }
         else
         {
-            //za sad je onclick na sliku checkmarka za override!!!
-            button = _checkObject.transform.GetChild(0).GetChild(0).AddComponent<Button>();
-            button.onClick.AddListener(() =>
-            {
-                TriggerOverride(characterCount, splitNameLimit);
-                
-            });
-            TriggerCheck(checkListParent, i, characterCount, splitNameLimit);
-            _checkObject.transform.GetChild(0).GetComponent<Image>().enabled = false;
+            _checkmarkBackgroundImage.enabled = false;
         }
         
         Debug.Log(button.onClick);
@@ -92,37 +101,45 @@ public class Check : MonoBehaviour
 
     private void TriggerCheck(GameObject checklistRendererHolder, int i, int characterCount, int splitNameLimit)
     {
-        if (Overridden || isAutomatic) return;
+        if (_overridden || _isAutomatic) return;
         
-        Checked = !Checked;
-        checklistRendererHolder.GetComponent<ChecklistRenderer>().OnCheckboxClick(i, Checked);
-        _checkImageComponent.enabled = Checked;
-        _checkObject.transform.GetComponent<Image>().enabled = Checked;
+        _checked = !_checked;
+        checklistRendererHolder.GetComponent<ChecklistRenderer>().OnCheckboxCheck(i, _checked);
+        _checkmarkImage.enabled = _checked;
+        _checkObject.transform.GetComponent<Image>().enabled = _checked;
         
-        _checkTextComponent.text = Text(characterCount, splitNameLimit);
+        _checkTextComponent.text = Text();
     }
 
-    public void TriggerOverride( int characterCount, int splitNameLimit)
+    public void TriggerOverride()
     {
-        Checked = false;
-        Overridden = true;
+        _checked = false;
+        _overridden = true;
 
-        _checkTextComponent.text = Text(characterCount, splitNameLimit);
-        _checkImageComponent.color = new Color(.23f, .64f, .76f, 1);
+        _checkTextComponent.text = Text();
+        _checkmarkImage.color = new Color(.23f, .64f, .76f, 1);
     }
 
-    public void TriggerSelect()
+    public void TriggerSelect(bool selected)
     {
-        
+        _outline.enabled = selected;
     }
 
     public void TriggerReset()
     {
-        
+        // reset data
+        _checked = false;
+        _overridden = false;
+        // reset visuals
+        _checkmarkImage.enabled = false;
+        _checkmarkImage.color = new Color(1, 1, 1, 1);
+        _checkmarkBackgroundImage.enabled = !_isAutomatic;
+        _outline.enabled = false;
+        _checkTextComponent.text = Text();
+
     }
     public void DestroyCheck()
     {
-        
+        Destroy(_checkObject);
     }
-    
 }
