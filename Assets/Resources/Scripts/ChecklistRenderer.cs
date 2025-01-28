@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class ChecklistRenderer : MonoBehaviour
     public GameObject topButtons;
     public GameObject bottomButtons;
     public GameObject checklistDone;
+    public TextAsset jsonFile;
     
     private int _checklistIndex = 0;
     private List<Checklist> _normalChecklists;
@@ -43,7 +45,7 @@ public class ChecklistRenderer : MonoBehaviour
         // OverrideCheck();
         // ResetChecklist();
     }
-
+    
     private void LoadNormalChecklist()
     {
         if(_checklistIndex is >= 11 or < 0)
@@ -99,9 +101,13 @@ public class ChecklistRenderer : MonoBehaviour
         checklistDone.SetActive(true);
         bottomButtons.transform.GetChild(1).gameObject.SetActive(false);
     }
+    
     private void ChecklistNotDone()
     {
         checklistDone.SetActive(false);
         bottomButtons.transform.GetChild(1).gameObject.SetActive(true);
     }
+    
+    
+     
 }
