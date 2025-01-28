@@ -106,7 +106,7 @@ public class Check : MonoBehaviour
         _checked = !_checked;
         checklistRendererHolder.GetComponent<ChecklistRenderer>().OnCheckboxCheck(i, _checked);
         _checkmarkImage.enabled = _checked;
-        _checkObject.transform.GetComponent<Image>().enabled = _checked;
+        //_checkObject.transform.GetComponent<Image>().enabled = _checked;
         
         _checkTextComponent.text = Text();
     }
