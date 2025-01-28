@@ -42,7 +42,10 @@ public class ChecklistRenderer : MonoBehaviour
         bottomButtons.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(OverrideCheck);
         bottomButtons.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(OverrideChecklist);
         bottomButtons.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(ResetChecklist);
-        topButtons.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(ShowNormalMenu);
+        topButtons.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(()=>{ShowMenu(0);});
+        topButtons.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(()=>{ShowMenu(1);});
+        topButtons.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(()=>{ShowMenu(2);});
+
         // LoadNormalChecklist();
         // OverrideChecklist();
         // OnCheckSelect(0);
@@ -112,44 +115,30 @@ public class ChecklistRenderer : MonoBehaviour
         bottomButtons.transform.GetChild(1).gameObject.SetActive(true);
     }
 
-    public void ShowNormalMenu()
+    public void ShowMenu(int menuNumber)
     {
+        ClearMenu();
         LoadChecklist(new Checklist());
+        bottomButtons.SetActive(false);
+        
         var verticalLayoutGroup1 = horizontalLayoutGroup.transform.GetChild(0);
         var verticalLayoutGroup2 = horizontalLayoutGroup.transform.GetChild(1);
         
-        for (int i = verticalLayoutGroup1.childCount - 1; i >= 0; i--)
-        {
-            Destroy(verticalLayoutGroup1.GetChild(i).gameObject);
-        }
-        for (int i = verticalLayoutGroup2.childCount - 1; i >= 0; i--)
-        {
-            Destroy(verticalLayoutGroup2.GetChild(i).gameObject);
-        }
-        bottomButtons.SetActive(false);
         
         if (jsonFile != null)
         {
             Wrapper menus = JsonUtility.FromJson<Wrapper>(jsonFile.text);
 
-            MenuItem menu = menus.Menus[0];
+            MenuItem menu = menus.Menus[menuNumber];
             title.SetActive(true);
             title.GetComponent<TMP_Text>().text = menu.MenuName.ToUpper();
 
             foreach (var list in menu.Lists)
             {
                 GameObject button;
-                if (verticalLayoutGroup1.childCount < 7)
-                {
-                    button = Instantiate(buttonPrefab, verticalLayoutGroup1.transform);
-                }
-                else
-                {
-                    button = Instantiate(buttonPrefab, verticalLayoutGroup2.transform);
-                }
-                button.transform.localScale = Vector3.one * 4;
+                
+                CreateButton(verticalLayoutGroup1, verticalLayoutGroup2, out button);
                 button.GetComponentInChildren<TMP_Text>().text = list.ListName;
-
                 Checklist checklist = new Checklist();
                 foreach (var item in list.List)
                 {
@@ -164,7 +153,18 @@ public class ChecklistRenderer : MonoBehaviour
             }
         }
     }
-
+    private void CreateButton(Transform verticalLayoutGroup1, Transform verticalLayoutGroup2, out GameObject button)
+    {
+        if (verticalLayoutGroup1.childCount < 8)
+        {
+            button = Instantiate(buttonPrefab, verticalLayoutGroup1);
+        }
+        else
+        {
+            button = Instantiate(buttonPrefab, verticalLayoutGroup2);
+        }
+        button.transform.localScale = Vector3.one * 4;
+    }
     public void ClearMenu()
     {
         var verticalLayoutGroup1 = horizontalLayoutGroup.transform.GetChild(0);

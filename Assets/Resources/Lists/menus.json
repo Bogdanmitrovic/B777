@@ -383,6 +383,41 @@
       ]
     },
     {
+      "MenuName": "Resets",
+      "Lists": [
+        {
+          "ListName": "Reset normal",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": "",
+              "isAutomatic": false
+            }
+          ]
+        },
+        {
+          "ListName": "Reset non-normal",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": "",
+              "isAutomatic": false
+            }
+          ]
+        },
+        {
+          "ListName": "Reset all",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": "",
+              "isAutomatic": false
+            }
+          ]
+        }
+      ]
+    },
+    {
       "MenuName": "Non-normal Menu",
       "Lists": [
         {
@@ -537,41 +572,6 @@
         },
         {
           "ListName": "Warning systems, tail strike",
-          "List": [
-            {
-              "name": "",
-              "expectedValue": "",
-              "isAutomatic": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "MenuName": "Resets",
-      "Lists": [
-        {
-          "ListName": "Reset normal",
-          "List": [
-            {
-              "name": "",
-              "expectedValue": "",
-              "isAutomatic": false
-            }
-          ]
-        },
-        {
-          "ListName": "Reset non-normal",
-          "List": [
-            {
-              "name": "",
-              "expectedValue": "",
-              "isAutomatic": false
-            }
-          ]
-        },
-        {
-          "ListName": "Reset all",
           "List": [
             {
               "name": "",
