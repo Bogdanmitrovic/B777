@@ -1,428 +1,508 @@
 {
-  "Normal Menu": [
+  "Menus": [
     {
-      "Preflight": [
+      "MenuName": "Normal Menu",
+      "Lists": [
         {
-          "name": "Inspections and security",
-          "expectedValue": "Completed"
-        },
-        {
-          "name": "Oxygen",
-          "expectedValue": "Tested, 100%"
-        },
-        {
-          "name": "Flight instruments",
-          "expectedValue": "Heading___, Altimeter___"
-        },
-        {
-          "name": "Fuel control switches",
-          "expectedValue": "CUTOFF"
-        },
-        {
-          "name": "Taxi and takeoff briefing",
-          "expectedValue": "Completed"
-        },
-        {
-          "name": "PFD",
-          "expectedValue": "V2___, LNAV/VNAV__, ALTITUDE__"
-        },
-        {
-          "name": "Takeoff speeds",
-          "expectedValue": "V1___, VR___, V2___"
-        },
-        {
-          "name": "CDU preflight",
-          "expectedValue": "Completed"
-        }
-      ]
-    },
-    {
-      "Before start": [
-        {
-          "name": "Flight deck door",
-          "expectedValue": "Closed and locked"
-        },
-        {
-          "name": "Passenger signs",
-          "expectedValue": "__"
-        },
-        {
-          "name": "Beacon",
-          "expectedValue": "ON"
-        },
-        {
-          "name": "Trasponder",
-          "expectedValue": "XPNDR"
-        }
-      ]
-    },
-    {
-      "Before taxi": [
-        {
-          "name": "Anti-ice",
-          "expectedValue": "___"
-        },
-        {
-          "name": "Recall",
-          "expectedValue": "Checked"
-        },
-        {
-          "name": "Autobrake",
-          "expectedValue": "RTO"
-        },
-        {
-          "name": "Flaps",
-          "expectedValue": "___"
-        },
-        {
-          "name": "Ground crew clearance",
-          "expectedValue": "Seen"
-        },
-        {
-          "name": "Flight controls",
-          "expectedValue": "Checked"
-        }
-      ]
-    },
-    {
-      "Before takeoff": [
-        {
-          "name": "Final Loadsheet / Time ___z",
-          "expectedValue": "Acknowledged"
-        },
-        {
-          "name": "Critical data changes",
-          "value": [
+          "ListName": "Preflight",
+          "List": [
             {
-              "Yes": [
-                { "PFD": "V2__, LNAV/VNAV__, ALTITUDE__" },
-                { "Takeoff speeds": "V1__, VR__, V2__" },
-                { "CDU preflight": "Completed" }
-              ]
-            },
-            { "No": {} }
-          ]
-        },
-        {
-          "name": "Takeoff briefing",
-          "expectedValue": "Updated"
-        },
-        {
-          "name": "Flaps",
-          "expectedValue": "___"
-        },
-        {
-          "name": "Trim",
-          "expectedValue": "__ Units, 0, 0"
-        },
-        {
-          "name": "Cabin report",
-          "expectedValue": "Received"
-        },
-        {
-          "name": "Transponder",
-          "expectedValue": "TA/RA"
-        }
-      ]
-    },
-    {
-      "After takeoff": [
-        {
-          "name": "Landing gear",
-          "expectedValue": "UP"
-        },
-        {
-          "name": "Flaps",
-          "expectedValue": "UP"
-        },
-        {
-          "name": "Altimeters",
-          "expectedValue": "STD"
-        }
-      ]
-    },
-    {
-      "Descent": [
-        {
-          "name": "Recall",
-          "expectedValue": "Checked"
-        },
-        {
-          "name": "Notes",
-          "expectedValue": "Checked"
-        },
-        {
-          "name": "Autobrake",
-          "expectedValue": "___"
-        },
-        {
-          "name": "Landing data",
-          "expectedValue": "VREF__, Minimums__"
-        },
-        {
-          "name": "Approach briefing",
-          "expectedValue": "Completed"
-        }
-      ]
-    },
-    {
-      "Approach": [
-        {
-          "name": "Altimeters",
-          "expectedValue": "__"
-        }
-      ]
-    },
-    {
-      "Landing": [
-        {
-          "name": "Cabin report",
-          "expectedValue": "Received"
-        },
-        {
-          "name": "Speedbrake",
-          "expectedValue": "ARMED"
-        },
-        {
-          "name": "Landing gear",
-          "expectedValue": "DOWN"
-        },
-        {
-          "name": "Flaps",
-          "expectedValue": "___"
-        }
-      ]
-    },
-    {
-      "After landing": [
-        {
-          "name": "Speedbrake",
-          "expectedValue": "DOWN"
-        },
-        {
-          "name": "strobe and landing lights",
-          "expectedValue": "OFF"
-        },
-        {
-          "name": "Weather radar",
-          "expectedValue": "Off"
-        },
-        {
-          "name": "Flaps",
-          "expectedValue": "UP"
-        },
-        {
-          "name": "Transponder",
-          "expectedValue": "XPNDR"
-        },
-        {
-          "name": "NOTE",
-          "expectedValue": "Carry out Engine Out Taxi In unless there are overriding safety or operational considerations"
-        }
-      ]
-    },
-    {
-      "Shutdown": [
-        {
-          "name": "Parking brake",
-          "expectedValue": "Set"
-        },
-        {
-          "name": "Fuel control switches",
-          "expectedValue": "CUTOFF"
-        },
-        {
-          "name": "Doors",
-          "expectedValue": "Manual"
-        },
-        {
-          "name": "Seat belt signs",
-          "expectedValue": "OFF"
-        },
-        {
-          "name": "Hydraulic panel",
-          "expectedValue": "Set"
-        },
-        {
-          "name": "Fuel pumps",
-          "expectedValue": "Off"
-        },
-        {
-          "name": "Beacon",
-          "expectedValue": "Off"
-        },
-        {
-          "name": "Transponder",
-          "expectedValue": "2000, STBY"
-        }
-      ]
-    },
-    {
-      "Secure": [
-        {
-          "name": "ADIRU",
-          "expectedValue": "OFF"
-        },
-        {
-          "name": "Emergency lights",
-          "expectedValue": "OFF"
-        },
-        {
-          "name": "Packs",
-          "expectedValue": "OFF"
-        },
-        {
-          "name": "PCA available",
-          "value": [
-            {
-              "Yes": {
-                "name": "RECIRC FANS",
-                "expectedValue": "OFF"
-              }
+              "name": "Inspections and security",
+              "expectedValue": "Completed"
             },
             {
-              "No": {
-                "name": "RECIRC FANS",
-                "expectedValue": "ON"
-              }
+              "name": "Oxygen",
+              "expectedValue": "Tested, 100%"
+            },
+            {
+              "name": "Flight instruments",
+              "expectedValue": "Heading___, Altimeter___"
+            },
+            {
+              "name": "Fuel control switches",
+              "expectedValue": "CUTOFF"
+            },
+            {
+              "name": "Taxi and takeoff briefing",
+              "expectedValue": "Completed"
+            },
+            {
+              "name": "PFD",
+              "expectedValue": "V2___, LNAV/VNAV__, ALTITUDE__"
+            },
+            {
+              "name": "Takeoff speeds",
+              "expectedValue": "V1___, VR___, V2___"
+            },
+            {
+              "name": "CDU preflight",
+              "expectedValue": "Completed"
             }
           ]
         },
         {
-          "name": "EXT PWR",
-          "expectedValue": "ON"
+          "ListName": "Before Start",
+          "List": [
+            {
+              "name": "Flight deck door",
+              "expectedValue": "Closed and locked"
+            },
+            {
+              "name": "Passenger signs",
+              "expectedValue": "__"
+            },
+            {
+              "name": "Beacon",
+              "expectedValue": "ON"
+            },
+            {
+              "name": "Trasponder",
+              "expectedValue": "XPNDR"
+            }
+          ]
         },
         {
-          "name": "APU",
-          "expectedValue": "OFF"
+          "ListName": "Before Taxi",
+          "List": [
+            {
+              "name": "Anti-ice",
+              "expectedValue": "___"
+            },
+            {
+              "name": "Recall",
+              "expectedValue": "Checked"
+            },
+            {
+              "name": "Autobrake",
+              "expectedValue": "RTO"
+            },
+            {
+              "name": "Flaps",
+              "expectedValue": "___"
+            },
+            {
+              "name": "Ground crew clearance",
+              "expectedValue": "Seen"
+            },
+            {
+              "name": "Flight controls",
+              "expectedValue": "Checked"
+            }
+          ]
         },
         {
-          "name": "Battery",
-          "expectedValue": "OFF"
+          "ListName": "Before Takeoff",
+          "List": [
+            {
+              "name": "Final Loadsheet / Time ___z",
+              "expectedValue": "Acknowledged"
+            },
+            {
+              "name": "Critical data changes",
+              "value": [
+                {
+                  "Yes": [
+                    { "PFD": "V2__, LNAV/VNAV__, ALTITUDE__" },
+                    { "Takeoff speeds": "V1__, VR__, V2__" },
+                    { "CDU preflight": "Completed" }
+                  ]
+                },
+                { "No": {} }
+              ]
+            },
+            {
+              "name": "Takeoff briefing",
+              "expectedValue": "Updated"
+            },
+            {
+              "name": "Flaps",
+              "expectedValue": "___"
+            },
+            {
+              "name": "Trim",
+              "expectedValue": "__ Units, 0, 0"
+            },
+            {
+              "name": "Cabin report",
+              "expectedValue": "Received"
+            },
+            {
+              "name": "Transponder",
+              "expectedValue": "TA/RA"
+            }
+          ]
         },
         {
-          "name": "F/D access switch",
-          "expectedValue": "Unlocked"
+          "ListName": "After Takeoff",
+          "List": [
+            {
+              "name": "Landing gear",
+              "expectedValue": "UP"
+            },
+            {
+              "name": "Flaps",
+              "expectedValue": "UP"
+            },
+            {
+              "name": "Altimeters",
+              "expectedValue": "STD"
+            }
+          ]
+        },
+        {
+          "ListName": "Descent",
+          "List": [
+            {
+              "name": "Recall",
+              "expectedValue": "Checked"
+            },
+            {
+              "name": "Notes",
+              "expectedValue": "Checked"
+            },
+            {
+              "name": "Autobrake",
+              "expectedValue": "___"
+            },
+            {
+              "name": "Landing data",
+              "expectedValue": "VREF__, Minimums__"
+            },
+            {
+              "name": "Approach briefing",
+              "expectedValue": "Completed"
+            }
+          ]
+        },
+        {
+          "ListName": "Approach",
+          "List": [
+            {
+              "name": "Altimeters",
+              "expectedValue": "__"
+            }
+          ]
+        },
+        {
+          "ListName": "Landing",
+          "List": [
+            {
+              "name": "Cabin report",
+              "expectedValue": "Received"
+            },
+            {
+              "name": "Speedbrake",
+              "expectedValue": "ARMED"
+            },
+            {
+              "name": "Landing gear",
+              "expectedValue": "DOWN"
+            },
+            {
+              "name": "Flaps",
+              "expectedValue": "___"
+            }
+          ]
+        },
+        {
+          "ListName": "After landing",
+          "List": [
+            {
+              "name": "Speedbrake",
+              "expectedValue": "DOWN"
+            },
+            {
+              "name": "strobe and landing lights",
+              "expectedValue": "OFF"
+            },
+            {
+              "name": "Weather radar",
+              "expectedValue": "Off"
+            },
+            {
+              "name": "Flaps",
+              "expectedValue": "UP"
+            },
+            {
+              "name": "Transponder",
+              "expectedValue": "XPNDR"
+            },
+            {
+              "name": "NOTE",
+              "expectedValue": "Carry out Engine Out Taxi In unless there are overriding safety or operational considerations"
+            }
+          ]
+        },
+        {
+          "ListName": "Shutdown",
+          "List": [
+            {
+              "name": "Parking brake",
+              "expectedValue": "Set"
+            },
+            {
+              "name": "Fuel control switches",
+              "expectedValue": "CUTOFF"
+            },
+            {
+              "name": "Doors",
+              "expectedValue": "Manual"
+            },
+            {
+              "name": "Seat belt signs",
+              "expectedValue": "OFF"
+            },
+            {
+              "name": "Hydraulic panel",
+              "expectedValue": "Set"
+            },
+            {
+              "name": "Fuel pumps",
+              "expectedValue": "Off"
+            },
+            {
+              "name": "Beacon",
+              "expectedValue": "Off"
+            },
+            {
+              "name": "Transponder",
+              "expectedValue": "2000, STBY"
+            }
+          ]
+        },
+        {
+          "ListName": "Secure",
+          "List": [
+            {
+              "name": "ADIRU",
+              "expectedValue": "OFF"
+            },
+            {
+              "name": "Emergency lights",
+              "expectedValue": "OFF"
+            },
+            {
+              "name": "Packs",
+              "expectedValue": "OFF"
+            },
+            {
+              "name": "PCA available",
+              "value": [
+                {
+                  "Yes": {
+                    "name": "RECIRC FANS",
+                    "expectedValue": "OFF"
+                  }
+                },
+                {
+                  "No": {
+                    "name": "RECIRC FANS",
+                    "expectedValue": "ON"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "EXT PWR",
+              "expectedValue": "ON"
+            },
+            {
+              "name": "APU",
+              "expectedValue": "OFF"
+            },
+            {
+              "name": "Battery",
+              "expectedValue": "OFF"
+            },
+            {
+              "name": "F/D access switch",
+              "expectedValue": "Unlocked"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "MenuName": "Non-normal Menu",
+      "Lists": [
+        {
+          "ListName": "Unannunciated checklists",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Apln genl, emer eqpt, doors, windows",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Air systems",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Anti-ice, rain",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Automatic flight",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Communications datalink",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Electrical",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Engines, APU",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Fire protection",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Flight controls",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Flight instruments, displays",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Flight management, navigation",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Fuel",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Hydraulics, RAT",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Landing gear",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Warning systems, tail strike",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "MenuName": "Resets",
+      "Lists": [
+        {
+          "ListName": "Reset normal",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Reset non-normal",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
+        },
+        {
+          "ListName": "Reset all",
+          "List": [
+            {
+              "name": "",
+              "expectedValue": ""
+            }
+          ]
         }
       ]
     }
-  ],
-  "Non-normal Menu": {
-    "Unannunciated checklists ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Apln genl, emer eqpt, doors, windows ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Air systems ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Anti-ice, rain...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Automatic flight ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Communications datalink ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Electrical ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Engines, apu ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Fire protection ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Flight controls ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Flight instruments, displays ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Flight management, navigation ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Fuel ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Hydraulics, rat ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Landing gear ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Warning systems, tail strike ...": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ]
-  },
-  "Resets": {
-    "Reset normal": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Reset non-normal": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Reset all": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ]
-  }
+  ]
+
 }
