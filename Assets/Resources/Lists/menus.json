@@ -1,0 +1,210 @@
+{
+  "Normal Menu": {
+    "Preflight": [
+      {
+        "name": "Inspections and security",
+        "expectedValue": "Completed"
+      },
+      {
+        "name": "Oxygen",
+        "expectedValue": "Tested, 100%"
+      },
+      {
+        "name": "Flight instruments",
+        "expectedValue": "Heading___, Altimeter___"
+      },
+      {
+        "name": "Fuel control switches",
+        "expectedValue": "CUTOFF"
+      },
+      {
+        "name": "Taxi and takeoff briefing",
+        "expectedValue": "Completed"
+      },
+      {
+        "name": "PFD",
+        "expectedValue": "V2___, LNAV/VNAV__, ALTITUDE__"
+      },
+      {
+        "name": "Takeoff speeds",
+        "expectedValue": "V1___, VR___, V2___"
+      },
+      {
+        "name": "CDU preflight",
+        "expectedValue": ""
+      }
+    ],
+    "Before start": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Before taxi": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Before takeoff": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "After takeoff": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Descent": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Approach": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Landing": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Shutdown": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Secure": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ]
+  },
+  "Non-normal Menu": {
+    "Unannunciated checklists ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Apln genl, emer eqpt, doors, windows ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Air systems ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Anti-ice, rain...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Automatic flight ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Communications datalink ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Electrical ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Engines, apu ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Fire protection ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Flight controls ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Flight instruments, displays ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Flight management, navigation ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Fuel ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Hydraulics, rat ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Landing gear ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Warning systems, tail strike ...": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ]
+  },
+  "Resets": {
+    "Reset normal": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Reset non-normal": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ],
+    "Reset all": [
+      {
+        "name": "",
+        "expectedValue": ""
+      }
+    ]
+  }
+}
