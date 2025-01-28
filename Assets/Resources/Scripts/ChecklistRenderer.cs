@@ -14,6 +14,7 @@ public class ChecklistRenderer : MonoBehaviour
     public GameObject topButtons;
     public GameObject bottomButtons;
     public GameObject checklistDone;
+    public GameObject title;
     public TextAsset jsonFile;
     
     private int _checklistIndex = 0;
@@ -39,6 +40,7 @@ public class ChecklistRenderer : MonoBehaviour
         bottomButtons.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(OverrideCheck);
         bottomButtons.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(OverrideChecklist);
         bottomButtons.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(ResetChecklist);
+        topButtons.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(ShowNormalMenu);
         // LoadNormalChecklist();
         // OverrideChecklist();
         // OnCheckSelect(0);
@@ -107,7 +109,28 @@ public class ChecklistRenderer : MonoBehaviour
         checklistDone.SetActive(false);
         bottomButtons.transform.GetChild(1).gameObject.SetActive(true);
     }
-    
-    
+
+    public void ShowNormalMenu()
+    {
+        
+        bottomButtons.SetActive(false);
+        
+        if (jsonFile != null)
+        {
+            Wrapper menus = JsonUtility.FromJson<Wrapper>(jsonFile.text);
+
+            MenuItem menu = menus.Menus[0];
+            title.SetActive(true);
+            title.GetComponent<TMP_Text>().text = menu.MenuName.ToUpper();
+            foreach (var list in menu.Lists)
+            {
+                
+            }
+        }
+        else
+        {
+            Debug.LogError("JSON file not assigned!");
+        }
+    }
      
 }
