@@ -11,10 +11,12 @@ public class ChecklistRenderer : MonoBehaviour
     public int characterCount = 50;
     public int splitNameLimit = 20;
     public GameObject checkPrefab;
+    public GameObject buttonPrefab;
     public GameObject topButtons;
     public GameObject bottomButtons;
     public GameObject checklistDone;
     public GameObject title;
+    public HorizontalLayoutGroup horizontalLayoutGroup;
     public TextAsset jsonFile;
     
     private int _checklistIndex = 0;
@@ -112,7 +114,18 @@ public class ChecklistRenderer : MonoBehaviour
 
     public void ShowNormalMenu()
     {
+        LoadChecklist(new Checklist());
+        var verticalLayoutGroup1 = horizontalLayoutGroup.transform.GetChild(0);
+        var verticalLayoutGroup2 = horizontalLayoutGroup.transform.GetChild(1);
         
+        for (int i = verticalLayoutGroup1.childCount - 1; i >= 0; i--)
+        {
+            Destroy(verticalLayoutGroup1.GetChild(i).gameObject);
+        }
+        for (int i = verticalLayoutGroup2.childCount - 1; i >= 0; i--)
+        {
+            Destroy(verticalLayoutGroup2.GetChild(i).gameObject);
+        }
         bottomButtons.SetActive(false);
         
         if (jsonFile != null)
@@ -122,15 +135,49 @@ public class ChecklistRenderer : MonoBehaviour
             MenuItem menu = menus.Menus[0];
             title.SetActive(true);
             title.GetComponent<TMP_Text>().text = menu.MenuName.ToUpper();
+
             foreach (var list in menu.Lists)
             {
-                
+                GameObject button;
+                if (verticalLayoutGroup1.childCount < 7)
+                {
+                    button = Instantiate(buttonPrefab, verticalLayoutGroup1.transform);
+                }
+                else
+                {
+                    button = Instantiate(buttonPrefab, verticalLayoutGroup2.transform);
+                }
+                button.transform.localScale = Vector3.one * 4;
+                button.GetComponentInChildren<TMP_Text>().text = list.ListName;
+
+                Checklist checklist = new Checklist();
+                foreach (var item in list.List)
+                {
+                    checklist.Checks.Add(new Check(item.name, item.expectedValue, item.isAutomatic));
+                }
+                button.transform.GetComponent<Button>().onClick.AddListener(()=>
+                {
+                    ClearMenu();
+                    LoadChecklist(checklist);
+                    bottomButtons.SetActive(true);
+                });
             }
         }
-        else
+    }
+
+    public void ClearMenu()
+    {
+        var verticalLayoutGroup1 = horizontalLayoutGroup.transform.GetChild(0);
+        var verticalLayoutGroup2 = horizontalLayoutGroup.transform.GetChild(1);
+        
+        for (int i = verticalLayoutGroup1.childCount - 1; i >= 0; i--)
         {
-            Debug.LogError("JSON file not assigned!");
+            Destroy(verticalLayoutGroup1.GetChild(i).gameObject);
+        }
+        for (int i = verticalLayoutGroup2.childCount - 1; i >= 0; i--)
+        {
+            Destroy(verticalLayoutGroup2.GetChild(i).gameObject);
         }
     }
-     
+
 }
