@@ -20,7 +20,8 @@ public class ChecklistItem
 {
     public string name;
     public string expectedValue;
-    public List<ValueOption> value; // For nested "value" field
+    public bool isAutomatic;
+    public List<ValueOption> value;
 }
 
 [Serializable]

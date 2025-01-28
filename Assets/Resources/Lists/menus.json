@@ -8,35 +8,43 @@
           "List": [
             {
               "name": "Inspections and security",
-              "expectedValue": "Completed"
+              "expectedValue": "Completed",
+              "isAutomatic": false
             },
             {
               "name": "Oxygen",
-              "expectedValue": "Tested, 100%"
+              "expectedValue": "Tested, 100%",
+              "isAutomatic": false
             },
             {
               "name": "Flight instruments",
-              "expectedValue": "Heading___, Altimeter___"
+              "expectedValue": "Heading___, Altimeter___",
+              "isAutomatic": false
             },
             {
               "name": "Fuel control switches",
-              "expectedValue": "CUTOFF"
+              "expectedValue": "CUTOFF",
+              "isAutomatic": false
             },
             {
               "name": "Taxi and takeoff briefing",
-              "expectedValue": "Completed"
+              "expectedValue": "Completed",
+              "isAutomatic": false
             },
             {
               "name": "PFD",
-              "expectedValue": "V2___, LNAV/VNAV__, ALTITUDE__"
+              "expectedValue": "V2___, LNAV/VNAV__, ALTITUDE__",
+              "isAutomatic": false
             },
             {
               "name": "Takeoff speeds",
-              "expectedValue": "V1___, VR___, V2___"
+              "expectedValue": "V1___, VR___, V2___",
+              "isAutomatic": false
             },
             {
               "name": "CDU preflight",
-              "expectedValue": "Completed"
+              "expectedValue": "Completed",
+              "isAutomatic": false
             }
           ]
         },
@@ -45,19 +53,23 @@
           "List": [
             {
               "name": "Flight deck door",
-              "expectedValue": "Closed and locked"
+              "expectedValue": "Closed and locked",
+              "isAutomatic": false
             },
             {
               "name": "Passenger signs",
-              "expectedValue": "__"
+              "expectedValue": "__",
+              "isAutomatic": false
             },
             {
               "name": "Beacon",
-              "expectedValue": "ON"
+              "expectedValue": "ON",
+              "isAutomatic": false
             },
             {
               "name": "Trasponder",
-              "expectedValue": "XPNDR"
+              "expectedValue": "XPNDR",
+              "isAutomatic": false
             }
           ]
         },
@@ -66,27 +78,33 @@
           "List": [
             {
               "name": "Anti-ice",
-              "expectedValue": "___"
+              "expectedValue": "___",
+              "isAutomatic": false
             },
             {
               "name": "Recall",
-              "expectedValue": "Checked"
+              "expectedValue": "Checked",
+              "isAutomatic": false
             },
             {
               "name": "Autobrake",
-              "expectedValue": "RTO"
+              "expectedValue": "RTO",
+              "isAutomatic": false
             },
             {
               "name": "Flaps",
-              "expectedValue": "___"
+              "expectedValue": "___",
+              "isAutomatic": false
             },
             {
               "name": "Ground crew clearance",
-              "expectedValue": "Seen"
+              "expectedValue": "Seen",
+              "isAutomatic": false
             },
             {
               "name": "Flight controls",
-              "expectedValue": "Checked"
+              "expectedValue": "Checked",
+              "isAutomatic": false
             }
           ]
         },
@@ -95,11 +113,12 @@
           "List": [
             {
               "name": "Final Loadsheet / Time ___z",
-              "expectedValue": "Acknowledged"
+              "expectedValue": "Acknowledged",
+              "isAutomatic": false
             },
             {
               "name": "Critical data changes",
-              "value": [
+              "expectedValue": [
                 {
                   "Yes": [
                     { "PFD": "V2__, LNAV/VNAV__, ALTITUDE__" },
@@ -108,27 +127,33 @@
                   ]
                 },
                 { "No": {} }
-              ]
+              ],
+              "isAutomatic": false
             },
             {
               "name": "Takeoff briefing",
-              "expectedValue": "Updated"
+              "expectedValue": "Updated",
+              "isAutomatic": false
             },
             {
               "name": "Flaps",
-              "expectedValue": "___"
+              "expectedValue": "___",
+              "isAutomatic": false
             },
             {
               "name": "Trim",
-              "expectedValue": "__ Units, 0, 0"
+              "expectedValue": "__ Units, 0, 0",
+              "isAutomatic": false
             },
             {
               "name": "Cabin report",
-              "expectedValue": "Received"
+              "expectedValue": "Received",
+              "isAutomatic": false
             },
             {
               "name": "Transponder",
-              "expectedValue": "TA/RA"
+              "expectedValue": "TA/RA",
+              "isAutomatic": false
             }
           ]
         },
@@ -137,15 +162,18 @@
           "List": [
             {
               "name": "Landing gear",
-              "expectedValue": "UP"
+              "expectedValue": "UP",
+              "isAutomatic": false
             },
             {
               "name": "Flaps",
-              "expectedValue": "UP"
+              "expectedValue": "UP",
+              "isAutomatic": false
             },
             {
               "name": "Altimeters",
-              "expectedValue": "STD"
+              "expectedValue": "STD",
+              "isAutomatic": false
             }
           ]
         },
@@ -154,23 +182,28 @@
           "List": [
             {
               "name": "Recall",
-              "expectedValue": "Checked"
+              "expectedValue": "Checked",
+              "isAutomatic": false
             },
             {
               "name": "Notes",
-              "expectedValue": "Checked"
+              "expectedValue": "Checked",
+              "isAutomatic": false
             },
             {
               "name": "Autobrake",
-              "expectedValue": "___"
+              "expectedValue": "___",
+              "isAutomatic": false
             },
             {
               "name": "Landing data",
-              "expectedValue": "VREF__, Minimums__"
+              "expectedValue": "VREF__, Minimums__",
+              "isAutomatic": false
             },
             {
               "name": "Approach briefing",
-              "expectedValue": "Completed"
+              "expectedValue": "Completed",
+              "isAutomatic": false
             }
           ]
         },
@@ -179,7 +212,8 @@
           "List": [
             {
               "name": "Altimeters",
-              "expectedValue": "__"
+              "expectedValue": "__",
+              "isAutomatic": false
             }
           ]
         },
@@ -188,19 +222,23 @@
           "List": [
             {
               "name": "Cabin report",
-              "expectedValue": "Received"
+              "expectedValue": "Received",
+              "isAutomatic": false
             },
             {
               "name": "Speedbrake",
-              "expectedValue": "ARMED"
+              "expectedValue": "ARMED",
+              "isAutomatic": false
             },
             {
               "name": "Landing gear",
-              "expectedValue": "DOWN"
+              "expectedValue": "DOWN",
+              "isAutomatic": false
             },
             {
               "name": "Flaps",
-              "expectedValue": "___"
+              "expectedValue": "___",
+              "isAutomatic": false
             }
           ]
         },
@@ -209,27 +247,33 @@
           "List": [
             {
               "name": "Speedbrake",
-              "expectedValue": "DOWN"
+              "expectedValue": "DOWN",
+              "isAutomatic": false
             },
             {
               "name": "strobe and landing lights",
-              "expectedValue": "OFF"
+              "expectedValue": "OFF",
+              "isAutomatic": false
             },
             {
               "name": "Weather radar",
-              "expectedValue": "Off"
+              "expectedValue": "Off",
+              "isAutomatic": false
             },
             {
               "name": "Flaps",
-              "expectedValue": "UP"
+              "expectedValue": "UP",
+              "isAutomatic": false
             },
             {
               "name": "Transponder",
-              "expectedValue": "XPNDR"
+              "expectedValue": "XPNDR",
+              "isAutomatic": false
             },
             {
               "name": "NOTE",
-              "expectedValue": "Carry out Engine Out Taxi In unless there are overriding safety or operational considerations"
+              "expectedValue": "Carry out Engine Out Taxi In unless there are overriding safety or operational considerations",
+              "isAutomatic": false
             }
           ]
         },
@@ -238,35 +282,43 @@
           "List": [
             {
               "name": "Parking brake",
-              "expectedValue": "Set"
+              "expectedValue": "Set",
+              "isAutomatic": false
             },
             {
               "name": "Fuel control switches",
-              "expectedValue": "CUTOFF"
+              "expectedValue": "CUTOFF",
+              "isAutomatic": false
             },
             {
               "name": "Doors",
-              "expectedValue": "Manual"
+              "expectedValue": "Manual",
+              "isAutomatic": false
             },
             {
               "name": "Seat belt signs",
-              "expectedValue": "OFF"
+              "expectedValue": "OFF",
+              "isAutomatic": false
             },
             {
               "name": "Hydraulic panel",
-              "expectedValue": "Set"
+              "expectedValue": "Set",
+              "isAutomatic": false
             },
             {
               "name": "Fuel pumps",
-              "expectedValue": "Off"
+              "expectedValue": "Off",
+              "isAutomatic": false
             },
             {
               "name": "Beacon",
-              "expectedValue": "Off"
+              "expectedValue": "Off",
+              "isAutomatic": false
             },
             {
               "name": "Transponder",
-              "expectedValue": "2000, STBY"
+              "expectedValue": "2000, STBY",
+              "isAutomatic": false
             }
           ]
         },
@@ -275,19 +327,22 @@
           "List": [
             {
               "name": "ADIRU",
-              "expectedValue": "OFF"
+              "expectedValue": "OFF",
+              "isAutomatic": false
             },
             {
               "name": "Emergency lights",
-              "expectedValue": "OFF"
+              "expectedValue": "OFF",
+              "isAutomatic": false
             },
             {
               "name": "Packs",
-              "expectedValue": "OFF"
+              "expectedValue": "OFF",
+              "isAutomatic": false
             },
             {
               "name": "PCA available",
-              "value": [
+              "expectedValue": [
                 {
                   "Yes": {
                     "name": "RECIRC FANS",
@@ -300,23 +355,28 @@
                     "expectedValue": "ON"
                   }
                 }
-              ]
+              ],
+              "isAutomatic": false
             },
             {
               "name": "EXT PWR",
-              "expectedValue": "ON"
+              "expectedValue": "ON",
+              "isAutomatic": false
             },
             {
               "name": "APU",
-              "expectedValue": "OFF"
+              "expectedValue": "OFF",
+              "isAutomatic": false
             },
             {
               "name": "Battery",
-              "expectedValue": "OFF"
+              "expectedValue": "OFF",
+              "isAutomatic": false
             },
             {
               "name": "F/D access switch",
-              "expectedValue": "Unlocked"
+              "expectedValue": "Unlocked",
+              "isAutomatic": false
             }
           ]
         }
@@ -330,7 +390,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -339,7 +400,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -348,7 +410,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -357,7 +420,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -366,7 +430,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -375,7 +440,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -384,7 +450,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -393,7 +460,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -402,7 +470,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -411,7 +480,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -420,7 +490,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -429,7 +500,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -438,7 +510,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -447,7 +520,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -456,7 +530,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -465,7 +540,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         }
@@ -479,7 +555,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -488,7 +565,8 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         },
@@ -497,12 +575,12 @@
           "List": [
             {
               "name": "",
-              "expectedValue": ""
+              "expectedValue": "",
+              "isAutomatic": false
             }
           ]
         }
       ]
     }
   ]
-
 }
