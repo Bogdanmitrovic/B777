@@ -1,94 +1,312 @@
 {
-  "Normal Menu": {
-    "Preflight": [
-      {
-        "name": "Inspections and security",
-        "expectedValue": "Completed"
-      },
-      {
-        "name": "Oxygen",
-        "expectedValue": "Tested, 100%"
-      },
-      {
-        "name": "Flight instruments",
-        "expectedValue": "Heading___, Altimeter___"
-      },
-      {
-        "name": "Fuel control switches",
-        "expectedValue": "CUTOFF"
-      },
-      {
-        "name": "Taxi and takeoff briefing",
-        "expectedValue": "Completed"
-      },
-      {
-        "name": "PFD",
-        "expectedValue": "V2___, LNAV/VNAV__, ALTITUDE__"
-      },
-      {
-        "name": "Takeoff speeds",
-        "expectedValue": "V1___, VR___, V2___"
-      },
-      {
-        "name": "CDU preflight",
-        "expectedValue": ""
-      }
-    ],
-    "Before start": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Before taxi": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Before takeoff": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "After takeoff": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Descent": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Approach": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Landing": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Shutdown": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ],
-    "Secure": [
-      {
-        "name": "",
-        "expectedValue": ""
-      }
-    ]
-  },
+  "Normal Menu": [
+    {
+      "Preflight": [
+        {
+          "name": "Inspections and security",
+          "expectedValue": "Completed"
+        },
+        {
+          "name": "Oxygen",
+          "expectedValue": "Tested, 100%"
+        },
+        {
+          "name": "Flight instruments",
+          "expectedValue": "Heading___, Altimeter___"
+        },
+        {
+          "name": "Fuel control switches",
+          "expectedValue": "CUTOFF"
+        },
+        {
+          "name": "Taxi and takeoff briefing",
+          "expectedValue": "Completed"
+        },
+        {
+          "name": "PFD",
+          "expectedValue": "V2___, LNAV/VNAV__, ALTITUDE__"
+        },
+        {
+          "name": "Takeoff speeds",
+          "expectedValue": "V1___, VR___, V2___"
+        },
+        {
+          "name": "CDU preflight",
+          "expectedValue": "Completed"
+        }
+      ]
+    },
+    {
+      "Before start": [
+        {
+          "name": "Flight deck door",
+          "expectedValue": "Closed and locked"
+        },
+        {
+          "name": "Passenger signs",
+          "expectedValue": "__"
+        },
+        {
+          "name": "Beacon",
+          "expectedValue": "ON"
+        },
+        {
+          "name": "Trasponder",
+          "expectedValue": "XPNDR"
+        }
+      ]
+    },
+    {
+      "Before taxi": [
+        {
+          "name": "Anti-ice",
+          "expectedValue": "___"
+        },
+        {
+          "name": "Recall",
+          "expectedValue": "Checked"
+        },
+        {
+          "name": "Autobrake",
+          "expectedValue": "RTO"
+        },
+        {
+          "name": "Flaps",
+          "expectedValue": "___"
+        },
+        {
+          "name": "Ground crew clearance",
+          "expectedValue": "Seen"
+        },
+        {
+          "name": "Flight controls",
+          "expectedValue": "Checked"
+        }
+      ]
+    },
+    {
+      "Before takeoff": [
+        {
+          "name": "Final Loadsheet / Time ___z",
+          "expectedValue": "Acknowledged"
+        },
+        {
+          "name": "Critical data changes",
+          "value": [
+            {
+              "Yes": [
+                { "PFD": "V2__, LNAV/VNAV__, ALTITUDE__" },
+                { "Takeoff speeds": "V1__, VR__, V2__" },
+                { "CDU preflight": "Completed" }
+              ]
+            },
+            { "No": {} }
+          ]
+        },
+        {
+          "name": "Takeoff briefing",
+          "expectedValue": "Updated"
+        },
+        {
+          "name": "Flaps",
+          "expectedValue": "___"
+        },
+        {
+          "name": "Trim",
+          "expectedValue": "__ Units, 0, 0"
+        },
+        {
+          "name": "Cabin report",
+          "expectedValue": "Received"
+        },
+        {
+          "name": "Transponder",
+          "expectedValue": "TA/RA"
+        }
+      ]
+    },
+    {
+      "After takeoff": [
+        {
+          "name": "Landing gear",
+          "expectedValue": "UP"
+        },
+        {
+          "name": "Flaps",
+          "expectedValue": "UP"
+        },
+        {
+          "name": "Altimeters",
+          "expectedValue": "STD"
+        }
+      ]
+    },
+    {
+      "Descent": [
+        {
+          "name": "Recall",
+          "expectedValue": "Checked"
+        },
+        {
+          "name": "Notes",
+          "expectedValue": "Checked"
+        },
+        {
+          "name": "Autobrake",
+          "expectedValue": "___"
+        },
+        {
+          "name": "Landing data",
+          "expectedValue": "VREF__, Minimums__"
+        },
+        {
+          "name": "Approach briefing",
+          "expectedValue": "Completed"
+        }
+      ]
+    },
+    {
+      "Approach": [
+        {
+          "name": "Altimeters",
+          "expectedValue": "__"
+        }
+      ]
+    },
+    {
+      "Landing": [
+        {
+          "name": "Cabin report",
+          "expectedValue": "Received"
+        },
+        {
+          "name": "Speedbrake",
+          "expectedValue": "ARMED"
+        },
+        {
+          "name": "Landing gear",
+          "expectedValue": "DOWN"
+        },
+        {
+          "name": "Flaps",
+          "expectedValue": "___"
+        }
+      ]
+    },
+    {
+      "After landing": [
+        {
+          "name": "Speedbrake",
+          "expectedValue": "DOWN"
+        },
+        {
+          "name": "strobe and landing lights",
+          "expectedValue": "OFF"
+        },
+        {
+          "name": "Weather radar",
+          "expectedValue": "Off"
+        },
+        {
+          "name": "Flaps",
+          "expectedValue": "UP"
+        },
+        {
+          "name": "Transponder",
+          "expectedValue": "XPNDR"
+        },
+        {
+          "name": "NOTE",
+          "expectedValue": "Carry out Engine Out Taxi In unless there are overriding safety or operational considerations"
+        }
+      ]
+    },
+    {
+      "Shutdown": [
+        {
+          "name": "Parking brake",
+          "expectedValue": "Set"
+        },
+        {
+          "name": "Fuel control switches",
+          "expectedValue": "CUTOFF"
+        },
+        {
+          "name": "Doors",
+          "expectedValue": "Manual"
+        },
+        {
+          "name": "Seat belt signs",
+          "expectedValue": "OFF"
+        },
+        {
+          "name": "Hydraulic panel",
+          "expectedValue": "Set"
+        },
+        {
+          "name": "Fuel pumps",
+          "expectedValue": "Off"
+        },
+        {
+          "name": "Beacon",
+          "expectedValue": "Off"
+        },
+        {
+          "name": "Transponder",
+          "expectedValue": "2000, STBY"
+        }
+      ]
+    },
+    {
+      "Secure": [
+        {
+          "name": "ADIRU",
+          "expectedValue": "OFF"
+        },
+        {
+          "name": "Emergency lights",
+          "expectedValue": "OFF"
+        },
+        {
+          "name": "Packs",
+          "expectedValue": "OFF"
+        },
+        {
+          "name": "PCA available",
+          "value": [
+            {
+              "Yes": {
+                "name": "RECIRC FANS",
+                "expectedValue": "OFF"
+              }
+            },
+            {
+              "No": {
+                "name": "RECIRC FANS",
+                "expectedValue": "ON"
+              }
+            }
+          ]
+        },
+        {
+          "name": "EXT PWR",
+          "expectedValue": "ON"
+        },
+        {
+          "name": "APU",
+          "expectedValue": "OFF"
+        },
+        {
+          "name": "Battery",
+          "expectedValue": "OFF"
+        },
+        {
+          "name": "F/D access switch",
+          "expectedValue": "Unlocked"
+        }
+      ]
+    }
+  ],
   "Non-normal Menu": {
     "Unannunciated checklists ...": [
       {
