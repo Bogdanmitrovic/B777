@@ -11,6 +11,7 @@ public class ChecklistRenderer : MonoBehaviour
 {
     public int characterCount = 50;
     public int splitNameLimit = 20;
+    public int checksPerPage = 8;
     public GameObject checkPrefab;
     public GameObject buttonPrefab;
     public GameObject pageNumberPrefab;
@@ -25,8 +26,10 @@ public class ChecklistRenderer : MonoBehaviour
     private int _checklistIndex = 0;
     private List<Checklist> _normalChecklists;
     private Checklist? _currentChecklist;
-    private int _pagesCount = 0;
     private int _currentMenu = -1;
+    private int _currentPage = 1;
+    private int _pagesCount = 0;
+    private int _highestPage = -1;
     private int _leftChildCount = 0;
     private ListMenu menus;
     
@@ -77,12 +80,14 @@ public class ChecklistRenderer : MonoBehaviour
     {
         _currentChecklist?.Unload();
         _currentChecklist = checklist;
-        checklist.Load(checkPrefab, gameObject, characterCount, splitNameLimit);
+        checklist.Load(checkPrefab, gameObject, characterCount, splitNameLimit, _currentPage, checksPerPage);
         ChecklistNotDone();
 
-        _pagesCount = _currentChecklist.Checks.Count / 7 + 1;
-        if(_pagesCount > 1)
+        _pagesCount = _currentChecklist.Checks.Count / checksPerPage;
+        if (_pagesCount > 1)
+        {
             SetPageButtons();
+        }
     }
 
     public void OnCheckboxCheck(int index, bool value)
@@ -172,6 +177,7 @@ public class ChecklistRenderer : MonoBehaviour
                 {
                     ClearMenu();
                     title.GetComponent<TMP_Text>().text = list.ListName.ToUpper();
+                    _currentPage = 1;
                     LoadChecklist(checklist);
                     bottomButtons.SetActive(true);
                 });
@@ -219,32 +225,65 @@ public class ChecklistRenderer : MonoBehaviour
 
     public void SetPageButtons()
     {
-        pageButtons.SetActive(true);
+        RemovePageButtons();
         RectTransform pageButtonsRect = pageButtons.GetComponent<RectTransform>();
-
+        
+        pageButtons.SetActive(true);
+        pageButtons.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(HandlePreviousPage);
+        pageButtons.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(HandleNextPage);
+        
         for (int i = 0; i < _pagesCount; i++)
         {
             var pageButton = Instantiate(pageNumberPrefab, pageButtons.transform);
+            int iCopy = i;
             pageButton.transform.SetSiblingIndex(1 + i);
             pageButton.transform.GetChild(0).GetComponent<TMP_Text>().text = (i + 1).ToString();
+            pageButton.GetComponent<Button>().onClick.AddListener((() =>
+            {
+                HandlePageButtonPress(iCopy + 1);
+            }));
             
             RectTransform pageButtonRect = pageButton.GetComponent<RectTransform>();
             
             pageButtonRect.localScale = Vector3.one;
             pageButtonRect.sizeDelta = new Vector2(pageButtonRect.sizeDelta.x, (pageButtonsRect.sizeDelta.y - 200) / _pagesCount);
+            _highestPage = i + 1;
         }
+        
     }
-
+    
     public void RemovePageButtons()
     {
         int count = pageButtons.transform.childCount;
         if (count > 2)
         {
-            for (int i = count - 2; i > 1; i--)
+            for (int i = count - 2; i > 0; i--)
             {
                 Destroy(pageButtons.transform.GetChild(i).gameObject);
             }
         }
         pageButtons.SetActive(false);
+    }
+
+    public void HandlePreviousPage()
+    {
+        if (_currentPage < 2)
+            return;
+        _currentPage--; 
+        LoadChecklist(_currentChecklist);
+    }
+
+    public void HandleNextPage()
+    {
+        if(_currentPage >= _highestPage)
+            return;
+        _currentPage++; 
+        LoadChecklist(_currentChecklist);
+    }
+
+    public void HandlePageButtonPress(int pageNumber)
+    {
+        _currentPage = pageNumber; 
+        LoadChecklist(_currentChecklist);
     }
 }
