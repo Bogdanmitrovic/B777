@@ -31,7 +31,7 @@ public class ValueOption
     public Dictionary<string, string> No;
 }
 [Serializable]
-public class Wrapper
+public class ListMenu
 {
     public List<MenuItem> Menus;
 }
