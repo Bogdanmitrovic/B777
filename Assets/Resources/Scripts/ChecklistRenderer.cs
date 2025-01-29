@@ -83,7 +83,7 @@ public class ChecklistRenderer : MonoBehaviour
         checklist.Load(checkPrefab, gameObject, characterCount, splitNameLimit, _currentPage, checksPerPage);
         ChecklistNotDone();
 
-        _pagesCount = _currentChecklist.Checks.Count / checksPerPage;
+        _pagesCount = (_currentChecklist.Checks.Count - 1) / checksPerPage + 1;
         if (_pagesCount > 1)
         {
             SetPageButtons();
