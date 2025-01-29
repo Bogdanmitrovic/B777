@@ -2791,8 +2791,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b25e90bb0d194abea6787fdf8af0db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterCount: 50
+  characterCount: 48
   splitNameLimit: 10
+  checksPerPage: 8
   checkPrefab: {fileID: 4747364754279814429, guid: ff02684577f1be44dbe7f6b5c7053e5f, type: 3}
   buttonPrefab: {fileID: 2784414024706625185, guid: 1524493eebc29f6498875ad44fd37cfe, type: 3}
   pageNumberPrefab: {fileID: 8931930828613809285, guid: fbbf7cb881ab56e49b3a75fcdac7f8d8, type: 3}
