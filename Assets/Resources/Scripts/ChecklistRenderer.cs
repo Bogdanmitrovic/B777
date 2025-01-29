@@ -118,8 +118,9 @@ public class ChecklistRenderer : MonoBehaviour
     public void ShowMenu(int menuNumber)
     {
         ClearMenu();
-        LoadChecklist(new Checklist());
+        _currentChecklist?.Unload();
         bottomButtons.SetActive(false);
+        checklistDone.SetActive(false);
         
         var verticalLayoutGroup1 = horizontalLayoutGroup.transform.GetChild(0);
         var verticalLayoutGroup2 = horizontalLayoutGroup.transform.GetChild(1);
