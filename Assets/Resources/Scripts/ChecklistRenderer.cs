@@ -142,25 +142,35 @@ public class ChecklistRenderer : MonoBehaviour
             title.SetActive(true);
             title.GetComponent<TMP_Text>().text = menu.MenuName.ToUpper();
 
+            const float buttonHeight = 50f;
+
             foreach (var list in menu.Lists)
             {
                 GameObject button;
-                
                 CreateButton(verticalLayoutGroup1, verticalLayoutGroup2, out button);
                 button.GetComponentInChildren<TMP_Text>().text = list.ListName;
 
+<<<<<<< Updated upstream
+=======
+                RectTransform buttonRect = button.GetComponent<RectTransform>();
+                buttonRect.sizeDelta = new Vector2(buttonRect.sizeDelta.x, buttonHeight);
+                
+>>>>>>> Stashed changes
                 Checklist checklist = new Checklist();
                 foreach (var item in list.List)
                 {
                     checklist.Checks.Add(new Check(item.name, item.expectedValue, item.isAutomatic));
                 }
-                button.transform.GetComponent<Button>().onClick.AddListener(()=>
+
+                button.transform.GetComponent<Button>().onClick.AddListener(() =>
                 {
                     ClearMenu();
                     title.GetComponent<TMP_Text>().text = list.ListName.ToUpper();
                     LoadChecklist(checklist);
                     bottomButtons.SetActive(true);
                 });
+
+                
             }
         }
     }
