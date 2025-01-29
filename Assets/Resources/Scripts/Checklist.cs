@@ -16,15 +16,18 @@ public class Checklist
     {
         Checks.ForEach(check => check.TriggerOverride());
     }
-    public void Load(GameObject checkPrefab, GameObject checkListParent, int characterCount, int splitNameLimit)
+    public void Load(GameObject checkPrefab, GameObject checkListParent, int characterCount, int splitNameLimit, int page, int checksPerPage)
     {
         //_checkObjects = new List<GameObject>();
         _checkSelectedIndex = -1;
         for (var i = 0; i < Checks.Count; i++)
         {
-            var check = Checks[i];
-            var newObj = check.GetObj(checkPrefab, checkListParent, characterCount, splitNameLimit, i);
-            //_checkObjects.Add(newObj);
+            if (i >= (page - 1) * checksPerPage  && i < page * checksPerPage)
+            {
+                var check = Checks[i];
+                var newObj = check.GetObj(checkPrefab, checkListParent, characterCount, splitNameLimit, i);
+                //_checkObjects.Add(newObj);
+            }
         }
     }
     public void Unload()
