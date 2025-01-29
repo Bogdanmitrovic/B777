@@ -22,9 +22,14 @@
               "isAutomatic": false
             },
             {
+              "name": "Parking brake",
+              "expectedValue": "Set",
+              "isAutomatic": true
+            },
+            {
               "name": "Fuel control switches",
               "expectedValue": "CUTOFF",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Taxi and takeoff briefing",
@@ -64,12 +69,12 @@
             {
               "name": "Beacon",
               "expectedValue": "ON",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Trasponder",
               "expectedValue": "XPNDR",
-              "isAutomatic": false
+              "isAutomatic": true
             }
           ]
         },
@@ -89,12 +94,12 @@
             {
               "name": "Autobrake",
               "expectedValue": "RTO",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Flaps",
               "expectedValue": "___",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Ground crew clearance",
@@ -138,7 +143,7 @@
             {
               "name": "Flaps",
               "expectedValue": "___",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Trim",
@@ -153,7 +158,7 @@
             {
               "name": "Transponder",
               "expectedValue": "TA/RA",
-              "isAutomatic": false
+              "isAutomatic": true
             }
           ]
         },
@@ -228,17 +233,17 @@
             {
               "name": "Speedbrake",
               "expectedValue": "ARMED",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Landing gear",
               "expectedValue": "DOWN",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Flaps",
               "expectedValue": "___",
-              "isAutomatic": false
+              "isAutomatic": true
             }
           ]
         },
@@ -248,32 +253,32 @@
             {
               "name": "Speedbrake",
               "expectedValue": "DOWN",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "strobe and landing lights",
               "expectedValue": "OFF",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Weather radar",
               "expectedValue": "Off",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Flaps",
               "expectedValue": "UP",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Transponder",
               "expectedValue": "XPNDR",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "NOTE",
               "expectedValue": "Carry out Engine Out Taxi In unless there are overriding safety or operational considerations",
-              "isAutomatic": false
+              "isAutomatic": true
             }
           ]
         },
@@ -283,42 +288,42 @@
             {
               "name": "Parking brake",
               "expectedValue": "Set",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Fuel control switches",
               "expectedValue": "CUTOFF",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Doors",
               "expectedValue": "Manual",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Seat belt signs",
               "expectedValue": "OFF",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Hydraulic panel",
               "expectedValue": "Set",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Fuel pumps",
               "expectedValue": "Off",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Beacon",
               "expectedValue": "Off",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Transponder",
               "expectedValue": "2000, STBY",
-              "isAutomatic": false
+              "isAutomatic": true
             }
           ]
         },
@@ -328,17 +333,17 @@
             {
               "name": "ADIRU",
               "expectedValue": "OFF",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Emergency lights",
               "expectedValue": "OFF",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Packs",
               "expectedValue": "OFF",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "PCA available",
@@ -361,17 +366,17 @@
             {
               "name": "EXT PWR",
               "expectedValue": "ON",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "APU",
               "expectedValue": "OFF",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "Battery",
               "expectedValue": "OFF",
-              "isAutomatic": false
+              "isAutomatic": true
             },
             {
               "name": "F/D access switch",
