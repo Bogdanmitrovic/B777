@@ -156,6 +156,7 @@ public class ChecklistRenderer : MonoBehaviour
                 button.transform.GetComponent<Button>().onClick.AddListener(()=>
                 {
                     ClearMenu();
+                    title.GetComponent<TMP_Text>().text = list.ListName.ToUpper();
                     LoadChecklist(checklist);
                     bottomButtons.SetActive(true);
                 });
@@ -164,7 +165,7 @@ public class ChecklistRenderer : MonoBehaviour
     }
     private void CreateButton(Transform verticalLayoutGroup1, Transform verticalLayoutGroup2, out GameObject button)
     {
-        if (_leftChildCount < 8)
+        if (verticalLayoutGroup1.childCount < 10)
         {
             button = Instantiate(buttonPrefab, verticalLayoutGroup1);
             _leftChildCount++;
@@ -173,7 +174,8 @@ public class ChecklistRenderer : MonoBehaviour
         {
             button = Instantiate(buttonPrefab, verticalLayoutGroup2);
         }
-        button.transform.localScale = Vector3.one * 4;
+
+        button.transform.localScale = Vector3.one;
     }
     public void ClearMenu()
     {
