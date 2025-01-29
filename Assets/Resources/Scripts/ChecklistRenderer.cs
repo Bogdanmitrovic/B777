@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading;
 
 public class ChecklistRenderer : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class ChecklistRenderer : MonoBehaviour
     private int _checklistIndex = 0;
     private List<Checklist> _normalChecklists;
     private Checklist? _currentChecklist;
+    private int _currentMenu = -1;
+    private int _leftChildCount = 0;
+    
     void Start()
     {
         // normal
@@ -117,14 +121,18 @@ public class ChecklistRenderer : MonoBehaviour
 
     public void ShowMenu(int menuNumber)
     {
+        if (menuNumber == _currentMenu)
+            return;
+
         ClearMenu();
+        _currentMenu = menuNumber;
+        
         _currentChecklist?.Unload();
         bottomButtons.SetActive(false);
         checklistDone.SetActive(false);
         
         var verticalLayoutGroup1 = horizontalLayoutGroup.transform.GetChild(0);
         var verticalLayoutGroup2 = horizontalLayoutGroup.transform.GetChild(1);
-        
         
         if (jsonFile != null)
         {
@@ -156,9 +164,10 @@ public class ChecklistRenderer : MonoBehaviour
     }
     private void CreateButton(Transform verticalLayoutGroup1, Transform verticalLayoutGroup2, out GameObject button)
     {
-        if (verticalLayoutGroup1.childCount < 8)
+        if (_leftChildCount < 8)
         {
             button = Instantiate(buttonPrefab, verticalLayoutGroup1);
+            _leftChildCount++;
         }
         else
         {
@@ -168,14 +177,16 @@ public class ChecklistRenderer : MonoBehaviour
     }
     public void ClearMenu()
     {
+        _currentMenu = -1;
         var verticalLayoutGroup1 = horizontalLayoutGroup.transform.GetChild(0);
         var verticalLayoutGroup2 = horizontalLayoutGroup.transform.GetChild(1);
         
-        for (int i = verticalLayoutGroup1.childCount - 1; i >= 0; i--)
+        for (int i = verticalLayoutGroup1.childCount-1; i >= 0; i--)
         {
             Destroy(verticalLayoutGroup1.GetChild(i).gameObject);
+            _leftChildCount--;
         }
-        for (int i = verticalLayoutGroup2.childCount - 1; i >= 0; i--)
+        for (int i = verticalLayoutGroup2.childCount-1; i >= 0; i--)
         {
             Destroy(verticalLayoutGroup2.GetChild(i).gameObject);
         }
