@@ -149,13 +149,10 @@ public class ChecklistRenderer : MonoBehaviour
                 GameObject button;
                 CreateButton(verticalLayoutGroup1, verticalLayoutGroup2, out button);
                 button.GetComponentInChildren<TMP_Text>().text = list.ListName;
-
-<<<<<<< Updated upstream
-=======
+                
                 RectTransform buttonRect = button.GetComponent<RectTransform>();
                 buttonRect.sizeDelta = new Vector2(buttonRect.sizeDelta.x, buttonHeight);
                 
->>>>>>> Stashed changes
                 Checklist checklist = new Checklist();
                 foreach (var item in list.List)
                 {
@@ -185,7 +182,8 @@ public class ChecklistRenderer : MonoBehaviour
         {
             button = Instantiate(buttonPrefab, verticalLayoutGroup2);
         }
-
+        button.AddComponent<LayoutElement>().flexibleHeight = 0;
+        button.GetComponent<LayoutElement>().preferredHeight = 75;
         button.transform.localScale = Vector3.one;
         button.GetComponentInChildren<TMP_Text>().fontSize = 32;
         button.GetComponentInChildren<TMP_Text>().alignment = TextAlignmentOptions.Left;
