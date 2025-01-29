@@ -13,8 +13,10 @@ public class ChecklistRenderer : MonoBehaviour
     public int splitNameLimit = 20;
     public GameObject checkPrefab;
     public GameObject buttonPrefab;
+    public GameObject pageNumberPrefab;
     public GameObject topButtons;
     public GameObject bottomButtons;
+    public GameObject pageButtons;
     public GameObject checklistDone;
     public GameObject title;
     public HorizontalLayoutGroup horizontalLayoutGroup;
@@ -23,8 +25,10 @@ public class ChecklistRenderer : MonoBehaviour
     private int _checklistIndex = 0;
     private List<Checklist> _normalChecklists;
     private Checklist? _currentChecklist;
+    private int _pagesCount = 0;
     private int _currentMenu = -1;
     private int _leftChildCount = 0;
+    private ListMenu menus;
     
     void Start()
     {
@@ -50,6 +54,8 @@ public class ChecklistRenderer : MonoBehaviour
         topButtons.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(()=>{ShowMenu(1);});
         topButtons.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(()=>{ShowMenu(2);});
 
+        menus = JsonUtility.FromJson<ListMenu>(jsonFile.text);
+        
         // LoadNormalChecklist();
         // OverrideChecklist();
         // OnCheckSelect(0);
@@ -73,6 +79,10 @@ public class ChecklistRenderer : MonoBehaviour
         _currentChecklist = checklist;
         checklist.Load(checkPrefab, gameObject, characterCount, splitNameLimit);
         ChecklistNotDone();
+
+        _pagesCount = _currentChecklist.Checks.Count / 7 + 1;
+        if(_pagesCount > 1)
+            SetPageButtons();
     }
 
     public void OnCheckboxCheck(int index, bool value)
@@ -124,6 +134,7 @@ public class ChecklistRenderer : MonoBehaviour
         if (menuNumber == _currentMenu)
             return;
 
+        RemovePageButtons();
         ClearMenu();
         _currentMenu = menuNumber;
         
@@ -136,14 +147,12 @@ public class ChecklistRenderer : MonoBehaviour
         
         if (jsonFile != null)
         {
-            Wrapper menus = JsonUtility.FromJson<Wrapper>(jsonFile.text);
-
             MenuItem menu = menus.Menus[menuNumber];
+            const float buttonHeight = 50f;
+            
             title.SetActive(true);
             title.GetComponent<TMP_Text>().text = menu.MenuName.ToUpper();
-
-            const float buttonHeight = 50f;
-
+            
             foreach (var list in menu.Lists)
             {
                 GameObject button;
@@ -171,6 +180,7 @@ public class ChecklistRenderer : MonoBehaviour
             }
         }
     }
+    
     private void CreateButton(Transform verticalLayoutGroup1, Transform verticalLayoutGroup2, out GameObject button)
     {
         if (_leftChildCount < 10)
@@ -189,6 +199,7 @@ public class ChecklistRenderer : MonoBehaviour
         button.GetComponentInChildren<TMP_Text>().alignment = TextAlignmentOptions.Left;
         button.GetComponentInChildren<TMP_Text>().margin = new Vector4(20, 0, 0, 0);
     }
+    
     public void ClearMenu()
     {
         _currentMenu = -1;
@@ -206,4 +217,34 @@ public class ChecklistRenderer : MonoBehaviour
         }
     }
 
+    public void SetPageButtons()
+    {
+        pageButtons.SetActive(true);
+        RectTransform pageButtonsRect = pageButtons.GetComponent<RectTransform>();
+
+        for (int i = 0; i < _pagesCount; i++)
+        {
+            var pageButton = Instantiate(pageNumberPrefab, pageButtons.transform);
+            pageButton.transform.SetSiblingIndex(1 + i);
+            pageButton.transform.GetChild(0).GetComponent<TMP_Text>().text = (i + 1).ToString();
+            
+            RectTransform pageButtonRect = pageButton.GetComponent<RectTransform>();
+            
+            pageButtonRect.localScale = Vector3.one;
+            pageButtonRect.sizeDelta = new Vector2(pageButtonRect.sizeDelta.x, (pageButtonsRect.sizeDelta.y - 200) / _pagesCount);
+        }
+    }
+
+    public void RemovePageButtons()
+    {
+        int count = pageButtons.transform.childCount;
+        if (count > 2)
+        {
+            for (int i = count - 2; i > 1; i--)
+            {
+                Destroy(pageButtons.transform.GetChild(i).gameObject);
+            }
+        }
+        pageButtons.SetActive(false);
+    }
 }
