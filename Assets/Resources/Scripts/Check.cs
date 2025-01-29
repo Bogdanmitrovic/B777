@@ -132,7 +132,7 @@ public class Check : MonoBehaviour
         _overridden = false;
         // reset visuals
         _checkmarkImage.enabled = false;
-        _checkmarkImage.color = new Color(1, 1, 1, 1);
+        _checkmarkImage.color = new Color(0, 1, 0, 1);
         _checkmarkBackgroundImage.enabled = !_isAutomatic;
         _outline.enabled = false;
         _checkTextComponent.text = Text();

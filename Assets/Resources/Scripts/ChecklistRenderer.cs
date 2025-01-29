@@ -165,7 +165,7 @@ public class ChecklistRenderer : MonoBehaviour
     }
     private void CreateButton(Transform verticalLayoutGroup1, Transform verticalLayoutGroup2, out GameObject button)
     {
-        if (verticalLayoutGroup1.childCount < 10)
+        if (_leftChildCount < 10)
         {
             button = Instantiate(buttonPrefab, verticalLayoutGroup1);
             _leftChildCount++;
