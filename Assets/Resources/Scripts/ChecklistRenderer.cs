@@ -148,6 +148,7 @@ public class ChecklistRenderer : MonoBehaviour
                 
                 CreateButton(verticalLayoutGroup1, verticalLayoutGroup2, out button);
                 button.GetComponentInChildren<TMP_Text>().text = list.ListName;
+
                 Checklist checklist = new Checklist();
                 foreach (var item in list.List)
                 {
@@ -176,6 +177,9 @@ public class ChecklistRenderer : MonoBehaviour
         }
 
         button.transform.localScale = Vector3.one;
+        button.GetComponentInChildren<TMP_Text>().fontSize = 32;
+        button.GetComponentInChildren<TMP_Text>().alignment = TextAlignmentOptions.Left;
+        button.GetComponentInChildren<TMP_Text>().margin = new Vector4(20, 0, 0, 0);
     }
     public void ClearMenu()
     {
