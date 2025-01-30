@@ -142,4 +142,9 @@ public class Check : MonoBehaviour
     {
         Destroy(_checkObject);
     }
+
+    public bool IsChecked()
+    {
+        return _checked;
+    }
 }

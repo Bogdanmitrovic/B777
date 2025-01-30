@@ -1,5 +1,6 @@
 #nullable enable
 using System.Collections.Generic;
+using System.Text;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Serialization;
@@ -92,6 +93,16 @@ public class ChecklistRenderer : MonoBehaviour
 
     public void OnCheckboxCheck(int index, bool value)
     {
+        for (var i = (_currentPage - 1) * checksPerPage; i < _currentPage * checksPerPage && i<_currentChecklist?.Checks.Count; i++)
+        {
+            if (!_currentChecklist.Checks[i].IsChecked())
+            {
+                SetPageNotComplete();
+                return; 
+            }
+            
+        }
+        SetPageComplete();
         if (_currentChecklist?.IsDone() != true) return;
         ChecklistDone();
     }
@@ -285,5 +296,21 @@ public class ChecklistRenderer : MonoBehaviour
     {
         _currentPage = pageNumber; 
         LoadChecklist(_currentChecklist);
+    }
+
+    public void SetPageComplete()
+    {
+        StringBuilder pageNumber = new StringBuilder();
+        pageNumber.Append("<color=green>").Append(_currentPage).Append("</color>");
+        
+        pageButtons.transform.GetChild(_currentPage).GetChild(0).GetComponent<TMP_Text>().text = pageNumber.ToString();
+    }
+
+    public void SetPageNotComplete()
+    {
+        StringBuilder pageNumber = new StringBuilder();
+        pageNumber.Append("<color=white>").Append(_currentPage).Append("</color>");
+        
+        pageButtons.transform.GetChild(_currentPage).GetChild(0).GetComponent<TMP_Text>().text = pageNumber.ToString();
     }
 }
