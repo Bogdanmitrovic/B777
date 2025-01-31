@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 3105565974981430630}
   - component: {fileID: 5539311453044368090}
   - component: {fileID: 8597566176655949501}
+  - component: {fileID: 8119627520399795689}
   m_Layer: 5
   m_Name: CheckPrefab
   m_TagString: Untagged
@@ -240,6 +241,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8119627520399795689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4747364754279814429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57d70cb69dd54c28b0f6d8c2402cfe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkmarkImage: {fileID: 3186907473374077258}
+  checkmarkBackgroundImage: {fileID: 5092299904003391852}
+  checkTextComponent: {fileID: 803842057867386030}
+  outline: {fileID: 5539311453044368090}
 --- !u!1 &6373715347308254081
 GameObject:
   m_ObjectHideFlags: 0

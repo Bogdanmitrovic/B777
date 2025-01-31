@@ -1,41 +1,21 @@
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.Events;
 
 public class Checklist
 {
-    public readonly List<Check> Checks = new List<Check>();
+    public readonly List<Check> Checks = new();
     public string Name;
-    //private List<GameObject> _checkObjects;
+    public UnityAction<int, bool> OnCheckChecked;
     private int _checkSelectedIndex = -1;
 
     public bool IsDone()
     {
         return Checks.TrueForAll(check => check.IsDone);
     }
+
     public void OverrideChecklist()
     {
         Checks.ForEach(check => check.TriggerOverride());
-    }
-    public void Load(GameObject checkPrefab, GameObject checkListParent, int characterCount, int splitNameLimit, int page, int checksPerPage)
-    {
-        //_checkObjects = new List<GameObject>();
-        _checkSelectedIndex = -1;
-        for (var i = 0; i < Checks.Count; i++)
-        {
-            if (i >= (page - 1) * checksPerPage  && i < page * checksPerPage)
-            {
-                var check = Checks[i];
-                var newObj = check.GetObj(checkPrefab, checkListParent, characterCount, splitNameLimit, i);
-                //_checkObjects.Add(newObj);
-            }
-        }
-    }
-    public void Unload()
-    {
-        foreach (var check in Checks)
-        {
-            check.DestroyCheck();
-        }
     }
 
     public void OnCheckSelect(int index)
@@ -44,8 +24,9 @@ public class Checklist
         {
             Checks[_checkSelectedIndex].TriggerSelect(false);
         }
+
         _checkSelectedIndex = index;
-        if(index >= 0 && index<Checks.Count)
+        if (index >= 0 && index < Checks.Count)
         {
             Checks[index].TriggerSelect(true);
         }
@@ -65,5 +46,16 @@ public class Checklist
         {
             check.TriggerReset();
         }
+    }
+
+    private void CheckChecked(int index, bool checkedValue)
+    {
+        OnCheckChecked?.Invoke(index, checkedValue);
+    }
+
+    public void AddCheck(Check check)
+    {
+        check.OnCheckChecked += CheckChecked;
+        Checks.Add(check);
     }
 }

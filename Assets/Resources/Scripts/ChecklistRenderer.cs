@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Threading;
 
 public class ChecklistRenderer : MonoBehaviour
 {
     public int characterCount = 50;
     public int splitNameLimit = 20;
     public int checksPerPage = 8;
+    
     public GameObject checkPrefab;
     public GameObject buttonPrefab;
     public GameObject pageNumberPrefab;
@@ -21,11 +19,13 @@ public class ChecklistRenderer : MonoBehaviour
     public GameObject pageButtons;
     public GameObject checklistDone;
     public GameObject title;
+    public GameObject menuContainer;
+    public GameObject checkContainer;
     public HorizontalLayoutGroup horizontalLayoutGroup;
     public TextAsset jsonFile;
     
     private int _checklistIndex = 0;
-    private List<Checklist> _normalChecklists;
+    private List<Checklist> _normalChecklists = new();
     private Checklist? _currentChecklist;
     private int _currentMenu = -1;
     private int _currentPage = 1;
@@ -33,6 +33,7 @@ public class ChecklistRenderer : MonoBehaviour
     private int _highestPage = -1;
     private int _leftChildCount = 0;
     private ListMenu menus;
+    private List<GameObject> _checkObjects = new();
     
     void Start()
     {
@@ -40,16 +41,16 @@ public class ChecklistRenderer : MonoBehaviour
         // itemovrd
         // chklovrd
         // chklreset
-        Checklist checklist = new Checklist();
-        checklist.Checks.Add(new Check ("Oxygen", "Tested 100%" ,  false));
-        checklist.Checks.Add(new Check ("Flight instruments", "Heading ___, Altimeter ___" ,  false));
-        checklist.Checks.Add(new Check ("Parking brake", "Set", true));
-        checklist.Checks.Add(new Check ("Fuel Control Switches", "CUTOFF", true));
+        //Checklist checklist = new Checklist();
+        //checklist.Checks.Add(new Check ("Oxygen", "Tested 100%" ,  false));
+        //checklist.Checks.Add(new Check ("Flight instruments", "Heading ___, Altimeter ___" ,  false));
+        //checklist.Checks.Add(new Check ("Parking brake", "Set", true));
+        //checklist.Checks.Add(new Check ("Fuel Control Switches", "CUTOFF", true));
         // checkListParent.GetComponent<VerticalLayoutGroup>();
-        _normalChecklists = new List<Checklist>
-        {
-            checklist
-        };
+        //_normalChecklists = new List<Checklist>
+        //{
+        //    checklist
+        //};
         bottomButtons.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(LoadNormalChecklist);
         bottomButtons.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(OverrideCheck);
         bottomButtons.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(OverrideChecklist);
@@ -76,18 +77,36 @@ public class ChecklistRenderer : MonoBehaviour
         LoadChecklist(_normalChecklists[_checklistIndex]);
         _checklistIndex++;
     }
-
+    
     private void LoadChecklist(Checklist checklist)
     {
-        _currentChecklist?.Unload();
+        UnloadCurrentChecklist();
         _currentChecklist = checklist;
-        checklist.Load(checkPrefab, gameObject, characterCount, splitNameLimit, _currentPage, checksPerPage);
-        ChecklistNotDone();
-
+        //checklist.Load(checkPrefab, checkContainer, characterCount, splitNameLimit, _currentPage, checksPerPage);
+        checklist.OnCheckChecked += OnCheckboxCheck;
+        foreach (var check in checklist.Checks)
+        {
+            var checkObject = Instantiate(checkPrefab, checkContainer.transform);
+            checkObject.GetComponent<CheckRenderer>().Check = check;
+            _checkObjects.Add(checkObject);
+        }
         _pagesCount = (_currentChecklist.Checks.Count - 1) / checksPerPage + 1;
+        _currentPage = 1;
         if (_pagesCount > 1)
         {
             SetPageButtons();
+        }
+        LoadPage();
+        ChecklistNotDone();
+    }
+    
+    private void UnloadCurrentChecklist()
+    {
+        if (_currentChecklist == null) return;
+        _currentChecklist.OnCheckChecked -= OnCheckboxCheck;
+        foreach (var checkObject in _checkObjects)
+        {
+            Destroy(checkObject);
         }
     }
 
@@ -95,7 +114,7 @@ public class ChecklistRenderer : MonoBehaviour
     {
         for (var i = (_currentPage - 1) * checksPerPage; i < _currentPage * checksPerPage && i<_currentChecklist?.Checks.Count; i++)
         {
-            if (!_currentChecklist.Checks[i].IsChecked())
+            if (!_currentChecklist.Checks[i].Checked)
             {
                 SetPageNotComplete();
                 return; 
@@ -152,9 +171,13 @@ public class ChecklistRenderer : MonoBehaviour
 
         RemovePageButtons();
         ClearMenu();
+        
+        menuContainer.SetActive(true);
+        checkContainer.SetActive(false);
+        
         _currentMenu = menuNumber;
         
-        _currentChecklist?.Unload();
+        UnloadCurrentChecklist();
         bottomButtons.SetActive(false);
         checklistDone.SetActive(false);
         
@@ -179,14 +202,19 @@ public class ChecklistRenderer : MonoBehaviour
                 buttonRect.sizeDelta = new Vector2(buttonRect.sizeDelta.x, buttonHeight);
                 
                 Checklist checklist = new Checklist();
-                foreach (var item in list.List)
+                checklist.Name = list.ListName;
+                for (var i = 0; i < list.List.Count; i++)
                 {
-                    checklist.Checks.Add(new Check(item.name, item.expectedValue, item.isAutomatic));
+                    var item = list.List[i];
+                    checklist.AddCheck(new Check(item.name, item.expectedValue, item.isAutomatic, i));
                 }
 
                 button.transform.GetComponent<Button>().onClick.AddListener(() =>
                 {
                     ClearMenu();
+                    
+                    menuContainer.SetActive(false);
+                    checkContainer.SetActive(true);
                     title.GetComponent<TMP_Text>().text = list.ListName.ToUpper();
                     _currentPage = 1;
                     LoadChecklist(checklist);
@@ -197,7 +225,12 @@ public class ChecklistRenderer : MonoBehaviour
             }
         }
     }
-    
+
+    private void HideMenu()
+    {
+        throw new System.NotImplementedException();
+    }
+
     private void CreateButton(Transform verticalLayoutGroup1, Transform verticalLayoutGroup2, out GameObject button)
     {
         if (_leftChildCount < 10)
@@ -280,22 +313,30 @@ public class ChecklistRenderer : MonoBehaviour
     {
         if (_currentPage < 2)
             return;
-        _currentPage--; 
-        LoadChecklist(_currentChecklist);
+        _currentPage--;
+        LoadPage();
     }
 
     public void HandleNextPage()
     {
         if(_currentPage >= _highestPage)
             return;
-        _currentPage++; 
-        LoadChecklist(_currentChecklist);
+        _currentPage++;
+        LoadPage();
     }
 
     public void HandlePageButtonPress(int pageNumber)
     {
-        _currentPage = pageNumber; 
-        LoadChecklist(_currentChecklist);
+        _currentPage = pageNumber;
+        LoadPage();
+    }
+
+    private void LoadPage()
+    {
+        for(int i=0; i<_checkObjects.Count; i++)
+        {
+            _checkObjects[i].SetActive(i >= (_currentPage - 1) * checksPerPage && i < _currentPage * checksPerPage);
+        }
     }
 
     public void SetPageComplete()
