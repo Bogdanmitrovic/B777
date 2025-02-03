@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
@@ -13,7 +12,7 @@ public class MenuManager : MonoBehaviour
     public GameObject topButtonContainer;
     public GameObject bottomButtonContainer;
     public GameObject[] bottomButtonSlots;
-    public GameObject checklistContainer;
+    public GameObject screenContainer;
 
     // content of ScreenContainer
     public GameObject[] checksContent;
@@ -28,7 +27,7 @@ public class MenuManager : MonoBehaviour
     private ChecklistRenderer _checklistRenderer;
     private int _currentMenu = -1;
     private int _leftChildCount = 0;
-    private ListMenu menus;
+    private MenuList _menus;
     private int _currentPage = 1;
 
     void Start()
@@ -39,7 +38,7 @@ public class MenuManager : MonoBehaviour
             bottomButtonSlots[i] = bottomButtonContainer.transform.GetChild(i).gameObject;
         }
 
-        _checklistRenderer = checklistContainer.GetComponent<ChecklistRenderer>();
+        _checklistRenderer = screenContainer.GetComponent<ChecklistRenderer>();
 
 
         var button = Instantiate(buttonPrefab, bottomButtonSlots[0].transform);
@@ -67,6 +66,7 @@ public class MenuManager : MonoBehaviour
         // TODO button.GetComponent<Button>().onClick.AddListener(checklistRenderer.ExitMenu);
         button.SetActive(false);
         _buttons.Add("EXITMENU", button);
+        bottomButtonContainer.SetActive(true);
 
         LoadMenusFromJson();
         ShowMenu(0);
@@ -77,7 +77,9 @@ public class MenuManager : MonoBehaviour
 
     private void LoadMenusFromJson()
     {
-        menus = JsonUtility.FromJson<ListMenu>(jsonFile.text);
+        _menus = JsonUtility.FromJson<MenuList>(jsonFile.text);
+        _checklistRenderer.PassNormalChecklists(_menus.menus[0].checklists);
+        // TODO kad se selektuje Menu neki odozgo, da se vidi koju checklistu vec ima ClRenderer i ako nije ista da se prosledi
     }
 
     void LoadNormalChecklist()
@@ -103,17 +105,17 @@ public class MenuManager : MonoBehaviour
 
         const float buttonHeight = 50f;
 
-        var menu = menus.Menus[menuNumber];
+        var menu = _menus.menus[menuNumber];
 
         title.SetActive(true);
-        title.GetComponent<TMP_Text>().text = menu.MenuName.ToUpper();
+        title.GetComponent<TMP_Text>().text = menu.menuName.ToUpper();
 
-        for (var i = 0; i < menu.Lists.Count; i++)
+        for (var i = 0; i < menu.checklists.Count; i++)
         {
-            var list = menu.Lists[i];
+            var list = menu.checklists[i];
             GameObject button;
             CreateButton(verticalLayoutGroup1, verticalLayoutGroup2, out button);
-            button.GetComponentInChildren<TMP_Text>().text = list.ListName;
+            button.GetComponentInChildren<TMP_Text>().text = list.name;
 
             RectTransform buttonRect = button.GetComponent<RectTransform>();
             buttonRect.sizeDelta = new Vector2(buttonRect.sizeDelta.x, buttonHeight);

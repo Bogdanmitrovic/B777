@@ -1,11 +1,11 @@
 {
-  "Menus": [
+  "menus": [
     {
-      "MenuName": "Normal Menu",
-      "Lists": [
+      "menuName": "Normal Menu",
+      "checklists": [
         {
-          "ListName": "Preflight",
-          "List": [
+          "name": "Preflight",
+          "checks": [
             {
               "name": "Inspections and security",
               "expectedValue": "Completed",
@@ -54,8 +54,8 @@
           ]
         },
         {
-          "ListName": "Before Start",
-          "List": [
+          "name": "Before Start",
+          "checks": [
             {
               "name": "Flight deck door",
               "expectedValue": "Closed and locked",
@@ -79,8 +79,8 @@
           ]
         },
         {
-          "ListName": "Before Taxi",
-          "List": [
+          "name": "Before Taxi",
+          "checks": [
             {
               "name": "Anti-ice",
               "expectedValue": "___",
@@ -114,8 +114,8 @@
           ]
         },
         {
-          "ListName": "Before Takeoff",
-          "List": [
+          "name": "Before Takeoff",
+          "checks": [
             {
               "name": "Final Loadsheet / Time ___z",
               "expectedValue": "Acknowledged",
@@ -163,8 +163,8 @@
           ]
         },
         {
-          "ListName": "After Takeoff",
-          "List": [
+          "name": "After Takeoff",
+          "checks": [
             {
               "name": "Landing gear",
               "expectedValue": "UP",
@@ -183,8 +183,8 @@
           ]
         },
         {
-          "ListName": "Descent",
-          "List": [
+          "name": "Descent",
+          "checks": [
             {
               "name": "Recall",
               "expectedValue": "Checked",
@@ -213,8 +213,8 @@
           ]
         },
         {
-          "ListName": "Approach",
-          "List": [
+          "name": "Approach",
+          "checks": [
             {
               "name": "Altimeters",
               "expectedValue": "__",
@@ -223,8 +223,8 @@
           ]
         },
         {
-          "ListName": "Landing",
-          "List": [
+          "name": "Landing",
+          "checks": [
             {
               "name": "Cabin report",
               "expectedValue": "Received",
@@ -248,8 +248,8 @@
           ]
         },
         {
-          "ListName": "After landing",
-          "List": [
+          "name": "After landing",
+          "checks": [
             {
               "name": "Speedbrake",
               "expectedValue": "DOWN",
@@ -283,8 +283,8 @@
           ]
         },
         {
-          "ListName": "Shutdown",
-          "List": [
+          "name": "Shutdown",
+          "checks": [
             {
               "name": "Parking brake",
               "expectedValue": "Set",
@@ -328,8 +328,8 @@
           ]
         },
         {
-          "ListName": "Secure",
-          "List": [
+          "name": "Secure",
+          "checks": [
             {
               "name": "ADIRU",
               "expectedValue": "OFF",
@@ -388,11 +388,11 @@
       ]
     },
     {
-      "MenuName": "Resets",
-      "Lists": [
+      "menuName": "Resets",
+      "checklists": [
         {
-          "ListName": "Reset normal",
-          "List": [
+          "name": "Reset normal",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -401,8 +401,8 @@
           ]
         },
         {
-          "ListName": "Reset non-normal",
-          "List": [
+          "name": "Reset non-normal",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -411,8 +411,8 @@
           ]
         },
         {
-          "ListName": "Reset all",
-          "List": [
+          "name": "Reset all",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -423,11 +423,11 @@
       ]
     },
     {
-      "MenuName": "Non-normal Menu",
-      "Lists": [
+      "menuName": "Non-normal Menu",
+      "checklists": [
         {
-          "ListName": "Unannunciated checklists",
-          "List": [
+          "name": "Unannunciated checklists",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -436,8 +436,8 @@
           ]
         },
         {
-          "ListName": "Apln genl, emer eqpt, doors, windows",
-          "List": [
+          "name": "Apln genl, emer eqpt, doors, windows",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -446,8 +446,8 @@
           ]
         },
         {
-          "ListName": "Air systems",
-          "List": [
+          "name": "Air systems",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -456,8 +456,8 @@
           ]
         },
         {
-          "ListName": "Anti-ice, rain",
-          "List": [
+          "name": "Anti-ice, rain",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -466,8 +466,8 @@
           ]
         },
         {
-          "ListName": "Automatic flight",
-          "List": [
+          "name": "Automatic flight",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -476,8 +476,8 @@
           ]
         },
         {
-          "ListName": "Communications datalink",
-          "List": [
+          "name": "Communications datalink",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -486,8 +486,8 @@
           ]
         },
         {
-          "ListName": "Electrical",
-          "List": [
+          "name": "Electrical",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -496,8 +496,8 @@
           ]
         },
         {
-          "ListName": "Engines, APU",
-          "List": [
+          "name": "Engines, APU",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -506,8 +506,8 @@
           ]
         },
         {
-          "ListName": "Fire protection",
-          "List": [
+          "name": "Fire protection",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -516,8 +516,8 @@
           ]
         },
         {
-          "ListName": "Flight controls",
-          "List": [
+          "name": "Flight controls",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -526,8 +526,8 @@
           ]
         },
         {
-          "ListName": "Flight instruments, displays",
-          "List": [
+          "name": "Flight instruments, displays",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -536,8 +536,8 @@
           ]
         },
         {
-          "ListName": "Flight management, navigation",
-          "List": [
+          "name": "Flight management, navigation",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -546,8 +546,8 @@
           ]
         },
         {
-          "ListName": "Fuel",
-          "List": [
+          "name": "Fuel",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -556,8 +556,8 @@
           ]
         },
         {
-          "ListName": "Hydraulics, RAT",
-          "List": [
+          "name": "Hydraulics, RAT",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -566,8 +566,8 @@
           ]
         },
         {
-          "ListName": "Landing gear",
-          "List": [
+          "name": "Landing gear",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",
@@ -576,8 +576,8 @@
           ]
         },
         {
-          "ListName": "Warning systems, tail strike",
-          "List": [
+          "name": "Warning systems, tail strike",
+          "checks": [
             {
               "name": "",
               "expectedValue": "",

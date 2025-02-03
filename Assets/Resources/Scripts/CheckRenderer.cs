@@ -27,7 +27,7 @@ public class CheckRenderer : MonoBehaviour
             transform.parent.parent.GetComponent<ChecklistRenderer>().OnCheckSelect(Check.Index);
         });
         
-        if (!Check.IsAutomatic)
+        if (!Check.isAutomatic)
         {
             checkmarkBackgroundImage.GetComponent<Button>().onClick.AddListener(() =>
             {

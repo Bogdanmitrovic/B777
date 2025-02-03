@@ -1,13 +1,20 @@
+using System;
 using System.Text;
 using UnityEngine.Events;
+
+[Serializable]
 public class Check
 {
-    public readonly string Name;
-    public readonly string ExpectedValue;
+    public string name;
+    public string expectedValue;
+    public bool isAutomatic;
+    [NonSerialized]
     public bool Checked;
+    [NonSerialized]
     public bool Overridden;
-    public readonly bool IsAutomatic;
+    [NonSerialized]
     public readonly int Index;
+    [NonSerialized]
     public bool IsSelected;
     
     public UnityAction OnCheckDataChanged;
@@ -16,10 +23,10 @@ public class Check
 
     public Check(string name, string expectedValue, bool isAutomatic, int i)
     {
-        Name = name;
-        ExpectedValue = expectedValue;
-        IsAutomatic = isAutomatic;
-        Checked = false;
+        this.name = name;
+        this.expectedValue = expectedValue;
+        this.isAutomatic = isAutomatic;
+        Checked = !isAutomatic;
         Overridden = false;
         Index = i;
         IsSelected = false;
@@ -32,7 +39,7 @@ public class Check
         if (Checked) stringBuilder.Append("<color=green>");
         else if (Overridden) stringBuilder = new StringBuilder().Append("<color=#3ba4c2>");
         var count = 0;
-        var names = Name.Split(' ');
+        var names = name.Split(' ');
         for (var i = 0; i < names.Length; i++)
         {
             var name = names[i];
@@ -50,9 +57,9 @@ public class Check
             }
         }
 
-        count += ExpectedValue.Length;
+        count += expectedValue.Length;
         stringBuilder.Append(new string('.', characterCount - count));
-        stringBuilder.Append(ExpectedValue);
+        stringBuilder.Append(expectedValue);
         if (Checked || Overridden) stringBuilder.Append("</color>");
         return stringBuilder.ToString();
         // TODO boja da ide u CheckRenderer preko .color ili sta vec, ne kroz tekst sa <color> i </color>
@@ -81,7 +88,7 @@ public class Check
 
     public void TriggerCheck()
     {
-        if (Overridden || IsAutomatic) return;
+        if (Overridden || isAutomatic) return;
         
         Checked = !Checked;
         OnCheckDataChanged?.Invoke();

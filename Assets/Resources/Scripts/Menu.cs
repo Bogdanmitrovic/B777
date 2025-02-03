@@ -2,26 +2,15 @@
 using System.Collections.Generic;
 
 [Serializable]
-public class MenuItem
+public class MenuList
 {
-    public string MenuName;
-    public List<ListItem> Lists;
+    public List<Menu> menus;
 }
-
 [Serializable]
-public class ListItem
+public class Menu
 {
-    public string ListName;
-    public List<ChecklistItem> List;
-}
-
-[Serializable]
-public class ChecklistItem
-{
-    public string name;
-    public string expectedValue;
-    public bool isAutomatic;
-    public List<ValueOption> value;
+    public string menuName;
+    public List<Checklist> checklists;
 }
 
 [Serializable]
@@ -29,9 +18,4 @@ public class ValueOption
 {
     public Dictionary<string, string> Yes;
     public Dictionary<string, string> No;
-}
-[Serializable]
-public class ListMenu
-{
-    public List<MenuItem> Menus;
 }

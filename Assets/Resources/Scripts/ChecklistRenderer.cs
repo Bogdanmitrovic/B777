@@ -5,6 +5,10 @@ using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+// TODO da se nadje gde treba kad se ucita checklist da se pokazu/sakriju page buttons (SetPageButtons i RemovePageButtons)
+// TODO low priority kako izgledaju buttons za non normal checklists i sta rade
+// TODO resets da se vidi sta radi
+// TODO newtonsoft json umesto JsonUtility? (unity package manager) zbog MenuList
 
 public class ChecklistRenderer : MonoBehaviour
 {
@@ -14,53 +18,26 @@ public class ChecklistRenderer : MonoBehaviour
 
     public GameObject checkPrefab;
     public GameObject pageNumberPrefab;
-    public GameObject topButtons;
-    public GameObject bottomButtons;
     public GameObject pageButtons;
     public GameObject checklistDone;
     public GameObject title;
-    public GameObject menuContainer;
     public GameObject checkContainer;
     public HorizontalLayoutGroup horizontalLayoutGroup;
-    public TextAsset jsonFile;
 
     private int _checklistIndex = 0;
     private List<Checklist> _normalChecklists = new();
+    private List<Checklist> _nonNormalChecklists = new();
     private Checklist? _currentChecklist;
-    private int _currentMenu = -1;
     private int _currentPage = 1;
     private int _pagesCount = 0;
     private int _highestPage = -1;
-    private int _leftChildCount = 0;
-    private ListMenu menus;
     private List<GameObject> _checkObjects = new();
 
-    void Start()
+   
+    public void PassNormalChecklists(List<Checklist> checklists)
     {
-        menus = JsonUtility.FromJson<ListMenu>(jsonFile.text);
-        LoadFromJson();
+        _normalChecklists = checklists;
     }
-
-    private void LoadFromJson()
-    {
-        if (jsonFile == null) return;
-        var menu = menus.Menus[0];
-        foreach (var list in menu.Lists)
-        {
-            var checklist = new Checklist
-            {
-                Name = list.ListName
-            };
-            for (var i = 0; i < list.List.Count; i++)
-            {
-                var item = list.List[i];
-                checklist.AddCheck(new Check(item.name, item.expectedValue, item.isAutomatic, i));
-            }
-
-            _normalChecklists.Add(checklist);
-        }
-    }
-
     public void LoadNormalChecklist(int index = -1)
     {
         if (index != -1)
@@ -73,21 +50,21 @@ public class ChecklistRenderer : MonoBehaviour
         LoadChecklist(_normalChecklists[_checklistIndex]);
         _checklistIndex++;
     }
-
     private void LoadChecklist(Checklist checklist)
     {
         UnloadCurrentChecklist();
         _currentChecklist = checklist;
+        title.GetComponent<TMP_Text>().text = checklist.name;
         _checkObjects.Clear();
         checklist.OnCheckChecked += OnCheckboxCheck;
-        foreach (var check in checklist.Checks)
+        foreach (var check in checklist.checks)
         {
             var checkObject = Instantiate(checkPrefab, checkContainer.transform);
             checkObject.GetComponent<CheckRenderer>().Check = check;
             _checkObjects.Add(checkObject);
         }
 
-        _pagesCount = (_currentChecklist.Checks.Count - 1) / checksPerPage + 1;
+        _pagesCount = (_currentChecklist.checks.Count - 1) / checksPerPage + 1;
         _currentPage = 1;
         if (_pagesCount > 1)
         {
@@ -95,19 +72,18 @@ public class ChecklistRenderer : MonoBehaviour
         }
 
         // povecaj right ako ima paging TODO pogledaj jel treba i dalje ovo
-        if (pageButtons.activeSelf)
-        {
-            bottomButtons.GetComponent<RectTransform>().offsetMax = new
-                Vector2(-325f, bottomButtons.GetComponent<RectTransform>().offsetMax.y);
-        }
-        else
-        {
-            bottomButtons.GetComponent<RectTransform>().offsetMax = new
-                Vector2(-165f, bottomButtons.GetComponent<RectTransform>().offsetMax.y);
-        }
-
-        LoadPage();
-        bottomButtons.SetActive(true);
+        //if (pageButtons.activeSelf)
+        //{
+        //    bottomButtons.GetComponent<RectTransform>().offsetMax = new
+        //        Vector2(-325f, bottomButtons.GetComponent<RectTransform>().offsetMax.y);
+        //}
+        //else
+        //{
+        //    bottomButtons.GetComponent<RectTransform>().offsetMax = new
+        //        Vector2(-165f, bottomButtons.GetComponent<RectTransform>().offsetMax.y);
+        //}
+        //LoadPage();
+        //bottomButtons.SetActive(true);
         ChecklistNotDone();
     }
 
@@ -125,10 +101,10 @@ public class ChecklistRenderer : MonoBehaviour
     public void OnCheckboxCheck(int index, bool value)
     {
         for (var i = (_currentPage - 1) * checksPerPage;
-             i < _currentPage * checksPerPage && i < _currentChecklist?.Checks.Count;
+             i < _currentPage * checksPerPage && i < _currentChecklist?.checks.Count;
              i++)
         {
-            if (!_currentChecklist.Checks[i].Checked)
+            if (!_currentChecklist.checks[i].Checked)
             {
                 SetPageNotComplete();
                 return;
@@ -169,13 +145,13 @@ public class ChecklistRenderer : MonoBehaviour
     private void ChecklistDone()
     {
         checklistDone.SetActive(true);
-        bottomButtons.transform.GetChild(1).gameObject.SetActive(false);
+        // TODO odma pre push bottomButtons.transform.GetChild(1).gameObject.SetActive(false);
     }
 
     private void ChecklistNotDone()
     {
         checklistDone.SetActive(false);
-        bottomButtons.transform.GetChild(1).gameObject.SetActive(true);
+        // TODO i ovo pre push bottomButtons.transform.GetChild(1).gameObject.SetActive(true);
     }
 
     public void SetPageButtons()
