@@ -57,10 +57,11 @@ public class ChecklistRenderer : MonoBehaviour
         title.GetComponent<TMP_Text>().text = checklist.name;
         _checkObjects.Clear();
         checklist.OnCheckChecked += OnCheckboxCheck;
-        foreach (var check in checklist.checks)
+        for (var i = 0; i < checklist.checks.Count; i++)
         {
             var checkObject = Instantiate(checkPrefab, checkContainer.transform);
-            checkObject.GetComponent<CheckRenderer>().Check = check;
+            checkObject.GetComponent<CheckRenderer>().Check = checklist.checks[i];
+            checklist.checks[i].Index = i;
             _checkObjects.Add(checkObject);
         }
 
@@ -118,6 +119,7 @@ public class ChecklistRenderer : MonoBehaviour
 
     public void OnCheckSelect(int index)
     {
+        Debug.Log("Check selected " + index);
         _currentChecklist?.OnCheckSelect(index);
     }
 

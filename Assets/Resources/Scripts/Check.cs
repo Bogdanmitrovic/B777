@@ -13,7 +13,7 @@ public class Check
     [NonSerialized]
     public bool Overridden;
     [NonSerialized]
-    public readonly int Index;
+    public int Index;
     [NonSerialized]
     public bool IsSelected;
     
