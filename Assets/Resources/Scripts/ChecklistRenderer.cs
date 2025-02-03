@@ -83,6 +83,7 @@ public class ChecklistRenderer : MonoBehaviour
         UnloadCurrentChecklist();
         _currentChecklist = checklist;
         //checklist.Load(checkPrefab, checkContainer, characterCount, splitNameLimit, _currentPage, checksPerPage);
+        _checkObjects.Clear();
         checklist.OnCheckChecked += OnCheckboxCheck;
         foreach (var check in checklist.Checks)
         {
@@ -96,7 +97,20 @@ public class ChecklistRenderer : MonoBehaviour
         {
             SetPageButtons();
         }
+        
+        // povecaj right ako ima paging
+        if (pageButtons.activeSelf)
+        {
+            bottomButtons.GetComponent<RectTransform>().offsetMax = new
+                Vector2(-325f, bottomButtons.GetComponent<RectTransform>().offsetMax.y);
+        }
+        else
+        {
+            bottomButtons.GetComponent<RectTransform>().offsetMax = new
+                Vector2(-165f, bottomButtons.GetComponent<RectTransform>().offsetMax.y);
+        }
         LoadPage();
+        bottomButtons.SetActive(true);
         ChecklistNotDone();
     }
     
@@ -212,11 +226,12 @@ public class ChecklistRenderer : MonoBehaviour
                 button.transform.GetComponent<Button>().onClick.AddListener(() =>
                 {
                     ClearMenu();
+                    _currentPage = 1;
                     
                     menuContainer.SetActive(false);
                     checkContainer.SetActive(true);
+                    
                     title.GetComponent<TMP_Text>().text = list.ListName.ToUpper();
-                    _currentPage = 1;
                     LoadChecklist(checklist);
                     bottomButtons.SetActive(true);
                 });
