@@ -1,5 +1,6 @@
 #nullable enable
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using TMPro;
 using UnityEngine;
@@ -10,9 +11,8 @@ public class ChecklistRenderer : MonoBehaviour
     public int characterCount = 50;
     public int splitNameLimit = 20;
     public int checksPerPage = 8;
-    
+
     public GameObject checkPrefab;
-    public GameObject buttonPrefab;
     public GameObject pageNumberPrefab;
     public GameObject topButtons;
     public GameObject bottomButtons;
@@ -23,7 +23,7 @@ public class ChecklistRenderer : MonoBehaviour
     public GameObject checkContainer;
     public HorizontalLayoutGroup horizontalLayoutGroup;
     public TextAsset jsonFile;
-    
+
     private int _checklistIndex = 0;
     private List<Checklist> _normalChecklists = new();
     private Checklist? _currentChecklist;
@@ -34,55 +34,50 @@ public class ChecklistRenderer : MonoBehaviour
     private int _leftChildCount = 0;
     private ListMenu menus;
     private List<GameObject> _checkObjects = new();
-    
+
     void Start()
     {
-        // normal
-        // itemovrd
-        // chklovrd
-        // chklreset
-        //Checklist checklist = new Checklist();
-        //checklist.Checks.Add(new Check ("Oxygen", "Tested 100%" ,  false));
-        //checklist.Checks.Add(new Check ("Flight instruments", "Heading ___, Altimeter ___" ,  false));
-        //checklist.Checks.Add(new Check ("Parking brake", "Set", true));
-        //checklist.Checks.Add(new Check ("Fuel Control Switches", "CUTOFF", true));
-        // checkListParent.GetComponent<VerticalLayoutGroup>();
-        //_normalChecklists = new List<Checklist>
-        //{
-        //    checklist
-        //};
-        bottomButtons.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(LoadNormalChecklist);
-        bottomButtons.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(OverrideCheck);
-        bottomButtons.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(OverrideChecklist);
-        bottomButtons.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(ResetChecklist);
-        topButtons.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(()=>{ShowMenu(0);});
-        topButtons.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(()=>{ShowMenu(1);});
-        topButtons.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(()=>{ShowMenu(2);});
-
         menus = JsonUtility.FromJson<ListMenu>(jsonFile.text);
-        
-        // LoadNormalChecklist();
-        // OverrideChecklist();
-        // OnCheckSelect(0);
-        // OverrideCheck();
-        // ResetChecklist();
+        LoadFromJson();
     }
-    
-    private void LoadNormalChecklist()
+
+    private void LoadFromJson()
     {
-        if(_checklistIndex is >= 11 or < 0)
+        if (jsonFile == null) return;
+        var menu = menus.Menus[0];
+        foreach (var list in menu.Lists)
+        {
+            var checklist = new Checklist
+            {
+                Name = list.ListName
+            };
+            for (var i = 0; i < list.List.Count; i++)
+            {
+                var item = list.List[i];
+                checklist.AddCheck(new Check(item.name, item.expectedValue, item.isAutomatic, i));
+            }
+
+            _normalChecklists.Add(checklist);
+        }
+    }
+
+    public void LoadNormalChecklist(int index = -1)
+    {
+        if (index != -1)
+            _checklistIndex = index;
+        if (_checklistIndex >= _normalChecklists.Count() || _checklistIndex < 0)
         {
             _checklistIndex = 0;
         }
+
         LoadChecklist(_normalChecklists[_checklistIndex]);
         _checklistIndex++;
     }
-    
+
     private void LoadChecklist(Checklist checklist)
     {
         UnloadCurrentChecklist();
         _currentChecklist = checklist;
-        //checklist.Load(checkPrefab, checkContainer, characterCount, splitNameLimit, _currentPage, checksPerPage);
         _checkObjects.Clear();
         checklist.OnCheckChecked += OnCheckboxCheck;
         foreach (var check in checklist.Checks)
@@ -91,14 +86,15 @@ public class ChecklistRenderer : MonoBehaviour
             checkObject.GetComponent<CheckRenderer>().Check = check;
             _checkObjects.Add(checkObject);
         }
+
         _pagesCount = (_currentChecklist.Checks.Count - 1) / checksPerPage + 1;
         _currentPage = 1;
         if (_pagesCount > 1)
         {
             SetPageButtons();
         }
-        
-        // povecaj right ako ima paging
+
+        // povecaj right ako ima paging TODO pogledaj jel treba i dalje ovo
         if (pageButtons.activeSelf)
         {
             bottomButtons.GetComponent<RectTransform>().offsetMax = new
@@ -109,14 +105,16 @@ public class ChecklistRenderer : MonoBehaviour
             bottomButtons.GetComponent<RectTransform>().offsetMax = new
                 Vector2(-165f, bottomButtons.GetComponent<RectTransform>().offsetMax.y);
         }
+
         LoadPage();
         bottomButtons.SetActive(true);
         ChecklistNotDone();
     }
-    
-    private void UnloadCurrentChecklist()
+
+    public void UnloadCurrentChecklist()
     {
         if (_currentChecklist == null) return;
+        checklistDone.SetActive(false);
         _currentChecklist.OnCheckChecked -= OnCheckboxCheck;
         foreach (var checkObject in _checkObjects)
         {
@@ -126,15 +124,17 @@ public class ChecklistRenderer : MonoBehaviour
 
     public void OnCheckboxCheck(int index, bool value)
     {
-        for (var i = (_currentPage - 1) * checksPerPage; i < _currentPage * checksPerPage && i<_currentChecklist?.Checks.Count; i++)
+        for (var i = (_currentPage - 1) * checksPerPage;
+             i < _currentPage * checksPerPage && i < _currentChecklist?.Checks.Count;
+             i++)
         {
             if (!_currentChecklist.Checks[i].Checked)
             {
                 SetPageNotComplete();
-                return; 
+                return;
             }
-            
         }
+
         SetPageComplete();
         if (_currentChecklist?.IsDone() != true) return;
         ChecklistDone();
@@ -145,7 +145,7 @@ public class ChecklistRenderer : MonoBehaviour
         _currentChecklist?.OnCheckSelect(index);
     }
 
-    private void OverrideCheck()
+    public void OverrideCheck()
     {
         _currentChecklist?.OverrideCheck();
         if (_currentChecklist?.IsDone() == true)
@@ -154,13 +154,13 @@ public class ChecklistRenderer : MonoBehaviour
         }
     }
 
-    private void OverrideChecklist()
+    public void OverrideChecklist()
     {
         _currentChecklist?.OverrideChecklist();
         ChecklistDone();
     }
 
-    private void ResetChecklist()
+    public void ResetChecklist()
     {
         _currentChecklist?.Reset();
         ChecklistNotDone();
@@ -171,146 +171,39 @@ public class ChecklistRenderer : MonoBehaviour
         checklistDone.SetActive(true);
         bottomButtons.transform.GetChild(1).gameObject.SetActive(false);
     }
-    
+
     private void ChecklistNotDone()
     {
         checklistDone.SetActive(false);
         bottomButtons.transform.GetChild(1).gameObject.SetActive(true);
     }
 
-    public void ShowMenu(int menuNumber)
-    {
-        if (menuNumber == _currentMenu)
-            return;
-
-        RemovePageButtons();
-        ClearMenu();
-        
-        menuContainer.SetActive(true);
-        checkContainer.SetActive(false);
-        
-        _currentMenu = menuNumber;
-        
-        UnloadCurrentChecklist();
-        bottomButtons.SetActive(false);
-        checklistDone.SetActive(false);
-        
-        var verticalLayoutGroup1 = horizontalLayoutGroup.transform.GetChild(0);
-        var verticalLayoutGroup2 = horizontalLayoutGroup.transform.GetChild(1);
-        
-        if (jsonFile != null)
-        {
-            MenuItem menu = menus.Menus[menuNumber];
-            const float buttonHeight = 50f;
-            
-            title.SetActive(true);
-            title.GetComponent<TMP_Text>().text = menu.MenuName.ToUpper();
-            
-            foreach (var list in menu.Lists)
-            {
-                GameObject button;
-                CreateButton(verticalLayoutGroup1, verticalLayoutGroup2, out button);
-                button.GetComponentInChildren<TMP_Text>().text = list.ListName;
-                
-                RectTransform buttonRect = button.GetComponent<RectTransform>();
-                buttonRect.sizeDelta = new Vector2(buttonRect.sizeDelta.x, buttonHeight);
-                
-                Checklist checklist = new Checklist();
-                checklist.Name = list.ListName;
-                for (var i = 0; i < list.List.Count; i++)
-                {
-                    var item = list.List[i];
-                    checklist.AddCheck(new Check(item.name, item.expectedValue, item.isAutomatic, i));
-                }
-
-                button.transform.GetComponent<Button>().onClick.AddListener(() =>
-                {
-                    ClearMenu();
-                    _currentPage = 1;
-                    
-                    menuContainer.SetActive(false);
-                    checkContainer.SetActive(true);
-                    
-                    title.GetComponent<TMP_Text>().text = list.ListName.ToUpper();
-                    LoadChecklist(checklist);
-                    bottomButtons.SetActive(true);
-                });
-
-                
-            }
-        }
-    }
-
-    private void HideMenu()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    private void CreateButton(Transform verticalLayoutGroup1, Transform verticalLayoutGroup2, out GameObject button)
-    {
-        if (_leftChildCount < 10)
-        {
-            button = Instantiate(buttonPrefab, verticalLayoutGroup1);
-            _leftChildCount++;
-        }
-        else
-        {
-            button = Instantiate(buttonPrefab, verticalLayoutGroup2);
-        }
-        button.AddComponent<LayoutElement>().flexibleHeight = 0;
-        button.GetComponent<LayoutElement>().preferredHeight = 75;
-        button.transform.localScale = Vector3.one;
-        button.GetComponentInChildren<TMP_Text>().fontSize = 32;
-        button.GetComponentInChildren<TMP_Text>().alignment = TextAlignmentOptions.Left;
-        button.GetComponentInChildren<TMP_Text>().margin = new Vector4(20, 0, 0, 0);
-    }
-    
-    public void ClearMenu()
-    {
-        _currentMenu = -1;
-        var verticalLayoutGroup1 = horizontalLayoutGroup.transform.GetChild(0);
-        var verticalLayoutGroup2 = horizontalLayoutGroup.transform.GetChild(1);
-        
-        for (int i = verticalLayoutGroup1.childCount-1; i >= 0; i--)
-        {
-            Destroy(verticalLayoutGroup1.GetChild(i).gameObject);
-            _leftChildCount--;
-        }
-        for (int i = verticalLayoutGroup2.childCount-1; i >= 0; i--)
-        {
-            Destroy(verticalLayoutGroup2.GetChild(i).gameObject);
-        }
-    }
-
     public void SetPageButtons()
     {
         RemovePageButtons();
         RectTransform pageButtonsRect = pageButtons.GetComponent<RectTransform>();
-        
+
         pageButtons.SetActive(true);
         pageButtons.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(HandlePreviousPage);
         pageButtons.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(HandleNextPage);
-        
+
         for (int i = 0; i < _pagesCount; i++)
         {
             var pageButton = Instantiate(pageNumberPrefab, pageButtons.transform);
             int iCopy = i;
             pageButton.transform.SetSiblingIndex(1 + i);
             pageButton.transform.GetChild(0).GetComponent<TMP_Text>().text = (i + 1).ToString();
-            pageButton.GetComponent<Button>().onClick.AddListener((() =>
-            {
-                HandlePageButtonPress(iCopy + 1);
-            }));
-            
+            pageButton.GetComponent<Button>().onClick.AddListener((() => { HandlePageButtonPress(iCopy + 1); }));
+
             RectTransform pageButtonRect = pageButton.GetComponent<RectTransform>();
-            
+
             pageButtonRect.localScale = Vector3.one;
-            pageButtonRect.sizeDelta = new Vector2(pageButtonRect.sizeDelta.x, (pageButtonsRect.sizeDelta.y - 200) / _pagesCount);
+            pageButtonRect.sizeDelta =
+                new Vector2(pageButtonRect.sizeDelta.x, (pageButtonsRect.sizeDelta.y - 200) / _pagesCount);
             _highestPage = i + 1;
         }
-        
     }
-    
+
     public void RemovePageButtons()
     {
         int count = pageButtons.transform.childCount;
@@ -321,6 +214,7 @@ public class ChecklistRenderer : MonoBehaviour
                 Destroy(pageButtons.transform.GetChild(i).gameObject);
             }
         }
+
         pageButtons.SetActive(false);
     }
 
@@ -334,7 +228,7 @@ public class ChecklistRenderer : MonoBehaviour
 
     public void HandleNextPage()
     {
-        if(_currentPage >= _highestPage)
+        if (_currentPage >= _highestPage)
             return;
         _currentPage++;
         LoadPage();
@@ -348,7 +242,7 @@ public class ChecklistRenderer : MonoBehaviour
 
     private void LoadPage()
     {
-        for(int i=0; i<_checkObjects.Count; i++)
+        for (var i = 0; i < _checkObjects.Count; i++)
         {
             _checkObjects[i].SetActive(i >= (_currentPage - 1) * checksPerPage && i < _currentPage * checksPerPage);
         }
@@ -358,7 +252,7 @@ public class ChecklistRenderer : MonoBehaviour
     {
         StringBuilder pageNumber = new StringBuilder();
         pageNumber.Append("<color=green>").Append(_currentPage).Append("</color>");
-        
+
         pageButtons.transform.GetChild(_currentPage).GetChild(0).GetComponent<TMP_Text>().text = pageNumber.ToString();
     }
 
@@ -366,7 +260,7 @@ public class ChecklistRenderer : MonoBehaviour
     {
         StringBuilder pageNumber = new StringBuilder();
         pageNumber.Append("<color=white>").Append(_currentPage).Append("</color>");
-        
+
         pageButtons.transform.GetChild(_currentPage).GetChild(0).GetComponent<TMP_Text>().text = pageNumber.ToString();
     }
 }
