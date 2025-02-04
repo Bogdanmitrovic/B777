@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 
 public class MenuManager : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class MenuManager : MonoBehaviour
     private ChecklistRenderer _checklistRenderer;
     private int _currentMenu = -1;
     private int _leftChildCount = 0;
-    private MenuList _menus;
+    private List<Menu> _menus;
     private int _currentPage = 1;
 
     void Start()
@@ -77,8 +78,8 @@ public class MenuManager : MonoBehaviour
 
     private void LoadMenusFromJson()
     {
-        _menus = JsonUtility.FromJson<MenuList>(jsonFile.text);
-        _checklistRenderer.PassNormalChecklists(_menus.menus[0].checklists);
+        _menus = JsonConvert.DeserializeObject<List<Menu>>(jsonFile.text);
+        _checklistRenderer.PassNormalChecklists(_menus[0].checklists);
         // TODO kad se selektuje Menu neki odozgo, da se vidi koju checklistu vec ima ClRenderer i ako nije ista da se prosledi
     }
 
@@ -105,7 +106,7 @@ public class MenuManager : MonoBehaviour
 
         const float buttonHeight = 50f;
 
-        var menu = _menus.menus[menuNumber];
+        var menu = _menus[menuNumber];
 
         title.SetActive(true);
         title.GetComponent<TMP_Text>().text = menu.menuName.ToUpper();

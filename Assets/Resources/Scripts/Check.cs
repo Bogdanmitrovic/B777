@@ -26,7 +26,7 @@ public class Check
         this.name = name;
         this.expectedValue = expectedValue;
         this.isAutomatic = isAutomatic;
-        Checked = !isAutomatic;
+        Checked = isAutomatic;
         Overridden = false;
         Index = i;
         IsSelected = false;

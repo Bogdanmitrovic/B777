@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 
 [Serializable]
-public class MenuList
-{
-    public List<Menu> menus;
-}
-[Serializable]
 public class Menu
 {
     public string menuName;
