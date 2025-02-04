@@ -26,8 +26,7 @@ public class ChecklistRenderer : MonoBehaviour
     public HorizontalLayoutGroup horizontalLayoutGroup;
 
     private int _checklistIndex = 0;
-    private List<Checklist> _normalChecklists = new();
-    private List<Checklist> _nonNormalChecklists = new();
+    private List<Checklist> _checklists = new();
     private Checklist? _currentChecklist;
     private int _currentPage = 1;
     private int _pagesCount = 0;
@@ -35,20 +34,22 @@ public class ChecklistRenderer : MonoBehaviour
     private List<GameObject> _checkObjects = new();
 
    
-    public void PassNormalChecklists(List<Checklist> checklists)
+    public void SetChecklists(List<Checklist> checklists)
     {
-        _normalChecklists = checklists;
+        _checklists = checklists;
     }
+
+    
     public void LoadNormalChecklist(int index = -1)
     {
         if (index != -1)
             _checklistIndex = index;
-        if (_checklistIndex >= _normalChecklists.Count || _checklistIndex < 0)
+        if (_checklistIndex >= _checklists.Count || _checklistIndex < 0)
         {
             _checklistIndex = 0;
         }
 
-        LoadChecklist(_normalChecklists[_checklistIndex]);
+        LoadChecklist(_checklists[_checklistIndex]);
         _checklistIndex++;
     }
     private void LoadChecklist(Checklist checklist)

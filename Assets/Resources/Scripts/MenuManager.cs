@@ -23,7 +23,7 @@ public class MenuManager : MonoBehaviour
     public GameObject title;
     public TextAsset jsonFile;
 
-    // private stuff
+    // private variables
     private readonly Dictionary<string, GameObject> _buttons = new();
     private ChecklistRenderer _checklistRenderer;
     private int _currentMenu = -1;
@@ -40,7 +40,6 @@ public class MenuManager : MonoBehaviour
         }
 
         _checklistRenderer = screenContainer.GetComponent<ChecklistRenderer>();
-
 
         var button = Instantiate(buttonPrefab, bottomButtonSlots[0].transform);
         button.GetComponentInChildren<TMP_Text>().text = "NORMAL";
@@ -79,8 +78,7 @@ public class MenuManager : MonoBehaviour
     private void LoadMenusFromJson()
     {
         _menus = JsonConvert.DeserializeObject<List<Menu>>(jsonFile.text);
-        _checklistRenderer.PassNormalChecklists(_menus[0].checklists);
-        // TODO kad se selektuje Menu neki odozgo, da se vidi koju checklistu vec ima ClRenderer i ako nije ista da se prosledi
+        _checklistRenderer.SetChecklists(_menus[0].checklists);
     }
 
     void LoadNormalChecklist()
@@ -96,6 +94,7 @@ public class MenuManager : MonoBehaviour
 
         ClearMenu();
         _currentMenu = menuNumber;
+        _checklistRenderer.SetChecklists(_menus[menuNumber].checklists);
 
         var verticalLayoutGroup1 = menuContent[0].transform.GetChild(0);
         var verticalLayoutGroup2 = menuContent[0].transform.GetChild(1);
