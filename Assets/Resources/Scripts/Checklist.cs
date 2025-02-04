@@ -61,14 +61,6 @@ public class Checklist
         OnCheckChecked?.Invoke(index, checkedValue);
     }
 
-    public void RemoveListeners()
-    {
-        foreach (var check in checks)
-        {
-            check.OnCheckChecked -= CheckChecked;
-        }
-    }
-
     public void SetListeners()
     {
         foreach (var check in checks)

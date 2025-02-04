@@ -89,13 +89,13 @@ public class ChecklistRenderer : MonoBehaviour
     {
         if (_currentChecklist == null) return;
         checklistStatus.SetActive(false);
-        _currentChecklist.RemoveListeners();
-        _currentChecklist.Reset();
         _currentChecklist.OnCheckChecked -= OnCheckboxCheck;
         foreach (var checkObject in _checkObjects)
         {
             Destroy(checkObject);
         }
+
+        if (!_currentChecklist.IsDone()) _currentChecklist.Reset();
 
         _checkObjects.Clear();
         _currentChecklist = null;
