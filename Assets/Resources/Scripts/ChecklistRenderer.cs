@@ -61,17 +61,22 @@ public class ChecklistRenderer : MonoBehaviour
         {
             var checkObject = Instantiate(checkPrefab, checkContainer.transform);
             checkObject.GetComponent<CheckRenderer>().Check = checklist.checks[i];
+            if (checklist.checks[i].name == "NOTE")
+            {
+                checkObject.transform.GetChild(0).gameObject.SetActive(false);
+                checkObject.transform.GetChild(1).GetComponent<TMP_Text>().text = checklist.checks[i].name + " " + checklist.checks[i].expectedValue;
+            }
             checklist.checks[i].Index = i;
             _checkObjects.Add(checkObject);
         }
-
+        
         _pagesCount = (_currentChecklist.checks.Count - 1) / checksPerPage + 1;
         _currentPage = 1;
         if (_pagesCount > 1)
         {
             SetPageButtons();
         }
-
+        LoadPage();
         // povecaj right ako ima paging TODO pogledaj jel treba i dalje ovo
         //if (pageButtons.activeSelf)
         //{
