@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 [Serializable]
@@ -11,6 +12,8 @@ public class Checklist
     public UnityAction<int, bool> OnCheckChecked;
     [NonSerialized]
     private int _checkSelectedIndex = -1;
+
+    public bool IsOverridden => checks.TrueForAll(check => check.Overridden);
 
     public bool IsDone()
     {
@@ -54,13 +57,8 @@ public class Checklist
 
     private void CheckChecked(int index, bool checkedValue)
     {
+        Debug.Log("Checklist: " + name + " Check: " + checks[index].name + " Checked: " + checkedValue);
         OnCheckChecked?.Invoke(index, checkedValue);
-    }
-
-    public void AddCheck(Check check)
-    {
-        check.OnCheckChecked += CheckChecked;
-        checks.Add(check);
     }
 
     public void RemoveListeners()
@@ -68,6 +66,14 @@ public class Checklist
         foreach (var check in checks)
         {
             check.OnCheckChecked -= CheckChecked;
+        }
+    }
+
+    public void SetListeners()
+    {
+        foreach (var check in checks)
+        {
+            check.OnCheckChecked += CheckChecked;
         }
     }
 }

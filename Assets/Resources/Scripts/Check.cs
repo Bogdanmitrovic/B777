@@ -19,7 +19,6 @@ public class Check
     
     public UnityAction OnCheckDataChanged;
     public UnityAction<int, bool> OnCheckChecked;
-    // TODO vidi jel ovo iznad treba ovako da se zove ili ne
 
     public Check(string name, string expectedValue, bool isAutomatic, int i)
     {
@@ -35,9 +34,8 @@ public class Check
     public bool IsDone => Checked || Overridden;
     public string Text(int characterCount, int splitNameLimit)
     {
+        if (name == "NOTE") return name + " " + expectedValue;
         var stringBuilder = new StringBuilder();
-        if (Checked) stringBuilder.Append("<color=green>");
-        else if (Overridden) stringBuilder = new StringBuilder().Append("<color=#3ba4c2>");
         var count = 0;
         var names = name.Split(' ');
         for (var i = 0; i < names.Length; i++)
@@ -60,7 +58,6 @@ public class Check
         count += expectedValue.Length;
         stringBuilder.Append(new string('.', characterCount - count));
         stringBuilder.Append(expectedValue);
-        if (Checked || Overridden) stringBuilder.Append("</color>");
         return stringBuilder.ToString();
         // TODO boja da ide u CheckRenderer preko .color ili sta vec, ne kroz tekst sa <color> i </color>
     }

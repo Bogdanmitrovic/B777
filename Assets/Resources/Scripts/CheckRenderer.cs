@@ -15,10 +15,6 @@ public class CheckRenderer : MonoBehaviour
     void Start()
     {
         checkTextComponent.text = Check.Text(CharacterCount, SplitNameLimit);
-        //checkTextComponent.rectTransform.offsetMin = new Vector2(-700, checkTextComponent.rectTransform.offsetMin.y);
-        //checkTextComponent.rectTransform.offsetMax = new Vector2(700, checkTextComponent.rectTransform.offsetMax.y);
-        // TODO sta je ovo iznad???
-        // EDIT nemam pojma ne treba nam
 
         var textButton = gameObject.GetComponent<Button>();
         textButton.onClick.AddListener(() =>
