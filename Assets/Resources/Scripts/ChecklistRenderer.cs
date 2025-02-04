@@ -22,6 +22,7 @@ public class ChecklistRenderer : MonoBehaviour
     public GameObject checklistDone;
     public GameObject title;
     public GameObject checkContainer;
+    public GameObject menuManager;
     public HorizontalLayoutGroup horizontalLayoutGroup;
 
     private int _checklistIndex = 0;
@@ -149,12 +150,21 @@ public class ChecklistRenderer : MonoBehaviour
 
     private void ChecklistDone()
     {
+        menuManager.GetComponent<MenuManager>().ShowButtons(new []
+        {
+            "NORMAL", "CHKLOVRD", "CHKLRESET"
+        });
+        
         checklistDone.SetActive(true);
         // TODO odma pre push bottomButtons.transform.GetChild(1).gameObject.SetActive(false);
     }
 
     private void ChecklistNotDone()
     {
+        menuManager.GetComponent<MenuManager>().ShowButtons(new []
+        {
+            "NORMAL", "ITEMOVRD", "CHKLOVRD", "CHKLRESET"
+        });
         checklistDone.SetActive(false);
         // TODO i ovo pre push bottomButtons.transform.GetChild(1).gameObject.SetActive(true);
     }

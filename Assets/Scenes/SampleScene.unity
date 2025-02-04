@@ -1534,7 +1534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 230.1}
+  m_AnchoredPosition: {x: 0, y: 230.09998}
   m_SizeDelta: {x: -330, y: -1391.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1093227232
@@ -1584,6 +1584,7 @@ MonoBehaviour:
   checklistDone: {fileID: 1582716246}
   title: {fileID: 447940669}
   checkContainer: {fileID: 1819255455}
+  menuManager: {fileID: 854497615}
   horizontalLayoutGroup: {fileID: 1061964275}
 --- !u!1 &1109901335
 GameObject:

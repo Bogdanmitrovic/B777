@@ -177,12 +177,10 @@ public class MenuManager : MonoBehaviour
         {
             content.SetActive(true);
         }
-
-        foreach (var button in _buttons)
-        {
-            button.Value.SetActive(false);
-        }
-        _buttons["EXITMENU"].SetActive(true);
+        
+        ShowButtons(new [] {
+            "EXITMENU"
+        });
     }
 
     private void SetChecksContentActive()
@@ -196,13 +194,23 @@ public class MenuManager : MonoBehaviour
         {
             content.SetActive(false);
         }
+
+        ShowButtons(new[]
+        {
+            "NORMAL", "ITEMOVRD", "CHKLOVRD", "CHKLRESET"
+        });
+    }
+
+    public void ShowButtons(string[] buttons)
+    {
         foreach (var button in _buttons)
         {
             button.Value.SetActive(false);
         }
-        _buttons["NORMAL"].SetActive(true);
-        _buttons["ITEMOVRD"].SetActive(true);
-        _buttons["CHKLOVRD"].SetActive(true);
-        _buttons["CHKLRESET"].SetActive(true);
+
+        foreach (var button in buttons)
+        {
+            _buttons[button].SetActive(true);
+        }
     }
 }
