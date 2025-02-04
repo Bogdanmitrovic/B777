@@ -97,10 +97,6 @@ public class MenuManager : MonoBehaviour
         ClearMenu();
         _currentMenu = menuNumber;
 
-        bottomButtonContainer.SetActive(false); // TODO da se umesto ovo napravi funkcija tipa
-        // TODO da se zove ShowOnlyExitMenu() koja sve slotove od 0 do 4 hide a 5 show
-
-
         var verticalLayoutGroup1 = menuContent[0].transform.GetChild(0);
         var verticalLayoutGroup2 = menuContent[0].transform.GetChild(1);
 
@@ -181,6 +177,12 @@ public class MenuManager : MonoBehaviour
         {
             content.SetActive(true);
         }
+
+        foreach (var button in _buttons)
+        {
+            button.Value.SetActive(false);
+        }
+        _buttons["EXITMENU"].SetActive(true);
     }
 
     private void SetChecksContentActive()
@@ -194,5 +196,13 @@ public class MenuManager : MonoBehaviour
         {
             content.SetActive(false);
         }
+        foreach (var button in _buttons)
+        {
+            button.Value.SetActive(false);
+        }
+        _buttons["NORMAL"].SetActive(true);
+        _buttons["ITEMOVRD"].SetActive(true);
+        _buttons["CHKLOVRD"].SetActive(true);
+        _buttons["CHKLRESET"].SetActive(true);
     }
 }
