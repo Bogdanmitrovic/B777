@@ -1125,9 +1125,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1ee88f0a154466b9546fab77b9c684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonPrefab: {fileID: 0}
-  bottomButtonContainer: {fileID: 0}
-  ChecklistContainer: {fileID: 0}
+  buttonPrefab: {fileID: 2784414024706625185, guid: 1524493eebc29f6498875ad44fd37cfe, type: 3}
+  topButtonContainer: {fileID: 873140414}
+  bottomButtonContainer: {fileID: 217821032}
+  bottomButtonSlots:
+  - {fileID: 1109901335}
+  - {fileID: 982050787}
+  - {fileID: 707351413}
+  - {fileID: 898136412}
+  - {fileID: 87246746}
+  - {fileID: 150149203}
+  screenContainer: {fileID: 1093227230}
+  checksContent:
+  - {fileID: 1819255455}
+  - {fileID: 2081378628}
+  menuContent:
+  - {fileID: 1061964273}
+  title: {fileID: 447940669}
+  jsonFile: {fileID: 4900000, guid: e0c464e9c8b010240bfbb225da5b48db, type: 3}
 --- !u!1 &873140414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,15 +1580,11 @@ MonoBehaviour:
   checksPerPage: 8
   checkPrefab: {fileID: 4747364754279814429, guid: ff02684577f1be44dbe7f6b5c7053e5f, type: 3}
   pageNumberPrefab: {fileID: 8931930828613809285, guid: fbbf7cb881ab56e49b3a75fcdac7f8d8, type: 3}
-  topButtons: {fileID: 873140414}
-  bottomButtons: {fileID: 217821032}
   pageButtons: {fileID: 2081378628}
   checklistDone: {fileID: 1582716246}
   title: {fileID: 447940669}
-  menuContainer: {fileID: 1061964273}
   checkContainer: {fileID: 1819255455}
   horizontalLayoutGroup: {fileID: 1061964275}
-  jsonFile: {fileID: 4900000, guid: e0c464e9c8b010240bfbb225da5b48db, type: 3}
 --- !u!1 &1109901335
 GameObject:
   m_ObjectHideFlags: 0

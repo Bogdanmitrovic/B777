@@ -44,6 +44,11 @@ public class CheckRenderer : MonoBehaviour
 
     private void UpdateUI()
     {
+        if (checkmarkImage == null)
+        {
+            Check.OnCheckDataChanged -= UpdateUI;
+            return;
+        }
         checkTextComponent.text = Check.Text(CharacterCount, SplitNameLimit);
         checkmarkImage.color = Check.Overridden ? new Color(.23f, .64f, .76f, 1) : Color.green;
         checkmarkImage.enabled = Check.Checked || Check.Overridden;

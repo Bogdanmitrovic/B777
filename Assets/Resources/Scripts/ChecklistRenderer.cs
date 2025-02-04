@@ -42,7 +42,7 @@ public class ChecklistRenderer : MonoBehaviour
     {
         if (index != -1)
             _checklistIndex = index;
-        if (_checklistIndex >= _normalChecklists.Count() || _checklistIndex < 0)
+        if (_checklistIndex >= _normalChecklists.Count || _checklistIndex < 0)
         {
             _checklistIndex = 0;
         }
@@ -55,7 +55,6 @@ public class ChecklistRenderer : MonoBehaviour
         UnloadCurrentChecklist();
         _currentChecklist = checklist;
         title.GetComponent<TMP_Text>().text = checklist.name;
-        _checkObjects.Clear();
         checklist.OnCheckChecked += OnCheckboxCheck;
         for (var i = 0; i < checklist.checks.Count; i++)
         {
@@ -92,11 +91,15 @@ public class ChecklistRenderer : MonoBehaviour
     {
         if (_currentChecklist == null) return;
         checklistDone.SetActive(false);
+        _currentChecklist.RemoveListeners();
+        _currentChecklist.Reset();
         _currentChecklist.OnCheckChecked -= OnCheckboxCheck;
         foreach (var checkObject in _checkObjects)
         {
             Destroy(checkObject);
         }
+        _checkObjects.Clear();
+        _currentChecklist = null;
     }
 
     public void OnCheckboxCheck(int index, bool value)

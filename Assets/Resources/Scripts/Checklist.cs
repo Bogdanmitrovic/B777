@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 [Serializable]
 public class Checklist
@@ -62,5 +61,13 @@ public class Checklist
     {
         check.OnCheckChecked += CheckChecked;
         checks.Add(check);
+    }
+
+    public void RemoveListeners()
+    {
+        foreach (var check in checks)
+        {
+            check.OnCheckChecked -= CheckChecked;
+        }
     }
 }
