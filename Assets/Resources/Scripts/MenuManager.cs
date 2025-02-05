@@ -83,7 +83,7 @@ public class MenuManager : MonoBehaviour
 
     void LoadNormalChecklist()
     {
-        _checklistRenderer.LoadNormalChecklist();
+        _checklistRenderer.LoadNextNormalChecklist();
     }
 
     public void ShowMenu(int menuNumber)
@@ -120,8 +120,8 @@ public class MenuManager : MonoBehaviour
             var i1 = i;
             button.transform.GetComponent<Button>().onClick.AddListener(() =>
             {
-                _checklistRenderer.LoadNormalChecklist(i1);
                 SetChecksContentActive();
+                _checklistRenderer.LoadChecklistByIndex(i1);
             });
         }
     }

@@ -39,7 +39,12 @@ public class ChecklistRenderer : MonoBehaviour
         _checklists = checklists;
     }
 
-    public void LoadNormalChecklist(int index = -1)
+    public void LoadNextNormalChecklist()
+    {
+        var checklist = _checklists.FirstOrDefault(checklist => !checklist.IsDone()) ?? _checklists.Last();
+        LoadChecklist(checklist);
+    }
+    public void LoadChecklistByIndex(int index = -1)
     {
         if (index != -1)
             _checklistIndex = index;
@@ -79,6 +84,10 @@ public class ChecklistRenderer : MonoBehaviour
         if (_pagesCount > 1)
         {
             SetPageButtons();
+        }
+        else
+        {
+            RemovePageButtons();
         }
 
         LoadPage();

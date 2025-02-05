@@ -77,7 +77,7 @@ public class Check
 
     public void TriggerReset()
     {
-        Checked = false;
+        Checked = isAutomatic;
         Overridden = false;
         IsSelected = false;
         OnCheckDataChanged?.Invoke();
@@ -90,6 +90,5 @@ public class Check
         Checked = !Checked;
         OnCheckDataChanged?.Invoke();
         OnCheckChecked?.Invoke(Index, Checked);
-        //checklistRendererHolder.GetComponent<ChecklistRenderer>().OnCheckboxCheck(i, Check.Checked);
     }
 }
