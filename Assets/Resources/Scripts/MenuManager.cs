@@ -31,7 +31,6 @@ public class MenuManager : MonoBehaviour
     private int _currentMenu = -1;
     private int _leftChildCount = 0;
     private List<Menu> _menus;
-    private int _currentPage = 1;
 
     void Start()
     {
@@ -139,24 +138,38 @@ public class MenuManager : MonoBehaviour
     
     public void ResetButtonFunctions(int index)
     {
-        if(-1>index && index>3)
-            return;
-        if (index == 0)
-            ResetNormal();
-        else if (index == 1)
-            ResetNonNormal();
-        else
-            LoadMenusFromJson();         
+        switch (index)
+        {
+            case < 0:
+                return;
+            case > 3:
+                return;
+            case 0:
+                ResetNormal();
+                break;
+            case 1:
+                ResetNonNormal();
+                break;
+            default:
+                LoadMenusFromJson();
+                break;
+        }
     }
 
     public void ResetNormal()
     {
-
+        foreach (var checklist in _menus[0].checklists)
+        {
+            checklist.Reset();
+        }
     }    
 
     public void ResetNonNormal()
     {
-
+        foreach (var checklist in _menus[2].checklists)
+        {
+            checklist.Reset();
+        }
     }
 
     public void ClearMenu()
