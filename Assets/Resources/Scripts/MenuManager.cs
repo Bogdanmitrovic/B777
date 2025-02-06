@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Newtonsoft.Json;
+using UnityEngine.Events;
 
 public class MenuManager : MonoBehaviour
 {
@@ -41,40 +43,27 @@ public class MenuManager : MonoBehaviour
 
         _checklistRenderer = screenContainer.GetComponent<ChecklistRenderer>();
 
-        var button = Instantiate(buttonPrefab, bottomButtonSlots[0].transform);
-        button.GetComponentInChildren<TMP_Text>().text = "NORMAL";
-        button.GetComponent<Button>().onClick.AddListener(LoadNormalChecklist);
-        _buttons.Add("NORMAL", button);
-
-        button = Instantiate(buttonPrefab, bottomButtonSlots[1].transform);
-        button.GetComponentInChildren<TMP_Text>().text = "ITEM OVRD";
-        button.GetComponent<Button>().onClick.AddListener(_checklistRenderer.OverrideCheck);
-        _buttons.Add("ITEMOVRD", button);
-
-        button = Instantiate(buttonPrefab, bottomButtonSlots[3].transform);
-        button.GetComponentInChildren<TMP_Text>().text = "CHKL OVRD";
-        button.GetComponent<Button>().onClick.AddListener(_checklistRenderer.OverrideChecklist);
-        _buttons.Add("CHKLOVRD", button);
-
-        button = Instantiate(buttonPrefab, bottomButtonSlots[4].transform);
-        button.GetComponentInChildren<TMP_Text>().text = "CHKL RESET";
-        button.GetComponent<Button>().onClick.AddListener(_checklistRenderer.ResetChecklist);
-        _buttons.Add("CHKLRESET", button);
-
-        button = Instantiate(buttonPrefab, bottomButtonSlots[5].transform);
-        button.GetComponentInChildren<TMP_Text>().text = "EXIT MENU";
-        // TODO button.GetComponent<Button>().onClick.AddListener(checklistRenderer.ExitMenu);
-        button.SetActive(false);
-        _buttons.Add("EXITMENU", button);
+        CreateBottomButton("NORMAL", "NORMAL", LoadNormalChecklist,0);
+        CreateBottomButton("ITEM OVRD", "ITEMOVRD", _checklistRenderer.OverrideCheck,1);
+        CreateBottomButton("CHKL OVRD", "CHKLOVRD", _checklistRenderer.OverrideChecklist,3);
+        CreateBottomButton("CHKL RESET", "CHKLRESET", _checklistRenderer.ResetChecklist,4);
+        //TODO listener za exit menu
+        CreateBottomButton("EXIT MENU", "EXITMENU", null,5, false);
         bottomButtonContainer.SetActive(true);
 
         LoadMenusFromJson();
         ShowMenu(0);
         for (var i = 0; i < 3; i++)
             ShowMenuSetListener(i);
-        //topButtonContainer.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { ShowMenu(0); });
-        //topButtonContainer.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => { ShowMenu(1); });
-        //topButtonContainer.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => { ShowMenu(2); });
+    }
+
+    public void CreateBottomButton(string buttonText, string buttonKey, UnityAction onClickListener, int slotIndex, bool isActive = true)
+    {
+        var button = Instantiate(buttonPrefab, bottomButtonSlots[slotIndex].transform);
+        button.GetComponentInChildren<TMP_Text>().text = buttonText;
+        button.GetComponent<Button>().onClick.AddListener(onClickListener);
+        button.SetActive(isActive);
+        _buttons.Add(buttonKey, button);
     }
 
     public void ShowMenuSetListener(int index)
@@ -128,11 +117,7 @@ public class MenuManager : MonoBehaviour
             {
                 for (var j = 0; j < 3; j++)
                 {
-                    button.transform.GetComponent<Button>().onClick.AddListener(() =>
-                    {
-                        //SetChecksContentActive();
-                        ResetButtonFunctions(j);
-                    });
+                    button.transform.GetComponent<Button>().onClick.AddListener(() => ResetButtonFunctions(j));
                 }
             }
             else
