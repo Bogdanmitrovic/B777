@@ -70,9 +70,16 @@ public class MenuManager : MonoBehaviour
 
         LoadMenusFromJson();
         ShowMenu(0);
-        topButtonContainer.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { ShowMenu(0); });
-        topButtonContainer.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => { ShowMenu(1); });
-        topButtonContainer.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => { ShowMenu(2); });
+        for (var i = 0; i < 3; i++)
+            ShowMenuSetListener(i);
+        //topButtonContainer.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { ShowMenu(0); });
+        //topButtonContainer.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => { ShowMenu(1); });
+        //topButtonContainer.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => { ShowMenu(2); });
+    }
+
+    public void ShowMenuSetListener(int index)
+    {
+        topButtonContainer.transform.GetChild(index).GetComponent<Button>().onClick.AddListener(() => { ShowMenu(index); });
     }
 
     private void LoadMenusFromJson()
@@ -116,14 +123,55 @@ public class MenuManager : MonoBehaviour
             RectTransform buttonRect = button.GetComponent<RectTransform>();
             buttonRect.sizeDelta = new Vector2(buttonRect.sizeDelta.x, buttonHeight);
 
-
-            var i1 = i;
-            button.transform.GetComponent<Button>().onClick.AddListener(() =>
+            // odavde pokusavam da napravim da resets rade
+            if (menuNumber == 1)
             {
-                SetChecksContentActive();
-                _checklistRenderer.LoadChecklistByIndex(i1);
-            });
-        }
+                for (var j = 0; j < 3; j++)
+                {
+                    button.transform.GetComponent<Button>().onClick.AddListener(() =>
+                    {
+                        //SetChecksContentActive();
+                        ResetButtonFunctions(j);
+                    });
+                }
+            }
+            else
+            {
+                var i1 = i;
+                button.transform.GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    SetChecksContentActive();
+                    _checklistRenderer.LoadChecklistByIndex(i1);
+                });
+            }
+            //ovo na dalje ovako treba
+
+        }        
+    }
+
+    // Ideja je da se ovim buttonima sto se prave u resets doda po jedna funkcija, a da bi kod bio lepsi, napravio sam ovu ResetButtonFunctions koja ce
+    // odgovarajucem buttonu da dodeli koju funkciju da izvrsi
+    
+    public void ResetButtonFunctions(int index)
+    {
+        if(-1>index && index>3)
+            return;
+        if (index == 0)
+            ResetNormal();
+        else if (index == 1)
+            ResetNonNormal();
+        else
+            LoadMenusFromJson();         
+    }
+
+    public void ResetNormal()
+    {
+
+    }    
+
+    public void ResetNonNormal()
+    {
+
     }
 
     public void ClearMenu()
