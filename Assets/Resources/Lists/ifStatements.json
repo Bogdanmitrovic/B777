@@ -1,0 +1,40 @@
+﻿[
+  {
+    "name": "Critical data changes",
+    "checklistYes": [
+      {
+        "name": "PFD",
+        "expectedValue": "V2__, LNAV/VNAV__, ALTITUDE__",
+        "isAutomatic": false
+      },
+      {
+        "name": "Takeoff speeds",
+        "expectedValue": "V1__, VR__, V2__",
+        "isAutomatic": false
+      },
+      {
+        "name":"CDU preflight",
+        "expectedValue": "Completed",
+        "isAutomatic": false
+      }
+    ],
+    "checklistNo": []
+  },
+  {
+    "name": "PCA available",
+    "checklistYes": [
+      {
+        "name": "RECIRC FANS",
+        "expectedValue": "OFF",
+        "isAutomatic": false
+      }
+    ],
+    "checklistNo": [
+      {
+        "name": "RECIRC FANS",
+        "expectedValue": "ON",
+        "isAutomatic": false
+      }
+    ]
+  }
+]
