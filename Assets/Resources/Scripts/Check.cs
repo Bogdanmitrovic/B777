@@ -31,7 +31,7 @@ public class Check
         IsSelected = false;
     }
 
-    public bool IsDone => Checked || Overridden;
+    public bool IsDone => Checked || Overridden || IsNote;
     public bool IsNote => name == "NOTE";
     public string Text(int characterCount, int splitNameLimit)
     {
@@ -65,6 +65,7 @@ public class Check
 
     public void TriggerOverride()
     {
+        if (IsNote) return;
         Checked = false;
         Overridden = true;
         OnCheckDataChanged?.Invoke();
@@ -72,6 +73,7 @@ public class Check
 
     public void TriggerSelect(bool selected)
     {
+        if (IsNote) return;
         IsSelected = selected;
         OnCheckDataChanged?.Invoke();
     }
