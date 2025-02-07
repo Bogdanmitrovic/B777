@@ -91,7 +91,10 @@ public class ChecklistRenderer : MonoBehaviour
         }
 
         LoadPage();
-        ChecklistNotDone();
+        if(_currentChecklist.IsDone())
+            ChecklistDone();
+        else
+            ChecklistNotDone();
     }
 
     public void UnloadCurrentChecklist()

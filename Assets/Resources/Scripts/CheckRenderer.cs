@@ -47,6 +47,8 @@ public class CheckRenderer : MonoBehaviour
     private void SetColors()
     {
         // checkmarkImage.color = color; ne postoje plave kvacice?
+        if (Check.IsNote)
+            return;
         checkTextComponent.color = Check.Overridden ? new Color(.23f, .64f, .76f, 1) : Check.Checked ? Color.green : Color.white;
         checkmarkBackgroundImage.color = Check.Overridden ? new Color(0f, 0f, 0f, 1f) : new Color(1f, 1f, 1f, .5f);
         checkmarkBackgroundImage.GetComponent<Outline>().enabled = Check.Overridden;
