@@ -32,9 +32,10 @@ public class Check
     }
 
     public bool IsDone => Checked || Overridden;
+    public bool IsNote => name == "NOTE";
     public string Text(int characterCount, int splitNameLimit)
     {
-        if (name == "NOTE") return name + " " + expectedValue;
+        if (IsNote) return name + " " + expectedValue;
         var stringBuilder = new StringBuilder();
         var count = 0;
         var names = name.Split(' ');
