@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 // TODO da se nadje gde treba kad se ucita checklist da se pokazu/sakriju page buttons (SetPageButtons i RemovePageButtons)
@@ -18,6 +17,7 @@ public class ChecklistRenderer : MonoBehaviour
     public int checksPerPage = 8;
 
     public GameObject checkPrefab;
+    public GameObject conditionalCheckPrefab;
     public GameObject pageNumberPrefab;
     public GameObject pageButtons;
     public GameObject checklistStatus;
@@ -39,11 +39,18 @@ public class ChecklistRenderer : MonoBehaviour
         _checklists = checklists;
     }
 
-    public void LoadNextNormalChecklist()
+    public bool LoadNextNormalChecklist()
     {
-        var checklist = _checklists.FirstOrDefault(checklist => !checklist.IsDone()) ?? _checklists.Last();
+        var checklist = _checklists.FirstOrDefault(checklist => !checklist.IsDone());
+        if (checklist == null)
+        {
+            return false;
+        }
+
         LoadChecklist(checklist);
+        return true;
     }
+
     public void LoadChecklistByIndex(int index = -1)
     {
         if (index != -1)
@@ -64,19 +71,54 @@ public class ChecklistRenderer : MonoBehaviour
         _currentChecklist.SetListeners();
         title.GetComponent<TMP_Text>().text = checklist.name;
         checklist.OnCheckChecked += OnCheckboxCheck;
-        for (var i = 0; i < checklist.checks.Count; i++)
+        var conditionalChecks = checklist.checks.Where(check => check.IsConditional).ToList();
+        var conditionalItems = new HashSet<string>();
+        foreach (var check in conditionalChecks)
         {
-            var checkObject = Instantiate(checkPrefab, checkContainer.transform);
-            checkObject.GetComponent<CheckRenderer>().Check = checklist.checks[i];
-            if (checklist.checks[i].name == "NOTE")
+            if (check.conditionalChecksYes != null)
             {
-                checkObject.transform.GetChild(0).gameObject.SetActive(false);
-                checkObject.transform.GetChild(1).GetComponent<TMP_Text>().text =
-                    checklist.checks[i].name + " " + checklist.checks[i].expectedValue;
+                foreach (var conditionalCheck in check.conditionalChecksYes)
+                {
+                    conditionalItems.Add(conditionalCheck);
+                }
             }
 
-            checklist.checks[i].Index = i;
-            _checkObjects.Add(checkObject);
+            if (check.conditionalChecksNo != null)
+            {
+                foreach (var conditionalCheck in check.conditionalChecksNo)
+                {
+                    conditionalItems.Add(conditionalCheck);
+                }
+            }
+        }
+
+        for (var i = 0; i < checklist.checks.Count; i++)
+        {
+            if (checklist.checks[i].IsConditional)
+            {
+                // var checkObject = Instantiate(conditionalCheckPrefab, checkContainer.transform);
+                //_checkObjects.Add(checkObject);
+                
+                // instantiate conditional check
+            }
+            else
+            {
+                // instantiate normal check
+                var checkObject = Instantiate(checkPrefab, checkContainer.transform);
+                var checkRenderer = checkObject.GetComponent<CheckRenderer>();
+                checkRenderer.check = checklist.checks[i];
+                checkRenderer.SetTextSize(characterCount, splitNameLimit);
+                checkRenderer.hasIndentation = conditionalItems.Contains(checklist.checks[i].name);
+                if (checklist.checks[i].name == "NOTE")
+                {
+                    checkObject.transform.GetChild(0).gameObject.SetActive(false);
+                    checkObject.transform.GetChild(1).GetComponent<TMP_Text>().text =
+                        checklist.checks[i].name + " " + checklist.checks[i].expectedValue;
+                }
+
+                checklist.checks[i].Index = i;
+                _checkObjects.Add(checkObject);
+            }
         }
 
         _pagesCount = (_currentChecklist.checks.Count - 1) / checksPerPage + 1;
@@ -91,7 +133,7 @@ public class ChecklistRenderer : MonoBehaviour
         }
 
         LoadPage();
-        if(_currentChecklist.IsDone())
+        if (_currentChecklist.IsDone())
             ChecklistDone();
         else
             ChecklistNotDone();
@@ -131,12 +173,6 @@ public class ChecklistRenderer : MonoBehaviour
         ChecklistDone();
     }
 
-    public void OnCheckSelect(int index)
-    {
-        Debug.Log("Check selected " + index);
-        _currentChecklist?.OnCheckSelect(index);
-    }
-
     public void OverrideCheck()
     {
         _currentChecklist?.OverrideCheck();
@@ -168,7 +204,7 @@ public class ChecklistRenderer : MonoBehaviour
         checklistStatus.SetActive(true);
         var isOverridden = _currentChecklist!.IsOverridden;
         checklistStatus.GetComponentInChildren<TMP_Text>().text =
-            isOverridden ? "CHECKLIST OVERRIDDEN" : "CHECKLIST DONE";
+            isOverridden ? "CHECKLIST OVERRIDDEN" : "CHECKLIST COMPLETE";
         checklistStatus.GetComponent<Image>().color = isOverridden ? new Color(.23f, .64f, .76f, 1) : Color.green;
 
         // TODO vidi jel treba HideButtons da se napravi

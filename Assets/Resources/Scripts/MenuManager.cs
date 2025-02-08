@@ -42,12 +42,12 @@ public class MenuManager : MonoBehaviour
 
         _checklistRenderer = screenContainer.GetComponent<ChecklistRenderer>();
 
-        CreateBottomButton("NORMAL", "NORMAL", LoadNormalChecklist,0);
-        CreateBottomButton("ITEM OVRD", "ITEMOVRD", _checklistRenderer.OverrideCheck,1);
-        CreateBottomButton("CHKL OVRD", "CHKLOVRD", _checklistRenderer.OverrideChecklist,3);
-        CreateBottomButton("CHKL RESET", "CHKLRESET", _checklistRenderer.ResetChecklist,4);
+        CreateBottomButton("NORMAL", "NORMAL", LoadNormalChecklist, 0);
+        CreateBottomButton("ITEM OVRD", "ITEMOVRD", _checklistRenderer.OverrideCheck, 1);
+        CreateBottomButton("CHKL OVRD", "CHKLOVRD", _checklistRenderer.OverrideChecklist, 3);
+        CreateBottomButton("CHKL RESET", "CHKLRESET", _checklistRenderer.ResetChecklist, 4);
         //TODO listener za exit menu
-        CreateBottomButton("EXIT MENU", "EXITMENU", null,5, false);
+        CreateBottomButton("EXIT MENU", "EXITMENU", null, 5, false);
         bottomButtonContainer.SetActive(true);
 
         LoadMenusFromJson();
@@ -56,7 +56,8 @@ public class MenuManager : MonoBehaviour
             ShowMenuSetListener(i);
     }
 
-    public void CreateBottomButton(string buttonText, string buttonKey, UnityAction onClickListener, int slotIndex, bool isActive = true)
+    public void CreateBottomButton(string buttonText, string buttonKey, UnityAction onClickListener, int slotIndex,
+        bool isActive = true)
     {
         var button = Instantiate(buttonPrefab, bottomButtonSlots[slotIndex].transform);
         button.GetComponentInChildren<TMP_Text>().text = buttonText;
@@ -67,7 +68,8 @@ public class MenuManager : MonoBehaviour
 
     public void ShowMenuSetListener(int index)
     {
-        topButtonContainer.transform.GetChild(index).GetComponent<Button>().onClick.AddListener(() => { ShowMenu(index); });
+        topButtonContainer.transform.GetChild(index).GetComponent<Button>().onClick
+            .AddListener(() => { ShowMenu(index); });
     }
 
     private void LoadMenusFromJson()
@@ -78,7 +80,9 @@ public class MenuManager : MonoBehaviour
 
     void LoadNormalChecklist()
     {
-        _checklistRenderer.LoadNextNormalChecklist();
+        var loaded = _checklistRenderer.LoadNextNormalChecklist();
+        if (!loaded)
+            ShowMenu(0);
     }
 
     public void ShowMenu(int menuNumber)
@@ -129,13 +133,12 @@ public class MenuManager : MonoBehaviour
                 });
             }
             //ovo na dalje ovako treba
-
-        }        
+        }
     }
 
     // Ideja je da se ovim buttonima sto se prave u resets doda po jedna funkcija, a da bi kod bio lepsi, napravio sam ovu ResetButtonFunctions koja ce
     // odgovarajucem buttonu da dodeli koju funkciju da izvrsi
-    
+
     public void ResetButtonFunctions(int index)
     {
         switch (index)
@@ -162,7 +165,7 @@ public class MenuManager : MonoBehaviour
         {
             checklist.Reset();
         }
-    }    
+    }
 
     public void ResetNonNormal()
     {
@@ -222,8 +225,9 @@ public class MenuManager : MonoBehaviour
         {
             content.SetActive(true);
         }
-        
-        ShowButtons(new [] {
+
+        ShowButtons(new[]
+        {
             "EXITMENU"
         });
     }

@@ -2,16 +2,15 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [Serializable]
 public class Checklist
 {
     public List<Check> checks = new();
     public string name;
-    [NonSerialized]
-    public UnityAction<int, bool> OnCheckChecked;
-    [NonSerialized]
-    private int _checkSelectedIndex = -1;
+    [NonSerialized] public UnityAction<int, bool> OnCheckChecked;
+    [NonSerialized] private int _checkSelectedIndex = -1;
 
     public bool IsOverridden => checks.TrueForAll(check => check.Overridden);
 
@@ -27,16 +26,17 @@ public class Checklist
 
     public void OnCheckSelect(int index)
     {
+        if (index == _checkSelectedIndex)
+        {
+            return;
+        }
+
         if (_checkSelectedIndex >= 0 && _checkSelectedIndex < checks.Count)
         {
             checks[_checkSelectedIndex].TriggerSelect(false);
         }
 
         _checkSelectedIndex = index;
-        if (index >= 0 && index < checks.Count)
-        {
-            checks[index].TriggerSelect(true);
-        }
     }
 
     public void OverrideCheck()
@@ -66,6 +66,13 @@ public class Checklist
         foreach (var check in checks)
         {
             check.OnCheckChecked += CheckChecked;
+            check.OnConditionalCheck += CheckConditional;
+            check.OnCheckSelected += OnCheckSelect;
         }
+    }
+
+    private void CheckConditional(int index, ConditionalState state)
+    {
+        Debug.Log("Conditional check " + index + " is " + state);
     }
 }

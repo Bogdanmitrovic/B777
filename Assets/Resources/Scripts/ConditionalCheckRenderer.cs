@@ -1,19 +1,25 @@
-using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CheckRenderer : MonoBehaviour
+public class ConditionalCheckRenderer : MonoBehaviour
 {
     public Check check;
-    public Image checkmarkImage;
-    public Image checkmarkBackgroundImage;
-    public TMP_Text checkTextComponent;
     public Outline outline;
-    public bool hasIndentation;
-    private int _splitNameLimit;
-    private int _characterCount;
+    
+    public GameObject conditionalCheckContainer;
 
+    public Image checkmarkImageLeft;
+    public Image checkmarkBackgroundImageLeft;
+    public TMP_Text checkTextComponentLeft;
+    
+    public Image checkmarkImageRight;
+    public Image checkmarkBackgroundImageRight;
+    public TMP_Text checkTextComponentRight;
+    
+    private int _characterCount;
+    private int _splitNameLimit;
+/*
     void Start()
     {
         SetListeners();
@@ -25,8 +31,7 @@ public class CheckRenderer : MonoBehaviour
     {
         gameObject.GetComponent<Button>().onClick.AddListener(() =>
         {
-            check.TriggerSelect(true);
-            // transform.parent.parent.GetComponent<ChecklistRenderer>().OnCheckSelect(check.Index);
+            transform.parent.parent.GetComponent<ChecklistRenderer>().OnCheckSelect(check.Index);
         });
 
         if (!check.isAutomatic)
@@ -99,5 +104,5 @@ public class CheckRenderer : MonoBehaviour
     private void OnDestroy()
     {
         check.OnCheckDataChanged -= UpdateUI;
-    }
+    }*/
 }

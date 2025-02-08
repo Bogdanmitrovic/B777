@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
+using JetBrains.Annotations;
+using UnityEngine;
 using UnityEngine.Events;
 
 [Serializable]
@@ -8,17 +11,17 @@ public class Check
     public string name;
     public string expectedValue;
     public bool isAutomatic;
-    [NonSerialized]
-    public bool Checked;
-    [NonSerialized]
-    public bool Overridden;
-    [NonSerialized]
-    public int Index;
-    [NonSerialized]
-    public bool IsSelected;
-    
+    [CanBeNull] public List<string> conditionalChecksYes;
+    [CanBeNull] public List<string> conditionalChecksNo;
+    [NonSerialized] public bool Checked;
+    [NonSerialized] public bool Overridden;
+    [NonSerialized] public int Index;
+    [NonSerialized] public bool IsSelected;
+
     public UnityAction OnCheckDataChanged;
     public UnityAction<int, bool> OnCheckChecked;
+    public UnityAction<int> OnCheckSelected;
+    public UnityAction<int, ConditionalState> OnConditionalCheck;
 
     public Check(string name, string expectedValue, bool isAutomatic, int i)
     {
@@ -33,35 +36,7 @@ public class Check
 
     public bool IsDone => Checked || Overridden || IsNote;
     public bool IsNote => name == "NOTE";
-    public string Text(int characterCount, int splitNameLimit)
-    {
-        if (IsNote) return name + " " + expectedValue;
-        var stringBuilder = new StringBuilder();
-        var count = 0;
-        var names = name.Split(' ');
-        for (var i = 0; i < names.Length; i++)
-        {
-            var name = names[i];
-            stringBuilder.Append(name);
-            count += name.Length;
-            if (i != names.Length - 1 && count >= splitNameLimit)
-            {
-                stringBuilder.Append("\n");
-                count = 0;
-            }
-            else
-            {
-                stringBuilder.Append(" ");
-                count++;
-            }
-        }
-
-        count += expectedValue.Length;
-        stringBuilder.Append(new string('.', characterCount - count));
-        stringBuilder.Append(expectedValue);
-        return stringBuilder.ToString();
-        // TODO boja da ide u CheckRenderer preko .color ili sta vec, ne kroz tekst sa <color> i </color>
-    }
+    public bool IsConditional => conditionalChecksYes != null || conditionalChecksNo != null;
 
     public void TriggerOverride()
     {
@@ -76,6 +51,7 @@ public class Check
         if (IsNote) return;
         IsSelected = selected;
         OnCheckDataChanged?.Invoke();
+        if (selected) OnCheckSelected?.Invoke(Index);
     }
 
     public void TriggerReset()
@@ -89,7 +65,7 @@ public class Check
     public void TriggerCheck()
     {
         if (Overridden || isAutomatic) return;
-        
+
         Checked = !Checked;
         OnCheckDataChanged?.Invoke();
         OnCheckChecked?.Invoke(Index, Checked);
