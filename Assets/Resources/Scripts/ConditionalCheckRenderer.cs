@@ -25,7 +25,7 @@ public class ConditionalCheckRenderer : MonoBehaviour
     {
         SetListeners();
         check.OnCheckDataChanged += UpdateUI;
-        EnableConditionalCheck();
+        SetConditionalCheckState(true);
         UpdateUI();
     }
     private void SetListeners()
@@ -47,30 +47,24 @@ public class ConditionalCheckRenderer : MonoBehaviour
             case ConditionalState.No:
                 { 
                     check.TriggerOverride();
-                    DisableConditionalCheck();
+                    SetConditionalCheckState(false);
                     break;
                 }
             case ConditionalState.Yes:
                 {
                     check.TriggerCheck();
-                    DisableConditionalCheck();
+                    SetConditionalCheckState(false);
                     break;
                 }
         }
     }
 
-    private void EnableConditionalCheck()
+    private void SetConditionalCheckState(bool state)
     {
-        checkmarkBackgroundImageLeft.GetComponent<Button>().enabled = true;
-        checkmarkBackgroundImageRight.GetComponent<Button>().enabled = true;
+        checkmarkBackgroundImageLeft.GetComponent<Button>().enabled = state;
+        checkmarkBackgroundImageRight.GetComponent<Button>().enabled = state;
     }
-
-    private void DisableConditionalCheck()
-    {
-        checkmarkBackgroundImageLeft.GetComponent<Button>().enabled = false;
-        checkmarkBackgroundImageRight.GetComponent<Button>().enabled = false;
-    }
-    
+       
 
     private void UpdateUI()
     {
@@ -79,7 +73,7 @@ public class ConditionalCheckRenderer : MonoBehaviour
         checkTextComponentRight.text = "No";
         checkmarkImageLeft.enabled = check.ConditionalState == ConditionalState.Yes;
         checkmarkImageRight.enabled = check.ConditionalState == ConditionalState.No;
-        if(check.ConditionalState == ConditionalState.None) EnableConditionalCheck();
+        if(check.ConditionalState == ConditionalState.None) SetConditionalCheckState(true);
         SetColors();
         outline.enabled = check.IsSelected;
     }
@@ -88,8 +82,6 @@ public class ConditionalCheckRenderer : MonoBehaviour
         // TODO set conditional check colors
         var color = check.Overridden ? new Color(.23f, .64f, .76f, 1) : check.Checked ? Color.green : Color.white;
         checkTextComponent.color = color;
-        checkmarkBackgroundImageLeft.color = color;
-        checkmarkBackgroundImageRight.color = color;
     }
     private void OnDestroy()
     {
