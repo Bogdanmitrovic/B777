@@ -10,6 +10,8 @@ public class Check
 {
     public string name;
     public string expectedValue;
+    public List<Check> expectedYes;
+    public List<Check> expectedNo;
     public bool isAutomatic;
     [CanBeNull] public List<string> conditionalChecksYes;
     [CanBeNull] public List<string> conditionalChecksNo;

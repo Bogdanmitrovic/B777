@@ -96,8 +96,9 @@ public class ChecklistRenderer : MonoBehaviour
         {
             if (checklist.checks[i].IsConditional)
             {
-                // var checkObject = Instantiate(conditionalCheckPrefab, checkContainer.transform);
-                //_checkObjects.Add(checkObject);
+                var checkObject = Instantiate(conditionalCheckPrefab, checkContainer.transform);
+                checkObject.transform.GetChild(1).GetComponent<TMP_Text>().text = checklist.checks[i].name;
+                _checkObjects.Add(checkObject);
                 
                 // instantiate conditional check
             }
