@@ -88,9 +88,6 @@ public class MenuManager : MonoBehaviour
     public void ShowMenu(int menuNumber)
     {
         SetMenuContentActive();
-        if (menuNumber == _currentMenu)
-            return;
-
         ClearMenu();
         _currentMenu = menuNumber;
         _checklistRenderer.SetChecklists(_menus[menuNumber].checklists);
