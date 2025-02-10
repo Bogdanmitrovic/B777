@@ -19,6 +19,7 @@ public class Check
     [NonSerialized] public bool Overridden;
     [NonSerialized] public int Index;
     [NonSerialized] public bool IsSelected;
+    [NonSerialized] public ConditionalState ConditionalState;
 
     public UnityAction OnCheckDataChanged;
     public UnityAction<int, bool> OnCheckChecked;
@@ -34,9 +35,11 @@ public class Check
         Overridden = false;
         Index = i;
         IsSelected = false;
+        ConditionalState = ConditionalState.None;
     }
 
     public bool IsDone => Checked || Overridden || IsNote;
+
     public bool IsNote => name == "NOTE";
     public bool IsConditional => conditionalChecksYes != null || conditionalChecksNo != null;
 
@@ -61,6 +64,7 @@ public class Check
         Checked = isAutomatic;
         Overridden = false;
         IsSelected = false;
+        ConditionalState = ConditionalState.None;
         OnCheckDataChanged?.Invoke();
     }
 
@@ -71,5 +75,12 @@ public class Check
         Checked = !Checked;
         OnCheckDataChanged?.Invoke();
         OnCheckChecked?.Invoke(Index, Checked);
+    }
+
+    public void TriggerConditionCheck(ConditionalState conditionalState)
+    {
+        ConditionalState = conditionalState;
+        OnConditionalCheck?.Invoke(Index, conditionalState);
+        OnCheckDataChanged?.Invoke();
     }
 }

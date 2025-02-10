@@ -94,13 +94,14 @@ public class ChecklistRenderer : MonoBehaviour
 
         for (var i = 0; i < checklist.checks.Count; i++)
         {
+            checklist.checks[i].Index = i;
             if (checklist.checks[i].IsConditional)
             {
-                var checkObject = Instantiate(conditionalCheckPrefab, checkContainer.transform);
-                checkObject.transform.GetChild(1).GetComponent<TMP_Text>().text = checklist.checks[i].name;
-                _checkObjects.Add(checkObject);
-                
                 // instantiate conditional check
+                var conditionalCheckObject = Instantiate(conditionalCheckPrefab, checkContainer.transform);
+                var conditionalCheckRenderer = conditionalCheckObject.GetComponent<ConditionalCheckRenderer>();
+                conditionalCheckRenderer.check = checklist.checks[i];
+                _checkObjects.Add(conditionalCheckObject);
             }
             else
             {
@@ -110,14 +111,6 @@ public class ChecklistRenderer : MonoBehaviour
                 checkRenderer.check = checklist.checks[i];
                 checkRenderer.SetTextSize(characterCount, splitNameLimit);
                 checkRenderer.hasIndentation = conditionalItems.Contains(checklist.checks[i].name);
-                if (checklist.checks[i].name == "NOTE")
-                {
-                    checkObject.transform.GetChild(0).gameObject.SetActive(false);
-                    checkObject.transform.GetChild(1).GetComponent<TMP_Text>().text =
-                        checklist.checks[i].name + " " + checklist.checks[i].expectedValue;
-                }
-
-                checklist.checks[i].Index = i;
                 _checkObjects.Add(checkObject);
             }
         }
@@ -158,6 +151,7 @@ public class ChecklistRenderer : MonoBehaviour
 
     public void OnCheckboxCheck(int index, bool value)
     {
+        bool flag = true;
         for (var i = (_currentPage - 1) * checksPerPage;
              i < _currentPage * checksPerPage && i < _currentChecklist?.checks.Count;
              i++)
@@ -165,11 +159,12 @@ public class ChecklistRenderer : MonoBehaviour
             if (!_currentChecklist.checks[i].Checked)
             {
                 SetPageNotComplete();
-                return;
+                flag = false;
+                break;
             }
         }
 
-        SetPageComplete();
+        if (flag) SetPageComplete();
         if (_currentChecklist?.IsDone() != true) return;
         ChecklistDone();
     }

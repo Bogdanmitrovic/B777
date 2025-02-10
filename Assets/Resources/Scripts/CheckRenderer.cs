@@ -23,11 +23,7 @@ public class CheckRenderer : MonoBehaviour
 
     private void SetListeners()
     {
-        gameObject.GetComponent<Button>().onClick.AddListener(() =>
-        {
-            check.TriggerSelect(true);
-            // transform.parent.parent.GetComponent<ChecklistRenderer>().OnCheckSelect(check.Index);
-        });
+        gameObject.GetComponent<Button>().onClick.AddListener(() => { check.TriggerSelect(true); });
 
         if (!check.isAutomatic)
         {
@@ -38,11 +34,12 @@ public class CheckRenderer : MonoBehaviour
             checkmarkBackgroundImage.enabled = false;
         }
     }
+
     private void UpdateUI()
     {
         checkTextComponent.text = Text(_characterCount, _splitNameLimit);
         SetColors();
-        checkmarkImage.enabled = check.Checked;
+        checkmarkImage.enabled = (check.Checked || check.Overridden) && !check.IsNote;
         outline.enabled = check.IsSelected;
     }
 
@@ -56,6 +53,7 @@ public class CheckRenderer : MonoBehaviour
         checkmarkBackgroundImage.color = check.Overridden ? new Color(0f, 0f, 0f, 1f) : new Color(1f, 1f, 1f, .5f);
         checkmarkBackgroundImage.GetComponent<Outline>().enabled = check.Overridden;
     }
+
     private string Text(int characterCount, int splitNameLimit)
     {
         if (check.IsNote) return check.name + " " + check.expectedValue;
@@ -66,6 +64,7 @@ public class CheckRenderer : MonoBehaviour
             stringBuilder.Append("   ");
             count = 3;
         }
+
         var words = check.name.Split(' ');
         for (var i = 0; i < words.Length; i++)
         {
@@ -86,16 +85,19 @@ public class CheckRenderer : MonoBehaviour
                 count++;
             }
         }
+
         count += check.expectedValue.Length;
         stringBuilder.Append(new string('.', characterCount - count));
         stringBuilder.Append(check.expectedValue);
         return stringBuilder.ToString();
     }
+
     public void SetTextSize(int characterCount, int splitNameLimit)
     {
         _characterCount = characterCount;
         _splitNameLimit = splitNameLimit;
     }
+
     private void OnDestroy()
     {
         check.OnCheckDataChanged -= UpdateUI;

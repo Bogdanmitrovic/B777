@@ -923,6 +923,7 @@ MonoBehaviour:
     conditionalChecksYes: []
     conditionalChecksNo: []
   outline: {fileID: 5539311453044368090}
+  checkTextComponent: {fileID: 803842057867386030}
   conditionalCheckContainer: {fileID: 2421540560910289185}
   checkmarkImageLeft: {fileID: 3186907473374077258}
   checkmarkBackgroundImageLeft: {fileID: 5092299904003391852}

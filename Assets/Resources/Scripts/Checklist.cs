@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -74,5 +75,28 @@ public class Checklist
     private void CheckConditional(int index, ConditionalState state)
     {
         Debug.Log("Conditional check " + index + " is " + state);
+        switch (state)
+        {
+            case ConditionalState.No:
+            {
+                var conditionalChecksYes = checks[index].conditionalChecksYes;
+                if (conditionalChecksYes != null)
+                    foreach (var check in conditionalChecksYes)
+                    {
+                        checks.First(ch => ch.name==check).TriggerOverride();
+                    }
+                break;
+            }
+            case ConditionalState.Yes:
+            {
+                var conditionalChecksYes = checks[index].conditionalChecksYes;
+                if (conditionalChecksYes != null)
+                    foreach (var check in conditionalChecksYes)
+                    {
+                        checks.First(ch => ch.name==check).TriggerReset();
+                    }
+                break;
+            }
+        }
     }
 }
