@@ -115,7 +115,6 @@ public class MenuManager : MonoBehaviour
             RectTransform buttonRect = button.GetComponent<RectTransform>();
             buttonRect.sizeDelta = new Vector2(buttonRect.sizeDelta.x, buttonHeight);
 
-            // odavde pokusavam da napravim da resets rade
             if (menuNumber == 1)
             {
                 for (var j = 0; j < 3; j++)
@@ -132,12 +131,9 @@ public class MenuManager : MonoBehaviour
                     _checklistRenderer.LoadChecklistByIndex(i1);
                 });
             }
-            //ovo na dalje ovako treba
+            
         }
     }
-
-    // Ideja je da se ovim buttonima sto se prave u resets doda po jedna funkcija, a da bi kod bio lepsi, napravio sam ovu ResetButtonFunctions koja ce
-    // odgovarajucem buttonu da dodeli koju funkciju da izvrsi
 
     public void ResetButtonFunctions(int index)
     {
