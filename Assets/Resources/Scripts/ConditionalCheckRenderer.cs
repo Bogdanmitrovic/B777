@@ -73,7 +73,8 @@ public class ConditionalCheckRenderer : MonoBehaviour
         checkTextComponentRight.text = "No";
         checkmarkImageLeft.enabled = check.ConditionalState == ConditionalState.Yes;
         checkmarkImageRight.enabled = check.ConditionalState == ConditionalState.No;
-        if(check.ConditionalState == ConditionalState.None) ButtonsEnabled(true);
+        // ButtonsEnabled(check.ConditionalState == ConditionalState.None);
+        ButtonsEnabled(!check.IsDone);
         SetColors();
         outline.enabled = check.IsSelected;
     }
