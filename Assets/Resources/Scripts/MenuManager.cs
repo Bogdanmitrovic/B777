@@ -46,8 +46,7 @@ public class MenuManager : MonoBehaviour
         CreateBottomButton("ITEM OVRD", "ITEMOVRD", _checklistRenderer.OverrideCheck, 1);
         CreateBottomButton("CHKL OVRD", "CHKLOVRD", _checklistRenderer.OverrideChecklist, 3);
         CreateBottomButton("CHKL RESET", "CHKLRESET", _checklistRenderer.ResetChecklist, 4);
-        //TODO listener za exit menu
-        CreateBottomButton("EXIT MENU", "EXITMENU", null, 5, false);
+        CreateBottomButton("EXIT MENU", "EXITMENU", ClearMenu, 5, false);
         bottomButtonContainer.SetActive(true);
 
         LoadMenusFromJson();
@@ -171,6 +170,7 @@ public class MenuManager : MonoBehaviour
     public void ClearMenu()
     {
         _currentMenu = -1;
+        title.SetActive(false);
         var verticalLayoutGroup1 = menuContent[0].transform.GetChild(0);
         var verticalLayoutGroup2 = menuContent[0].transform.GetChild(1);
 
