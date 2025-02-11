@@ -151,7 +151,10 @@ public class ChecklistRenderer : MonoBehaviour
 
     public void OnCheckboxCheck(int index, bool value)
     {
-        bool flag = true;
+        if (_currentChecklist?.IsDone() == true)
+            ChecklistDone();
+        if (_pagesCount == 1) return;
+        var flag = true;
         for (var i = (_currentPage - 1) * checksPerPage;
              i < _currentPage * checksPerPage && i < _currentChecklist?.checks.Count;
              i++)
@@ -163,10 +166,7 @@ public class ChecklistRenderer : MonoBehaviour
                 break;
             }
         }
-
         if (flag) SetPageComplete();
-        if (_currentChecklist?.IsDone() != true) return;
-        ChecklistDone();
     }
 
     public void OverrideCheck()
@@ -229,9 +229,10 @@ public class ChecklistRenderer : MonoBehaviour
             var pageButton = Instantiate(pageNumberPrefab, pageButtons.transform);
             int iCopy = i;
             pageButton.transform.SetSiblingIndex(1 + i);
+           
             pageButton.transform.GetChild(0).GetComponent<TMP_Text>().text = (i + 1).ToString();
             pageButton.GetComponent<Button>().onClick.AddListener((() => { HandlePageButtonPress(iCopy + 1); }));
-
+            
             RectTransform pageButtonRect = pageButton.GetComponent<RectTransform>();
 
             pageButtonRect.localScale = Vector3.one;
