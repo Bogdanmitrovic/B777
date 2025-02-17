@@ -369,41 +369,20 @@
           }
         ]
       }
-    ]    
+    ]
   },
   {
     "name": "Resets",
     "checks": [],
     "subChecklists": [
       {
-        "name": "Reset normal",
-        "checks": [
-          {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
-          }
-        ]
+        "name": "Reset normal"
       },
       {
-        "name": "Reset non-normal",
-        "checks": [
-          {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
-          }
-        ]
+        "name": "Reset non-normal"
       },
       {
-        "name": "Reset all",
-        "checks": [
-          {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
-          }
-        ]
+        "name": "Reset all"
       }
     ]
   },
@@ -413,14 +392,7 @@
     "subChecklists": [
       {
         "name": "Unannunciated checklists",
-        "checks": [
-          {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
-          }
-        ],
-        "subChecklists" : [
+        "subChecklists": [
           {
             "name": "Engine ...",
             "checks": [],

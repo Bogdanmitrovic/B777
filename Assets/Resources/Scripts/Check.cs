@@ -10,8 +10,6 @@ public class Check
 {
     public string name;
     public string expectedValue;
-    public List<Check> expectedYes;
-    public List<Check> expectedNo;
     public bool isAutomatic;
     [CanBeNull] public List<string> conditionalChecksYes;
     [CanBeNull] public List<string> conditionalChecksNo;
@@ -20,7 +18,7 @@ public class Check
     [NonSerialized] public int Index;
     [NonSerialized] public bool IsSelected;
     [NonSerialized] public ConditionalState ConditionalState;
-
+    
     public UnityAction OnCheckDataChanged;
     public UnityAction<int, bool> OnCheckChecked;
     public UnityAction<int> OnCheckSelected;

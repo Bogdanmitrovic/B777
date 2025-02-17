@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,8 @@ public class MenuManager : MonoBehaviour
 {
     // prefabs
     public GameObject buttonPrefab;
+    public GameObject titleContainer;
+    public GameObject titlePrefab;
 
     // containers
     public GameObject topButtonContainer;
@@ -28,9 +31,9 @@ public class MenuManager : MonoBehaviour
     // private variables
     private readonly Dictionary<string, GameObject> _buttons = new();
     private ChecklistRenderer _checklistRenderer;
-    private int _currentMenu = -1;
+    [CanBeNull] private Checklist _currentMenu;
     private int _leftChildCount = 0;
-    private List<Menu> _menus;
+    private List<Checklist> _menus;
 
     void Start()
     {
@@ -73,8 +76,8 @@ public class MenuManager : MonoBehaviour
 
     private void LoadMenusFromJson()
     {
-        _menus = JsonConvert.DeserializeObject<List<Menu>>(jsonFile.text);
-        _checklistRenderer.SetChecklists(_menus[0].checklists);
+        _menus = JsonConvert.DeserializeObject<List<Checklist>>(jsonFile.text);
+        _checklistRenderer.SetChecklists(_menus[0].subChecklists);
     }
 
     void LoadNormalChecklist()
@@ -84,26 +87,34 @@ public class MenuManager : MonoBehaviour
             ShowMenu(0);
     }
 
-    public void ShowMenu(int menuNumber)
+    public void ShowMenu(Checklist menu)
     {
+        if(!menu.IsMenu) return;
         SetMenuContentActive();
         ClearMenu();
-        _currentMenu = menuNumber;
-        _checklistRenderer.SetChecklists(_menus[menuNumber].checklists);
-
+        _checklistRenderer.SetChecklists(menu.subChecklists);
         var verticalLayoutGroup1 = menuContent[0].transform.GetChild(0);
         var verticalLayoutGroup2 = menuContent[0].transform.GetChild(1);
-
         const float buttonHeight = 50f;
-
-        var menu = _menus[menuNumber];
-
-        title.SetActive(true);
-        title.GetComponent<TMP_Text>().text = menu.menuName.ToUpper();
-
-        for (var i = 0; i < menu.checklists.Count; i++)
+        if (_currentMenu != null && _currentMenu.subChecklists.Contains(menu))
         {
-            var list = menu.checklists[i];
+            // TODO da se oboji u zeleno trenutni title i appenduje novi
+            Instantiate(title);
+            title.SetActive(true);
+            title.GetComponent<TMP_Text>().color = Color.green;
+            title.GetComponent<TMP_Text>().text += " > " + menu.name.ToUpper();
+        }
+        else
+        {
+            // TODO da se obrisu svi title-ovi i appenduje novi
+            title.SetActive(true);
+            title.GetComponent<TMP_Text>().color = Color.white;
+            title.GetComponent<TMP_Text>().text = menu.name.ToUpper();
+        }
+        _currentMenu = menu;
+        for (var i = 0; i < menu.subChecklists.Count; i++)
+        {
+            var list = menu.subChecklists[i];
             GameObject button;
             CreateButton(verticalLayoutGroup1, verticalLayoutGroup2, out button);
             button.GetComponentInChildren<TMP_Text>().text = list.name;
@@ -111,24 +122,39 @@ public class MenuManager : MonoBehaviour
             RectTransform buttonRect = button.GetComponent<RectTransform>();
             buttonRect.sizeDelta = new Vector2(buttonRect.sizeDelta.x, buttonHeight);
 
-            if (menuNumber == 1)
+            if (menu.name == "Resets")
             {
                 for (var j = 0; j < 3; j++)
                 {
                     button.transform.GetComponent<Button>().onClick.AddListener(() => ResetButtonFunctions(j));
+                    // TODO koji djavo treba sa resets da se radi ovde
                 }
             }
             else
             {
-                var i1 = i;
-                button.transform.GetComponent<Button>().onClick.AddListener(() =>
+                if (list.IsMenu)
                 {
-                    SetChecksContentActive();
-                    _checklistRenderer.LoadChecklistByIndex(i1);
-                });
+                    button.transform.GetComponent<Button>().onClick.AddListener(() =>
+                    {
+                        ShowMenu(list);
+                    });
+                }
+                else
+                {
+                    var i1 = i;
+                    button.transform.GetComponent<Button>().onClick.AddListener(() =>
+                    {
+                        SetChecksContentActive();
+                        _checklistRenderer.LoadChecklistByIndex(i1);
+                    });
+                }
             }
-            
         }
+    }
+
+    private void ShowMenu(int menuNumber)
+    {
+        ShowMenu(_menus[menuNumber]);
     }
 
     public void ResetButtonFunctions(int index)
@@ -153,7 +179,7 @@ public class MenuManager : MonoBehaviour
 
     public void ResetNormal()
     {
-        foreach (var checklist in _menus[0].checklists)
+        foreach (var checklist in _menus[0].subChecklists)
         {
             checklist.Reset();
         }
@@ -161,7 +187,7 @@ public class MenuManager : MonoBehaviour
 
     public void ResetNonNormal()
     {
-        foreach (var checklist in _menus[2].checklists)
+        foreach (var checklist in _menus[2].subChecklists)
         {
             checklist.Reset();
         }
@@ -169,7 +195,7 @@ public class MenuManager : MonoBehaviour
 
     public void ClearMenu()
     {
-        _currentMenu = -1;
+        // _currentMenu = null;
         title.SetActive(false);
         var verticalLayoutGroup1 = menuContent[0].transform.GetChild(0);
         var verticalLayoutGroup2 = menuContent[0].transform.GetChild(1);

@@ -10,9 +10,12 @@ public class Checklist
 {
     public List<Check> checks = new();
     public string name;
+    public List<Checklist> subChecklists = new();
     [NonSerialized] public UnityAction<int, bool> OnCheckChecked;
     [NonSerialized] private int _checkSelectedIndex = -1;
 
+    public bool IsMenu => subChecklists.Count > 0;
+    public bool IsChecklist => !IsMenu;
     public bool IsOverridden => checks.TrueForAll(check => check.Overridden);
 
     public bool IsDone()
