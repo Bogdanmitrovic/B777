@@ -1,7 +1,8 @@
 [
   {
-    "menuName": "Normal Menu",
-    "checklists": [
+    "name": "Normal Menu",
+    "checks": [],
+    "subChecklists": [
       {
         "name": "Preflight",
         "checks": [
@@ -368,11 +369,12 @@
           }
         ]
       }
-    ]
+    ]    
   },
   {
-    "menuName": "Resets",
-    "checklists": [
+    "name": "Resets",
+    "checks": [],
+    "subChecklists": [
       {
         "name": "Reset normal",
         "checks": [
@@ -406,8 +408,9 @@
     ]
   },
   {
-    "menuName": "Non-normal Menu",
-    "checklists": [
+    "name": "Non-normal Menu",
+    "checks": [],
+    "subChecklists": [
       {
         "name": "Unannunciated checklists",
         "checks": [
@@ -415,6 +418,145 @@
             "name": "",
             "expectedValue": "",
             "isAutomatic": false
+          }
+        ],
+        "subChecklists" : [
+          {
+            "name": "Engine ...",
+            "checks": [],
+            "subChecklists": [
+              {
+                "name": "Aborted engine start L",
+                "checks": [
+                  {
+                    "name": "L FUEL CONTROL switch",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue": "START",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Motor the engine for 30 seconds.",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue": "NORM",
+                    "isAutomatic": true
+                  }
+                ],
+                "subChecklists": []
+              },
+              {
+                "name": "Aborted engine start R",
+                "checks": [],
+                "subChecklists": []
+              },
+              {
+                "name": "Dual eng fail/stall",
+                "checks": [],
+                "subChecklists": []
+              },
+              {
+                "name": "Eng in-flight start L",
+                "checks": [],
+                "subChecklists": []
+              },
+              {
+                "name": "Eng in-flight start R",
+                "checks": [],
+                "subChecklists": []
+              },
+              {
+                "name": "Eng lim/surge/stall L",
+                "checks": [],
+                "subChecklists": []
+              },
+              {
+                "name": "Eng lim/surge/stall R",
+                "checks": [],
+                "subChecklists": []
+              },
+              {
+                "name": "Eng svr damage/sep L",
+                "checks": [],
+                "subChecklists": []
+              },
+              {
+                "name": "Eng svr damage/sep R",
+                "checks": [],
+                "subChecklists": []
+              }
+            ]
+          },
+          {
+            "name": "Fire, Smoke ...",
+            "checks": [],
+            "subChecklists": []
+          },
+          {
+            "name": "Flight deck door, Windows ...",
+            "checks": [],
+            "subChecklists": []
+          },
+          {
+            "name": "Airspeed unreliable",
+            "checks": [],
+            "subChecklists": []
+          },
+          {
+            "name": "Ditching",
+            "checks": [],
+            "subChecklists": []
+          },
+          {
+            "name": "Evacuation",
+            "checks": [],
+            "subChecklists": []
+          },
+          {
+            "name": "Fuel jettison",
+            "checks": [],
+            "subChecklists": []
+          },
+          {
+            "name": "Fuel leak",
+            "checks": [],
+            "subChecklists": []
+          },
+          {
+            "name": "Gear lever locked on",
+            "checks": [],
+            "subChecklists": []
+          },
+          {
+            "name": "Ice crystal icing",
+            "checks": [],
+            "subChecklists": []
+          },
+          {
+            "name": "Jammed flight controls",
+            "checks": [],
+            "subChecklists": []
+          },
+          {
+            "name": "Overweight landing",
+            "checks": [],
+            "subChecklists": []
+          },
+          {
+            "name": "Tail strinke",
+            "checks": [],
+            "subChecklists": []
+          },
+          {
+            "name": "Volcanic Ash",
+            "checks": [],
+            "subChecklists": []
           }
         ]
       },
