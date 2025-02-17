@@ -99,17 +99,29 @@ public class MenuManager : MonoBehaviour
         if (_currentMenu != null && _currentMenu.subChecklists.Contains(menu))
         {
             // TODO da se oboji u zeleno trenutni title i appenduje novi
-            Instantiate(title);
-            title.SetActive(true);
-            title.GetComponent<TMP_Text>().color = Color.green;
-            title.GetComponent<TMP_Text>().text += " > " + menu.name.ToUpper();
+            Instantiate(titlePrefab);
+            titleContainer.SetActive(true);
+
+            for (int i = 0; i < titleContainer.transform.childCount; i++)
+            {
+                titleContainer.transform.GetChild(i).GetComponent<Image>().enabled = true;
+            }
+            GameObject currentTitle = Instantiate(titlePrefab, titleContainer.transform);
+            //titlePrefab.transform.SetSiblingIndex(titleContainer.transform.childCount);
+            currentTitle.GetComponentInChildren<TMP_Text>().text = menu.name.ToUpper();
+
         }
         else
         {
             // TODO da se obrisu svi title-ovi i appenduje novi
-            title.SetActive(true);
-            title.GetComponent<TMP_Text>().color = Color.white;
-            title.GetComponent<TMP_Text>().text = menu.name.ToUpper();
+            titleContainer.SetActive(true);
+            // izbrisi visak titlova koji se dodaju za NN
+            for (int i = 0; i < titleContainer.transform.childCount; i++)
+            {
+                Destroy(titleContainer.transform.GetChild(i).gameObject);
+            }
+            GameObject currentTitle = Instantiate(titlePrefab, titleContainer.transform);
+            currentTitle.GetComponentInChildren<TMP_Text>().text = menu.name.ToUpper();
         }
         _currentMenu = menu;
         for (var i = 0; i < menu.subChecklists.Count; i++)
@@ -196,7 +208,7 @@ public class MenuManager : MonoBehaviour
     public void ClearMenu()
     {
         // _currentMenu = null;
-        title.SetActive(false);
+        titleContainer.SetActive(false);
         var verticalLayoutGroup1 = menuContent[0].transform.GetChild(0);
         var verticalLayoutGroup2 = menuContent[0].transform.GetChild(1);
 

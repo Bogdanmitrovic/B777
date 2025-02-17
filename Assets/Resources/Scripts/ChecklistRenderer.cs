@@ -22,6 +22,7 @@ public class ChecklistRenderer : MonoBehaviour
     public GameObject pageButtons;
     public GameObject checklistStatus;
     public GameObject title;
+    public GameObject titleContainer;
     public GameObject checkContainer;
     public GameObject menuManager;
     public HorizontalLayoutGroup horizontalLayoutGroup;
@@ -69,7 +70,12 @@ public class ChecklistRenderer : MonoBehaviour
         UnloadCurrentChecklist();
         _currentChecklist = checklist;
         _currentChecklist.SetListeners();
-        title.GetComponent<TMP_Text>().text = checklist.name;
+        // znam da ovo ne treba ovde ali ne znam kako drugacije
+        for (int i = 0; i < titleContainer.transform.childCount - 1; i++)
+        {
+            Destroy(titleContainer.transform.GetChild(i).gameObject);
+        }
+        titleContainer.transform.GetChild(0).GetComponentInChildren<TMP_Text>().text = checklist.name;
         checklist.OnCheckChecked += OnCheckboxCheck;
         var conditionalChecks = checklist.checks.Where(check => check.IsConditional).ToList();
         var conditionalItems = new HashSet<string>();
