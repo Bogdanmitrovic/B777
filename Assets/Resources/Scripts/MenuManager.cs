@@ -53,7 +53,6 @@ public class MenuManager : MonoBehaviour
         bottomButtonContainer.SetActive(true);
 
         LoadMenusFromJson();
-        ShowMenu(0);
         for (var i = 0; i < 3; i++)
             ShowMenuSetListener(i);
     }
