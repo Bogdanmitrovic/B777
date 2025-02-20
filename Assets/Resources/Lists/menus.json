@@ -462,7 +462,6 @@
               },
               {
                 "name": "Dual eng fail/stall",
-                
                 "checks": [
                   {
                     "name":"Condition", 
@@ -539,7 +538,28 @@
               },
               {
                 "name": "Eng in-flight start L",
-                "checks": [],
+                "checks": [
+                  {
+                    "name":"Condition",
+                    "expectedValue":"A lef engine is needed and all of the following are true:\n- There is N1 rotation\n- There was no engine fire\n- There is no abnormal airframe vibration",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"Engine can accelerate to idle very slowly, especially at hight altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.",
+                    "expectedValue":"",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"If N2 is steadily increasing and EGT stays within limits, do not interrupt the start",
+                    "expectedValue":"",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"OVDE TREBA KONDICIONI CHECK",
+                    "expectedValue":"",
+                    "isAutomatic": true
+                  }
+                ],
                 "subChecklists": []
               },
               {
