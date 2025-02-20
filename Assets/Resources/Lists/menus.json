@@ -401,6 +401,11 @@
                 "name": "Aborted engine start L",
                 "checks": [
                   {
+                    "name":"Condition", 
+                    "expectedValue":"On the ground, an aborted left engine start is needed.",
+                    "isAutomatic": true
+                  },
+                  {
                     "name": "L FUEL CONTROL switch",
                     "expectedValue": "CUTOFF",
                     "isAutomatic": true
@@ -425,12 +430,111 @@
               },
               {
                 "name": "Aborted engine start R",
-                "checks": [],
+                "checks": [
+                  {
+                    "name":"Condition", 
+                    "expectedValue":"On the ground, an aborted right engine start is needed.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"R FUEL CONTROL switch", 
+                    "expectedValue":"CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"R START selector", 
+                    "expectedValue":"START",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"Motor the engine for 30 seconds", 
+                    "expectedValue":"",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"R START selector", 
+                    "expectedValue":"NORM",
+                    "isAutomatic": true
+                  }
+
+                ],
                 "subChecklists": []
               },
               {
                 "name": "Dual eng fail/stall",
-                "checks": [],
+                
+                "checks": [
+                  {
+                    "name":"Condition", 
+                    "expectedValue":"Engine speed for both engines is below idle",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"FUEL CONTROL switches (both)", 
+                    "expectedValue":"CUTOFF, then RUN",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"RAM AIR TURBINE switch", 
+                    "expectedValue":"Push and hold for 1 second",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"Do not manually abort the start of EGT turns red. EGT turns red when EGT exceeds the start limit line (lower red line). Autostart discontinues the current start attempt before EGT becomes too high for continued engine operation.", 
+                    "expectedValue":"",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"Set airspeed above 270 knots", 
+                    "expectedValue":"",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"APU selector (if APU available)", 
+                    "expectedValue":"START, then ON",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"Engines can accelerate to idle very slowly, especially at high altitutes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.", 
+                    "expectedValue":"",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"Do not interrupt autostart. Move the fuel control switch to CUTOFF only when no further start attempts are needed.", 
+                    "expectedValue":"",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"Fuel CENTER PUPMS switches (both)", 
+                    "expectedValue":"off",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"Fuel CENTER PUMPS switches (both)", 
+                    "expectedValue":"ON",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"When the HEAT PILOT L+C+R message blanks: ", 
+                    "expectedValue":"",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"PRIMARY FLIGHT COMPUTERS disconnect switch", 
+                    "expectedValue":"DISC, then AUTO",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"NOTE", 
+                    "expectedValue":"This step restores the flight control normal mode",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"Re-engage the autopilot as needed when the flight control normal mode is restored", 
+                    "expectedValue":"",
+                    "isAutomatic": true
+                  }
+                ],
                 "subChecklists": []
               },
               {
