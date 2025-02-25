@@ -577,7 +577,7 @@
                       "Do not interrupt autostart. Only abort the start if: .....",
                       "L FUEL CONTROL switch"
                     ],
-                    "conditionalChecksNo": ["Abort the start if: ....."]
+                    "conditionalChecksNo": ["Abort the start if: .....","Crossbleed indication (X-BLD or XB) shows:"]
                   },
                   {
                     "name":"Monitor EGT during start to prevent an EGT exceedance. Autostart allows EGT to exceed the in-flight start limit.",
