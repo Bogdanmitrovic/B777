@@ -557,7 +557,7 @@
                   {
                     "name":"Crossbleed indication (X-BLD or XB) shows:",
                     "expectedValue":"",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "L START selector"
                     ],
@@ -571,7 +571,7 @@
                   {
                     "name":"Autostart is on:",
                     "expectedValue":"",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "Monitor EGT during start to prevent an EGT exceedance. Autostart allows EGT to exceed the in-flight start limit.",
                       "Do not interrupt autostart. Only abort the start if: .....",

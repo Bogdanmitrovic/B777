@@ -78,28 +78,24 @@ public class Checklist
     private void CheckConditional(int index, ConditionalState state)
     {
         Debug.Log("Conditional check " + index + " is " + state);
-        switch (state)
-        {
-            case ConditionalState.No:
+        var conditionalChecksYes = checks[index].conditionalChecksYes;
+        var conditionalChecksNo = checks[index].conditionalChecksNo;
+        if (conditionalChecksYes != null)
+            foreach (var check in conditionalChecksYes)
             {
-                var conditionalChecksYes = checks[index].conditionalChecksYes;
-                if (conditionalChecksYes != null)
-                    foreach (var check in conditionalChecksYes)
-                    {
-                        checks.First(ch => ch.name==check).TriggerOverride();
-                    }
-                break;
+                if (state == ConditionalState.No)
+                    checks.First(ch => ch.name == check).TriggerOverride();
+                else
+                    checks.First(ch => ch.name == check).TriggerReset();
             }
-            case ConditionalState.Yes:
+
+        if (conditionalChecksNo != null)
+            foreach (var check in conditionalChecksNo)
             {
-                var conditionalChecksYes = checks[index].conditionalChecksYes;
-                if (conditionalChecksYes != null)
-                    foreach (var check in conditionalChecksYes)
-                    {
-                        checks.First(ch => ch.name==check).TriggerReset();
-                    }
-                break;
+                if (state == ConditionalState.Yes)
+                    checks.First(ch => ch.name == check).TriggerOverride();
+                else
+                    checks.First(ch => ch.name == check).TriggerReset();
             }
-        }
     }
 }

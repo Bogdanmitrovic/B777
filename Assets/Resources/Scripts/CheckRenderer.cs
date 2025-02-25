@@ -10,7 +10,7 @@ public class CheckRenderer : MonoBehaviour
     public Image checkmarkBackgroundImage;
     public TMP_Text checkTextComponent;
     public Outline outline;
-    public bool hasIndentation;
+    public int indentation;
     private int _splitNameLimit;
     private int _characterCount;
 
@@ -59,12 +59,10 @@ public class CheckRenderer : MonoBehaviour
         if (check.IsNote) return check.name + " " + check.expectedValue;
         var stringBuilder = new StringBuilder();
         var count = 0;
-        if (hasIndentation)
-        {
-            stringBuilder.Append("   ");
-            count = 3;
-        }
-
+        // append indentation*"   "
+        var indentString= new string(' ', indentation * 3);
+        stringBuilder.Append(indentString);
+        count += indentation * 3;
         var words = check.name.Split(' ');
         for (var i = 0; i < words.Length; i++)
         {
@@ -74,10 +72,8 @@ public class CheckRenderer : MonoBehaviour
             if (i != words.Length - 1 && count >= splitNameLimit)
             {
                 stringBuilder.Append("\n");
-                count = 0;
-                if (!hasIndentation) continue;
-                stringBuilder.Append("   ");
-                count = 3;
+                stringBuilder.Append(indentString);
+                count = indentation * 3;
             }
             else
             {
@@ -87,7 +83,8 @@ public class CheckRenderer : MonoBehaviour
         }
 
         count += check.expectedValue.Length;
-        stringBuilder.Append(new string('.', characterCount - count));
+        if (characterCount - count > 0)
+            stringBuilder.Append(new string('.', characterCount - count));
         stringBuilder.Append(check.expectedValue);
         return stringBuilder.ToString();
     }

@@ -70,7 +70,7 @@ public class ChecklistRenderer : MonoBehaviour
         UnloadCurrentChecklist();
         _currentChecklist = checklist;
         _currentChecklist.SetListeners();
-        // znam da ovo ne treba ovde ali ne znam kako drugacije
+        // znam da ovo ne treba ovde ali ne znam kako drugacije TODO da se ispravi
         for (int i = 0; i < titleContainer.transform.childCount - 1; i++)
         {
             Destroy(titleContainer.transform.GetChild(i).gameObject);
@@ -78,25 +78,28 @@ public class ChecklistRenderer : MonoBehaviour
         titleContainer.transform.GetChild(0).GetComponentInChildren<TMP_Text>().text = checklist.name;
         checklist.OnCheckChecked += OnCheckboxCheck;
         var conditionalChecks = checklist.checks.Where(check => check.IsConditional).ToList();
-        var conditionalItems = new HashSet<string>();
+
+
+
+        var indentCount = new Dictionary<string, int>();
         foreach (var check in conditionalChecks)
         {
-            if (check.conditionalChecksYes != null)
-            {
-                foreach (var conditionalCheck in check.conditionalChecksYes)
+            var indent = 0;
+            if (indentCount.TryGetValue(check.name, out var value))
+                indent = value;
+            if(check.conditionalChecksNo != null)
+                foreach (var child in check.conditionalChecksNo)
                 {
-                    conditionalItems.Add(conditionalCheck);
+                    indentCount[child] = indent + 1;
                 }
-            }
-
-            if (check.conditionalChecksNo != null)
-            {
-                foreach (var conditionalCheck in check.conditionalChecksNo)
+            if(check.conditionalChecksYes != null)
+                foreach (var child in check.conditionalChecksYes)
                 {
-                    conditionalItems.Add(conditionalCheck);
+                    indentCount[child] = indent + 1;
                 }
-            }
         }
+        
+        
 
         for (var i = 0; i < checklist.checks.Count; i++)
         {
@@ -116,7 +119,8 @@ public class ChecklistRenderer : MonoBehaviour
                 var checkRenderer = checkObject.GetComponent<CheckRenderer>();
                 checkRenderer.check = checklist.checks[i];
                 checkRenderer.SetTextSize(characterCount, splitNameLimit);
-                checkRenderer.hasIndentation = conditionalItems.Contains(checklist.checks[i].name);
+                var indent = indentCount.ContainsKey(checklist.checks[i].name)? indentCount[checklist.checks[i].name] : 0;
+                checkRenderer.indentation = indent;
                 _checkObjects.Add(checkObject);
             }
         }

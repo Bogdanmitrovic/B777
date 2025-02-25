@@ -50,11 +50,17 @@ public class MenuManager : MonoBehaviour
         CreateBottomButton("CHKL OVRD", "CHKLOVRD", _checklistRenderer.OverrideChecklist, 3);
         CreateBottomButton("CHKL RESET", "CHKLRESET", _checklistRenderer.ResetChecklist, 4);
         CreateBottomButton("EXIT MENU", "EXITMENU", ClearMenu, 5, false);
+        CreateBottomButton("NON-NORMAL","NON-NORMAL",LoadNonNormalChecklist, 5, false);
         bottomButtonContainer.SetActive(true);
 
         LoadMenusFromJson();
         for (var i = 0; i < 3; i++)
             ShowMenuSetListener(i);
+    }
+
+    private void LoadNonNormalChecklist()
+    {
+        // TODO
     }
 
     public void CreateBottomButton(string buttonText, string buttonKey, UnityAction onClickListener, int slotIndex,
