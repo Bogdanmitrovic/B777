@@ -541,7 +541,7 @@
                 "checks": [
                   {
                     "name":"Condition",
-                    "expectedValue":"A lef engine is needed and all of the following are true:\n- There is N1 rotation\n- There was no engine fire\n- There is no abnormal airframe vibration",
+                    "expectedValue":"A left engine is needed and all of the following are true:\n- There is N1 rotation\n- There was no engine fire\n- There is no abnormal airframe vibration",
                     "isAutomatic": true
                   },
                   {
@@ -555,8 +555,97 @@
                     "isAutomatic": true
                   },
                   {
-                    "name":"OVDE TREBA KONDICIONI CHECK",
+                    "name":"Crossbleed indication (X-BLD or XB) shows:",
                     "expectedValue":"",
+                    "isAutomatic": true,
+                    "conditionalChecksYes": [
+                      "L START selector"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"L START selector",
+                    "expectedValue":"START",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"Autostart is on:",
+                    "expectedValue":"",
+                    "isAutomatic": true,
+                    "conditionalChecksYes": [
+                      "Monitor EGT during start to prevent an EGT exceedance. Autostart allows EGT to exceed the in-flight start limit.",
+                      "Do not interrupt autostart. Only abort the start if: .....",
+                      "L FUEL CONTROL switch"
+                    ],
+                    "conditionalChecksNo": ["Abort the start if: ....."]
+                  },
+                  {
+                    "name":"Monitor EGT during start to prevent an EGT exceedance. Autostart allows EGT to exceed the in-flight start limit.",
+                    "expectedValue":"",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"Do not interrupt autostart. Only abort the start if: .....",
+                    "expectedValue":"",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"L FUEL CONTROL switch",
+                    "expectedValue":"RUN",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"Abort the start if: .....",
+                    "expectedValue":"",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"Crossbleed indication (X-BLD or XB) shows:",
+                    "expectedValue":"",
+                    "isAutomatic": false,
+                    "conditionalCheckYes": ["L FUEL CONTROL switch"],
+                    "conditionalCheckNo": []
+                  },
+                  {
+                    "name":"L FUEL CONTROL switch",
+                    "expectedValue":"RUN",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"Engine starts and runs normally:",
+                    "expectedValue":"",
+                    "isAutomatic": false,
+                    "conditionalCheckYes": ["GND PROX FLAP OVRD switch","Transponder mode selector"],
+                    "conditionalCheckNo": []
+                  },
+                  {
+                    "name":"GND PROX FLAP OVRD switch",
+                    "expectedValue":"Off",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"Transponder mode selector",
+                    "expectedValue":"TA/RA",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"L FUEL CONTROL switch",
+                    "expectedValue":"Confirm......CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"L START selector",
+                    "expectedValue":"NORM",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"Plan to land at the nearest suitable airport",
+                    "expectedValue":"",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"NOTE",
+                    "expectedValue":"Check the Non-Normal Configuration Landing Distance tables for END SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source.",
                     "isAutomatic": true
                   }
                 ],
@@ -564,12 +653,21 @@
               },
               {
                 "name": "Eng in-flight start R",
-                "checks": [],
+                "checks": [
+
+                  
+                ],
                 "subChecklists": []
               },
               {
                 "name": "Eng lim/surge/stall L",
-                "checks": [],
+                "checks": [
+                  {
+                    "name":"Condition",
+                    "expectedValue":"",
+                    "isAutomatic": true
+                  }
+                ],
                 "subChecklists": []
               },
               {
