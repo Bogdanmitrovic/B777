@@ -117,16 +117,10 @@ public class ChecklistRenderer : MonoBehaviour
             }
             else
             {
-                // instantiate normal check
-                GameObject checkObject;
-                if (_menuName == "Non-normal Menu")
-                {
-                    checkObject = Instantiate(nnCheckPrefab, checkContainer.transform);
-                }
-                else
-                {
-                    checkObject = Instantiate(checkPrefab, checkContainer.transform);
-                }
+                // instantiate normal check TODO ne treba se prikazuju 6 checka nego 7 ali da smanjuje ako ne mogu da stanu na ekran
+                // TODO da se scaluju checkovi sa kolicinom teksta
+                
+                var checkObject = Instantiate(checkPrefab, checkContainer.transform);
                 var checkRenderer = checkObject.GetComponent<CheckRenderer>();
                 checkRenderer.check = checklist.checks[i];
                 checkRenderer.SetTextSize(characterCount, splitNameLimit);

@@ -545,8 +545,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name":"",
-                    "expectedValue":"Engine can accelerate to idle very slowly, especially at hight altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.",
+                    "name":"Plaintext",
+                    "expectedValue":"Engine can accelerate to idle very slowly, especially at high altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.",
                     "isAutomatic": false
                   },
                   {
