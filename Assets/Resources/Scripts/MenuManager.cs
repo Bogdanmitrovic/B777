@@ -82,7 +82,7 @@ public class MenuManager : MonoBehaviour
     private void LoadMenusFromJson()
     {
         _menus = JsonConvert.DeserializeObject<List<Checklist>>(jsonFile.text);
-        _checklistRenderer.SetChecklists(_menus[0].subChecklists);
+        _checklistRenderer.SetChecklists(_menus[0].subChecklists, _menus[0].name);
     }
 
     void LoadNormalChecklist()
@@ -97,7 +97,7 @@ public class MenuManager : MonoBehaviour
         if(!menu.IsMenu) return;
         SetMenuContentActive();
         ClearMenu();
-        _checklistRenderer.SetChecklists(menu.subChecklists);
+        _checklistRenderer.SetChecklists(menu.subChecklists, menu.name);
         var verticalLayoutGroup1 = menuContent[0].transform.GetChild(0);
         var verticalLayoutGroup2 = menuContent[0].transform.GetChild(1);
         const float buttonHeight = 50f;

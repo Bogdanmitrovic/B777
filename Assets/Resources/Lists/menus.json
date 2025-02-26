@@ -545,8 +545,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name":"Engine can accelerate to idle very slowly, especially at hight altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.",
-                    "expectedValue":"",
+                    "name":"",
+                    "expectedValue":"Engine can accelerate to idle very slowly, especially at hight altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.",
                     "isAutomatic": false
                   },
                   {
@@ -577,7 +577,8 @@
                       "Do not interrupt autostart. Only abort the start if: .....",
                       "L FUEL CONTROL switch"
                     ],
-                    "conditionalChecksNo": ["Abort the start if: .....","Crossbleed indication (X-BLD or XB) shows:"]
+                    "conditionalChecksNo": ["Abort the start if: .....",
+                      "Crossbleed indication (X-BLD or XB) shows:"]
                   },
                   {
                     "name":"Monitor EGT during start to prevent an EGT exceedance. Autostart allows EGT to exceed the in-flight start limit.",

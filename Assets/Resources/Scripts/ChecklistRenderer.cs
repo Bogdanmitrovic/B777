@@ -17,6 +17,7 @@ public class ChecklistRenderer : MonoBehaviour
     public int checksPerPage = 8;
 
     public GameObject checkPrefab;
+    public GameObject nnCheckPrefab;
     public GameObject conditionalCheckPrefab;
     public GameObject pageNumberPrefab;
     public GameObject pageButtons;
@@ -29,15 +30,17 @@ public class ChecklistRenderer : MonoBehaviour
 
     private int _checklistIndex = 0;
     private List<Checklist> _checklists = new();
+    private string _menuName = "";
     private Checklist? _currentChecklist;
     private int _currentPage = 1;
     private int _pagesCount = 0;
     private int _highestPage = -1;
     private List<GameObject> _checkObjects = new();
 
-    public void SetChecklists(List<Checklist> checklists)
+    public void SetChecklists(List<Checklist> checklists, string menuName)
     {
         _checklists = checklists;
+        _menuName = menuName;
     }
 
     public bool LoadNextNormalChecklist()
@@ -115,7 +118,15 @@ public class ChecklistRenderer : MonoBehaviour
             else
             {
                 // instantiate normal check
-                var checkObject = Instantiate(checkPrefab, checkContainer.transform);
+                GameObject checkObject;
+                if (_menuName == "Non-normal Menu")
+                {
+                    checkObject = Instantiate(nnCheckPrefab, checkContainer.transform);
+                }
+                else
+                {
+                    checkObject = Instantiate(checkPrefab, checkContainer.transform);
+                }
                 var checkRenderer = checkObject.GetComponent<CheckRenderer>();
                 checkRenderer.check = checklist.checks[i];
                 checkRenderer.SetTextSize(characterCount, splitNameLimit);

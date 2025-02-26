@@ -1527,8 +1527,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterCount: 48
   splitNameLimit: 10
-  checksPerPage: 8
+  checksPerPage: 7
   checkPrefab: {fileID: 4747364754279814429, guid: ff02684577f1be44dbe7f6b5c7053e5f, type: 3}
+  nnCheckPrefab: {fileID: 4747364754279814429, guid: feef49a131c6f854ea949c668adfb937, type: 3}
   conditionalCheckPrefab: {fileID: 4747364754279814429, guid: a95837a7159094b6ebeb401909a2084d, type: 3}
   pageNumberPrefab: {fileID: 8931930828613809285, guid: fbbf7cb881ab56e49b3a75fcdac7f8d8, type: 3}
   pageButtons: {fileID: 2081378628}
