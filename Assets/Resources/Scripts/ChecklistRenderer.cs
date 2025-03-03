@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,6 @@ public class ChecklistRenderer : MonoBehaviour
     public int checksPerPage = 8;
 
     public GameObject checkPrefab;
-    public GameObject nnCheckPrefab;
     public GameObject conditionalCheckPrefab;
     public GameObject pageNumberPrefab;
     public GameObject pageButtons;
@@ -33,7 +33,7 @@ public class ChecklistRenderer : MonoBehaviour
     private string _menuName = "";
     private Checklist? _currentChecklist;
     private int _currentPage = 1;
-    private int _pagesCount = 0;
+    private int _pagesCount = 1;
     private int _highestPage = -1;
     private List<GameObject> _checkObjects = new();
 
@@ -72,6 +72,7 @@ public class ChecklistRenderer : MonoBehaviour
     {
         UnloadCurrentChecklist();
         _currentChecklist = checklist;
+        _pagesCount = 1;
         _currentChecklist.SetListeners();
         // znam da ovo ne treba ovde ali ne znam kako drugacije TODO da se ispravi
         for (int i = 0; i < titleContainer.transform.childCount - 1; i++)
@@ -107,6 +108,7 @@ public class ChecklistRenderer : MonoBehaviour
         for (var i = 0; i < checklist.checks.Count; i++)
         {
             checklist.checks[i].Index = i;
+
             if (checklist.checks[i].IsConditional)
             {
                 // instantiate conditional check
@@ -120,17 +122,23 @@ public class ChecklistRenderer : MonoBehaviour
                 // instantiate normal check TODO ne treba se prikazuju 6 checka nego 7 ali da smanjuje ako ne mogu da stanu na ekran
                 // TODO da se scaluju checkovi sa kolicinom teksta
                 
+                if (checklist.checks[i].name == "PageBreak")
+                {
+                    _pagesCount++;
+                }
                 var checkObject = Instantiate(checkPrefab, checkContainer.transform);
                 var checkRenderer = checkObject.GetComponent<CheckRenderer>();
                 checkRenderer.check = checklist.checks[i];
                 checkRenderer.SetTextSize(characterCount, splitNameLimit);
                 var indent = indentCount.ContainsKey(checklist.checks[i].name)? indentCount[checklist.checks[i].name] : 0;
                 checkRenderer.indentation = indent;
+                checkObject.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta =
+                    new Vector2(checkObject.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta.x, (checklist.checks[i].expectedValue.Length / characterCount + 1) * 60);
+                checkObject.GetComponent<RectTransform>().sizeDelta = new Vector2(checkObject.GetComponent<RectTransform>().sizeDelta.x, (checklist.checks[i].expectedValue.Length / characterCount + 1) * 60);
                 _checkObjects.Add(checkObject);
             }
         }
 
-        _pagesCount = (_currentChecklist.checks.Count - 1) / checksPerPage + 1;
         _currentPage = 1;
         if (_pagesCount > 1)
         {
@@ -295,9 +303,26 @@ public class ChecklistRenderer : MonoBehaviour
 
     private void LoadPage()
     {
+        int nPageBreak = 1;
         for (var i = 0; i < _checkObjects.Count; i++)
         {
-            _checkObjects[i].SetActive(i >= (_currentPage - 1) * checksPerPage && i < _currentPage * checksPerPage);
+            //Debug.Log(_checkObjects[i].GetComponentInChildren<TMP_Text>().text);
+            if (_currentChecklist.checks[i].name.Contains("PageBreak"))
+            {
+                nPageBreak++;
+                _checkObjects[i].SetActive(false);
+            }
+            else if (nPageBreak == _currentPage)
+            {
+                _checkObjects[i].SetActive(true);
+            }
+            else
+            {
+                _checkObjects[i].SetActive(false);
+            }
+            
+            //_checkObjects[i].SetActive(i >= (_currentPage - 1) * checksPerPage && i < _currentPage * checksPerPage);
+
         }
     }
 

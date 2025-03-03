@@ -555,7 +555,12 @@
                     "isAutomatic": false
                   },
                   {
-                    "name":"If N2 is steadily increasing and EGT stays within limits, do not interrupt the start",
+                    "name":"Plaintext",
+                    "expectedValue":"If N2 is steadily increasing and EGT stays within limits, do not interrupt the start",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PageBreak",
                     "expectedValue":"",
                     "isAutomatic": true
                   },

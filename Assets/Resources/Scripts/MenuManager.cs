@@ -103,8 +103,6 @@ public class MenuManager : MonoBehaviour
         const float buttonHeight = 50f;
         if (_currentMenu != null && _currentMenu.subChecklists.Contains(menu))
         {
-            // TODO da se oboji u zeleno trenutni title i appenduje novi
-            Instantiate(titlePrefab);
             titleContainer.SetActive(true);
 
             for (int i = 0; i < titleContainer.transform.childCount; i++)
