@@ -42,6 +42,11 @@
             "isAutomatic": false
           },
           {
+            "name": "PageBreak",
+            "expectedValue": "",
+            "isAutomatic": false
+          },
+          {
             "name": "Takeoff speeds",
             "expectedValue": "V1___, VR___, V2___",
             "isAutomatic": false
