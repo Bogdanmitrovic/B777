@@ -1793,7 +1793,100 @@
               },
               {
                 "name":"Smoke or fumes removal",
-                "checks":[],
+                "checks":[
+                  {
+                    "name":"Condition",
+                    "expectedValue":"Smoke or fumes removal is needed.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Do this checklist only when directed by the SMOKE, FIRE OR FUMES checklist.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Do not delay landing in an attempt to complete the following steps",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Close the flight deck door.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"EQUIP COOLING switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"NOTE",
+                    "expectedValue":"After 30 minutes of operation at low altitute and low cabin differential pressure, electronic equipment and displays may fail.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Inhibited checklist",
+                    "expectedValue":"EQUIP COOLING OVRD",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Most smoke or fumes are in the cabin forward of mid-wing",
+                    "expectedValue":"",
+                    "isAutomatic":true,
+                    "conditionalChecksYes":["AFT OUTFLOW VALVE switch", "AFT OUTFLOW VALVE MANUAL switch", "Inhibited checklist"]
+                  },
+                  {
+                    "name":"AFT OUTFLOW VALVE switch",
+                    "expectedValue":"MAN",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"AFT OUTFLOW VALVE MANUAL switch",
+                    "expectedValue":"Hold in CLOSE until the AFT outflow valve indication shows fully closed",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"Inhibition checklist",
+                    "expectedValue":"OUTFLOW VALVE AFT",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Most smoke or fumes are in the cabin aft of mid-wing",
+                    "expectedValue":"",
+                    "isAutomatic":true,
+                    "conditionalChecksYes":["FWD OUTFLOW VALVE switch", "FWD OUTFLOW VALVE MANUAL switch", "Inhibited checklist"]
+                  },
+                  {
+                    "name":"FWD OUTFLOW VALVE switch",
+                    "expectedValue":"MAN",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"FWD OUTFLOW VALVE MANUAL switch",
+                    "expectedValue":"Hold in CLOSE until the FWD outflow valve indication shows fully closed",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"Inhibited checklist",
+                    "expectedValue":"OUTFLOW VALVE FWD",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Return to the SMOKE, FIRE OR FUMES checklist and do the rest of the steps",
+                    "isAutomatic":false
+                  },
+                ],
                 "subChecklists":[]
               }
             ]
