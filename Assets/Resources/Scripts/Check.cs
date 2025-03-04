@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -38,7 +39,8 @@ public class Check
 
     public bool IsDone => Checked || Overridden || IsNote;
 
-    public bool IsNote => name == "NOTE";
+    public bool IsNote => name.Contains("NOTE");
+    public bool IsPlainText => name.Contains("PLAINTEXT");
     public bool IsConditional => conditionalChecksYes != null || conditionalChecksNo != null;
 
     public void TriggerOverride()
