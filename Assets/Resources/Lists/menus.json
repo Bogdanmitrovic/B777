@@ -1384,7 +1384,419 @@
           {
             "name": "Fire, Smoke ...",
             "checks": [],
-            "subChecklists": []
+            "subChecklists": [
+              {
+                "name":"Fire Eng Tailpipe L",
+                "checks":[
+                  {
+                    "name":"Condition",
+                    "expectedValue":"A left engine tailpipe fire occurs on the ground with no engine fire warning",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"L FUEL CONTROL switch........Confirm",
+                    "expectedValue":"CUTOFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Advise the cabin",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"Bleed air is available",
+                    "expectedValue":"",
+                    "isAutomatic":true,
+                    "conditionalChecksYes":["L START selector", "PLAINTEXT1", "PLAINTEXT2", " L START selector"]
+                  },
+                  {
+                    "name":"L START selector",
+                    "expectedValue":"START",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT1",
+                    "expectedValue":"Advise the tower",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT2",
+                    "expectedValue":"When the tailpipe is extinguished.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":" L START selector",
+                    "expectedValue":"NORM",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Bleed air is not available",
+                    "expectedValue":"",
+                    "isAutomatic":true,
+                    "conditionalChecksYes":["PLAINTEXT1"]
+                  },
+                  {
+                    "name":"PLAINTEXT1",
+                    "expectedValue":"Advise the tower",
+                    "isAutomatic":false
+                  }
+                ],
+                "subChecklists":[]
+              },
+              {
+                "name":"Fire Eng Tailpipe R",
+                "checks":[
+                  {
+                    "name":"Condition",
+                    "expectedValue":"A right engine tailpipe fire occurs on the ground with no engine fire warning",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"R FUEL CONTROL switch........Confirm",
+                    "expectedValue":"CUTOFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Advise the cabin",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"Bleed air is available",
+                    "expectedValue":"",
+                    "isAutomatic":true,
+                    "conditionalChecksYes":["R START selector", "PLAINTEXT1", "PLAINTEXT2", " R START selector"]
+                  },
+                  {
+                    "name":"R START selector",
+                    "expectedValue":"START",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT1",
+                    "expectedValue":"Advise the tower",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT2",
+                    "expectedValue":"When the tailpipe is extinguished.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":" R START selector",
+                    "expectedValue":"NORM",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Bleed air is not available",
+                    "expectedValue":"",
+                    "isAutomatic":true,
+                    "conditionalChecksYes":["PLAINTEXT1"]
+                  },
+                  {
+                    "name":"PLAINTEXT1",
+                    "expectedValue":"Advise the tower",
+                    "isAutomatic":false
+                  }
+                ],
+                "subChecklists":[]
+              },
+              {
+                "name":"Smoke, Fire or Fumes",
+                "checks":[
+                  {
+                    "name":"Condition",
+                    "expectedValue":"Smoke, fire or fumes occurs",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Objective",
+                    "expectedValue":"To remove power from the ignition source. To land the airplane as soon as possible, if needed.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Diversion may be needed",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Don oxygen masks and smoke goggles, if needed.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Establish crew and cabin communications.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"IFE/PASS SEATS switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"RECIRC FANS switches (both)",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"GASPER switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"APU BLEED AIR switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Any time the smoke or fumes becomes the greatest threat, do the SMOKE OR FUMES REMOVAL checklist.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"Source of the smoke, fire or fumes can be traced to the LDS-Mounted Portable EFB (as installed) and can ne extinguished quickly.",
+                    "expectedValue":"",
+                    "isAutomatic":true,
+                    "conditionalChecksYes":["EFB Main Menu", "LDS-EFB Control Panel", "ACDC CONV circuit breaker D20 (as installed)"]
+                  },
+                  {
+                    "name":"EFB Main Menu",
+                    "expectedValue":"Shutdown",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"LDS-EFB Control Panel",
+                    "expectedValue":"OFF",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"ACDC CONV circuit breaker D20 (as installed)",
+                    "expectedValue":"Pull",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Source of the smoke, fire or fumes is obvious (not LDS-Mounted Portable EFB) and can be extinguished quickly",
+                    "expectedValue":"",
+                    "isAutomatic":true,
+                    "conditionalChecksYes":["PLAINTEXT1","Source is visually confirmed to be extinguished and smoke or fumes are decreasing"]
+                  },
+                  {
+                    "name":"PLAINTEXT1",
+                    "expectedValue":"Isolate and extinguish the source of the smoke, fire or fumes\n If practical, remove power from the affected equipment by switch or circuit breaker in the flight deck or cabin.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Source is visually confirmed to be extinguished and smoke or fumes are decreasing",
+                    "expectedValue":"",
+                    "isAutomatic":true,
+                    "conditionalChecksYes":["PLAINTEXT1", "PLAINTEXT2", "PLAINTEXT3"]
+                  },
+                  {
+                    "name":"PLAINTEXT1",
+                    "expectedValue":"Continue the flight at the captain's discretion",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT2",
+                    "expectedValue":"Restore unpowered items at the captain's discretion",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT3",
+                    "expectedValue":"Do the SMOKE OR FUMES REMOVAL checklist, if needed",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Smoke or fumes continue or are increasing",
+                    "expectedValue": "",
+                    "isAutomatic":true,
+                    "conditionalChecksYes":["PLAINTEXT1","CABIN/UTILITY switch","PLAINTEXT2","PLAINTEXT3","PLAINTEXT4","C BLEED AIR ISLN switch","L PACK switch","L TRIM AIR switch", "Inhibited checklists","PLAINTEXT5","Smoke or fumes continue or are increasing", "PLAINTEXT6"]
+                  },
+                  {
+                    "name":"PLAINTEXT1",
+                    "expectedValue": "Advise the cabin that the main cabin lighting will be turned off.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"CABIN/UTILITY switch",
+                    "expectedValue": "OFF",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT2",
+                    "expectedValue": "Initiate a diversion to the nearest suitable airport while continuing the checklist",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT3",
+                    "expectedValue": "Consider an immediate landing if the smoke, fire or fumes situation becomes uncontrollable.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT4",
+                    "expectedValue": "Do not delay landing in an attempt to complete the following steps.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"C BLEED AIR ISLN switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"L PACK sitch",
+                    "expectedValue":"Off",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"L TRIM AIR switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"Inhibited checklists",
+                    "expectedValue":"PACK L, TRIM AIR L",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT5",
+                    "expectedValue":"Wait 2 minutes unless the smoke or fumes are increasing",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Smoke or fumes continue or are increasing",
+                    "expectedValue":"",
+                    "isAutomatic":true,
+                    "conditionalChecksYes":[
+                      "L PACK switch",
+                      "L TRIM AIR switch",
+                      "R PACK switch",
+                      "R TRIM AIR switch",
+                      "Inhibited checklists",
+                      "PLAINTEXT7",
+                      "Smoke or fumes continue or are increasing"
+                    ]
+                  },
+                  {
+                    "name":"L PACK switch",
+                    "expectedValue":"AUTO",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"L TRIM AIR switch",
+                    "expectedValue":"ON",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"R PACK switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"R TRIM AIR switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"Inhibited checklists",
+                    "expectedValue":"PACK R, TRIM AIR R",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT7",
+                    "expectedValue":"Wait 2 minutes unless the smoke or fumes are increasing",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Smoke or fumes continue are increasing",
+                    "expectedValue":"",
+                    "isAutomatic":true,
+                    "conditionalChecksYes":[
+                      "C BLEED AIR ISLN switch",
+                      "R PACK switch",
+                      "R TRIM AIR switch",
+                      "PLAINTEXT8"
+                    ]
+                  },
+                  {
+                    "name":"C BLEED AIR ISLN switch",
+                    "expectedValue":"AUTO",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"R PACK switch",
+                    "expectedValue":"AUTO",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"R TRIM AIR switch",
+                    "expectedValue":"ON",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT8",
+                    "expectedValue":"Consider an immediate landing.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT6",
+                    "expectedValue":"Do the SMOKE OR FUMES REMOVAL checklist if needed",
+                    "isAutomatic":true
+                  }
+                ],
+                "subChecklists":[]
+              },
+              {
+                "name":"Smoke or fumes removal",
+                "checks":[],
+                "subChecklists":[]
+              }
+            ]
           },
           {
             "name": "Flight deck door, Windows ...",
