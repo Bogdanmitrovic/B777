@@ -792,6 +792,11 @@
                     "isAutomatic": false
                   },
                   {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
                     "name":"Left thrust lever........Confirm",
                     "expectedValue":"Retard until engine incidations stay within limits or the thrust lever is at idle",
                     "isAutomatic": false
@@ -812,6 +817,11 @@
                     "name":"NOTE1",
                     "expectedValue":"Run the left engine normally or at a reduced thrust setting that is surge and stall free",
                     "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
                   },
                   {
                     "name":"Engine runs at reduced thrust",
@@ -846,6 +856,11 @@
                     "isAutomatic": true
                   },
                   {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
                     "name":"Landing using flops 30 (if performance allows)",
                     "expectedValue":"",
                     "isAutomatic":true,
@@ -865,6 +880,11 @@
                     "name":"Inhibited checklist:",
                     "expectedValue":"AUTOTHROTTLE L",
                     "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
                   },
                   {
                     "name":"Engine indications are abnormal or EGT continues to increase:",
@@ -893,6 +913,11 @@
                     "isAutomatic":false
                   },
                   {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
                     "name":"Landing using flaps 20",
                     "expectedValue":"",
                     "isAutomatic":true,
@@ -918,6 +943,11 @@
                     "name":"NOTE3",
                     "expectedValue":"Use flaps 30 and VREF 30 for landing and flaps 20 for go-around.",
                     "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
                   },
                   {
                     "name":"NOTE1",
