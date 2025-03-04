@@ -1885,7 +1885,7 @@
                     "name":"PLAINTEXT",
                     "expectedValue":"Return to the SMOKE, FIRE OR FUMES checklist and do the rest of the steps",
                     "isAutomatic":false
-                  },
+                  }
                 ],
                 "subChecklists":[]
               }
