@@ -108,13 +108,15 @@ public class ChecklistRenderer : MonoBehaviour
         for (var i = 0; i < checklist.checks.Count; i++)
         {
             checklist.checks[i].Index = i;
-
+            var indent = indentCount.ContainsKey(checklist.checks[i].name)? indentCount[checklist.checks[i].name] : 0;
+            
             if (checklist.checks[i].IsConditional)
             {
                 // instantiate conditional check
                 var conditionalCheckObject = Instantiate(conditionalCheckPrefab, checkContainer.transform);
                 var conditionalCheckRenderer = conditionalCheckObject.GetComponent<ConditionalCheckRenderer>();
                 conditionalCheckRenderer.check = checklist.checks[i];
+                conditionalCheckRenderer.indentation = indent;
                 _checkObjects.Add(conditionalCheckObject);
             }
             else
@@ -130,7 +132,6 @@ public class ChecklistRenderer : MonoBehaviour
                 var checkRenderer = checkObject.GetComponent<CheckRenderer>();
                 checkRenderer.check = checklist.checks[i];
                 checkRenderer.SetTextSize(characterCount, splitNameLimit);
-                var indent = indentCount.ContainsKey(checklist.checks[i].name)? indentCount[checklist.checks[i].name] : 0;
                 checkRenderer.indentation = indent;
                 checkObject.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta =
                     new Vector2(checkObject.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta.x, (checklist.checks[i].expectedValue.Length / characterCount + 1) * 60);

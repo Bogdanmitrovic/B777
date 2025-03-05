@@ -57,7 +57,7 @@ public class CheckRenderer : MonoBehaviour
 
     private string Text(int characterCount, int splitNameLimit)
     {
-        if (check.IsNote) return check.name + " " + check.expectedValue;
+        if (check.IsNote) return "NOTE: " + check.expectedValue;
         if(check.IsPlainText) return check.expectedValue;
         var stringBuilder = new StringBuilder();
         var count = 0;

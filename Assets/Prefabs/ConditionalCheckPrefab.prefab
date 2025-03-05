@@ -917,8 +917,6 @@ MonoBehaviour:
   check:
     name: 
     expectedValue: 
-    expectedYes: []
-    expectedNo: []
     isAutomatic: 0
     conditionalChecksYes: []
     conditionalChecksNo: []
@@ -931,6 +929,9 @@ MonoBehaviour:
   checkmarkImageRight: {fileID: 4536007024204229992}
   checkmarkBackgroundImageRight: {fileID: 5873484374728538799}
   checkTextComponentRight: {fileID: 8872287992144024410}
+  indentation: 0
+  _characterCount: 48
+  _splitNameLimit: 0
 --- !u!1 &6373715347308254081
 GameObject:
   m_ObjectHideFlags: 0

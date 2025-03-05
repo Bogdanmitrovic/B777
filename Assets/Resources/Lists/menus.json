@@ -619,7 +619,7 @@
                     "name":"Crossbleed indication (X-BLD or XB) shows:",
                     "expectedValue":"",
                     "isAutomatic": false,
-                    "conditionalCheckYes": ["L FUEL CONTROL switch"],
+                    "conditionalChecksYes": ["L FUEL CONTROL switch"],
                     "conditionalCheckNo": []
                   },
                   {
@@ -631,7 +631,7 @@
                     "name":"Engine starts and runs normally:",
                     "expectedValue":"",
                     "isAutomatic": false,
-                    "conditionalCheckYes": ["GND PROX FLAP OVRD switch","Transponder mode selector"],
+                    "conditionalChecksYes": ["GND PROX FLAP OVRD switch","Transponder mode selector"],
                     "conditionalCheckNo": []
                   },
                   {
@@ -735,7 +735,7 @@
                     "name":"Crossbleed indication (X-BLD or XB) shows:",
                     "expectedValue":"",
                     "isAutomatic": false,
-                    "conditionalCheckYes": ["R FUEL CONTROL switch"],
+                    "conditionalChecksYes": ["R FUEL CONTROL switch"],
                     "conditionalCheckNo": []
                   },
                   {
@@ -747,7 +747,7 @@
                     "name":"Engine starts and runs normally:",
                     "expectedValue":"",
                     "isAutomatic": false,
-                    "conditionalCheckYes": ["GND PROX FLAP OVRD switch","Transponder mode selector"],
+                    "conditionalChecksYes": ["GND PROX FLAP OVRD switch","Transponder mode selector"],
                     "conditionalCheckNo": []
                   },
                   {
@@ -809,14 +809,19 @@
                   {
                     "name":"Engine indications are stabilized and EGT is stabilized or decreasing",
                     "expectedValue":"",
-                    "isAutomatic": true,
-                    "conditionalCheckYes": ["Check that RPM and EGT follow thrust lever movement","NOTE1", "Engine runs at reducet thrust"],
+                    "isAutomatic": false,
+                    "conditionalChecksYes": ["PLAINTEXT1","Left thrust lever","NOTE1", "Engine runs at reduced thrust"],
                     "conditionalCheckNo": []
                   },
                   {
-                    "name":"Check that RPM and EGT follow thrust lever movement. Left thrust lever",
-                    "expectedValue":"Advance slowly",
+                    "name":"PLAINTEXT1",
+                    "expectedValue":"Check that RPM and EGT follow thrust lever movement.",
                     "isAutomatic": false
+                  },
+                  {
+                    "name":"Left thrust lever",
+                    "expectedValue":"Advance slowly",
+                    "isAutomatic": true
                   },
                   {
                     "name":"NOTE1",
@@ -832,7 +837,7 @@
                     "name":"Engine runs at reduced thrust",
                     "expectedValue":"",
                     "isAutomatic":true,
-                    "conditionalCheckYes":["Transponder mode selector","NOTE2", "Landing using flops 20", "Landing using flaps 30 (if performance allows)", "NOTE4", "Inhibited checklist"]
+                    "conditionalChecksYes":["Transponder mode selector","NOTE2", "Landing using flops 20", "Landing using flaps 30 (if performance allows)", "NOTE4", "Inhibited checklist"]
                   },
                   {
                     "name":"Transponder mode selector",
@@ -848,7 +853,7 @@
                     "name":"Landing using flops 20",
                     "expectedValue":"",
                     "isAutomatic":true,
-                    "conditionalCheckYes":["GND PROI FLAP OVRD switch","NOTE3"]
+                    "conditionalChecksYes":["GND PROI FLAP OVRD switch","NOTE3"]
                   },
                   {
                     "name":"GND PROI FLAP OVRD switch",
@@ -869,7 +874,7 @@
                     "name":"Landing using flops 30 (if performance allows)",
                     "expectedValue":"",
                     "isAutomatic":true,
-                    "conditionalCheckYes":["NOTE5"]
+                    "conditionalChecksYes":["NOTE5"]
                   },
                   {
                     "name":"NOTE5",
@@ -895,7 +900,7 @@
                     "name":"Engine indications are abnormal or EGT continues to increase:",
                     "expectedValue":"",
                     "isAutomatic":true,
-                    "conditionalCheckYes":["L FUEL CONTROL switch.........Confirm","APU selector (if APU available)","Transponder node selector","Plan to land at the nearest suitable airport","Landing using flaps 20", "Landing using flaps 30 (if performance allows)", "NOTE1", "Inhibited checklist"]
+                    "conditionalChecksYes":["L FUEL CONTROL switch.........Confirm","APU selector (if APU available)","Transponder node selector","Plan to land at the nearest suitable airport","Landing using flaps 20", "Landing using flaps 30 (if performance allows)", "NOTE1", "Inhibited checklist"]
                   },
                   {
                     "name":"L FUEL CONTROL switch.........Confirm",
@@ -926,7 +931,7 @@
                     "name":"Landing using flaps 20",
                     "expectedValue":"",
                     "isAutomatic":true,
-                    "conditionalCheckYes": ["GND PROX FLAP OVRD switch","NOTE2"]
+                    "conditionalChecksYes": ["GND PROX FLAP OVRD switch","NOTE2"]
                   },
                   {
                     "name":"GND PROX FLAP OVRD switch",
@@ -942,7 +947,7 @@
                     "name":"Landing using flaps 30 (if performance allows)",
                     "expectedValue":"",
                     "isAutomatic":true,
-                    "conditionalCheckYes":["NOTE3"]
+                    "conditionalChecksYes":["NOTE3"]
                   },
                   {
                     "name":"NOTE3",
@@ -994,7 +999,7 @@
                     "name":"Engine indications are stabilized and EGT is stabilized or decreasing",
                     "expectedValue":"",
                     "isAutomatic": true,
-                    "conditionalCheckYes": ["Check that RPM and EGT follow thrust lever movement","NOTE1", "Engine runs at reducet thrust"],
+                    "conditionalChecksYes": ["Check that RPM and EGT follow thrust lever movement","NOTE1", "Engine runs at reducet thrust"],
                     "conditionalCheckNo": []
                   },
                   {
@@ -1016,7 +1021,7 @@
                     "name":"Engine runs at reduced thrust",
                     "expectedValue":"",
                     "isAutomatic":true,
-                    "conditionalCheckYes":["Transponder mode selector","NOTE2", "Landing using flops 20", "Landing using flaps 30 (if performance allows)", "NOTE4", "Inhibited checklist"]
+                    "conditionalChecksYes":["Transponder mode selector","NOTE2", "Landing using flops 20", "Landing using flaps 30 (if performance allows)", "NOTE4", "Inhibited checklist"]
                   },
                   {
                     "name":"Transponder mode selector",
@@ -1032,7 +1037,7 @@
                     "name":"Landing using flops 20",
                     "expectedValue":"",
                     "isAutomatic":true,
-                    "conditionalCheckYes":["GND PROI FLAP OVRD switch","NOTE3"]
+                    "conditionalChecksYes":["GND PROI FLAP OVRD switch","NOTE3"]
                   },
                   {
                     "name":"GND PROI FLAP OVRD switch",
@@ -1053,7 +1058,7 @@
                     "name":"Landing using flops 30 (if performance allows)",
                     "expectedValue":"",
                     "isAutomatic":true,
-                    "conditionalCheckYes":["NOTE5"]
+                    "conditionalChecksYes":["NOTE5"]
                   },
                   {
                     "name":"NOTE5",
@@ -1079,7 +1084,7 @@
                     "name":"Engine indications are abnormal or EGT continues to increase:",
                     "expectedValue":"",
                     "isAutomatic":true,
-                    "conditionalCheckYes":["L FUEL CONTROL switch.........Confirm","APU selector (if APU available)","Transponder node selector","Plan to land at the nearest suitable airport","Landing using flaps 20", "Landing using flaps 30 (if performance allows)", "NOTE1", "Inhibited checklist"]
+                    "conditionalChecksYes":["L FUEL CONTROL switch.........Confirm","APU selector (if APU available)","Transponder node selector","Plan to land at the nearest suitable airport","Landing using flaps 20", "Landing using flaps 30 (if performance allows)", "NOTE1", "Inhibited checklist"]
                   },
                   {
                     "name":"R FUEL CONTROL switch.........Confirm",
@@ -1110,7 +1115,7 @@
                     "name":"Landing using flaps 20",
                     "expectedValue":"",
                     "isAutomatic":true,
-                    "conditionalCheckYes": ["GND PROX FLAP OVRD switch","NOTE2"]
+                    "conditionalChecksYes": ["GND PROX FLAP OVRD switch","NOTE2"]
                   },
                   {
                     "name":"GND PROX FLAP OVRD switch",
@@ -1126,7 +1131,7 @@
                     "name":"Landing using flaps 30 (if performance allows)",
                     "expectedValue":"",
                     "isAutomatic":true,
-                    "conditionalCheckYes":["NOTE3"]
+                    "conditionalChecksYes":["NOTE3"]
                   },
                   {
                     "name":"NOTE3",

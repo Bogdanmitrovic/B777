@@ -1,3 +1,4 @@
+using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,8 +19,10 @@ public class ConditionalCheckRenderer : MonoBehaviour
     public Image checkmarkBackgroundImageRight;
     public TMP_Text checkTextComponentRight;
     
-    private int _characterCount;
-    private int _splitNameLimit;
+    public int indentation;
+    
+    public int _characterCount;
+    public int _splitNameLimit;
 
     void Start()
     {
@@ -68,7 +71,9 @@ public class ConditionalCheckRenderer : MonoBehaviour
 
     private void UpdateUI()
     {
-        checkTextComponent.text = check.name;
+        
+        
+        checkTextComponent.text = Text();
         checkTextComponentLeft.text = "Yes";
         checkTextComponentRight.text = "No";
         checkmarkImageLeft.enabled = check.ConditionalState == ConditionalState.Yes;
@@ -77,6 +82,35 @@ public class ConditionalCheckRenderer : MonoBehaviour
         ButtonsEnabled(!check.IsDone);
         SetColors();
         outline.enabled = check.IsSelected;
+    }
+
+    private string Text()
+    {
+        var stringBuilder = new StringBuilder();
+        // append indentation*"   "
+        int count = 0;
+        var indentString= new string(' ', indentation * 3);
+        stringBuilder.Append(indentString);
+        stringBuilder.Append(check.name);
+        /*var words = check.name.Split(' ');
+        for (var i = 0; i < words.Length; i++)
+        {
+            var word = words[i];
+            stringBuilder.Append(word);
+            count += word.Length;
+            if (i != words.Length - 1 && count >= _characterCount)
+            {
+                stringBuilder.Append("\n");
+                stringBuilder.Append(indentString);
+                count = indentation * 3;
+            }
+            else
+            {
+                stringBuilder.Append(" ");
+                count++;
+            }
+        }*/
+        return stringBuilder.ToString();
     }
     private void SetColors()
     {
