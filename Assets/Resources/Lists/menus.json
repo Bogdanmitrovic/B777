@@ -1899,7 +1899,50 @@
           {
             "name": "Flight deck door, Windows ...",
             "checks": [],
-            "subChecklists": []
+            "subChecklists": [
+              {
+                "name": "Automatic unlock",
+                "checks": [
+                  {
+                    "name": "Condition",
+                    "expectedValue": "The correct emergency access code is entered."
+                  },
+                  {
+                    "name": "FLT DECK DOOR lock selector",
+                    "expectedValue": "Rotate to DENY and hold for 1 second"
+                  }
+                ],
+                "subChecklists": []
+              },
+              {
+                "name": "Lock fail",
+                "checks": [
+                  {
+                    "name": "Condition",
+                    "expectedValue": "One or more of these occur:\n- The flight deck access system switch is OFF\n- The lock is failed\n\n Objective: To remove electrical power from the lock to prevent possible overheat. "
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Do if conditions allow a crew member to leave the seat.\nFLIGHT DECK ACCESS SYSTEM switch.....OFF\nThe door can be locked with the deadbolt."
+                  }
+                ],
+                "subChecklists": []
+              },
+              {
+                "name": "Window damage fwd l",
+                "checks": [
+                  {
+                    "name": "Condition",
+                    "expectedValue": "The left forward flight deck window has one or more of these:\n- An electrical arc\n- A delamination\n- A crack\n- Is shattered\n\nObjective: To remove electrical power, if needed. "
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Do if conditions allow a crew member to leave the seat.\nFLIGHT DECK ACCESS SYSTEM switch.....OFF\nThe door can be locked with the deadbolt."
+                  }
+                ],
+                "subChecklists": []
+              }
+            ]
           },
           {
             "name": "Airspeed unreliable",
