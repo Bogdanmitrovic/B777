@@ -3048,7 +3048,23 @@
           },
           {
             "name": "Gear lever locked on",
-            "checks": [],
+            "checks": [
+              {
+                "name": "Condition",
+                "expectedValue": "The landing gear lever cannot move to UP",
+                "isAutomatic": true
+              },
+              {
+                "name": "Landing gear lever LOCK OVRD switch",
+                "expectedValue": "Push and hold",
+                "isAutomatic": false
+              },
+              {
+                "name": "Landing gear lever",
+                "expectedValue": "UP",
+                "isAutomatic": true
+              }
+            ],
             "subChecklists": []
           },
           {
