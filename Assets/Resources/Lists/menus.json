@@ -2470,7 +2470,74 @@
           },
           {
             "name": "Evacuation",
-            "checks": [],
+            "checks": [
+              {
+                "name": "Condition",
+                "expectedValue": "An evacuation is needed",
+                "isAutomatic": true
+              },
+              {
+                "name": "Parking brake",
+                "expectedValue": "Set",
+                "isAutomatic": true
+              },
+              {
+                "name": "OUTFLOW VALVE switches (both)",
+                "expectedValue": "MAN",
+                "isAutomatic": true
+              },
+              {
+                "name": "Outflow valve MANUAL switches (both)",
+                "expectedValue": "Hold in OPEN until the outflow valve indications show fully open to depressurize the airplane",
+                "isAutomatic": false
+              },
+              {
+                "name": "FUEL CONTROL switches (both)",
+                "expectedValue": "CUTOFF",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Advise the cabin to evacuate",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "EMERGENCY EVACUATION SIGNAL (if available)",
+                "expectedValue": "Activate",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Advise the tower",
+                "isAutomatic": false
+              },
+              {
+                "name": "Engine fire switches (both)",
+                "expectedValue": "Pull",
+                "isAutomatic": true
+              },
+              {
+                "name": "APU fire switch",
+                "expectedValue": "Override and pull",
+                "isAutomatic": true
+              },
+              {
+                "name": "Engine or APU fire warning occurs",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": ["Related fire switch"]
+              },
+              {
+                "name": "Related fire switch",
+                "expectedValue": "Rotate to the stop and hold for 1 second",
+                "isAutomatic": true
+              }
+            ],
             "subChecklists": []
           },
           {
