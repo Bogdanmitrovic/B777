@@ -2252,7 +2252,118 @@
           },
           {
             "name": "Ditching",
-            "checks": [],
+            "checks": [
+              {
+                "name": "Condition",
+                "expectedValue": "Airplane ditching and evacuation are needed.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Plan to jettison fuel as needed to reduce VREF speeds.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "----------DEFERRED ITEMS----------",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "==> APPROACH CHECKLIST",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "When below 5,000 feet:",
+                "isAutomatic": false
+              },
+              {
+                "name": "GND PROX GEAR OVRD switch",
+                "expectedValue": "OVRD",
+                "isAutomatic": true
+              },
+              {
+                "name": "GND PROX TERR OVRD switch",
+                "expectedValue": "OVRD",
+                "isAutomatic": true
+              },
+              {
+                "name": "PACK switches (both)",
+                "expectedValue": "OFF",
+                "isAutomatic": true
+              },
+              {
+                "name": "OUTFLOW VALVE switches (both)",
+                "expectedValue": "MAN",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "==> APPROACH CHECKLIST",
+                "isAutomatic": true
+              },
+              {
+                "name": "OUTFLOW VALVE MANUAL switches (both)",
+                "expectedValue": "Hold in CLOSE until the outflow valve indications show fully closed",
+                "isAutomatic": false
+              },
+              {
+                "name": "NO SMOKING AND SEAT BELTS SELECTORS",
+                "expectedValue": "ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "Inhibited checklists",
+                "expectedValue": "PACK L\n PACK R\n CABIN ALTITUDE AUTO",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "When on final approach (omit LANDING) checklist:",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "==> APPROACH CHECKLIST",
+                "isAutomatic": true
+              },
+              {
+                "name": "Landing gear level",
+                "expectedValue": "UP",
+                "isAutomatic": true
+              },
+              {
+                "name": "Flaps",
+                "expectedValue": "30",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Advise the cabin of imminent touchdown.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Maintain airspeed at VREF 30 to touchdown. Flare airplane to achieve the minimum rate of descent at touchdown.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "After impact, place both fuel control switches to CUTOFF, and override and pull the APU fire switch.",
+                "isAutomatic": true
+              }
+            ],
             "subChecklists": []
           },
           {
