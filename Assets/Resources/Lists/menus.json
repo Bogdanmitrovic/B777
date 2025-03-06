@@ -3287,7 +3287,88 @@
           },
           {
             "name": "Overweight landing",
-            "checks": [],
+            "checks": [
+              {
+                "name": "Condition",
+                "expectedValue": "A landing at greater than maximum landing weight is needed.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Refer to the Landing Climb Limit Weight table in the Performance Inflight chapter or other approved source.",
+                "isAutomatic": false
+              },
+              {
+                "name": "Landing gross weight is greater than the Landing Climb Limit Weight, or one engine is inoperative or at reduced thrust",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "GND PROX FLAP OVRD switch",
+                  "NOTE1"
+                ]
+              },
+              {
+                "name": "GND PROX FLAP OVRD switch",
+                "expectedValue": "OVRD",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE1",
+                "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around. This gives greater climb capability.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Landing gross weight is less than or equal to the Landing Climb Limit Weight, and both engines are running normally:",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1",
+                  "VREF 30 + additives (wind and gusts, 5 knots minimum) is at or below 170 knots",
+                  "VREF 30 + additives (wind and gusts, 5 knots minimum) is above 170 knots"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Enter the landing gross weight on the APPROACH REF page",
+                "isAutomatic": false
+              },
+              {
+                "name": "VREF 30 + additives (wind and gusts, 5 knots minimum) is at or below 170 knots",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "NOTE1"
+                ]
+              },
+              {
+                "name": "NOTE1",
+                "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "VREF 30 + additives (wind and gusts, 5 knots minimum) is above 170 knots",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "NOTE1"
+                ]
+              },
+              {
+                "name": "NOTE1",
+                "expectedValue": "Use flaps 25 and VREF 25 for landing and flaps 20 for go-around. This gives greater margin to the flap placard speed.",
+                "isAutomatic": true
+              }
+            ],
             "subChecklists": []
           },
           {
