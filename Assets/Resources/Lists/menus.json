@@ -3069,7 +3069,102 @@
           },
           {
             "name": "Ice crystal icing",
-            "checks": [],
+            "checks": [
+              {
+                "name": "Contidion",
+                "expectedValue": "Engine ice crystal icing or TAT probe icing is suspected. Ice crystal icing conditions exist when in visible moisture, and one or more of the following indications are present:\n- Amber or red weather rader returns below the airplane\n- Appearance of liquid water on the windshield at temperatures too cold for rain (the sound is different than rain)\n- The autothrottle disconnects or is unable to maintain the selected airspeed\n- TAT indication on EICAS stays near 0 degrees C\n- Abnormal engine vibration indications",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "(Additional items that can indicate ice crystal icing are listed in the Additional Information section.)",
+                "isAutomatic": true
+              },
+              {
+                "name": "Objective",
+                "expectedValue": "To exit the ice crystal icing conditions and reduce the operational effects of the icing.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "TAT probe icing can cause one or more of the following abnormal engine indications:\n- Reference/target N1 indications blank\n- Reference/target N1 indications decrease while flying at a constant altitude and airspeed.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Minimize time above amber and red weather radar returns, if conditions allow, exit the ice crystal icing conditions",
+                "isAutomatic": false
+              },
+              {
+                "name": "Autothrottle is unable to maintain the selected airspeed and TAT indication stays near 0 degrees C",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "A/T ARM switches (both)",
+                  "Thrust levers (both)"
+                ]
+              },
+              {
+                "name": "A/T ARM switches (both)",
+                "expectedValue": "OFF",
+                "isAutomatic": false
+              },
+              {
+                "name": "Thrust levers (both)",
+                "expectedValue": "Set to maintain airspeed and airplane flight path",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "When in ice crystal icing conditions, the following can be unreliable:\n- Reference/target N1 indications and reference N1\n- TAS, TAT, SAT, ECON SPD, and LRC",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "When ice crystal icing conditions are no longer present:",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "The autothrottle can be activated if needed.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "---------ADDITIONAL INFIRMATION---------",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "One or more of the following can indicate ice crystal icing:\n- Light to moderate turbulence\n- Static discharge around the windshield (St. Elmo's fire)\n- Smell of sulfur\n- Smell of ozone\n- Humidity increase'",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "An erroneous TAT indication can occur as a result of ice crystals blocking the sensor. The erroneous indication can last from one minute to more than 20 minutes. TAT normally should increase approximately 2 degrees Celsius per 1000 ft of descent.",
+                "isAutomatic": true
+              }
+            ],
             "subChecklists": []
           },
           {
