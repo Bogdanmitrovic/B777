@@ -3373,7 +3373,48 @@
           },
           {
             "name": "Tail strike",
-            "checks": [],
+            "checks": [
+              {
+                "name": "Condition",
+                "expectedValue": "A tail strike is suspected or confirmed.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Caution! Continued pressurization of the airplane can cause further structural damage.",
+                "isAutomatic": true
+              },
+              {
+                "name": "OUTFLOW VALVE switches (both)",
+                "expectedValue": "MAN",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Use momentary actuation of the outflow valve manual switches to avoid large and rapid pressurization changes. Values can take up to 6 seconds to move the first time.",
+                "isAutomatic": true
+              },
+              {
+                "name": "OUTFLOW VALVE MANUAL switches (both)",
+                "expectedValue": "Move to OPEN until the outflow valve indications show fully open to depressurize the airplane",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Plan to land at the nearest suitable airport.",
+                "isAutomatic": false
+              },
+              {
+                "name": "Inhibited checklist",
+                "expectedValue": "CABIN ALTITUDE AUTO",
+                "isAutomatic": true
+              }
+            ],
             "subChecklists": []
           },
           {
