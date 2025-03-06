@@ -3422,11 +3422,179 @@
             "checks": [
               {
                 "name": "Condition",
-                "expectedValue": "Volcanic as is suspected when one or more of these occur:\n- A static discharge around the windshield\n- A bright glow in the engine inlets\n- Smoke dust on the flight dock\n- An acrid odor\n\nObjective: To exit the ash cloud and restart engines if needed."
+                "expectedValue": "Volcanic as is suspected when one or more of these occur:\n- A static discharge around the windshield\n- A bright glow in the engine inlets\n- Smoke dust on the flight dock\n- An acrid odor\n\nObjective: To exit the ash cloud and restart engines if needed.",
+                "isAutomatic": true
               },
               {
                 "name": "PLAINTEXT",
-                "expectedValue": "Exit the volcanic ash as quickly as possible. Consider a 180 degree turn. Consider a descending turn."
+                "expectedValue": "Exit the volcanic ash as quickly as possible. Consider a 180 degree turn. Consider a descending turn.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Don the oxygen masks and smoke goggles, if needed.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Establish crew communications, if needed.",
+                "isAutomatic": false
+              },
+              {
+                "name": "Autothrottle disconnect switch",
+                "expectedValue": "Push",
+                "isAutomatic": false
+              },
+              {
+                "name": "If conditions allow, run the engines at idle. Thrust levers (both)",
+                "expectedValue": "Idle",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "This step reduces possible engine damage or flameout, or both, by decreasing EGT.",
+                "isAutomatic": true
+              },
+              {
+                "name": "ENGINE ANTI-ICE selectors (both)",
+                "expectedValue": "ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "WING ANTI-ICE selector",
+                "expectedValue": "ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "RECIRC FANS switches (both)",
+                "expectedValue": "Off",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "APU selector (if APU available)",
+                "expectedValue": "START, then ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Volcanic ash can cause non-normal system reactions such as:\n- Engine malfunctions, increasing EGT, engine stall or flameout\n- Decrease or loss of airspeed indications\n- EQUIP COOLING OVRD message\n- FIRE CARGO FWD or AFT message",
+                "isAutomatic": true
+              },
+              {
+                "name": "Engines run normally",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Plan to land at the nearest suitable airport.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Engines are flamed out or stalled, or EGT is rapidly approaching or exceeding the limit:",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "FUEL CONTROL switches (both)",
+                  "RAM AIR TURBINE switch",
+                  "PLAINTEXT1",
+                  "PLAINTEXT2",
+                  "PLAINTEXT3",
+                  "Fuel CENTER PUMPS switches (both)",
+                  " Fuel CENTER PUMPS switches (both)",
+                  "PLAINTEXT4",
+                  "PRIMARY FLIGHT COMPUTERS disconnect switch",
+                  "PLAINTEXT5",
+                  "PLAINTEXT6"
+                ]
+              },
+              {
+                "name": "FUEL CONTROL switches (both)",
+                "expectedValue": "CUTOFF, then RUN",
+                "isAutomatic": true
+              },
+              {
+                "name": "RAM AIR TURBINE switch",
+                "expectedValue": "Push and hold for 1 second",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "For a dual engine in-flight start, do not manually abort the start if the EGT indication turns red. Autostart allows EGT to exceed the in-flight start limit, however autostart aborts the start before EGT becomes too high for continued engine operation.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue": "Set airspeed above 270 knots.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT3",
+                "expectedValue": "Engines can accelerate to idle very slowly, especially at high altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.\n\nIf N2 is steadily increasing and EGT stays within limits, do not interrupt the start.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Fuel CENTER PUMPS switches (both)",
+                "expectedValue": "off",
+                "isAutomatic": false
+              },
+              {
+                "name": " Fuel CENTER PUMPS switches (both)",
+                "expectedValue": "ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT4",
+                "expectedValue": "When the HEAT PITOT L+C+R message blanks:",
+                "isAutomatic": false
+              },
+              {
+                "name": "PRIMARY FLIGHT COMPUTERS disconnect switch",
+                "expectedValue": "DISC, then AUTO\n\nThis step restores the flight control normal mode.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT5",
+                "expectedValue": "Re-engage the autopilot as needed when the flight control normal mode is restored.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT6",
+                "expectedValue": "Plan to land at the nearest suitable airport.",
+                "isAutomatic": false
               }
             ],
             "subChecklists": []
