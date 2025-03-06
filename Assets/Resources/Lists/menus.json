@@ -2599,7 +2599,451 @@
           },
           {
             "name": "Fuel leak",
-            "checks": [],
+            "checks": [
+              {
+                "name": "Condition",
+                "expectedValue": "A fuel leak is suspected for the reasons listed in the Additional Information section of this checklist.",
+                "isAutomatic": true
+              },
+              {
+                "name": "Objective",
+                "expectedValue": "To confirm there is a fuel leak. If confirmed, to isolate the leak to one of the following: -engine\n- main tank\n- center tank",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "A diversion may be needed.",
+                "isAutomatic": false
+              },
+              {
+                "name": "Fuel L PUMPS and R PUMPS switches (all)",
+                "expectedValue": "ON",
+                "isAutomatic": false
+              },
+              {
+                "name": "FUEL CROSSFEED switches (both)",
+                "expectedValue": "Off",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Fuel CENTER PUMPS switches (both)",
+                "expectedValue": "Off",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "The FUEL IN CENTER message may show.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "The following steps check for an engine or main tank leak.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Record the main tank fuel quantities and the current time.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "An engine/main tank leak is confirmed if one or both of the following are true: - Fuel spray is observed from an engine, strut, or wing\n- A change in fuel imbalance of 500 kgs within 30 minutes or less",
+                "isAutomatic": true
+              },
+              {
+                "name": "Engine/main tank leak is confirmed",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1",
+                  "PLAINTEXT2",
+                  "A/T ARM switch (affected engine)......Confirm",
+                  "Thrust lever (affected engine)......Confirm",
+                  "FUEL CONTROL switch (affected engine)......Confirm",
+                  "APU selector (if APU available)",
+                  "Transponder mode selector",
+                  "FUEL QTY LOW message shows",
+                  "FUEL IN CENTER message shows",
+                  "PLAINTEXT3",
+                  "Landing using flaps 20",
+                  "Landing using flaps 30 (if performance allows)",
+                  "NOTE1",
+                  "PLAINTEXT4",
+                  "PLAINTEXT5",
+                  "PLAINTEXT6",
+                  "PLAINTEXT7",
+                  "Main tank leak is confirmed",
+                  "Main tank leak is NOT confirmed",
+                  "NOTE2",
+                  "Inhibited checklists"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "An engine/main tank leak is confirmed. The following steps shyt down the engine to stop an engine fuel leak.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue": "The affected engine is on the side where the fuel quantity decreased faster.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "A/T ARM switch (affected engine)......Confirm",
+                "expectedValue": "OFF",
+                "isAutomatic": false
+              },
+              {
+                "name": "Thrust lever (affected engine)......Confirm",
+                "expectedValue": "Idle",
+                "isAutomatic": false
+              },
+              {
+                "name": "FUEL CONTROL switch (affected engine)......Confirm",
+                "expectedValue": "CUTOFF",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "This closes the spar valve and stops an engine fuel leak",
+                "isAutomatic": true
+              },
+              {
+                "name": "APU selector (if APU available)",
+                "expectedValue": "START, then ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "Transponder mode selector",
+                "expectedValue": "TA ONLY",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "FUEL QTY LOW message shows",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "FUEL CROSSFEED switch (either)",
+                "expectedValue": "On",
+                "isAutomatic": false
+              },
+              {
+                "name": "FUEL IN CENTER message shows",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [ "Fuel CENTER PUMP switch (on side with running engine)" ]
+              },
+              {
+                "name": "Fuel CENTER PUMP switch (on side with running engine)",
+                "expectedValue": "ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT3",
+                "expectedValue": "Plan to land at the nearest suitable airport.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Landing using flaps 20",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "GND PROX FLAP OVRD switch",
+                  "NOTE"
+                ]
+              },
+              {
+                "name": "GND PROX FLAP OVRD switch",
+                "expectedValue": "OVRD",
+                "isAutomatic": false
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around",
+                "isAutomatic": true
+              },
+              {
+                "name": "Landing using flaps 30 (if performance allows)",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [ "NOTE" ]
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE1",
+                "expectedValue": "Check the Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT4",
+                "expectedValue": "The following steps check for a main tank leak.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT5",
+                "expectedValue": "Select PROGRESS page 2",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT6",
+                "expectedValue": "Record the totalizer and calculated fuel quantities, and the current time.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT7",
+                "expectedValue": "A main tank leak is confirmed if the difference between calculated and totalizer increase by 500 kgs within 30 minutes or less.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Main tank leak is confirmed",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1",
+                  "PLAINTEXT2",
+                  "NOTE1",
+                  "NOTE2",
+                  "Inhibited checklists"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "The leak is not an engine fuel leak. The engine may be re-started.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue": "For a long diversion, range may be improved by re-starting the engine and climbing.",
+                "isAutomatic": false
+              },
+              {
+                "name": "NOTE1",
+                "expectedValue": "Do not balance fuel",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE2",
+                "expectedValue": "If the FUEL QTY LOW message shows at any time, do the FUEL QTY LOW checklist.",
+                "isAutomatic": true
+              },
+              {
+                "name": "Inhibited checklist",
+                "expectedValue": "FUEL IMBALANCE",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Main tank leak is NOT confirmed",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1",
+                  "NOTE1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "The leak was an engine fuel leak.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE1",
+                "expectedValue": "All remaining fuel can be used for the running engine. Use normal fuel management. When the FUEL IMBALANCE message shows, do the FUEL IMBALANCE checklist.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE2",
+                "expectedValue": "If the FUEL DISAGREE message shows at any time, go to PROGRESS page 2 and select the TOTALIZER fuel quantity.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Inhibited checklists",
+                "expectedValue": "AUTOTHROTTLE L\nAUTOTHROTTLE R\nFUEL DISAGREE",
+                "isAutomatic": true
+              },
+              {
+                "name": "Engine/main tank leak is NOT confirmed",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "FUEL IN CENTER message shows",
+                  "FUEL IN CENTER message is blank"
+                ]
+              },
+              {
+                "name": "FUEL IN CENTER message shows",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1",
+                  "Fuel CENTER PUMPS switches (both)",
+                  "PLAINTEXT2",
+                  "PLAINTEXT3",
+                  "PLAINTEXT4",
+                  "Center tank leak is confirmed",
+                  "Center tank leak is NOT confirmed"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "The following steps check for a center tank leak.",
+                "isAutomatic": true
+              },
+              {
+                "name": "Fuel CENTER PUMPS switches (both)",
+                "expectedValue": "ON",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue": "Select PROGRESS page 2",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT3",
+                "expectedValue": "Record the totalizer and calculated fuel quantities, and the current time",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT4",
+                "expectedValue": "A center tank leak is confirmed if the difference between calculated and totalizer increases by 500 kgs within 30 minutes or less",
+                "isAutomatic": false
+              },
+              {
+                "name": "Center tank leak is confirmed",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1",
+                  "PLAINTEXT2",
+                  "NOTE1",
+                  "Inhibited checklist"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Continue to use all center tank fuel",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue": "Verify that sufficient fuel is available in the left and right main tanks to complete the flight.",
+                "isAutomatic": false
+              },
+              {
+                "name": "NOTE1",
+                "expectedValue": "If the FUEL DISAGREE message shows at any time, go to PROGRESS page 2 and select the TOTALIZER fuel quantity.",
+                "isAutomatic": true
+              },
+              {
+                "name": "Inhibited checklist",
+                "expectedValue": "FUEL DISAGREE",
+                "isAutomatic": true
+              },
+              {
+                "name": "Center tank leak is NOT confirmed",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Resume normal fuel management",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "FUEL IN CENTER message is blank",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [ "PLAINTEXT1" ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Resume normal fuel management.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "---------ADDITIONAL INFORMATION---------",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Reasons that a fuel leak should be suspected:\n-A visual observation of fuel spray\n- The total fuel quantity is decreasing at an abnormal rate\n- An engine has excessive fuel flow\n- The FUEL DISAGREE message shows on EICAS\n- The FUEL IMBALANCE message shows on EICAS\n-The FUEL QTY LOW message shows on EICAS\n- The INSUFFICIENT FUEL message shows on EICAS",
+                "isAutomatic": true
+              }
+            ],
             "subChecklists": []
           },
           {
@@ -2623,7 +3067,7 @@
             "subChecklists": []
           },
           {
-            "name": "Tail strinke",
+            "name": "Tail strike",
             "checks": [],
             "subChecklists": []
           },
