@@ -2048,7 +2048,308 @@
           },
           {
             "name": "Airspeed unreliable",
-            "checks": [],
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue":"Airspeed or Mach indications are suspected to be unreliable. (Items which can indicate unreliable airspeed are listed in the Additional Information section.)",
+                "isAutomatic":true
+              },
+              {
+                "name":"Objective",
+                "expectedValue":"To identify a reliable airspeed indication, if possible, or to continue the flight using the Flight With Unreliable Airspeed table in the Performance Inflight chapter.",
+                "isAutomatic":true
+              },
+              {
+                "name":"Autopilot disengage switch",
+                "expectedValue":"Push",
+                "isAutomatic":true
+              },
+              {
+                "name":"A/T ARM switches (both)",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },
+              {
+                "name":"F/D switches (both)",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },
+              {
+                "name":"PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"Set the following gear up pitch attitude and thrust.",
+                "isAutomatic":false
+              },
+              {
+                "name":"Flaps extended",
+                "expectedValue":"10 degrees 85% N1",
+                "isAutomatic":true
+              },
+              {
+                "name":"Flaps up",
+                "expectedValue":"4 degrees 70% N1",
+                "isAutomatic":true
+              },
+              {
+                "name":"Airplane cannot be trimmed to the desired pitch attitude",
+                "expectedValue":"",
+                "isAutomatic":true,
+                "conditionalChecksYes":["PRIMARY FLIGHT COMPUTERS disconnect switch"]
+              },
+              {
+                "name":"PRIMARY FLIGHT COMPUTERS disconnect switch",
+                "expectedValue":"DISC",
+                "isAutomatic":true
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"If, at anytime, the airplane cannot be trimmed to the desired pitch attitude, disconnect the PRIMARY FLIGHT COMPUTERS.",
+                "isAutomatic":true
+              },
+              {
+                "name":"PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"The following are reliable:\n - Attitude\n - N1\n - Ground speed \n - Radio altitude",
+                "isAutomatic":false
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Stick shaker, overspeed warning, and AIRSPEED LOW alerts may sound erroneously or simultaneously",
+                "isAutomatic":true
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"The flight path vector, and pitch limit indicator are unreliable",
+                "isAutomatic":true
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"Refer to the Flight With Unreliable Airspeed table in the Performance Inflight chapter and set the pitch attitude and thrust setting for the current airplane configuration and phase of flight.",
+                "isAutomatic":true
+              },
+              {
+                "name":"PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"When in trim and stabilized",
+                "isAutomatic":false
+              },
+              {
+                "name":"PLAINTEXt",
+                "expectedValue":"Cross check the captain, first officer, and standby airspeed indicators",
+                "isAutomatic":false
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"An airspeed indication that differs by more than 20 knots or .03 Mach from the airspeed shown in the table should be considered unreliable.",
+                "isAutomatic":true
+              },
+              {
+                "name":"Reliable airspeed indication can be determined",
+                "expectedValue":"",
+                "isAutomatic":true,
+                "conditionalChecksYes":["PLAINTEXT1"]
+              },
+              {
+                "name":"PLAINTEXT1",
+                "expectedValue":"Use the most reliable airspeed source for the rest of the flight.",
+                "isAutomatic":true
+              },
+              {
+                "name":"PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name":"Reliable airspeed indication cannot be determined",
+                "expectedValue":"",
+                "isAutomatic":true,
+                "conditionalChecksYes":["PLAINTEXT1"]
+              },
+              {
+                "name":"PLAINTEXT1",
+                "expectedValue":"Set pitch attitude and thrust from the Flight With Unreliable Airspeed table in the Performance Inflight chapter for the airplane configuration and phase of flight, as needed",
+                "isAutomatic":false
+              },
+              {
+                "name":"GND PROX FLAP OVRD switch",
+                "expectedValue":"OVRD",
+                "isAutomatic":true
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Maintain visual conditions if possible",
+                "isAutomatic":true
+              },
+              {
+                "name":"PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Plan to reduce gross weight to less than Maximum Landing Weight before extending flaps, Manouever margin can be limited while flaps are extending from UP to 5",
+                "isAutomatic":true
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Plan more time for alternate slat and flaps extension.",
+                "isAutomatic":true
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Use flaps 20 and VREF 20 for landing. The alternate mode is limited to a maximum of flaps 20.",
+                "isAutomatic":true
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Establis landing configuration early.",
+                "isAutomatic":true
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Radio altitude reference is available below 2,500 feet AGL.",
+                "isAutomatic":true
+              },
+              {
+                "name":"PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Use electronic and visual glideslope indicators, where available, for approach and landing.",
+                "isAutomatic":true
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Do not use the autopilot, autothrottle, or flight directors.",
+                "isAutomatic":true
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Do not use TO/GA for a go-around or missed approach.",
+                "isAutomatic":true
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Check the Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                "isAutomatic":true
+              },
+              {
+                "name":"Transponder mode selector",
+                "expectedValue":"TA ONLY",
+                "isAutomatic":false
+              },
+              {
+                "name":"PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name":"Altitude is unreliable",
+                "expectedValue":"",
+                "isAutomatic":true,
+                "conditionalChecksYes":["XPDR switch is on the transponder panel", "ALT SOURCE selector is on the transponder panel"]
+              },
+              {
+                "name":"XPDR switch is on the transponder panel",
+                "expectedValue":"",
+                "isAutomatic":true,
+                "conditionalChecksYes":["Transponder mode selector"]
+              },
+              {
+                "name":"Transponder mode selector",
+                "expectedValue":"ALT OFF",
+                "isAutomatic":true
+              },
+              {
+                "name":"ALT SOURCE selector is on the transponder pane",
+                "expectedValue":"",
+                "isAutomatic":true,
+                "conditionalChecksYes":["Transponder mode selector"]
+              },
+              {
+                "name":"Transponder mode selector",
+                "expectedValue":"ALT RPTG OFF",
+                "isAutomatic":true
+              },
+              {
+                "name":"PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name":"Inhibited checklist",
+                "expectedValue":"FLAP/SLAT CONTROL",
+                "isAutomatic":true
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"----------DEFERRED ITEMS----------",
+                "isAutomatic":true
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"==> APPROACH CHECKLIST",
+                "isAutomatic":true
+              },
+              {
+                "name":"ALTN FLAPS ARM switch",
+                "expectedValue":"ALTN",
+                "isAutomatic":true
+              },
+              {
+                "name":"Alternate flaps selector",
+                "expectedValue":"EXT",
+                "isAutomatic":false
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"----------ADDITIONAL INFORMATION----------",
+                "isAutomatic":true
+              },              
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"One or more of the following may be evidence of unreliable airspeed or Mach indications:\n - Speed/altitude information not consistent with pitch attitude and thrust setting. \n - Airspeed or Mach failure flags\n - PFD current airspeed box amber\n - An amber line through one or more PFD flight mode annunciations\n - Blank or fluctuating airspeed display",
+                "isAutomatic":true
+              },
+              {
+                "name":"PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"One or more of the following may be evidence of unreliable airspeed or Mach indications (continued):\n - Variation between captain and first officer airspeed displays\n- Radome damage or loss\n- Overspeed warning\n- Simultaneous overspeed and stall warnings.",
+                "isAutomatic":true
+              },
+              
+              {
+                "name":"PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"One or more of the following EICAS messages may show:\n AIR DATA SYS\n AIRSPEED LOW\n GND PROX SYS\n HEAT PITOT C\n HEAT PITOT L\n HEAT PITOT R\n HEAT PITOT L+C+R\n OVERSPEED\n SGL SOURCE AIR DATA\n SGL SOURCE DISPLAYS\n WINDSHEAR SYS",
+                "isAutomatic":true
+              }
+              
+            ],
             "subChecklists": []
           },
           {
