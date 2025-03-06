@@ -2542,7 +2542,59 @@
           },
           {
             "name": "Fuel jettison",
-            "checks": [],
+            "checks": [
+              {
+                "name": "Condition",
+                "expectedValue": "Fuel jettison is needed",
+                "isAutomatic": true
+              },
+              {
+                "name": "FUEL JETTISON ARM switch",
+                "expectedValue": "ARMED",
+                "isAutomatic": false
+              },
+              {
+                "name": "FUEL TO REMAIN must be changed:",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": ["FUEL TO REMAIN selector"]
+              },
+              {
+                "name": "FUEL TO REMAIN selector",
+                "expectedValue": "PULL ON, set manually",
+                "isAutomatic": false
+              },
+              {
+                "name": "FUEL JETTISON NOZZLE valve switches (both)",
+                "expectedValue": "ON",
+                "isAutomatic": false
+              },
+              {
+                "name": "Inhibited checklists",
+                "expectedValue": "FUEL PUMP CENTER L\nFUEL PUMP CENTER R\nFUEL SCAVENGE SYS",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "When fuel jettison is complete",
+                "isAutomatic": false
+              },
+              {
+                "name": "FUEL JETTISON NOZZLE valve switches (both)",
+                "expectedValue": "Off",
+                "isAutomatic": true
+              },
+              {
+                "name": "FUEL JETTISON ARM switch",
+                "expectedValue": "Off",
+                "isAutomatic": true
+              }
+            ],
             "subChecklists": []
           },
           {
