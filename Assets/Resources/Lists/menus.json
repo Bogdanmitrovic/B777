@@ -3169,7 +3169,120 @@
           },
           {
             "name": "Jammed flight controls",
-            "checks": [],
+            "checks": [
+              {
+                "name": "Condition",
+                "expectedValue": "Flight controls are jammed or restricted in roll, pitch or yaw.",
+                "isAutomatic": true
+              },
+              {
+                "name": "Autopilot disengage switch",
+                "expectedValue": "Push",
+                "isAutomatic": false
+              },
+              {
+                "name": "Autothrottle disconnect switch",
+                "expectedValue": "Push",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Overpower the jammed or restricted system.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Use maximum force, including a combined effort of both pilots, as needed. A maximum two-pilot effort on the controls will not damage the flight controls.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Controls stay jammed or restricted",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "NOTE1",
+                  "NOTE2",
+                  "NOTE3",
+                  "NOTE4",
+                  "NOTE5",
+                  "NOTE6",
+                  "NOTE7",
+                  "NOTE8",
+                  "NOTE9",
+                  "NOTE10"
+                ]
+              },
+              {
+                "name": "NOTE1",
+                "expectedValue": "Control may be limited to one pilot.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE2",
+                "expectedValue": "If the aileron controls are jammed, use rudder and rudder trim to counter the effect of the jam.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE3",
+                "expectedValue": "If elevator controls are jammed, use pitch trim to counter the effect of the jam. If more pitch trim authority is needed, select DISC on the primary flight computers disconnect switch. This puts the flight control system in direct mode. In direct mode, pitch trim moves slower than in normal mode.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE4",
+                "expectedValue": "If the rudder controls are jammed, use aileron and aileron trim to counter the effect of the jam.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE5",
+                "expectedValue": "Do not make abrupt thrust changes.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE6",
+                "expectedValue": "Extend or retract speedbrake slowly and smoothly.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE7",
+                "expectedValue": "Limit bank angle to 15 degrees",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE8",
+                "expectedValue": "The autopilot and autothrottle may be available to control the airplane.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE9",
+                "expectedValue": "Do not use autoland.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE10",
+                "expectedValue": "If the rudder controls are jammed, differential braking may be required for landing",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Plan to land at the nearest suitable airport",
+                "isAutomatic": false
+              }
+            ],
             "subChecklists": []
           },
           {
