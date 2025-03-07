@@ -13,6 +13,7 @@ public class Checklist
     public List<Checklist> subChecklists = new();
     [NonSerialized] public UnityAction<int, bool> OnCheckChecked;
     [NonSerialized] private int _checkSelectedIndex = -1;
+    public List<string> deferredChecks = new();
 
     public bool IsMenu => subChecklists.Count > 0;
     public bool IsChecklist => !IsMenu;
@@ -20,7 +21,10 @@ public class Checklist
 
     public bool IsDone()
     {
-        return checks.TrueForAll(check => check.IsDone);
+        if (deferredChecks == null || deferredChecks.Count == 0)
+            return checks.TrueForAll(check => check.IsDone);
+        var notDone = checks.FindAll(check => !check.IsDone);
+        return notDone.All(check => deferredChecks.Contains(check.name));
     }
 
     public void OverrideChecklist()
