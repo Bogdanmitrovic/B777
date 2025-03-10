@@ -114,7 +114,6 @@ public class ConditionalCheckRenderer : MonoBehaviour
     }
     private void SetColors()
     {
-        // TODO set conditional check colors
         var color = check.Overridden ? new Color(.23f, .64f, .76f, 1) : check.Checked ? Color.green : Color.white;
         checkTextComponent.color = color;
     }

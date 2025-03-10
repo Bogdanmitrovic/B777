@@ -7,15 +7,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-// TODO da se nadje gde treba kad se ucita checklist da se pokazu/sakriju page buttons (SetPageButtons i RemovePageButtons)
-// TODO low priority kako izgledaju buttons za non normal checklists i sta rade
-// TODO resets da se vidi sta radi
 
 public class ChecklistRenderer : MonoBehaviour
 {
     public int characterCount = 50;
     public int splitNameLimit = 20;
-    public int checksPerPage = 8;
+   // public int checksPerPage = 8;
 
     public GameObject checkPrefab;
     public GameObject conditionalCheckPrefab;
@@ -80,6 +77,7 @@ public class ChecklistRenderer : MonoBehaviour
             Destroy(titleContainer.transform.GetChild(i).gameObject);
         }
         titleContainer.transform.GetChild(0).GetComponentInChildren<TMP_Text>().text = checklist.name;
+        Debug.Log("AAAA " + titleContainer.transform.GetChild(0).GetComponentInChildren<TMP_Text>().text);
         checklist.OnCheckChecked += OnCheckboxCheck;
         var conditionalChecks = checklist.checks.Where(check => check.IsConditional).ToList();
 
@@ -121,9 +119,6 @@ public class ChecklistRenderer : MonoBehaviour
             }
             else
             {
-                // instantiate normal check TODO ne treba se prikazuju 6 checka nego 7 ali da smanjuje ako ne mogu da stanu na ekran
-                // TODO da se scaluju checkovi sa kolicinom teksta
-                
                 if (checklist.checks[i].name == "PageBreak")
                 {
                     _pagesCount++;
@@ -133,9 +128,9 @@ public class ChecklistRenderer : MonoBehaviour
                 checkRenderer.check = checklist.checks[i];
                 checkRenderer.SetTextSize(characterCount, splitNameLimit);
                 checkRenderer.indentation = indent;
-                checkObject.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta =
-                    new Vector2(checkObject.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta.x, (checklist.checks[i].expectedValue.Length / characterCount + 1) * 60);
-                checkObject.GetComponent<RectTransform>().sizeDelta = new Vector2(checkObject.GetComponent<RectTransform>().sizeDelta.x, (checklist.checks[i].expectedValue.Length / characterCount + 1) * 60);
+                //checkObject.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta =
+                  //  new Vector2(checkObject.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta.x, (checklist.checks[i].expectedValue.Length / characterCount + 1) * 60);
+                //checkObject.GetComponent<RectTransform>().sizeDelta = new Vector2(checkObject.GetComponent<RectTransform>().sizeDelta.x, (checklist.checks[i].expectedValue.Length / characterCount + 1) * 60);
                 _checkObjects.Add(checkObject);
             }
         }
@@ -178,7 +173,7 @@ public class ChecklistRenderer : MonoBehaviour
         if (_currentChecklist?.IsDone() == true)
             ChecklistDone();
         if (_pagesCount == 1) return;
-        var flag = true;
+        /*var flag = true;
         for (var i = (_currentPage - 1) * checksPerPage;
              i < _currentPage * checksPerPage && i < _currentChecklist?.checks.Count;
              i++)
@@ -190,7 +185,7 @@ public class ChecklistRenderer : MonoBehaviour
                 break;
             }
         }
-        if (flag) SetPageComplete();
+        if (flag) SetPageComplete();*/
     }
 
     public void OverrideCheck()
@@ -282,9 +277,11 @@ public class ChecklistRenderer : MonoBehaviour
 
     public void HandlePreviousPage()
     {
+        //TODO ponekad se vraca 3 puta jednim klikom?
         if (_currentPage < 2)
             return;
         _currentPage--;
+        Debug.Log("TRENUTNA: " + _currentPage);
         LoadPage();
     }
 
@@ -293,6 +290,7 @@ public class ChecklistRenderer : MonoBehaviour
         if (_currentPage >= _highestPage)
             return;
         _currentPage++;
+        Debug.Log("TRENUTNA: " + _currentPage);
         LoadPage();
     }
 

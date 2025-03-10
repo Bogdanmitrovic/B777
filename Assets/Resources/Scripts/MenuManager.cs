@@ -60,7 +60,7 @@ public class MenuManager : MonoBehaviour
 
     private void LoadNonNormalChecklist()
     {
-        // TODO
+        
     }
 
     public void CreateBottomButton(string buttonText, string buttonKey, UnityAction onClickListener, int slotIndex,
@@ -116,7 +116,6 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-            // TODO da se obrisu svi title-ovi i appenduje novi
             titleContainer.SetActive(true);
             // izbrisi visak titlova koji se dodaju za NN
             for (int i = 0; i < titleContainer.transform.childCount; i++)
@@ -142,7 +141,6 @@ public class MenuManager : MonoBehaviour
                 for (var j = 0; j < 3; j++)
                 {
                     button.transform.GetComponent<Button>().onClick.AddListener(() => ResetButtonFunctions(j));
-                    // TODO koji djavo treba sa resets da se radi ovde
                 }
             }
             else

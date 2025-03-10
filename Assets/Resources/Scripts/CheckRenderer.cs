@@ -15,6 +15,9 @@ public class CheckRenderer : MonoBehaviour
     private int _splitNameLimit;
     private int _characterCount;
 
+    //TODO da se stekuju odozgo a ne na sredinu
+    //TODO kad predje u novi red samostalno ne radi indent
+    //TODO 
     void Start()
     {
         SetListeners();
@@ -58,7 +61,7 @@ public class CheckRenderer : MonoBehaviour
     private string Text(int characterCount, int splitNameLimit)
     {
         if (check.IsNote) return "NOTE: " + check.expectedValue;
-        if(check.IsPlainText) return check.expectedValue;
+
         var stringBuilder = new StringBuilder();
         var count = 0;
         // append indentation*"   "
@@ -66,16 +69,37 @@ public class CheckRenderer : MonoBehaviour
         stringBuilder.Append(indentString);
         count += indentation * 3;
         var words = check.name.Split(' ');
+        if (check.IsNote || check.IsPlainText) words = check.expectedValue.Split(' ');
         for (var i = 0; i < words.Length; i++)
         {
             var word = words[i];
-            stringBuilder.Append(word);
-            count += word.Length;
+            if (word.Contains('\n'))
+            {
+                count = 0;
+                var split = word.Split('\n');
+                stringBuilder.Append('\n');
+                stringBuilder.Append(indentString);
+                stringBuilder.Append(split[1]);
+                count += indentString.Length + split[1].Length;
+            }
+            else
+            {
+                stringBuilder.Append(word);
+                count += word.Length;
+            }
             if (i != words.Length - 1 && count >= splitNameLimit)
             {
-                stringBuilder.Append("\n");
-                stringBuilder.Append(indentString);
-                count = indentation * 3;
+                if ((check.IsPlainText || check.IsNote) && count >= _characterCount || !check.IsPlainText )
+                {
+                    stringBuilder.Append("\n");
+                    stringBuilder.Append(indentString);
+                    count = indentation * 3;
+                }
+                else
+                {
+                    stringBuilder.Append(" ");
+                    count++;
+                }
             }
             else
             {
@@ -83,7 +107,7 @@ public class CheckRenderer : MonoBehaviour
                 count++;
             }
         }
-
+        if(check.IsPlainText) return stringBuilder.ToString();
         count += check.expectedValue.Length;
         if (characterCount - count > 0)
             stringBuilder.Append(new string('.', characterCount - count));
