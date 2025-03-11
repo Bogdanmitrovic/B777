@@ -67,6 +67,7 @@ public class Checklist
     {
         Debug.Log("Checklist: " + name + " Check: " + checks[index].name + " Checked: " + checkedValue);
         OnCheckChecked?.Invoke(index, checkedValue);
+        checks.FindAll(check=>check.name == checks[index].name).ForEach(check => check.TriggerCheck());
     }
 
     public void SetListeners()
