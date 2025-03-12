@@ -37,10 +37,11 @@ public class Check
         ConditionalState = ConditionalState.None;
     }
 
-    public bool IsDone => Checked || Overridden || IsNote;
+    public bool IsDone => Checked || Overridden || IsNote || IsPageBreak;
 
     public bool IsNote => name.Contains("NOTE");
     public bool IsPlainText => name.Contains("PLAINTEXT");
+    public bool IsPageBreak => name.Contains("PageBreak");
     public bool IsConditional => conditionalChecksYes != null || conditionalChecksNo != null;
 
     public void TriggerOverride()

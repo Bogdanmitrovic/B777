@@ -218,8 +218,14 @@ public class ChecklistRenderer : MonoBehaviour
 
         checklistStatus.SetActive(true);
         var isOverridden = _currentChecklist!.IsOverridden;
-        checklistStatus.GetComponentInChildren<TMP_Text>().text =
-            isOverridden ? "CHECKLIST OVERRIDDEN" : "CHECKLIST COMPLETE";
+        var isCompleteExceptDeferred = _currentChecklist.IsDoneWithoutDeferred();
+        if(isOverridden)
+            checklistStatus.GetComponentInChildren<TMP_Text>().text = "CHECKLIST OVERRIDDEN";
+        else if (isCompleteExceptDeferred)
+            checklistStatus.GetComponentInChildren<TMP_Text>().text = "CHECKLIST COMPLETE EXCEPT DEFERRED";
+        else
+            checklistStatus.GetComponentInChildren<TMP_Text>().text = "CHECKLIST COMPLETE";
+        
         checklistStatus.GetComponent<Image>().color = isOverridden ? new Color(.23f, .64f, .76f, 1) : Color.green;
 
         // TODO vidi jel treba HideButtons da se napravi

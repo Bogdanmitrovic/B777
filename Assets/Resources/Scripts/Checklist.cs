@@ -26,6 +26,14 @@ public class Checklist
         var notDone = checks.FindAll(check => !check.IsDone);
         return notDone.All(check => deferredChecks.Contains(check.name));
     }
+    
+    public bool IsDoneWithoutDeferred()
+    {
+        if (deferredChecks == null || deferredChecks.Count == 0)
+            return false;
+        var notDone = checks.FindAll(check => !check.IsDone);
+        return notDone.All(check => deferredChecks.Contains(check.name));
+    }
 
     public void OverrideChecklist()
     {
