@@ -72,12 +72,12 @@ public class ChecklistRenderer : MonoBehaviour
         _pagesCount = 1;
         _currentChecklist.SetListeners();
         // znam da ovo ne treba ovde ali ne znam kako drugacije TODO da se ispravi
-        for (int i = 0; i < titleContainer.transform.childCount - 1; i++)
+        for (int i = titleContainer.transform.childCount - 1; i > 0 ; i--)
         {
             Destroy(titleContainer.transform.GetChild(i).gameObject);
         }
         titleContainer.transform.GetChild(0).GetComponentInChildren<TMP_Text>().text = checklist.name;
-        Debug.Log("AAAA " + titleContainer.transform.GetChild(0).GetComponentInChildren<TMP_Text>().text);
+        titleContainer.transform.GetChild(0).GetComponentInChildren<Image>().enabled = false;
         checklist.OnCheckChecked += OnCheckboxCheck;
         var conditionalChecks = checklist.checks.Where(check => check.IsConditional).ToList();
 

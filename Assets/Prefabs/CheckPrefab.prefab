@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 5539311453044368090}
   - component: {fileID: 8597566176655949501}
   - component: {fileID: 8119627520399795689}
+  - component: {fileID: 3463442991383252936}
   m_Layer: 5
   m_Name: CheckPrefab
   m_TagString: Untagged
@@ -264,6 +265,26 @@ MonoBehaviour:
   checkTextComponent: {fileID: 803842057867386030}
   outline: {fileID: 5539311453044368090}
   indentation: 0
+--- !u!114 &3463442991383252936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4747364754279814429}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: 1
+  m_LayoutPriority: 1
 --- !u!1 &6373715347308254081
 GameObject:
   m_ObjectHideFlags: 0
