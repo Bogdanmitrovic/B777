@@ -955,7 +955,7 @@
                   {
                     "name": "Engine runs at reduced thrust",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "Transponder mode selector",
                       "NOTE2",
@@ -978,7 +978,7 @@
                   {
                     "name": "Landing using flops 20",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "GND PROI FLAP OVRD switch",
                       "NOTE3"
@@ -1002,7 +1002,7 @@
                   {
                     "name": "Landing using flops 30 (if performance allows)",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "NOTE5"
                     ]
@@ -1030,7 +1030,7 @@
                   {
                     "name": "Engine indications are abnormal or EGT continues to increase:",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "L FUEL CONTROL switch.........Confirm",
                       "APU selector (if APU available)",
@@ -1070,7 +1070,7 @@
                   {
                     "name": "Landing using flaps 20",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "GND PROX FLAP OVRD switch",
                       "NOTE2"
@@ -1089,7 +1089,7 @@
                   {
                     "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "NOTE3"
                     ]
@@ -1175,7 +1175,7 @@
                   {
                     "name": "Engine runs at reduced thrust",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "Transponder mode selector",
                       "NOTE2",
@@ -1198,7 +1198,7 @@
                   {
                     "name": "Landing using flops 20",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "GND PROI FLAP OVRD switch",
                       "NOTE3"
@@ -1222,7 +1222,7 @@
                   {
                     "name": "Landing using flops 30 (if performance allows)",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "NOTE5"
                     ]
@@ -1250,7 +1250,7 @@
                   {
                     "name": "Engine indications are abnormal or EGT continues to increase:",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "L FUEL CONTROL switch.........Confirm",
                       "APU selector (if APU available)",
@@ -1290,7 +1290,7 @@
                   {
                     "name": "Landing using flaps 20",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "GND PROX FLAP OVRD switch",
                       "NOTE2"
@@ -1309,7 +1309,7 @@
                   {
                     "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "NOTE3"
                     ]
@@ -1373,7 +1373,7 @@
                   {
                     "name": "High airframe vibration occurs and continues after engine shutdown:",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "PLAINTEXT1",
                       "PLAINTEXT2"
@@ -1412,7 +1412,7 @@
                   {
                     "name": "Landing using flops 20",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "GND PROX FLAP OVRD switch",
                       "NOTE1"
@@ -1431,7 +1431,7 @@
                   {
                     "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "NOTE1"
                     ]
@@ -1495,7 +1495,7 @@
                   {
                     "name": "High airframe vibration occurs and continues after engine shutdown:",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "PLAINTEXT1",
                       "PLAINTEXT2"
@@ -1534,7 +1534,7 @@
                   {
                     "name": "Landing using flops 20",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "GND PROX FLAP OVRD switch",
                       "NOTE1"
@@ -1553,7 +1553,7 @@
                   {
                     "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "NOTE1"
                     ]
@@ -1608,7 +1608,7 @@
                   {
                     "name": "Bleed air is available",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "L START selector",
                       "PLAINTEXT1",
@@ -1644,7 +1644,7 @@
                   {
                     "name": "Bleed air is not available",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "PLAINTEXT1"
                     ]
@@ -1678,7 +1678,7 @@
                   {
                     "name": "Bleed air is available",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "R START selector",
                       "PLAINTEXT1",
@@ -1714,7 +1714,7 @@
                   {
                     "name": "Bleed air is not available",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "PLAINTEXT1"
                     ]
@@ -1788,7 +1788,7 @@
                   {
                     "name": "Source of the smoke, fire or fumes can be traced to the LDS-Mounted Portable EFB (as installed) and can ne extinguished quickly.",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "EFB Main Menu",
                       "LDS-EFB Control Panel",
@@ -1818,7 +1818,7 @@
                   {
                     "name": "Source of the smoke, fire or fumes is obvious (not LDS-Mounted Portable EFB) and can be extinguished quickly",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "PLAINTEXT1",
                       "Source is visually confirmed to be extinguished and smoke or fumes are decreasing"
@@ -1837,7 +1837,7 @@
                   {
                     "name": "Source is visually confirmed to be extinguished and smoke or fumes are decreasing",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "PLAINTEXT1",
                       "PLAINTEXT2",
@@ -1867,7 +1867,7 @@
                   {
                     "name": "Smoke or fumes continue or are increasing",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "PLAINTEXT1",
                       "CABIN/UTILITY switch",
@@ -1946,7 +1946,7 @@
                   {
                     "name": "Smoke or fumes continue or are increasing",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "L PACK switch",
                       "L TRIM AIR switch",
@@ -1995,7 +1995,7 @@
                   {
                     "name": "Smoke or fumes continue are increasing",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "C BLEED AIR ISLN switch",
                       "R PACK switch",
@@ -2077,7 +2077,7 @@
                   {
                     "name": "Most smoke or fumes are in the cabin forward of mid-wing",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "AFT OUTFLOW VALVE switch",
                       "AFT OUTFLOW VALVE MANUAL switch",
@@ -2107,7 +2107,7 @@
                   {
                     "name": "Most smoke or fumes are in the cabin aft of mid-wing",
                     "expectedValue": "",
-                    "isAutomatic": true,
+                    "isAutomatic": false,
                     "conditionalChecksYes": [
                       "FWD OUTFLOW VALVE switch",
                       "FWD OUTFLOW VALVE MANUAL switch",
