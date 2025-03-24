@@ -3883,21 +3883,1179 @@
       },
       {
         "name": "Apln genl, emer eqpt, doors, windows",
-        "checks": [
+        "subChecklists": [
           {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
+          "name": "Door entry ...",
+          "subChecklists": [
+            {
+              "name": "Door entry 1L",
+              "checks": [
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Condition: Door 1 left is not closed and secure.",
+                  "isAutomatic": true
+                },
+                {
+                  "name": "NOTE",
+                  "expectedValue": "The entry door 1 left is in a safe configuration as long as cabin pressurization is normal.",
+                  "isAutomatic": false
+                },
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Continue normal operation.",
+                  "isAutomatic": false
+                }
+              ]
+            },
+            {
+              "name": "Door entry 1R",
+              "checks": [
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Condition: Door 1 right is not closed and secure.",
+                  "isAutomatic": true
+                },
+                {
+                  "name": "NOTE",
+                  "expectedValue": "The entry door 1 right is in a safe configuration as long as cabin pressurization is normal.",
+                  "isAutomatic": false
+                },
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Continue normal operation.",
+                  "isAutomatic": false
+                }
+              ]
+            },
+            {
+              "name": "Door entry 2L",
+              "checks": [
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Condition: Door 2 left is not closed and secure.",
+                  "isAutomatic": true
+                },
+                {
+                  "name": "NOTE",
+                  "expectedValue": "The entry door 2 left is in a safe configuration as long as cabin pressurization is normal.",
+                  "isAutomatic": false
+                },
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Continue normal operation.",
+                  "isAutomatic": false
+                }
+              ]
+            },
+            {
+              "name": "Door entry 2R",
+              "checks": [
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Condition: Door 2 right is not closed and secure.",
+                  "isAutomatic": true
+                },
+                {
+                  "name": "NOTE",
+                  "expectedValue": "The entry door 2 right is in a safe configuration as long as cabin pressurization is normal.",
+                  "isAutomatic": false
+                },
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Continue normal operation.",
+                  "isAutomatic": false
+                }
+              ]
+            },
+            {
+              "name": "Door entry 3L",
+              "checks": [
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Condition: Door 3 left is not closed and secure.",
+                  "isAutomatic": true
+                },
+                {
+                  "name": "NOTE",
+                  "expectedValue": "The entry door 3 left is in a safe configuration as long as cabin pressurization is normal.",
+                  "isAutomatic": false
+                },
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Continue normal operation.",
+                  "isAutomatic": false
+                }
+              ]
+            },
+            {
+              "name": "Door entry 3R",
+              "checks": [
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Condition: Door 3 right is not closed and secure.",
+                  "isAutomatic": true
+                },
+                {
+                  "name": "NOTE",
+                  "expectedValue": "The entry door 3 right is in a safe configuration as long as cabin pressurization is normal.",
+                  "isAutomatic": false
+                },
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Continue normal operation.",
+                  "isAutomatic": false
+                }
+              ]
+            },
+            {
+              "name": "Door entry 4L",
+              "checks": [
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Condition: Door 4 left is not closed and secure.",
+                  "isAutomatic": true
+                },
+                {
+                  "name": "NOTE",
+                  "expectedValue": "The entry door 4 left is in a safe configuration as long as cabin pressurization is normal.",
+                  "isAutomatic": false
+                },
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Continue normal operation.",
+                  "isAutomatic": false
+                }
+              ]
+            },
+            {
+              "name": "Door entry 4R",
+              "checks": [
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Condition: Door 4 right is not closed and secure.",
+                  "isAutomatic": true
+                },
+                {
+                  "name": "NOTE",
+                  "expectedValue": "The entry door 4 right is in a safe configuration as long as cabin pressurization is normal.",
+                  "isAutomatic": false
+                },
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Continue normal operation.",
+                  "isAutomatic": false
+                }
+              ]
+            },
+            {
+              "name": "Door entry 5L",
+              "checks": [
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Condition: Door 5 left is not closed and secure.",
+                  "isAutomatic": true
+                },
+                {
+                  "name": "NOTE",
+                  "expectedValue": "The entry door 5 left is in a safe configuration as long as cabin pressurization is normal.",
+                  "isAutomatic": false
+                },
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Continue normal operation.",
+                  "isAutomatic": false
+                }
+              ]
+            },
+            {
+              "name": "Door entry 5R",
+              "checks": [
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Condition: Door 5 right is not closed and secure.",
+                  "isAutomatic": true
+                },
+                {
+                  "name": "NOTE",
+                  "expectedValue": "The entry door 5 right is in a safe configuration as long as cabin pressurization is normal.",
+                  "isAutomatic": false
+                },
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Continue normal operation.",
+                  "isAutomatic": false
+                }
+              ]
+            }
+
+          ]
+          },
+          {
+            "name": "Oxygen, windows ...",
+            "subChecklists": [
+              {
+                "name": "Crew oxygen low",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: Crew oxygen pressure is low.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Pass oxygen on",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The passenger oxygen system is on.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Window damage fwd L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The left forward flight deck window has one or more of these: \n- An electrical arc\n- A delamination\n- A crack\n- Is shattered",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Objective: To remove electrical power, if needed, to prevent arcing. To descend, if needed, to minimize forces on the window.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Left forward window is arcing, shattered, or cracked:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L FWD WINDOW HEAT switch",
+                      "PLAINTEXT1"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "L FWD WINDOW HEAT switch",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue": "Inhibited checklist:\n WINDOW HEAT L FWD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Left forward window is deformed, or an air leak occurs:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT2",
+                      "Airplane altitude is above 10,000 feet:",
+                      "NOTE"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "PLAINTEXT2",
+                    "expectedValue": "Plan to land at the nearest suitable airport.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Airplane altitude is above 10,000 feet:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT3",
+                      "Airplane altitude is above 10,000 feet:"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "PLAINTEXT3",
+                    "expectedValue": "Descend to the lowest safe altitude or 10,000 feet, whichever is higher.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Sustained flight below 10,000 feet is not recommended due to greater risk of bird strike.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Window damage fwd R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The right forward flight deck window has one or more of these: \n- An electrical arc\n- A delamination\n- A crack\n- Is shattered",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Objective: To remove electrical power, if needed, to prevent arcing. To descend, if needed, to minimize forces on the window.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Right forward window is arcing, shattered, or cracked:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "R FWD WINDOW HEAT switch",
+                      "PLAINTEXT1"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "R FWD WINDOW HEAT switch",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue": "Inhibited checklist:\n WINDOW HEAT R FWD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Right forward window is deformed, or an air leak occurs:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT2",
+                      "Airplane altitude is above 10,000 feet:",
+                      "NOTE"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "PLAINTEXT2",
+                    "expectedValue": "Plan to land at the nearest suitable airport.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Airplane altitude is above 10,000 feet:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT3",
+                      "Airplane altitude is above 10,000 feet:"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "PLAINTEXT3",
+                    "expectedValue": "Descend to the lowest safe altitude or 10,000 feet, whichever is higher.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Sustained flight below 10,000 feet is not recommended due to greater risk of bird strike.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Window damage side L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The left side flight deck window has one or more of these: \n- An electrical arc\n- A delamination\n- A crack\n- Is shattered",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Objective: To remove electrical power, if needed, to prevent arcing. To descend, if needed, to minimize forces on the window.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Left side window is arcing, shattered, or cracked:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L SIDE WINDOW HEAT switch",
+                      "PLAINTEXT1"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "L SIDE WINDOW HEAT switch",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue": "Inhibited checklist:\n WINDOW HEAT L SIDE",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Left side window is deformed, or an air leak occurs:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT2",
+                      "Airplane altitude is above 10,000 feet:",
+                      "NOTE"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "PLAINTEXT2",
+                    "expectedValue": "Plan to land at the nearest suitable airport.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Airplane altitude is above 10,000 feet:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT3",
+                      "Airplane altitude is above 10,000 feet:"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "PLAINTEXT3",
+                    "expectedValue": "Descend to the lowest safe altitude or 10,000 feet, whichever is higher.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Sustained flight below 10,000 feet is not recommended due to greater risk of bird strike.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Window damage side R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The right side flight deck window has one or more of these: \n- An electrical arc\n- A delamination\n- A crack\n- Is shattered",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Objective: To remove electrical power, if needed, to prevent arcing. To descend, if needed, to minimize forces on the window.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Right side window is arcing, shattered, or cracked:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "R SIDE WINDOW HEAT switch",
+                      "PLAINTEXT1"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "R SIDE WINDOW HEAT switch",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue": "Inhibited checklist:\n WINDOW HEAT R SIDE",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Right side window is deformed, or an air leak occurs:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT2",
+                      "Airplane altitude is above 10,000 feet:",
+                      "NOTE"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "PLAINTEXT2",
+                    "expectedValue": "Plan to land at the nearest suitable airport.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Airplane altitude is above 10,000 feet:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT3",
+                      "Airplane altitude is above 10,000 feet:"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "PLAINTEXT3",
+                    "expectedValue": "Descend to the lowest safe altitude or 10,000 feet, whichever is higher.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Sustained flight below 10,000 feet is not recommended due to greater risk of bird strike.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Window flt deck L",
+                "checks": [
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Condition: The left side window is not closed and secure.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Maintain the maneuvering speed for the existing flap settling until the window is closed",
+                    "isAutomatic": false
+                  },
+
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "The force needed to close the window increases with airspeed. It may not be possible to close he window at speeds above 250 knots.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Close and lock the window.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "Window does NOT lock or pressurization is NOT normal:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT1",
+                      "PLAINTEXT2"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"PLAINTEXT1",
+                    "expectedValue": "Level off at the lowest safe altitude.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"PLAINTEXT2",
+                    "expectedValue": "The airplane can fly unpressurized and land safely with the window open.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Window flt deck R",
+                "checks": [
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Condition: The right side window is not closed and secure.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Maintain the maneuvering speed for the existing flap settling until the window is closed",
+                    "isAutomatic": false
+                  },
+
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "The force needed to close the window increases with airspeed. It may not be possible to close he window at speeds above 250 knots.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Close and lock the window.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "Window does NOT lock or pressurization is NOT normal:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT1",
+                      "PLAINTEXT2"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"PLAINTEXT1",
+                    "expectedValue": "Level off at the lowest safe altitude.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"PLAINTEXT2",
+                    "expectedValue": "The airplane can fly unpressurized and land safely with the window open.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Windows",
+                "checks": [
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Condition: The left and right side window is not closed and secure.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Maintain the maneuvering speed for the existing flap settling until the windows are closed",
+                    "isAutomatic": false
+                  },
+
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "The force needed to close the windows increases with airspeed. It may not be possible to close he window at speeds above 250 knots.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Close and lock the windows.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "Any window does NOT lock or pressurization is NOT normal:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT1",
+                      "PLAINTEXT2"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"PLAINTEXT1",
+                    "expectedValue": "Level off at the lowest safe altitude.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"PLAINTEXT2",
+                    "expectedValue": "The airplane can fly unpressurized and land safely with the windows open.",
+                    "isAutomatic": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Automatic unlock",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The correct emergency access code is entered.",
+                "isAutomatic": true
+              },
+              {
+                "name": "FLT DECK DOOR lock selector",
+                "expectedValue": "Rotate to DENY and hold for 1 second",
+                "isAutomatic": false
+              }
+            ]
+          },
+          {
+            "name": "Door aft cargo",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The aft lower cargo door is not closed and secure.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To reduce the cabin differential pressure to decrease the risk of door separation.",
+                "isAutomatic": true
+              },
+              {
+                "name": "LDG ALT selector",
+                "expectedValue": "PULL ON, Set 8000",
+                "isAutomatic": false
+              },
+              {
+                "name": "Airplane altitude is at or below 8,000 feet:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1"
+                ],
+                "conditionalChecksNo": []
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Level off at the lowest safe altitude.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "Airplane altitude is above 8,000 feet:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT2"
+                ],
+                "conditionalChecksNo": []
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Descend to the lowest safe altitude or 8,000 feet, whichever is higher.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "After level off, allow sufficient time for the cabin altitude to stabilize. This minimizes discomfort when the airplane is depressurized",
+                "isAutomatic": false
+              },
+              {
+                "name": "Airplane altitude is above 10,000 feet:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT3",
+                  "PLAINTEXT4"
+                ],
+                "conditionalChecksNo": []
+              },
+              {
+                "name": "PLAINTEXT3",
+                "expectedValue": "Don the oxygen masks.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT4",
+                "expectedValue": "Establish crew communications.",
+                "isAutomatic": false
+              },
+              {
+                "name": "OUTFLOW VALVE switches (both)",
+                "expectedValue": "MAN",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Use momentary actuation of the outflow valve manual switches to avoid large and rapid pressurization changes. Valves can take up to 6 seconds to move the first time.",
+                "isAutomatic": false
+              },
+              {
+                "name": "OUTFLOW VALVE MANUAL switches (both)",
+                "expectedValue": "Move to OPEN until the outflow valve indications show fully open to depressurize the airplane",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "After the airplane is depressurized, the crew may change altitude as needed.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklists:\nCABINA ALTITUDE AUTO\nLANDING ALTITUDE"
+              }
+            ]
+          },
+          {
+            "name": "Door bulk cargo",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The bulk cargo door is not closed and secure.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "The bulk cargo door is in a safe configuration as long as cabin pressurization is normal.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Continue normal operation.",
+                "isAutomatic": false
+              }
+            ]
+          },
+          {
+            "name": "Door fwd cargo",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The forward lower cargo door is not closed and secure.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To reduce the cabin differential pressure to decrease the risk of door separation.",
+                "isAutomatic": true
+              },
+              {
+                "name": "LDG ALT selector",
+                "expectedValue": "PULL ON, Set 8000",
+                "isAutomatic": false
+              },
+              {
+                "name": "Airplane altitude is at or below 8,000 feet:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1"
+                ],
+                "conditionalChecksNo": []
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Level off at the lowest safe altitude.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "Airplane altitude is above 8,000 feet:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT2"
+                ],
+                "conditionalChecksNo": []
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Descend to the lowest safe altitude or 8,000 feet, whichever is higher.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "After level off, allow sufficient time for the cabin altitude to stabilize. This minimizes discomfort when the airplane is depressurized",
+                "isAutomatic": false
+              },
+              {
+                "name": "Airplane altitude is above 10,000 feet:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT3",
+                  "PLAINTEXT4"
+                ],
+                "conditionalChecksNo": []
+              },
+              {
+                "name": "PLAINTEXT3",
+                "expectedValue": "Don the oxygen masks.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT4",
+                "expectedValue": "Establish crew communications.",
+                "isAutomatic": false
+              },
+              {
+                "name": "OUTFLOW VALVE switches (both)",
+                "expectedValue": "MAN",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Use momentary actuation of the outflow valve manual switches to avoid large and rapid pressurization changes. Valves can take up to 6 seconds to move the first time.",
+                "isAutomatic": false
+              },
+              {
+                "name": "OUTFLOW VALVE MANUAL switches (both)",
+                "expectedValue": "Move to OPEN until the outflow valve indications show fully open to depressurize the airplane",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "After the airplane is depressurized, the crew may change altitude as needed.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklists:\nCABIN ALTITUDE AUTO\nLANDING ALTITUDE"
+              }
+            ]
+          },
+          {
+            "name": "Door e/e access",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The electrical and electronic access door is not closed and secure.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "The E/E access door is in a safe configuration as long as cabin pressurization is normal.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Continue normal operation.",
+                "isAutomatic": false
+              }
+            ]
+          },
+          {
+            "name": "Door fwd access",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The forward access door is not closed and secure.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "The forward access door is in a safe configuration as long as cabin pressurization is normal.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Continue normal operation.",
+                "isAutomatic": false
+              }
+            ]
+          },
+          {
+            "name": "Door wing slide L",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The door for the left unpressurized wing slide compartment is not closed and secure.",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name": "Door wing slide R",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The door for the right unpressurized wing slide compartment is not closed and secure.",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name": "Doors",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: Two or more doors are not closed and secure.",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name": "ELT on",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The emergency locator transmitter is on.",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name": "EMER lights",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: One of these occurs:\n- The emergency lights are on\n- The emergency lihts switch is not ARMED",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name": "Lock fail",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: One or more of these occur:\n- The flight deck access system switch if OFF\n- The lock is failed",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To remove electrical power from the lock to prevent possible overheat.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Do if conditions allow a crew member to leave the seat.",
+                "isAutomatic": false
+              },
+              {
+                "name": "FLIGHT DECK ACCESS SYSTEM switch",
+                "expectedValue": "OFF",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "The door can be locked with the deadbolt.",
+                "isAutomatic": true
+              }
+            ]
           }
         ]
       },
       {
         "name": "Air systems",
-        "checks": [
+        "subChecklists": [
           {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
+            "name": "Bleed isln, bleed off ...",
+            "subChecklists": [
+              {
+                "name": "Bleed isln closed C",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One of the following occurs:\n- The center isolation valve is failed closed\n- The center bleed isolation switch is off",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Bleed isln closed L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One of the following occurs:\n- The left isolation valve is failed closed\n- The left bleed isolation switch is off",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Bleed isln closed R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One of the following occurs:\n- The right isolation valve is failed closed\n- The right bleed isolation switch is off",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Bleed isln open C",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One of the following occurs:\n- The center isolation valve is failed open\n- The center bleed isolation switch is off",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Bleed isln open L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One of the following occurs:\n- The left isolation valve is failed open\n- The left bleed isolation switch is off",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Bleed isln open R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One of the following occurs:\n- The right isolation valve is failed open\n- The right bleed isolation switch is off",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Bleed off APU",
+                "checks": []
+              },
+              {
+                "name": "Bleed off ENG L",
+                "checks": []
+              },
+              {
+                "name": "Bleed off ENG R",
+                "checks": []
+              }
+            ]
+          },
+          {
+            "name": "Bleed leak, bleed loss ...",
+            "subChecklists": []
+          },
+          {
+            "name": "Pack, trim air ...",
+            "subChecklists": []
+          },
+          {
+            "name": "Cabin altitude",
+            "subChecklists": []
+          },
+          {
+            "name": "Cabin altitude auto",
+            "subChecklists": []
+          },
+          {
+            "name": "Cargo heat aft",
+            "subChecklists": []
+          },
+          {
+            "name": "Cargo heat bulk",
+            "subChecklists": []
+          },
+          {
+            "name": "Equip cooling",
+            "subChecklists": []
+          },
+          {
+            "name": "Equip cooling ovrd",
+            "subChecklists": []
+          },
+          {
+            "name": "Landing altitude",
+            "subChecklists": []
+          },
+          {
+            "name": "Outflow valve aft",
+            "subChecklists": []
+          },
+          {
+            "name": "Outflow valve fwd",
+            "subChecklists": []
           }
         ]
       },
