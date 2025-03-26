@@ -4974,7 +4974,7 @@
                 "checks": [
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue": "Condition: One of the following occurs:\n- The center isolation valve is failed open\n- The center bleed isolation switch is off",
+                    "expectedValue": "Condition: The center isolation valve is failed open.",
                     "isAutomatic": true
                   }
                 ]
@@ -4984,7 +4984,7 @@
                 "checks": [
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue": "Condition: One of the following occurs:\n- The left isolation valve is failed open\n- The left bleed isolation switch is off",
+                    "expectedValue": "Condition: The left isolation valve is failed open.",
                     "isAutomatic": true
                   }
                 ]
@@ -4994,68 +4994,931 @@
                 "checks": [
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue": "Condition: One of the following occurs:\n- The right isolation valve is failed open\n- The right bleed isolation switch is off",
+                    "expectedValue": "Condition: The right isolation valve is failed open.",
                     "isAutomatic": true
                   }
                 ]
               },
               {
                 "name": "Bleed off APU",
-                "checks": []
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One of the following occurs:\n- The APU bleed valve is closed because of a system fault\n- The APU bleed switch is off",
+                    "isAutomatic": true
+                  }
+                ]
               },
               {
                 "name": "Bleed off ENG L",
-                "checks": []
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One of the following occurs:\n- The left engine bleed valve is closed because of a system fault\n- The left engine bleed switch is off",
+                    "isAutomatic": true
+                  }
+                ]
               },
               {
                 "name": "Bleed off ENG R",
-                "checks": []
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One of the following occurs:\n- The right engine bleed valve is closed because of a system fault\n- The right engine bleed switch is off",
+                    "isAutomatic": true
+                  }
+                ]
               }
             ]
           },
           {
             "name": "Bleed leak, bleed loss ...",
-            "subChecklists": []
+            "subChecklists": [
+              {
+                "name": "Bleed leak BODY",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: A bleed air leak occurs in the body area.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "The air supply controller automatically isolates the heat source within approixmately 3 minutes by closing the bleed and isolation valves.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Caution! Do not change the APU bleed, engine bleed, or bleed isolation switch positions. Airplane damage can occur.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Pilot action is needed when a BLEED LOSS message shows.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\n- HYD PRESS DEM C1\n- HYD PRESS DEM C1",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Bleed leak L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: A bleed air leak occurs in the left wing or pack bay area.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "The air supply controller automatically isolates the heat source within approixmately 5 minutes by closing the bleed and isolation valves.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Caution! Do not change the APU bleed, engine bleed, or bleed isolation switch positions. Airplane damage can occur.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Pilot action is needed when a BLEED LOSS message shows.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\n- PACK L\n- HYD PRESS DEM C1",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Bleed leak R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: A bleed air leak occurs in the right wing or pack bay area.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "The air supply controller automatically isolates the heat source within approixmately 5 minutes by closing the bleed and isolation valves.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Caution! Do not change the APU bleed, engine bleed, or bleed isolation switch positions. Airplane damage can occur.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Pilot action is needed when a BLEED LOSS message shows.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\n- PACK R\n- HYD PRESS DEM C1",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Bleed leak strut L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: A bleed air leak or starter duct leak occurs in the left strut area.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "The air supply controller automatically isolates the heat source by closing the bleed and isolation valves.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Caution! Do not change the APU bleed, engine bleed, or bleed isolation switch positions. Airplane damage can occur.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\n- PACK L",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Wait 1 minute.",
+                    "isAutomatic": false
+                  }
+                ]
+              },
+              {
+                "name": "Bleed leak strut R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: A bleed air leak or starter duct leak occurs in the right strut area.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "The air supply controller automatically isolates the heat source by closing the bleed and isolation valves.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Caution! Do not change the APU bleed, engine bleed, or bleed isolation switch positions. Airplane damage can occur.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\n- PACK R",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Wait 1 minute.",
+                    "isAutomatic": false
+                  }
+                ]
+              },
+              {
+                "name": "Bleed loss body",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: Bleed air from the left and right body ducts is not available.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "C1 and C2 AIR DEMAND pump selectors",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Caution! Do not change the APU bleed, engine bleed, or bleed isolation switch positions. Airplane damage can occur.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Gear retraction time increases to apporoximately 3 minutes due to reduced center hydraulic system capacity. HYD PRESS SYS C and GEAR DISAGREE messages show during retraction.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\n- HYD PRESS DEM C1\n- HYD PRESS DEM C2",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Bleed loss body L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: Bleed air from the left body duct is not available.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "C1 AIR DEMAND pump selector",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Caution! Do not change the APU bleed, engine bleed, or bleed isolation switch positions. Airplane damage can occur.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\n- HYD PRESS DEM C1",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Bleed loss body R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: Bleed air from the right body duct is not available.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "C2 AIR DEMAND pump selector",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Caution! Do not change the APU bleed, engine bleed, or bleed isolation switch positions. Airplane damage can occur.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\n- HYD PRESS DEM C2",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Bleed loss wing L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: Bleed air from the left wing duct is not available.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Objective: To prevent possible asymmetrical ice buildup on the wings.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "WING ANTI-ICE selector selector",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Caution! Do not change the APU bleed, engine bleed, or bleed isolation switch positions. Airplane damage can occur.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\n- PACK L",
+                    "isAutomatic": true
+                  }
+                ]
+              }
+            ]
           },
           {
             "name": "Pack, trim air ...",
-            "subChecklists": []
+            "subChecklists": [
+              {
+                "name": "Pack L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The left pack is inoperative.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Wait 2 minutes. This allows time for an overheat condition to cool.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "AIR COND RESET switch",
+                    "expectedValue": "Push and hold for 1 second",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Wait 2 minutes.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "PACK L message shows again:",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L PACK switch",
+                    "expectedValue": "Off",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Pack L+R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: Both packs are inoperative.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Objective: To prevent excessive cabin altitude and temperature by descending and increasing ventilation.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Wait 2 minutes. This allows time for an overheat condition to cool.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "AIR COND RESET switch",
+                    "expectedValue": "Push and hold for 1 second",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Wait 2 minutes unless the PACK L+R message shows again.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "PACK L+R message shows again:",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Descend to the lowest safe altitude or 10,000 feet, whichever is higher.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "If needed to prevent excessive cabin altitude, descend with speedbrakes extended Vmo/Mmo.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "When at level off:",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Airplane altitude is above 10,000 feet:",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Don the oxygen masks.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Establish crew communication.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "OUTFLOW VALVE switches (both)",
+                    "expectedValue": "MAN",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "OUTFLOW VALVE MANUAL switches (both)",
+                    "expectedValue": "Hold in OPEN for 30 seconds",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "UPPER RECIRC FANS switch",
+                    "expectedValue": "Off",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Power window shades are installed:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT1",
+                      "PLAINTEXT4"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue": "Advise the cabin to close the cabin power windows shades.",
+                    "isAutomatic": false
+                  },
+                  {"name": "PageBreak"},
+                  {
+                    "name": "PLAINTEXT2",
+                    "expectedValue": "When the cabin power window shades are closed:",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "IFE/PASS SEATS power switch",
+                    "expectedValue": "Off",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "CABIN/UTILITY power switch",
+                    "expectedValue": "Off",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "SHOULDER and FOOT HEATERS (all)",
+                    "expectedValue": "Off",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Minimize flight deck lightning intensity.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Open flight deck door",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "During daylight:\n- Install the flight deck sunvisors\n- Advise the cabin to close the cabin winndow shades",
+                    "isAutomatic": false
+                  },
+                  {"name": "PageBreak"},
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Plan to land at the nearest suitable airport.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "To move powered passenger seats for landing or another reason, select the IFE/passenger seats switch ON. Once seats are positioned, select the IFE/passenger seats switch Off.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\n- CABIN ALTITUDE AUTO",
+                    "isAutomatic": false
+                  }
+                ]
+              },
+              {
+                "name": "Pack R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The right pack is inoperative.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Wait 2 minutes. This allows time for an overheat condition to cool.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "AIR COND RESET switch",
+                    "expectedValue": "Push and hold for 1 second",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Wait 2 minutes.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "PACK R message shows again:",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "R PACK switch",
+                    "expectedValue": "Off",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name":"Pack mode L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The left pack is in the standby mode.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "At lower altitudes or higher outside air temperatures, the left pack may shut down.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name":"Pack mode R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The right pack is in the standby mode.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "At lower altitudes or higher outside air temperatures, the right pack may shut down.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name":"Trim air L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The left trim air valve is closed.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Wait 2 minutes. This allows time for an overheat condition to cool.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "AIR COND RESET switch",
+                    "expectedValue": "Push and hold for 1 second",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Wait 2 minutes.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "TRIM AIR L message shows again:",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L TRIM AIR switch",
+                    "expectedValue": "Off",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name":"Trim air R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The right trim air valve is closed.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Wait 2 minutes. This allows time for an overheat condition to cool.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "AIR COND RESET switch",
+                    "expectedValue": "Push and hold for 1 second",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Wait 2 minutes.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "TRIM AIR R message shows again:",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "R TRIM AIR switch",
+                    "expectedValue": "Off",
+                    "isAutomatic": true
+                  }
+                ]
+              }
+            ]
           },
           {
             "name": "Cabin altitude",
-            "subChecklists": []
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: Cabin altitude is excessive.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Don the oxygen masks.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Establish crew communications.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Check the cabin altitude and rate.",
+                "isAutomatic": false
+              },
+              {
+                "name": "Cabin altitude is uncontrollable:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PASS OXYGEN switch",
+                  "PLAINTEXT4"
+                ],
+                "conditionalChecksNo": []
+              },
+              {
+                "name": "PASS OXYGEN switch",
+                "expectedValue": "Push to ON and hold for 1 second",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Without delay, descend to the lowest safe altitude or 10,000 feet, whichever is higher.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "To descend:\n- Move the thrust levers to idle\n- Extend the speedbrakes\n- If structural integrity is in doubt, limit airspeed and avoid high maneuvering loads.\n - Descend at Vmo/Mmo",
+                "isAutomatic": false
+              }
+            ]
           },
           {
             "name": "Cabin altitude auto",
-            "subChecklists": []
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: One of these occurs:\n- Automatic pressurization control is failed\n- Both outflow valve switches are in manual",
+                "isAutomatic": true
+              },
+              {
+                "name": "OUTFLOW VALVE switches (both)",
+                "expectedValue": "MAN",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Use momentary actuation of the outflow valve manual switches to avoid large and rapid pressurization changes. Values can take up to 6 seconds to move the first time.",
+                "isAutomatic": false
+              },
+              {
+                "name": "OUTFLOW VALVE MANUAL switches (both)",
+                "expectedValue": "Move to OPEN until the outflow valve indications show fully open to depressurize the airplane",
+                "isAutomatic": true
+              },
+              {"name": "PageBreak"},
+              {"name": "NOTE", "expectedValue": "The recommended cabin rate is approximately 500 FPM for climbs and descents."},
+              {"name": "NOTE", "expectedValue": "The recommended cabin altitude in cruise is:\n\tFLIGHT LEVEL               CABIN ALTITUDE\n\tUp to 230         Landing Field Elevation\n\tUp to 260                            2000\n\tUp to 300                            4000\n\tUp to 350                            6000\n\tAbove 350                            8000"},
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "-------------DEFFERED ITEMS-------------",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "==> APPROACH CHECKLIST",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "When at pattern altitude:",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Use momentary actuation of the outflow valve manual switches to avoid large and rapid pressurization changes.",
+                "isAutomatic": false
+              },
+              {
+                "name": "OUTFLOW VALVE MANUAL switches (both)",
+                "expectedValue": "Move to OPEN until the outflow valve indications show fully open to depressurize the airplane",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Cargo heat aft",
-            "subChecklists": []
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: One of these occurs:\n- Aft lower cargo heat is inoperative\n- The aft cargo temperature selector is OFF",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Cargo heat bulk",
-            "subChecklists": []
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: One of these occurs:\n- Bulk cargo heat is inoperative\n- The bulk cargo temperature selector is OFF",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Equip cooling",
-            "subChecklists": []
+            "subChecklists": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The forward equipment cooling system is failed.",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Equip cooling ovrd",
-            "subChecklists": []
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The equipment cooling system is in override mode.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Wait 2 minutes. This allows time for any smoke in the system to clear.",
+                "isAutomatic": false
+              },
+              {
+                "name": "EQUIP COOLING switch",
+                "expectedValue": "OFF, then AUTO",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "The EQUIP COOLING OVRD message blanks",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Wait 1 minute. This allows time for the system to reset.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "EQUIP COOLING OVRD message shows again",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "After 30 minutes of operation at low altitude and low cabin differential pressure, electronic equipment and displays may fail.",
+                "isAutomatic": false
+              }
+            ]
           },
           {
             "name": "Landing altitude",
-            "subChecklists": []
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: One of these occurs:\n- The FMC does not suply a landing altitude\n- The landing altitude selector is pulled",
+                "isAutomatic": true
+              },
+              {
+                "name": "LDG FMC selector",
+                "expectedValue": "PULL ON, set manually",
+                "isAutomatic": false
+              }
+            ]
           },
           {
             "name": "Outflow valve aft",
-            "subChecklists": []
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition One of these occurs:\n- Automatic control of the aft outflow valve is inoperative\n- The aft outflow valve switch is in manual",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To allow the forward outflow valve to control cabin pressure.",
+                "isAutomatic": true
+              },
+              {
+                "name": "AFT OUTFLOW VALVE switch",
+                "expectedValue": "MAN",
+                "isAutomatic": true
+              },
+              {
+                "name": "AFT OUTFLOW VALVE MANUAL switch",
+                "expectedValue": "Hold in CLOSE until the AFT outflow valve indication shows fully closed",
+                "isAutomatic": false
+              },
+              {"name": "PageBreak"},
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "-------------DEFFERED ITEMS-------------",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "==> APPROACH CHECKLIST",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "When at pattern altitude:",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Use momentary actuation of the outflow valve manual switches to avoid large and rapid pressurization changes.",
+                "isAutomatic": false
+              },
+              {
+                "name": "AFT OUTFLOW VALVE MANUAL switch",
+                "expectedValue": "Move to OPEN until the outflow valve indications show fully open",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Outflow valve fwd",
-            "subChecklists": []
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition One of these occurs:\n- Automatic control of the aft outflow valve is inoperative\n- The forward outflow valve switch is in manual",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To allow the forward outflow valve to control cabin pressure.",
+                "isAutomatic": true
+              },
+              {
+                "name": "FWD OUTFLOW VALVE switch",
+                "expectedValue": "MAN",
+                "isAutomatic": true
+              },
+              {
+                "name": "FWD OUTFLOW VALVE MANUAL switch",
+                "expectedValue": "Hold in CLOSE until the FWD outflow valve indication shows fully closed",
+                "isAutomatic": false
+              },
+              {"name": "PageBreak"},
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "-------------DEFFERED ITEMS-------------",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "==> APPROACH CHECKLIST",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "When at pattern altitude:",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Use momentary actuation of the outflow valve manual switches to avoid large and rapid pressurization changes.",
+                "isAutomatic": false
+              },
+              {
+                "name": "FWD OUTFLOW VALVE MANUAL switch",
+                "expectedValue": "Move to OPEN until the outflow valve indications show fully open",
+                "isAutomatic": true
+              }
+            ]
           }
         ]
       },
