@@ -5061,41 +5061,521 @@
       },
       {
         "name": "Anti-ice, rain",
-        "checks": [
+        "subChecklists": [
           {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
+            "name": "Anti-Ice",
+            "subChecklists":[
+              {
+                "name":"Anti-Ice Eng L",
+                "checks":[
+                  {
+                    "name":"Condition",
+                    "expectedValue":"The left engine anti-ice valve is closed when commanded open.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"On the ground:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Left thrust lever",
+                    "expectedValue":"Advance until N1 is approximately 3% above idle",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"ANTI-ICE ENG L message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"L ENGINE ANTI-ICE selector",
+                    "expectedValue":"OFF, then ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"ANTI-ICE ENG L message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"L ENGINE ANTI-ICE selector",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"NOTE",
+                    "expectedValue":"Avoid icing conditions.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"In flight:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"L ENGINE ANTI-ICE selector",
+                    "expectedValue":"OFF, then ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"ANTI-ICE ENG L message blanks:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"NOTE",
+                    "expectedValue":"Run the left engine anti-ice system manually.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"ANTI-ICE ENG L message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"L ENGINE ANTI-ICE selector",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"NOTE",
+                    "expectedValue":"Avoid icing conditions.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name":"Anti-Ice Eng R",
+                "checks":[
+                  {
+                    "name":"Condition",
+                    "expectedValue":"The right engine anti-ice valve is closed when commanded open.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"On the ground:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Right thrust lever",
+                    "expectedValue":"Advance until N1 is approximately 3% above idle",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"ANTI-ICE ENG R message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"R ENGINE ANTI-ICE selector",
+                    "expectedValue":"OFF, then ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"ANTI-ICE ENG R message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"R ENGINE ANTI-ICE selector",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"NOTE",
+                    "expectedValue":"Avoid icing conditions.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"In flight:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"R ENGINE ANTI-ICE selector",
+                    "expectedValue":"OFF, then ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"ANTI-ICE ENG R message blanks:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"NOTE",
+                    "expectedValue":"Run the right engine anti-ice system manually.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"ANTI-ICE ENG R message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"R ENGINE ANTI-ICE selector",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"NOTE",
+                    "expectedValue":"Avoid icing conditions.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name":"Anti-Ice Leak Eng L",
+                "checks":[]
+              },
+              {
+                "name":"Anti-Ice Leak Eng R",
+                "checks":[]
+              },
+              {
+                "name":"Anti-Ice Loss Eng L",
+                "checks":[]
+              },
+              {
+                "name":"Anti-Ice Loss Eng R",
+                "checks":[]
+              },
+              {
+                "name":"Anti-Ice On",
+                "checks":[]
+              },
+              {
+                "name":"Anti-Ice Wing",
+                "checks":[]
+              }
+            ]
           }
         ]
       },
       {
         "name": "Automatic flight",
-        "checks": [
+        "subChecklists": [
           {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
+            "name": "Autopilot",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue":"One or more of these occur:\n- The autopilot is in a degraded mode other than the selected mode\n- The engaged roll mode is failed\n- The engaged pitch mode is failed\n-The autopilot is in flight envelope protection",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "Autopilot Disc",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue":"All autopilots are disengaged.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "Autothrottle Disc",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue":"Both autothrottles are disconnected.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "Autothrottle L",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue":"The left autothrottle is inoperative",
+                "isAutomatic":true
+              },{
+                "name":"L A/T ARM switch...........Confirm",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },{
+                "name":"PLAINTEXT",
+                "expectedValue":"The right autothrottle may be activated if needed.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "Autothrotthle R",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue":"The right autothrottle is inoperative",
+                "isAutomatic":true
+              },{
+                "name":"R A/T ARM switch...........Confirm",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },{
+                "name":"PLAINTEXT",
+                "expectedValue":"The left autothrottle may be activated if needed.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "No Autoland",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue":"The autoland system is not available.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "No Land 3",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue":"The autoland system does not have redundancy for a triple channel autoland.",
+                "isAutomatic":true
+              }
+            ]
           }
         ]
       },
       {
         "name": "Communications datalink",
-        "checks": [
+        "subChecklists": [
           {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
+            "name": "Datalink lost",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue": "The ACARS datalink is temporarily lost.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "Datalink sys",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue": "The datalink system is failed.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "Radio transmit",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue": "A microphone switch is on and causes a radio to transmit for 30 seconds or more.",
+                "isAutomatic":true
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue": "Objective: To identify and isolate the stucjk microphone switch.",
+                "isAutomatic":true
+              },
+              {
+                "name":"Transmitter select switches (all audio control panels)",
+                "expectedValue": "FLT interphone",
+                "isAutomatic":false
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue": "The microphone with the stuck switch transmits on the flight interphone rather than over a radio",
+                "isAutomatic":true
+              },
+              {
+                "name":"NOTE",
+                "expectedValue": "The affected audio select panel should stay on FLT interphone. All other audio panels may be used normally.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "Satcom",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue": "The SATCOM system is failed.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "Satcom Datalink",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue": "The SATCOM datalink is failed.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "Satcom Voice",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue": "SATCOM voice communication is failed.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "Satvoice Lost",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue": "SATCOM voice communication is temporarily lost.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "VHF Datalink",
+            "checks": [
+              {
+                "name":"Condition",
+                "expectedValue": "The VHF datalink is failed.",
+                "isAutomatic":true
+              }
+            ]
           }
         ]
       },
       {
         "name": "Electrical",
-        "checks": [
+        "subChecklists": [
           {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
+            "name": "Backup Gen, Backup Sys",
+            "subChecklists":[
+              {
+                "name": "Elec Backup Gen L",
+                "checks":[
+                  {
+                    "name":"Condition",
+                    "expectedValue":"The left backup generator is failed",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Attempt only one reset per flight. L BACKUP GEN switch",
+                    "expectedValue":"OFF, then ON",
+                    "isAutomatic":false
+                  }
+                ]
+              },
+              {
+                "name": "Elec Backup Gen R",
+                "checks":[
+                  {
+                    "name":"Condition",
+                    "expectedValue":"The right backup generator is failed",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Attempt only one reset per flight. R BACKUP GEN switch",
+                    "expectedValue":"OFF, then ON",
+                    "isAutomatic":false
+                  }
+                ]
+              },
+              {
+                "name": "Elec Backup Sys",
+                "checks":[
+                  {
+                    "name":"Condition",
+                    "expectedValue":"The backup power system is failed",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Attempt only one reset per flight. L BACKUP GEN switch",
+                    "expectedValue":"OFF, then ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"Attempt only one reset per flight. R BACKUP GEN switch",
+                    "expectedValue":"OFF, then ON",
+                    "isAutomatic":false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Elec AC Bus L",
+            "checks":[]
+          },
+          {
+            "name": "Elec AC Bus R",
+            "checks":[]
+          },
+          {
+            "name": "Elec Battery Off",
+            "checks":[]
+          },
+          {
+            "name": "Elec Bus Isln L",
+            "checks":[]
+          },
+          {
+            "name": "Elec Bus Isln R",
+            "checks":[]
+          },
+          {
+            "name": "Elec Cabin/Util Off",
+            "checks":[]
+          },
+          {
+            "name": "Elec Gen Drive L",
+            "checks":[]
+          },
+          {
+            "name": "Elec Gen Drive R",
+            "checks":[]
+          },
+          {
+            "name": "Elec Gen Off Apu",
+            "checks":[]
+          },
+          {
+            "name": "Elec Gen Off L",
+            "checks":[]
+          },
+          {
+            "name": "Elec Gen Off R",
+            "checks":[]
+          },
+          {
+            "name": "Elec Gnd Hdlg Bus",
+            "checks":[]
+          },
+          {
+            "name": "Elec Ife/Seats Off",
+            "checks":[]
+          },
+          {
+            "name": "Elec Standby Sys",
+            "checks":[]
+          },
+          {
+            "name": "Main Battery Disch",
+            "checks":[]
           }
         ]
       },
