@@ -6382,63 +6382,386 @@
           },
           {
             "name": "Elec AC Bus L",
-            "checks":[]
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The left AC bus is not energized.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To restore power or use the APU to supply another source of power.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Attempt only one reset per flight",
+                "isAutomatic": false
+              },
+              {
+                "name": "L GEN CTRL switch",
+                "expectedValue": "Off, then ON",
+                "isAutomatic": false
+              },
+              {
+                "name": "ELEC AC BUS L message stays shown",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "APU selector"
+                ],
+                "conditionalChecksNo": []
+              },
+              {
+                "name": "APU selector",
+                "expectedValue": "START, then ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "When the APU is running",
+                "isAutomatic": false
+              },
+              {
+                "name": "ELEC AC BUS L message stays shown",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "Attempt only one reset per flight (2)",
+                  "L BUS TIE switch"
+                ],
+                "conditionalChecksNo": []
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Attempt only one reset per flight (2)",
+                "isAutomatic": false
+              },
+              {
+                "name": "L BUS TIE switch",
+                "expectedValue": "Off, then AUTO",
+                "isAutomatic": false
+              },
+              {
+                "name": "ELEC AC BUS L message stays shown",
+                "expectedValue": "",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklists:\nWINDOW HEAT L FWD\nWINDOW HEAT R SIDE\nHYD PRESS PRI C1",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Elec AC Bus R",
-            "checks":[]
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The right AC bus is not energized.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To restore power or use the APU to supply another source of power.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Attempt only one reset per flight",
+                "isAutomatic": false
+              },
+              {
+                "name": "R GEN CTRL switch",
+                "expectedValue": "Off, then ON",
+                "isAutomatic": false
+              },
+              {
+                "name": "ELEC AC BUS R message stays shown",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "APU selector"
+                ],
+                "conditionalChecksNo": []
+              },
+              {
+                "name": "APU selector",
+                "expectedValue": "START, then ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "When the APU is running",
+                "isAutomatic": false
+              },
+              {
+                "name": "ELEC AC BUS R message stays shown",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "Attempt only one reset per flight (2)",
+                  "R BUS TIE switch"
+                ],
+                "conditionalChecksNo": []
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Attempt only one reset per flight (2)",
+                "isAutomatic": false
+              },
+              {
+                "name": "R BUS TIE switch",
+                "expectedValue": "Off, then AUTO",
+                "isAutomatic": false
+              },
+              {
+                "name": "ELEC AC BUS R message stays shown",
+                "expectedValue": "",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklists:\nWINDOW HEAT L FWD\nWINDOW HEAT R SIDE\nHYD PRESS PRI C1",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Elec Battery Off",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The battery switch is OFF.",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Elec Bus Isln L",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The left bus tie breaker is open.",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Elec Bus Isln R",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The right bus tie breaker is open.",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Elec Cabin/Util Off",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The cabin/utility power switch if OFF.",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Elec Gen Drive L",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: A left generator drive fault occurs.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Action is irreversible!\n",
+                "isAutomatic": true
+              },
+              {
+                "name": "DRIVE DISC switch.......Confitm",
+                "expectedValue": "Push and hold for 1 second",
+                "isAutomatic": true
+              },
+              {
+                "name": "APU selector (if APU available)",
+                "expectedValue": "START, then ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "iNHIBITED CHECKLIST:\nELEC GEN OFF L",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Elec Gen Drive R",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: A right generator drive fault occurs.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Action is irreversible!\n",
+                "isAutomatic": true
+              },
+              {
+                "name": "DRIVE DISC switch.......Confitm",
+                "expectedValue": "Push and hold for 1 second",
+                "isAutomatic": true
+              },
+              {
+                "name": "APU selector (if APU available)",
+                "expectedValue": "START, then ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nELEC GEN OFF R",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Elec Gen Off Apu",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The APU generator control breaker is open.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Attempt only one reset per flight",
+                "isAutomatic": true
+              },
+              {
+                "name": "APU GEN switch",
+                "expectedValue": "Off, then ON",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Elec Gen Off L",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The left generator control breaker is open.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To reset the generator or use the APU to supply another source of power.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Attempt only one reset per flight",
+                "isAutomatic": true
+              },
+              {
+                "name": "GEN CTRL switch",
+                "expectedValue": "Off, then ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "ELEC GEN OFF L message stays shown:",
+                "isAutomatic": true
+              },
+              {
+                "name": "APU selector (if APU available)",
+                "expectedValue": "START, then ON",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Elec Gen Off R",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The right generator control breaker is open.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To reset the generator or use the APU to supply another source of power.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Attempt only one reset per flight",
+                "isAutomatic": true
+              },
+              {
+                "name": "GEN CTRL switch",
+                "expectedValue": "Off, then ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "ELEC GEN OFF R message stays shown:",
+                "isAutomatic": true
+              },
+              {
+                "name": "APU selector (if APU available)",
+                "expectedValue": "START, then ON",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Elec Gnd Hdlg Bus",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: A fault occurs in the ground handling bus.",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Elec Ife/Seats Off",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The IFE/passenger seats power switch if OFF.",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Elec Standby Sys",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: A standby power system failure occurs.",
+                "isAutomatic": true
+              }
+            ]
           },
           {
             "name": "Main Battery Disch",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: One of these occurs:\n- The main battery is discharging\n- The hot battery bus is not energized",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "The main battery can power the standby system for a minimum of 10 minutes.",
+                "isAutomatic": true
+              }
+            ]
           }
         ]
       },
@@ -6534,4 +6857,3 @@
       }
     ]
   }
-]
