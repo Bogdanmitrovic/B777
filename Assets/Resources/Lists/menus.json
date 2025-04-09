@@ -959,7 +959,7 @@
                     "conditionalChecksYes": [
                       "Transponder mode selector",
                       "NOTE2",
-                      "Landing using flops 20",
+                      "Landing using flaps 20",
                       "Landing using flaps 30 (if performance allows)",
                       "NOTE4",
                       "Inhibited checklist"
@@ -976,7 +976,7 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Landing using flops 20",
+                    "name": "Landing using flaps 20",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -10513,7 +10513,266 @@
           },
           {
             "name": "OVERHEAT ...",
-            "subChecklists":[]
+            "subChecklists":[
+              {
+                "name": "OVERHEAT ENG L",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: An overheat is detected in the left engine.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L ENG BLEED AIR switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                },
+                {
+                  "name": "L A/T ARM switch...........Confirm",
+                  "expectedValue":"OFF",
+                  "isAutomatic":true
+                },
+                {
+                  "name": "Left thrust lever............Confirm",
+                  "expectedValue":"Retard slowly until the OVERHEAT message blanks or the thrust lever is at idle",
+                  "isAutomatic":false
+                },
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue":"OVERHEAT ENG L message blanks:",
+                  "isAutomatic":true
+                },
+                {
+                  "name": "NOTE",
+                  "expectedValue":"Run the left engine at a thrust setting that keeps the OVERHEAT ENG L message blank.",
+                  "isAutomatic":true
+                },
+                {
+                  "name": "NOTE",
+                  "expectedValue":"Do not use FMC performance predictions with an engine at reduced thrust.",
+                  "isAutomatic":true
+                },
+                {
+                  "name": "Transponder mode selector",
+                  "expectedValue":"TA ONLY",
+                  "isAutomatic":true
+                },
+                {
+                  "name": "OVERHEAT ENG L message stays shown:",
+                  "expectedValue": "",
+                  "isAutomatic": false,
+                  "conditionalChecksYes": [
+                     "L FUEL CONTROL switch",
+                     "APU selector (if APU available)",
+                     "Transponder mode selector",
+                     "PLAINTEXT1",
+                     "Landing using flaps 20",
+                     "GND PROI FLAP OVRD switch",
+                     "NOTE3",
+                     "Landing using flaps 30 (if performance allows)",
+                     "NOTE4",
+                      "NOTE5"
+                  ]
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch...........Confirm",
+                    "expectedValue":"CUTOFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "APU selector (if APU available)",
+                    "expectedValue":"START, then ON",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue":"TA ONLY",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Plan to land at the nearest suitable airport",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "Landing using flaps 20",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROI FLAP OVRD switch",
+                      "NOTE3"
+                    ]
+                  },
+                  {
+                    "name": "GND PROI FLAP OVRD switch",
+                    "expectedValue": "DVRD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE3",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Landing using flops 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE5"
+                    ]
+                  },
+                  {
+                    "name": "NOTE5",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE4",
+                    "expectedValue": "Check tne Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Inhibited checklist:",
+                    "expectedValue": "AUTOTHROTTLE L",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "OVERHEAT ENG R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: An overheat is detected in the right engine.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "R ENG BLEED AIR switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                },
+                {
+                  "name": "R A/T ARM switch...........Confirm",
+                  "expectedValue":"OFF",
+                  "isAutomatic":true
+                },
+                {
+                  "name": "Right thrust lever............Confirm",
+                  "expectedValue":"Retard slowly until the OVERHEAT message blanks or the thrust lever is at idle",
+                  "isAutomatic":false
+                },
+                {
+                  "name": "PLAINTEXT",
+                  "expectedValue":"OVERHEAT ENG R message blanks:",
+                  "isAutomatic":true
+                },
+                {
+                  "name": "NOTE",
+                  "expectedValue":"Run the left engine at a thrust setting that keeps the OVERHEAT ENG R message blank.",
+                  "isAutomatic":true
+                },
+                {
+                  "name": "NOTE",
+                  "expectedValue":"Do not use FMC performance predictions with an engine at reduced thrust.",
+                  "isAutomatic":true
+                },
+                {
+                  "name": "Transponder mode selector",
+                  "expectedValue":"TA ONLY",
+                  "isAutomatic":true
+                },
+                {
+                  "name": "OVERHEAT ENG R message stays shown:",
+                  "expectedValue": "",
+                  "isAutomatic": false,
+                  "conditionalChecksYes": [
+                     "R FUEL CONTROL switch",
+                     "APU selector (if APU available)",
+                     "Transponder mode selector",
+                     "PLAINTEXT1",
+                     "Landing using flaps 20",
+                     "GND PROI FLAP OVRD switch",
+                     "NOTE3",
+                     "Landing using flaps 30 (if performance allows)",
+                     "NOTE5",
+                      "NOTE4"
+                  ]
+                  },
+                  {
+                    "name": "R FUEL CONTROL switch...........Confirm",
+                    "expectedValue":"CUTOFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "APU selector (if APU available)",
+                    "expectedValue":"START, then ON",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue":"TA ONLY",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue":"Plan to land at the nearest suitable airport",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "Landing using flaps 20",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROI FLAP OVRD switch",
+                      "NOTE3"
+                    ]
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue": "DVRD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE3",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Landing using flops 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE5"
+                    ]
+                  },
+                  {
+                    "name": "NOTE5",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE4",
+                    "expectedValue": "Check tne Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Inhibited checklist:",
+                    "expectedValue": "AUTOTHROTTLE R",
+                    "isAutomatic": true
+                  }
+                ]
+              }
+            ]
           },
           {
             "name": "Smoke, Fire or Fumes",
@@ -10927,29 +11186,522 @@
           },
           {
             "name": "SMOKE LAVATORY",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Smoke is detected in one or more lavatories.",
+                "isAutomatic":true
+              }
+            ]
           },
           {
             "name": "SMOKE REST UPR DR 4",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Smoke is detected in the door 4 upper crew rest area.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Objective: To coordinate with the cabin to locate and remove the source of the smoke.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Establish cabin communications.",
+                "isAutomatic":false
+              },
+              {
+                "name": "Smoke is persistent:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                   "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue":"Plan to land at the nearest suitable airport",
+                "isAutomatic":false
+              }
+            ]
           },
           {
             "name": "SMOKE REST UPR DR 5",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Smoke is detected in the door 5 upper crew rest area.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Objective: To coordinate with the cabin to locate and remove the source of the smoke.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Establish cabin communications.",
+                "isAutomatic":false
+              },
+              {
+                "name": "Smoke is persistent:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                   "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue":"Plan to land at the nearest suitable airport",
+                "isAutomatic":false
+              }
+            ]
           },
           {
             "name": "SMOKE LAV/COMPT",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Smoke is detected in one or more lavatories, or other enclosed compartment.",
+                "isAutomatic":false
+              }
+            ]
           }
         ]
       },
       {
         "name": "Flight controls",
-        "checks": [
+        "subChecklists": [
           {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
+            "name": "FLAPS, SLATS ...",
+            "subChecklists":[
+              {
+                "name": "FLAPS DRIVE",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The flap drive mechanism is failed.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Do not use alternate flaps. Asymmetry and uncommanded motion protection is not provided in the alternate mode.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue":"OVRD",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Do not use FMC performance predictions with flaps extended.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "Flap position is 5 or less:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                       "NOTE1"
+                    ]
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue":"Move flap lever to 1 and use VREF 30 + 40 for landing. This ensures the slats are extended.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "Flap position is between 5 and 20:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                       "NOTE2"
+                    ]
+                  },
+                  {
+                    "name": "NOTE2",
+                    "expectedValue":"Use current flaps and VREF 30 + 20 for landing.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "Flap position is 20 or greater:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                       "NOTE4"
+                    ]
+                  },
+                  {
+                    "name": "NOTE4",
+                    "expectedValue":"Use current flaps and VREF 20 for landing.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Check the Non-Normal Configuration Landing Distance tables for END SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\nFLAPS PRIMARY FAIL"
+                  }
+                ]
+              },
+              {
+                "name": "FLAPS PRIMARY FAIL",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The flaps primary mode is failed."
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue":"OVRD",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Plan more time for slower flap operation.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Use flaps 20 and VREF 20 for landing. This gives improved go-around performance.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Check the Non-Normal Configuration Landing Distance tables for END SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source.",
+                    "isAutomatic":true
+                  },
+                ]
+              },
+              {
+                "name": "FLAP/SLAT CONTROL",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The flap/slat electronics units are failed",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "Flap retraction is needed:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                       "FLAP lever",
+                       "ALTN FLAPS ARM switch",
+                       "Alternate flaps selector"
+                    ]
+                  },
+                  {
+                    "name": "FLAP lever",
+                    "expectedValue":"up",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "ALTN FLAPS ARM switch",
+                    "expectedValue":"ALTM",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "Alternate flaps selector",
+                    "expectedValue":"RET",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Monitor airspeed during retraction.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue":"OVRD",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Plan to reduce gross weight to less than Maximum Landing Weight before extending flaps, Manouever margin can be limited while flaps are extending from UP to 5",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Plan more time for alternate slat and flaps extension.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Use flaps 20 and VREF 20 for landing. The alternate mode is limited to a maximum of flaps 20.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Check the Non-Normal Configuration Landing Distance tables for END SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"-------------DEFFERED ITEMS-------------",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"==> APPROACH CHECKLIST",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "ALTN FLAPS ARM switch",
+                    "expectedValue":"ALTN",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "Alternate flaps selector",
+                    "expectedValue":"EXT",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Monitor airspeed during extension.",
+                    "isAutomatic":true
+                  },
+                ]
+              },
+              {
+                "name": "SLATS DRIVE",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The slat drive mechanism is failed.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Do not use alternate flaps. Asymmetry and uncommanded motion protection is not provided in the alternate mode.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue":"OVRD",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Do not use autoland.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Use flaps 20 and VREF 30 + 30 for landing. This gives better handling qualities when the slats are not fully extended.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Check the Non-Normal Configuration Landing Distance tables for END SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\nSLATS PRIMARY FAIL"
+                  }
+                ]
+              },
+              {
+                "name": "SLATS PRIMARY FAIL",
+                "checks":[]
+              }
+            ]
+          },
+          {
+            "name": "AUTO SPEEDBRAKE",
+            "checks":[]
+          },
+          {
+            "name": "FLIGHT CONTROL MODE",
+            "checks":[]
+          },
+          {
+            "name": "FLIGHT CONTROLS",
+            "checks":[]
+          },
+          {
+            "name": "FLT CONTROL VALVE",
+            "checks":[]
+          },
+          {
+            "name": "JAMMED FLIGHT CONTROLS",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: Flight controls are jammed or restricted in roll, pitch or yaw.",
+                "isAutomatic": true
+              },
+              {
+                "name": "Autopilot disengage switch",
+                "expectedValue": "Push",
+                "isAutomatic": false
+              },
+              {
+                "name": "Autothrottle disconnect switch",
+                "expectedValue": "Push",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Overpower the jammed or restricted system.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Use maximum force, including a combined effort of both pilots, as needed. A maximum two-pilot effort on the controls will not damage the flight controls.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Controls stay jammed or restricted",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "NOTE1",
+                  "NOTE2",
+                  "NOTE3",
+                  "NOTE4",
+                  "NOTE5",
+                  "NOTE6",
+                  "NOTE7",
+                  "NOTE8",
+                  "NOTE9",
+                  "NOTE10"
+                ]
+              },
+              {
+                "name": "NOTE1",
+                "expectedValue": "Control may be limited to one pilot.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE2",
+                "expectedValue": "If the aileron controls are jammed, use rudder and rudder trim to counter the effect of the jam.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE3",
+                "expectedValue": "If elevator controls are jammed, use pitch trim to counter the effect of the jam. If more pitch trim authority is needed, select DISC on the primary flight computers disconnect switch. This puts the flight control system in direct mode. In direct mode, pitch trim moves slower than in normal mode.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE4",
+                "expectedValue": "If the rudder controls are jammed, use aileron and aileron trim to counter the effect of the jam.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE5",
+                "expectedValue": "Do not make abrupt thrust changes.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE6",
+                "expectedValue": "Extend or retract speedbrake slowly and smoothly.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE7",
+                "expectedValue": "Limit bank angle to 15 degrees",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE8",
+                "expectedValue": "The autopilot and autothrottle may be available to control the airplane.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE9",
+                "expectedValue": "Do not use autoland.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE10",
+                "expectedValue": "If the rudder controls are jammed, differential braking may be required for landing",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Plan to land at the nearest suitable airport",
+                "isAutomatic": false
+              }
+            ]
+          },
+          {
+            "name": "PITCH DOWN AUTHORITY",
+            "checks":[]
+          },
+          {
+            "name": "PITCH UP AUTHORITY",
+            "checks":[]
+          },
+          {
+            "name": "PRI FLIGHT COMPUTERS",
+            "checks":[]
+          },
+          {
+            "name": "SPEEDBRAKE EXTENDED",
+            "checks":[]
+          },
+          {
+            "name": "SPOILERS",
+            "checks":[]
+          },
+          {
+            "name": "STAB GREENBAND",
+            "checks":[]
+          },
+          {
+            "name": "STABILIZER",
+            "checks":[]
+          },
+          {
+            "name": "STABILIZER C",
+            "checks":[]
+          },
+          {
+            "name": "STABILIZER CUTOUT",
+            "checks":[]
+          },
+          {
+            "name": "STABILIZER R",
+            "checks":[]
+          },
+          {
+            "name": "THRUST ASYM COMP",
+            "checks":[]
           }
         ]
       },
