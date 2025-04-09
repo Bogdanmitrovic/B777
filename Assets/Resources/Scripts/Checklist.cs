@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 [Serializable]
 public class Checklist
@@ -11,7 +10,7 @@ public class Checklist
     public List<Check> checks = new();
     public string name;
     public List<Checklist> subChecklists = new();
-    [NonSerialized] public UnityAction<int, bool> OnCheckChecked;
+    [NonSerialized] public UnityAction OnCheckChecked;
     [NonSerialized] private int _checkSelectedIndex = -1;
     public List<string> deferredChecks = new();
 
@@ -74,9 +73,12 @@ public class Checklist
     private void CheckChecked(int index, bool checkedValue)
     {
         Debug.Log("Checklist: " + name + " Check: " + checks[index].name + " Checked: " + checkedValue);
-        OnCheckChecked?.Invoke(index, checkedValue);
-        checks.FindAll(check => check.name == checks[index].name && check.Checked != checkedValue)
-            .ForEach(check => check.TriggerCheck());
+        OnCheckChecked?.Invoke();
+        var sameNameChecks = checks.FindAll(check => check.name == checks[index].name && check.expectedValue == checks[index].expectedValue);
+        var sameNameDifferentChecked = sameNameChecks.FindAll(check => check.Checked != checkedValue);
+        sameNameDifferentChecked.ForEach(check => check.TriggerOverride());
+        //checks.FindAll(check => check.name == checks[index].name && check.Checked != checkedValue)
+            //.ForEach(check => check.TriggerCheck());
     }
 
     public void SetListeners()
@@ -94,6 +96,7 @@ public class Checklist
         Debug.Log("Conditional check " + index + " is " + state);
         var conditionalChecksYes = checks[index].conditionalChecksYes;
         var conditionalChecksNo = checks[index].conditionalChecksNo;
+        OnCheckChecked?.Invoke();
         if (conditionalChecksYes != null)
             foreach (var check in conditionalChecksYes)
             {
@@ -111,5 +114,8 @@ public class Checklist
                 else
                     checks.First(ch => ch.name == check).TriggerReset();
             }
+        var sameNameChecks = checks.FindAll(check => check.name == checks[index].name && check.expectedValue == checks[index].expectedValue);
+        var sameNameDifferentChecked = sameNameChecks.FindAll(check => check.ConditionalState != state);
+        sameNameDifferentChecked.ForEach(check => check.TriggerConditionCheck(state));
     }
 }

@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using JetBrains.Annotations;
-using UnityEngine;
 using UnityEngine.Events;
 
 [Serializable]
@@ -37,7 +34,8 @@ public class Check
         ConditionalState = ConditionalState.None;
     }
 
-    public bool IsDone => Checked || Overridden || IsNote || IsPageBreak;
+    public bool IsDone => Checked || Overridden || IsNote || IsPageBreak ||
+                          (IsConditional && ConditionalState != ConditionalState.None);
 
     public bool IsNote => name.Contains("NOTE");
     public bool IsPlainText => name.Contains("PLAINTEXT");

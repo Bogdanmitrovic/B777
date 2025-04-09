@@ -168,24 +168,10 @@ public class ChecklistRenderer : MonoBehaviour
         _currentChecklist = null;
     }
 
-    public void OnCheckboxCheck(int index, bool value)
+    public void OnCheckboxCheck()
     {
         if (_currentChecklist?.IsDone() == true)
             ChecklistDone();
-        if (_pagesCount == 1) return;
-        /*var flag = true;
-        for (var i = (_currentPage - 1) * checksPerPage;
-             i < _currentPage * checksPerPage && i < _currentChecklist?.checks.Count;
-             i++)
-        {
-            if (!_currentChecklist.checks[i].Checked)
-            {
-                SetPageNotComplete();
-                flag = false;
-                break;
-            }
-        }
-        if (flag) SetPageComplete();*/
     }
 
     public void OverrideCheck()
