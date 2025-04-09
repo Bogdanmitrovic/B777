@@ -2358,7 +2358,7 @@
               {
                 "name": "Airplane cannot be trimmed to the desired pitch attitude",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "PRIMARY FLIGHT COMPUTERS disconnect switch"
                 ]
@@ -2421,7 +2421,7 @@
               {
                 "name": "Reliable airspeed indication can be determined",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "PLAINTEXT1"
                 ]
@@ -2439,7 +2439,7 @@
               {
                 "name": "Reliable airspeed indication cannot be determined",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "PLAINTEXT1"
                 ]
@@ -2527,7 +2527,7 @@
               {
                 "name": "Altitude is unreliable",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "XPDR switch is on the transponder panel",
                   "ALT SOURCE selector is on the transponder panel"
@@ -2536,7 +2536,7 @@
               {
                 "name": "XPDR switch is on the transponder panel",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "Transponder mode selector"
                 ]
@@ -2549,7 +2549,7 @@
               {
                 "name": "ALT SOURCE selector is on the transponder pane",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "Transponder mode selector"
                 ]
@@ -2799,7 +2799,7 @@
               {
                 "name": "Engine or APU fire warning occurs",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "Related fire switch"
                 ]
@@ -2828,7 +2828,7 @@
               {
                 "name": "FUEL TO REMAIN must be changed:",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "FUEL TO REMAIN selector"
                 ]
@@ -2937,7 +2937,7 @@
               {
                 "name": "Engine/main tank leak is confirmed",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "PLAINTEXT1",
                   "PLAINTEXT2",
@@ -3025,7 +3025,7 @@
               {
                 "name": "FUEL IN CENTER message shows",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "Fuel CENTER PUMP switch (on side with running engine)"
                 ]
@@ -3048,7 +3048,7 @@
               {
                 "name": "Landing using flaps 20",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "GND PROX FLAP OVRD switch",
                   "NOTE"
@@ -3067,7 +3067,7 @@
               {
                 "name": "Landing using flaps 30 (if performance allows)",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "NOTE"
                 ]
@@ -3115,7 +3115,7 @@
               {
                 "name": "Main tank leak is confirmed",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "PLAINTEXT1",
                   "PLAINTEXT2",
@@ -3157,7 +3157,7 @@
               {
                 "name": "Main tank leak is NOT confirmed",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "PLAINTEXT1",
                   "NOTE1"
@@ -3191,7 +3191,7 @@
               {
                 "name": "Engine/main tank leak is NOT confirmed",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "FUEL IN CENTER message shows",
                   "FUEL IN CENTER message is blank"
@@ -3200,7 +3200,7 @@
               {
                 "name": "FUEL IN CENTER message shows",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "PLAINTEXT1",
                   "Fuel CENTER PUMPS switches (both)",
@@ -3244,7 +3244,7 @@
               {
                 "name": "Center tank leak is confirmed",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "PLAINTEXT1",
                   "PLAINTEXT2",
@@ -3280,7 +3280,7 @@
               {
                 "name": "Center tank leak is NOT confirmed",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "PLAINTEXT1"
                 ]
@@ -3298,7 +3298,7 @@
               {
                 "name": "FUEL IN CENTER message is blank",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "PLAINTEXT1"
                 ]
@@ -3388,7 +3388,7 @@
               {
                 "name": "Autothrottle is unable to maintain the selected airspeed and TAT indication stays near 0 degrees C",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "A/T ARM switches (both)",
                   "Thrust levers (both)"
@@ -3483,7 +3483,7 @@
               {
                 "name": "Controls stay jammed or restricted",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "NOTE1",
                   "NOTE2",
@@ -3581,7 +3581,7 @@
               {
                 "name": "Landing gross weight is greater than the Landing Climb Limit Weight, or one engine is inoperative or at reduced thrust",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "GND PROX FLAP OVRD switch",
                   "NOTE1"
@@ -3605,7 +3605,7 @@
               {
                 "name": "Landing gross weight is less than or equal to the Landing Climb Limit Weight, and both engines are running normally:",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "PLAINTEXT1",
                   "VREF 30 + additives (wind and gusts, 5 knots minimum) is at or below 170 knots",
@@ -3620,7 +3620,7 @@
               {
                 "name": "VREF 30 + additives (wind and gusts, 5 knots minimum) is at or below 170 knots",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "NOTE1"
                 ]
@@ -3638,7 +3638,7 @@
               {
                 "name": "VREF 30 + additives (wind and gusts, 5 knots minimum) is above 170 knots",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "NOTE1"
                 ]
@@ -3773,7 +3773,7 @@
               {
                 "name": "Engines run normally",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "PLAINTEXT1"
                 ]
@@ -3791,7 +3791,7 @@
               {
                 "name": "Engines are flamed out or stalled, or EGT is rapidly approaching or exceeding the limit:",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "FUEL CONTROL switches (both)",
                   "RAM AIR TURBINE switch",
@@ -9633,7 +9633,7 @@
               {
                 "name": "Engines run normally",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "PLAINTEXT1"
                 ]
@@ -9651,7 +9651,7 @@
               {
                 "name": "Engines are flamed out or stalled, or EGT is rapidly approaching or exceeding the limit:",
                 "expectedValue": "",
-                "isAutomatic": true,
+                "isAutomatic": false,
                 "conditionalChecksYes": [
                   "FUEL CONTROL switches (both)",
                   "RAM AIR TURBINE switch",
@@ -10500,7 +10500,7 @@
                 "isAutomatic":false
               },
               {
-                "name": "PLAINTEXT2",,
+                "name": "PLAINTEXT2",
                 "expectedValue":"Wait 20 minutes. This ensures the fire is extinguished.",
                 "isAutomatic":false
               },
