@@ -6767,21 +6767,4179 @@
       },
       {
         "name": "Engines, APU",
-        "checks": [
+        "subChecklists": [
           {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
+            "name": "Damage, fail, shutdown, thrust",
+            "subChecklists": [
+              {
+                "name": "Dual eng fail/stall",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: Engine speed for both engines is below idle",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "FUEL CONTROL switches (both)",
+                    "expectedValue": "CUTOFF, then RUN",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "RAM AIR TURBINE switch",
+                    "expectedValue": "Push and hold for 1 second",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Do not manually abort the start of EGT turns red. EGT turns red when EGT exceeds the start limit line (lower red line). Autostart discontinues the current start attempt before EGT becomes too high for continued engine operation.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Set airspeed above 270 knots",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "APU selector (if APU available)",
+                    "expectedValue": "START, then ON",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Engines can accelerate to idle very slowly, especially at high altitutes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Do not interrupt autostart. Move the fuel control switch to CUTOFF only when no further start attempts are needed.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Fuel CENTER PUPMS switches (both)",
+                    "expectedValue": "off",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Fuel CENTER PUMPS switches (both)",
+                    "expectedValue": "ON",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "When the HEAT PILOT L+C+R message blanks: ",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PRIMARY FLIGHT COMPUTERS disconnect switch",
+                    "expectedValue": "DISC, then AUTO",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "This step restores the flight control normal mode",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Re-engage the autopilot as needed when the flight control normal mode is restored",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name":"ENG FAIL L",
+                "checks":[
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Condition: Left engine speed is below idle.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Objective: To restart the engine if needed, or configure for single engine operation.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "If thrust is lost on BOTH engines, do the Dual Eng Fail/Stall checklist."
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "If airframe vibrations with abnormal left engine indications exist, do the Eng Svr Damage/Sep L checklist."
+                  },
+                  {
+                    "name":"L A/T ARM switch...........Confirm",
+                    "expectedValue": "OFF"
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name":"Left thrust lever............Confirm",
+                    "expectedValue": "Idle"
+                  },
+                  {
+                    "name":"L FUEL CONTROL switch...........Confirm",
+                    "expectedValue": "CUTOFF"
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "A restart can be attempted if there is N1 rotation and no abnormal airframe vibration.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "Restart is needed:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT1",
+                      "Crossbleed indication (X-BLD or XB) shows:",
+                      "PLAINTEXT2",
+                      "PLAINTEXT3",
+                      "PLAINTEXT4",
+                      "L FUEL CONTROL switch",
+                      "PLAINTEXT5",
+                      "PLAINTEXT6"
+
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"PLAINTEXT1",
+                    "expectedValue": "Engine can accelerate to idle very slowly, especially at high altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.\n\n If N2 is steadily increasing ang EGT stays within limits, do not interrupt the start.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "Crossbleed indication (X-BLD or XB) shows:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L START selector"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"L START selector",
+                    "expectedValue": "START",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT2",
+                    "expectedValue": "Autostart is on:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT3",
+                    "expectedValue": "Monitor EGT during start to prevent an EGT exceedance. Autostart allows EGT to exceed the in-flight start limit.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name":"PLAINTEXT4",
+                    "expectedValue": "Do not interrupt autostart. Only abort the start if: \n- There is no oil pressure indication after the EGT increase \n- EGT quickly nears or exceeds the start limit \n- No further autostart attempts are needed.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"L FUEL CONTROL switch",
+                    "expectedValue": "RUN",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT5",
+                    "expectedValue": "Autostart is off:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT6",
+                    "expectedValue": "Abort the start if: \n- EGT does not rise within 30 seconds after selecting RUN \n- N2 is not increasing \n- EGT quickly nears or exceeds the start limit",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "Crossbleed indication (X-BLD or XB) shows:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT7",
+                      "L FUEL CONTROL switch"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"PLAINTEXT7",
+                    "expectedValue": "When at maximum monitoring:",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"L FUEL CONTROL switch",
+                    "expectedValue": "RUN",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "Crossbleed indication (X-BLD or XB) is blank:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L FUEL CONTROL switch"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"L FUEL CONTROL switch",
+                    "expectedValue": "RUN",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Inhibited checklist: AUTOTHROTTLE L",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "Engine stays failed:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L FUEL CONTROL switch........Confirm",
+                      "L START selector",
+                      "APU selector (if APU available)",
+                      "Transponder mode selector",
+                      "PLAINTEXT8"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"L FUEL CONTROL switch........Confirm",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"L START selector",
+                    "expectedValue": "NORM",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name":"APU selector (if APU available)",
+                    "expectedValue": "START, then ON",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name":"PLAINTEXT8",
+                    "expectedValue": "Plan to land at the nearest suitable airport.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "Landing using flaps 20:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROX FLAP OVRD switch",
+                      "NOTE1",
+                      "NOTE3"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"GND PROX FLAP OVRD switch",
+                    "expectedValue": "OVRD",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"NOTE1",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "Landing using flaps 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROX FLAP OVRD switch",
+                      "NOTE2"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"NOTE2",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"NOTE3",
+                    "expectedValue": "Check the Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source.",
+                    "isAutomatic":false
+                  }
+                ]
+              },
+              {
+                "name":"ENG SHUTDOWN",
+                "checks":[
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Condition: Both engines were shut down by the fuel control switches or the engine fire switches."
+                  }
+                ]
+              },
+              {
+                "name":"ENG SHUTDOWN L",
+                "checks":[
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Condition: The left engine was shut down by the fuel control switches or the engine fire switches."
+                  }
+                ]
+              },
+              {
+                "name":"ENG SHUTDOWN R",
+                "checks":[
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Condition: The ritght engine was shut down by the fuel control switches or the engine fire switches."
+                  }
+                ]
+              },
+              {
+                "name": "Eng svr damage/sep L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One or more of these occur in the left engine:\n - Airframe vibrations with abnormal engine indications \n - Engine separation",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L A/T ARM switch...........Confirm",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Left thrust lever............Confirm",
+                    "expectedValue": "Idle",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch...........Confirm",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Left engine fire switch............Confirm",
+                    "expectedValue": "Pull",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "High airframe vibration occurs and continues after engine shutdown:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT1",
+                      "PLAINTEXT2"
+                    ]
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue": "Without delay, reduce airspeed and descend to a safe altitude which results in an acceptable vibration level.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT2",
+                    "expectedValue": "If high vibration returns and further airspeed reduction and descent are not practical, increasing the airspeed may reduce the vibration.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "APU selector (if APU available)",
+                    "expectedValue": "START, then ON",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Plan to land at the nearest suitable airport",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Landing using flops 20",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROX FLAP OVRD switch",
+                      "NOTE1"
+                    ]
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue": "OVRD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Landing using flaps 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE1"
+                    ]
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Check the Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R, in the Performance Inflight-QRM chapter or other approved source.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Inhibited checklists",
+                    "expectedValue": "AUTOTHROTTLE L, ENG FAIL L",
+                    "isAutomatic": true
+                  }
+                ],
+                "subChecklists": []
+              },
+              {
+                "name": "Eng svr damage/sep R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One or more of these occur in the right engine: \n- Airframe vibrations with abnormal engine indications \n- Engine separation",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "R A/T ARM switch...........Confirm",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Right thrust lever............Confirm",
+                    "expectedValue": "Idle",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "R FUEL CONTROL switch...........Confirm",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Right engine fire switch............Confirm",
+                    "expectedValue": "Pull",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "High airframe vibration occurs and continues after engine shutdown:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT1",
+                      "PLAINTEXT2"
+                    ]
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue": "Without delay, reduce airspeed and descend to a safe altitude which results in an acceptable vibration level.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT2",
+                    "expectedValue": "If high vibration returns and further airspeed reduction and descent are not practical, increasing the airspeed may reduce the vibration.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "APU selector (if APU available)",
+                    "expectedValue": "START, then ON",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Plan to land at the nearest suitable airport",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Landing using flops 20",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROX FLAP OVRD switch",
+                      "NOTE1"
+                    ]
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue": "OVRD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Landing using flaps 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE1"
+                    ]
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Check the Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R, in the Performance Inflight-QRM chapter or other approved source.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Inhibited checklists",
+                    "expectedValue": "AUTOTHROTTLE R, ENG FAIL R",
+                    "isAutomatic": true
+                  }
+                ],
+                "subChecklists": []
+              },
+              {
+                "name": "ENG THRUST L",
+                "checks":[
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Condition: The left engine thrust is less than the commanded thrust."
+                  }
+                ]
+              },
+              {
+                "name": "ENG THRUST R",
+                "checks":[
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Condition: The right engine thrust is less than the commanded thrust."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Limit, oil, reverser",
+            "subChecklists":[
+              {
+                "name":"Eng limit prot L",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The left EEC is in the alternate mode and the commanded N1 exceeds the limit.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Left thrust lever",
+                    "expectedValue":"Retard until N1 stays below the amber line",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"DO not use FMC performance predictions with an engine at reduced thrust.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue":"TA ONLY",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name":"Eng limit prot R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The right EEC is in the alternate mode and the commanded N1 exceeds the limit.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "RIght thrust lever",
+                    "expectedValue":"Retard until N1 stays below the amber line",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"DO not use FMC performance predictions with an engine at reduced thrust.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue":"TA ONLY",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name": "Eng lim/surge/stall L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One or more of these occur in the left engine:\n- Engine indications are abnormal\n-Engine indications are quickly nearing or show an exceedance\n- Abnormal engine noises are heard, possibli with airframe vibration\n- There is no response to thrust lever movement or the response is abnormal\n- Flames in the engine inlet or exhaust are reported",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L A/T ARM switch......Confirm",
+                    "expectedValue": "OFF",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Left thrust lever........Confirm",
+                    "expectedValue": "Retard until engine incidations stay within limits or the thrust lever is at idle",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Engine indications are stabilized and EGT is stabilized or decreasing",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT1",
+                      "Left thrust lever",
+                      "NOTE1",
+                      "Engine runs at reduced thrust"
+                    ],
+                    "conditionalCheckNo": []
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue": "Check that RPM and EGT follow thrust lever movement.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Left thrust lever",
+                    "expectedValue": "Advance slowly",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue": "Run the left engine normally or at a reduced thrust setting that is surge and stall free",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Engine runs at reduced thrust",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "Transponder mode selector",
+                      "NOTE2",
+                      "Landing using flops 20",
+                      "Landing using flaps 30 (if performance allows)",
+                      "NOTE4",
+                      "Inhibited checklist"
+                    ]
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE2",
+                    "expectedValue": "DO not use FMC performance predictions with an engine at reduced thrust.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Landing using flops 20",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROI FLAP OVRD switch",
+                      "NOTE3"
+                    ]
+                  },
+                  {
+                    "name": "GND PROI FLAP OVRD switch",
+                    "expectedValue": "DVRD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE3",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Landing using flops 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE5"
+                    ]
+                  },
+                  {
+                    "name": "NOTE5",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE4",
+                    "expectedValue": "Check tne Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Inhibited checklist:",
+                    "expectedValue": "AUTOTHROTTLE L",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Engine indications are abnormal or EGT continues to increase:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L FUEL CONTROL switch.........Confirm",
+                      "APU selector (if APU available)",
+                      "Transponder node selector",
+                      "Plan to land at the nearest suitable airport",
+                      "Landing using flaps 20",
+                      "Landing using flaps 30 (if performance allows)",
+                      "NOTE1",
+                      "Inhibited checklist"
+                    ]
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch.........Confirm",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "APU selector (if APU available)",
+                    "expectedValue": "START, then ON",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Plan to land at the nearest suitable airport",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Landing using flaps 20",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROX FLAP OVRD switch",
+                      "NOTE2"
+                    ]
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue": "OVRD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE2",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Landing using flaps 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE3"
+                    ]
+                  },
+                  {
+                    "name": "NOTE3",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue": "Check the Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Inhibited checklist",
+                    "expectedValue": "AUTOTHROTTLE L",
+                    "isAutomatic": true
+                  }
+                ],
+                "subChecklists": []
+              },
+              {
+                "name": "Eng lim/surge/stall R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One or more of these occur in the left engine:\n- Engine indications are abnormal\n-Engine indications are quickly nearing or show an exceedance\n- Abnormal engine noises are heard, possibli with airframe vibration\n- There is no response to thrust lever movement or the response is abnormal\n- Flames in the engine inlet or exhaust are reported",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L A/T ARM switch......Confirm",
+                    "expectedValue": "OFF",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Left thrust lever........Confirm",
+                    "expectedValue": "Retard until engine incidations stay within limits or the thrust lever is at idle",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Engine indications are stabilized and EGT is stabilized or decreasing",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT1",
+                      "Left thrust lever",
+                      "NOTE1",
+                      "Engine runs at reduced thrust"
+                    ],
+                    "conditionalCheckNo": []
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue": "Check that RPM and EGT follow thrust lever movement.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Left thrust lever",
+                    "expectedValue": "Advance slowly",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue": "Run the left engine normally or at a reduced thrust setting that is surge and stall free",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Engine runs at reduced thrust",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "Transponder mode selector",
+                      "NOTE2",
+                      "Landing using flops 20",
+                      "Landing using flaps 30 (if performance allows)",
+                      "NOTE4",
+                      "Inhibited checklist"
+                    ]
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE2",
+                    "expectedValue": "DO not use FMC performance predictions with an engine at reduced thrust.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Landing using flops 20",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROI FLAP OVRD switch",
+                      "NOTE3"
+                    ]
+                  },
+                  {
+                    "name": "GND PROI FLAP OVRD switch",
+                    "expectedValue": "DVRD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE3",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Landing using flops 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE5"
+                    ]
+                  },
+                  {
+                    "name": "NOTE5",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE4",
+                    "expectedValue": "Check tne Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Inhibited checklist:",
+                    "expectedValue": "AUTOTHROTTLE L",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Engine indications are abnormal or EGT continues to increase:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L FUEL CONTROL switch.........Confirm",
+                      "APU selector (if APU available)",
+                      "Transponder node selector",
+                      "Plan to land at the nearest suitable airport",
+                      "Landing using flaps 20",
+                      "Landing using flaps 30 (if performance allows)",
+                      "NOTE1",
+                      "Inhibited checklist"
+                    ]
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch.........Confirm",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "APU selector (if APU available)",
+                    "expectedValue": "START, then ON",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Plan to land at the nearest suitable airport",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Landing using flaps 20",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROX FLAP OVRD switch",
+                      "NOTE2"
+                    ]
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue": "OVRD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE2",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Landing using flaps 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE3"
+                    ]
+                  },
+                  {
+                    "name": "NOTE3",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue": "Check the Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Inhibited checklist",
+                    "expectedValue": "AUTOTHROTTLE L",
+                    "isAutomatic": true
+                  }
+                ],
+                "subChecklists": []
+              },
+              {
+                "name":"Eng oil filter L",
+                "checks":[
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Condition: The left engine oil filter contamination has caused oil to bypass the oil filter.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Objective: To decrease oil pressure to stop filter bypass, or shut down the engine.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L A/T ARM switch...........Confirm",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Left thrust lever............Confirm",
+                    "expectedValue": "Retard slowly until the ENG OIL FILTER L message blanks or the thrust lever is at idle",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE L",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "ENG OIL FILTER L message blank:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE1",
+                      "NOTE2",
+                      "Transponder mode selector"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue": "Run the left engine at a thrust setting that keeps the ENG OIL FILTER L message blank.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE2",
+                    "expectedValue": "DO not use FMC performance predictions with an engine at reduced thrust.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "ENG OIL FILTER L message stays shown:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L FUEL CONTROL switch...........Confirm",
+                      "APU selector (if APU available)",
+                      "Transponder mode selector",
+                      "Plan to land at the nearest suitable airport"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch...........Confirm",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "APU selector (if APU available)",
+                    "expectedValue": "START, then ON",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "STA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue": "Plan to land at the nearest suitable airport",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "Landing using flops 20",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROI FLAP OVRD switch",
+                      "NOTE3"
+                    ]
+                  },
+                  {
+                    "name": "GND PROI FLAP OVRD switch",
+                    "expectedValue": "DVRD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE3",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Landing using flops 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE5"
+                    ]
+                  },
+                  {
+                    "name": "NOTE5",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE4",
+                    "expectedValue": "Check tne Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name":"Eng oil filter R",
+                "checks":[
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Condition: The right engine oil filter contamination has caused oil to bypass the oil filter.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Objective: To decrease oil pressure to stop filter bypass, or shut down the engine.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "R A/T ARM switch...........Confirm",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Right thrust lever............Confirm",
+                    "expectedValue": "Retard slowly until the ENG OIL FILTER R message blanks or the thrust lever is at idle",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE R",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "ENG OIL FILTER R message blank:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE1",
+                      "NOTE2",
+                      "Transponder mode selector"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue": "Run the right engine at a thrust setting that keeps the ENG OIL FILTER R message blank.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE2",
+                    "expectedValue": "DO not use FMC performance predictions with an engine at reduced thrust.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "ENG OIL FILTER R message stays shown:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "R FUEL CONTROL switch...........Confirm",
+                      "APU selector (if APU available)",
+                      "Transponder mode selector",
+                      "Plan to land at the nearest suitable airport"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "R FUEL CONTROL switch...........Confirm",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "APU selector (if APU available)",
+                    "expectedValue": "START, then ON",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "STA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue": "Plan to land at the nearest suitable airport",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "Landing using flops 20",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROI FLAP OVRD switch",
+                      "NOTE3"
+                    ]
+                  },
+                  {
+                    "name": "GND PROI FLAP OVRD switch",
+                    "expectedValue": "DVRD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE3",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Landing using flops 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE5"
+                    ]
+                  },
+                  {
+                    "name": "NOTE5",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE4",
+                    "expectedValue": "Check tne Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name":"Eng oil press L",
+                "checks":[
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Condition: The left engine oil pressure is low.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L A/T ARM switch...........Confirm",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Left thrust lever............Confirm",
+                    "expectedValue": "Idle",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch...........Confirm",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "APU selector (if APU available)",
+                    "expectedValue": "START, then ON",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Plan to land at the nearest suitable airport",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "Landing using flops 20",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROI FLAP OVRD switch",
+                      "NOTE3"
+                    ]
+                  },
+                  {
+                    "name": "GND PROI FLAP OVRD switch",
+                    "expectedValue": "DVRD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE3",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Landing using flops 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE5"
+                    ]
+                  },
+                  {
+                    "name": "NOTE5",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE4",
+                    "expectedValue": "Check tne Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\nAUTOTHROTTLE L",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name":"Eng oil press R",
+                "checks":[
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Condition: The right engine oil pressure is low.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "R A/T ARM switch...........Confirm",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Right thrust lever............Confirm",
+                    "expectedValue": "Idle",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "R FUEL CONTROL switch...........Confirm",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "APU selector (if APU available)",
+                    "expectedValue": "START, then ON",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Plan to land at the nearest suitable airport",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "Landing using flops 20",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROI FLAP OVRD switch",
+                      "NOTE3"
+                    ]
+                  },
+                  {
+                    "name": "GND PROI FLAP OVRD switch",
+                    "expectedValue": "DVRD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE3",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Landing using flops 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE5"
+                    ]
+                  },
+                  {
+                    "name": "NOTE5",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE4",
+                    "expectedValue": "Check tne Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\nAUTOTHROTTLE L",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name":"Eng oil temp L",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The left engine oil temperature is high.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L A/T ARM switch...........Confirm",
+                    "expectedValue":"OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Left thrust lever............Confirm",
+                    "expectedValue":"Move to mid position",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"This allows the oil to cool.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "ENG OIL FILTER L message blank:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE1",
+                      "NOTE2",
+                      "Transponder mode selector"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue": "Run the left engine at a thrust setting that keeps the ENG OIL FILTER L message blank.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE2",
+                    "expectedValue": "DO not use FMC performance predictions with an engine at reduced thrust.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "Oil temperature is at or above the red line limit, or is in the amber band for 15 minutes or more:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "Left thrust lever............Confirm",
+                      "L FUEL CONTROL switch...........Confirm",
+                      "APU selector (if APU available)",
+                      "Transponder mode selector",
+                      "PLAINTEXT6"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "Left thrust lever............Confirm",
+                    "expectedValue": "Idle",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch...........Confirm",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "APU selector (if APU available)",
+                    "expectedValue": "START, then ON",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT6",
+                    "expectedValue": "Plan to land at the nearest suitable airport",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Landing using flops 20",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROI FLAP OVRD switch",
+                      "NOTE3"
+                    ]
+                  },
+                  {
+                    "name": "GND PROI FLAP OVRD switch",
+                    "expectedValue": "DVRD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE3",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Landing using flops 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE5"
+                    ]
+                  },
+                  {
+                    "name": "NOTE5",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE4",
+                    "expectedValue": "Check tne Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\nAUTOTHROTTLE L",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name":"Eng oil temp R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The right engine oil temperature is high.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "R A/T ARM switch...........Confirm",
+                    "expectedValue":"OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Right thrust lever............Confirm",
+                    "expectedValue":"Move to mid position",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"This allows the oil to cool.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "ENG OIL FILTER R message blank:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE1",
+                      "NOTE2",
+                      "Transponder mode selector"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue": "Run the right engine at a thrust setting that keeps the ENG OIL FILTER L message blank.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE2",
+                    "expectedValue": "DO not use FMC performance predictions with an engine at reduced thrust.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "Oil temperature is at or above the red line limit, or is in the amber band for 15 minutes or more:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "Left thrust lever............Confirm",
+                      "R FUEL CONTROL switch...........Confirm",
+                      "APU selector (if APU available)",
+                      "Transponder mode selector",
+                      "PLAINTEXT6"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "Right thrust lever............Confirm",
+                    "expectedValue": "Idle",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "R FUEL CONTROL switch...........Confirm",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "APU selector (if APU available)",
+                    "expectedValue": "START, then ON",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT6",
+                    "expectedValue": "Plan to land at the nearest suitable airport",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Landing using flops 20",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROI FLAP OVRD switch",
+                      "NOTE3"
+                    ]
+                  },
+                  {
+                    "name": "GND PROI FLAP OVRD switch",
+                    "expectedValue": "DVRD",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "NOTE3",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Landing using flops 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE5"
+                    ]
+                  },
+                  {
+                    "name": "NOTE5",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE4",
+                    "expectedValue": "Check tne Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\nAUTOTHROTTLE L",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name":"Eng rev limited L",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "The left engine reverser operation is limited."
+                  },
+                  {
+                    "name":"NOTE",
+                    "expectedValue": "On landing, the left thrust reverser will not deploy or left reverse thrust will be limited to idle."
+                  }
+                ]
+              },
+              {
+                "name":"Eng rev limited R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "The right engine reverser operation is limited."
+                  },
+                  {
+                    "name":"NOTE",
+                    "expectedValue": "On landing, the left thrust reverser will not deploy or left reverse thrust will be limited to idle."
+                  }
+                ]
+              },
+              {
+                "name":"Eng reverser L",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "A fault occurs in the left thrust reverser system."
+                  }
+                ]
+              },
+              {
+                "name":"Eng reverser R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "A fault occurs in the right thrust reverser system."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "RPM, start, starter",
+            "subChecklists": [
+              {
+                "name": "Aborted engine start L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: On the ground, an aborted left engine start is needed.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue": "START",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Motor the engine for 30 seconds.",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue": "NORM",
+                    "isAutomatic": true
+                  }
+                ],
+                "subChecklists": []
+              },
+              {
+                "name": "Aborted engine start R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: On the ground, an aborted right engine start is needed.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "R FUEL CONTROL switch",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "R START selector",
+                    "expectedValue": "START",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Motor the engine for 30 seconds",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "R START selector",
+                    "expectedValue": "NORM",
+                    "isAutomatic": true
+                  }
+                ],
+                "subChecklists": []
+              },
+              {
+                "name": "Eng autostart off",
+                "checks":[{
+                  "name": "PLAINTEXT",
+                  "expectedValue": "Condition: The engine autostart switch if OFF."
+                }]
+              },
+              {
+                "name": "Eng in-flight start L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: A left engine is needed and all of the following are true: \n- There is N1 rotation \n- There was no engine fire \n- There is no abnormal airframe vibration",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Engine can accelerate to idle very slowly, especially at high altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "If N2 is steadily increasing and EGT stays within limits, do not interrupt the start",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Crossbleed indication (X-BLD or XB) shows:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L START selector"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue": "START",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Autostart is on:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT2",
+                      "PLAINTEXT3",
+                      "L FUEL CONTROL switch",
+                      "PLAINTEXT4"
+                    ],
+                    "conditionalChecksNo": [
+                      "Abort the start if: .....",
+                      "Crossbleed indication (X-BLD or XB) shows:"
+                    ]
+                  },
+                  {
+                    "name": "PLAINTEXT2",
+                    "expectedValue": "Monitor EGT during start to prevent an EGT exceedance. Autostart allows EGT to exceed the in-flight start limit.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT3",
+                    "expectedValue": "Do not interrupt autostart. Only abort the start if: \n- There is no oil pressure indication after the EGT increase \n- EGT quickly nears or exceeds the start limit \n- No further autostart attempts are needed.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch",
+                    "expectedValue": "RUN",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT4",
+                    "expectedValue": "Abort the start if: \n- EGT does not rise within 30 seconds after selecting RUN \n- N2 is not increasing \n- EGT quickly nears or exceeds the start limit",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "Crossbleed indication (X-BLD or XB) shows:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L FUEL CONTROL switch",
+                      "PLAINTEXT5"
+                    ],
+                    "conditionalCheckNo": []
+                  },
+                  {
+                    "name": "PLAINTEXT5",
+                    "expectedValue": "When at maximum monitoring:"
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch",
+                    "expectedValue": "RUN",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Crossbleed indication (X-BLD or XB) is blank:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L FUEL CONTROL switch"
+                    ],
+                    "conditionalCheckNo": []
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch",
+                    "expectedValue": "RUN",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "Engine starts and runs normally:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROX FLAP OVRD switch",
+                      "Transponder mode selector"
+                    ],
+                    "conditionalCheckNo": []
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue": "Off",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA/RA",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Engine fails to start:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L FUEL CONTROL switch",
+                      "L START selector",
+                      "PLAINTEXT6"
+                    ],
+                    "conditionalCheckNo": []
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch",
+                    "expectedValue": "Confirm......CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue": "NORM",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT6",
+                    "expectedValue": "Plan to land at the nearest suitable airport",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Check the Non-Normal Configuration Landing Distance tables for END SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source.",
+                    "isAutomatic": true
+                  }
+                ],
+                "subChecklists": []
+              },
+              {
+                "name": "Eng in-flight start R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: A left engine is needed and all of the following are true:\n- There is N1 rotation\n- There was no engine fire\n- There is no abnormal airframe vibration",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Engine can accelerate to idle very slowly, especially at high altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "If N2 is steadily increasing and EGT stays within limits, do not interrupt the start",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Crossbleed indication (X-BLD or XB) shows:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L START selector"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue": "START",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Autostart is on:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "Monitor EGT during start to prevent an EGT exceedance. Autostart allows EGT to exceed the in-flight start limit.",
+                      "Do not interrupt autostart. Only abort the start if: .....",
+                      "L FUEL CONTROL switch"
+                    ],
+                    "conditionalChecksNo": [
+                      "Abort the start if: .....",
+                      "Crossbleed indication (X-BLD or XB) shows:"
+                    ]
+                  },
+                  {
+                    "name": "Monitor EGT during start to prevent an EGT exceedance. Autostart allows EGT to exceed the in-flight start limit.",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue": "",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Do not interrupt autostart. Only abort the start if: .....",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch",
+                    "expectedValue": "RUN",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Abort the start if:\n- EGT does not rise within 30 seconds after selecting RUN\n- N2 is not increasing\n- EGT quickly nears or exceeds the start limit",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "Crossbleed indication (X-BLD or XB) shows:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L FUEL CONTROL switch",
+                      "PLAINTEXT2"
+                    ],
+                    "conditionalCheckNo": []
+                  },
+                  {
+                    "name": "PLAINTEXT2",
+                    "expectedValue": "When at maximum monitoring:"
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch",
+                    "expectedValue": "RUN",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Crossbleed indication (X-BLD or XB) is blank:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L FUEL CONTROL switch"
+                    ],
+                    "conditionalCheckNo": []
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch",
+                    "expectedValue": "RUN",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "Engine starts and runs normally:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROX FLAP OVRD switch",
+                      "Transponder mode selector"
+                    ],
+                    "conditionalCheckNo": []
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue": "Off",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue": "TA/RA",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Engine fails to start:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L FUEL CONTROL switch",
+                      "L START selector"
+                    ],
+                    "conditionalCheckNo": []
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch",
+                    "expectedValue": "Confirm......CUTOFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue": "NORM",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "Plan to land at the nearest suitable airport",
+                    "expectedValue": "",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Check the Non-Normal Configuration Landing Distance tables for END SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source.",
+                    "isAutomatic": true
+                  }
+                ],
+                "subChecklists": []
+              },
+              {
+                "name":"Eng rpm limitied L",
+                "checks":[
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Condition: Left engine thrust is at the N1 or N2 red line limit."
+                  }
+                ]
+              },
+              {
+                "name":"Eng rpm limitied R",
+                "checks":[
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Condition: Right engine thrust is at the N1 or N2 red line limit."
+                  }
+                ]
+              },
+              {
+                "name":"Eng start valve L",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The left engine start valve is not in the commanded position.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Ground or in-flight start using a bleed air souce may be unsuccessful."
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "On the ground:"
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch",
+                    "expectedValue": "CUTOFF"
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue": "NORM"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "In flight:"
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue": "NORM"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Increase airspeed until the crossbleed indication (X-BLD or XB) blanks."
+                  }
+                ]
+              },
+              {
+                "name":"Eng start valve R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The right engine start valve is not in the commanded position.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Ground or in-flight start using a bleed air souce may be unsuccessful."
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "On the ground:"
+                  },
+                  {
+                    "name": "R FUEL CONTROL switch",
+                    "expectedValue": "CUTOFF"
+                  },
+                  {
+                    "name": "R START selector",
+                    "expectedValue": "NORM"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "In flight:"
+                  },
+                  {
+                    "name": "R START selector",
+                    "expectedValue": "NORM"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Increase airspeed until the crossbleed indication (X-BLD or XB) blanks."
+                  }
+                ]
+              },
+              {
+                "name": "Eng starter cutout L",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One of these occurs in the left engine:\n- The start valve fails to close\n- The start selector stays in start",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Objective: To ensure start selector is in normal or to remove bleed air source from the starter and prevent possible asymmetrical ice buildup on the wings.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue": "NORM",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "ENG STARTER CUTOUT L message stays shown:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "L ENG BLEED AIR switch",
+                      "L BLEED AIR ISLN switch",
+                      "PLAINTEXT1",
+                      "PLAINTEXT2",
+                      "WING ANTI-ICE selector"
+                    ],
+                    "conditionalCheckNo": []
+                  },
+                  {
+                    "name": "L ENG BLEED AIR switch",
+                    "expectedValue": "Off",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue": "On the ground:",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT2",
+                    "expectedValue": "Disconnect the ground air source if it is in use.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "WING ANTI-ICE selector",
+                    "expectedValue": "OFF",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\nBLEED LOSS WING L\nPACK L",
+                    "isAutomatic": true
+                  }
+                ]
+              }
+              
+            ]
+          },
+          {
+            "name": "APU limit",
+            "checks":[{
+              "name": "APU selector",
+              "expectedValue": "OFF"
+            }]
+          },
+          {
+            "name": "APU shutdown",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: An APU automatic shutdown occurs.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To reset the APU controller.",
+                "isAutomatic": true
+              },
+              {
+                "name": "APU selector",
+                "expectedValue": "OFF",
+                "isAutomatic": false
+              },
+              {
+                "name": "APU selector",
+                "expectedValue": "START, then ON",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name": "ENG control L",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: A left EEC system fault occurs."
+              }
+            ]
+          },
+          {
+            "name": "ENG control R",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: A right EEC system fault occurs."
+              }
+            ]
+          },
+          {
+            "name": "ENG EEC mode L",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: A left EEC system fault occurs.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To run both engines in the alternative mode.",
+                "isAutomatic":true
+              },
+              {
+                "name": "Autothrottle disconnect switch",
+                "expectedValue": "Push",
+                "isAutomatic":false
+              },
+              {
+                "name": "Thrust levers (both)",
+                "expectedValue": "Retard to mid position",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "This step prevents exceeding the thrust limits when switching to the alternate mode.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Push one switch at a time.",
+                "isAutomatic":true
+              },
+              {
+                "name": "ENGINE EEC MODE switches (both)",
+                "expectedValue": "Off",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Activate the autothrottle.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Maximum thrust limiting is not available with autothrottle disconnected. Alternate thrust setting information shows on the N1 indication.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Resume normal thrust management. Observe thrust limits.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nENG EEC MODE R",
+                "isAutomatic":true
+              }
+
+            ]
+          },
+          {
+            "name": "ENG EEC mode R",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: A right EEC system fault occurs.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To run both engines in the alternative mode.",
+                "isAutomatic":true
+              },
+              {
+                "name": "Autothrottle disconnect switch",
+                "expectedValue": "Push",
+                "isAutomatic":false
+              },
+              {
+                "name": "Thrust levers (both)",
+                "expectedValue": "Retard to mid position",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "This step prevents exceeding the thrust limits when switching to the alternate mode.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Push one switch at a time.",
+                "isAutomatic":true
+              },
+              {
+                "name": "ENGINE EEC MODE switches (both)",
+                "expectedValue": "Off",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Activate the autothrottle.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Maximum thrust limiting is not available with autothrottle disconnected. Alternate thrust setting information shows on the N1 indication.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Resume normal thrust management. Observe thrust limits.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nENG EEC MODE L",
+                "isAutomatic":true
+              }
+
+            ]
+          },
+          {
+            "name": "ENG FUEL FILTER L",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: Fuel contamination can cause fuel to bypass the left engine fuel filter.",
+                "isAutomatic": true
+              },
+              {
+                "name": "ENG FUEL FILTER messages for both engines show or have shown at any time during the flight (either separately or at the same time):",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1",
+                  "NOTE1"
+                ],
+                "conditionalCheckNo": []
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Plan to land at the nearest suitable airport",
+                "isAutomatic": false
+              },
+              {
+                "name": "NOTE1",
+                "expectedValue": "Erratic engine operation and flameout may occur on either or both engines due to fuel contamination.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "Only the ENG FUEL FILTER L message has shown during the flight:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "NOTE2"
+                ],
+                "conditionalCheckNo": []
+              },
+              {
+                "name": "NOTE2",
+                "expectedValue": "Erratic left engine operation and flameout may occur on either or both engines due to fuel contamination.",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name": "ENG FUEL FILTER R",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: Fuel contamination can cause fuel to bypass the left engine fuel filter.",
+                "isAutomatic": true
+              },
+              {
+                "name": "ENG FUEL FILTER messages for both engines show or have shown at any time during the flight (either separately or at the same time):",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1",
+                  "NOTE1"
+                ],
+                "conditionalCheckNo": []
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Plan to land at the nearest suitable airport",
+                "isAutomatic": false
+              },
+              {
+                "name": "NOTE1",
+                "expectedValue": "Erratic engine operation and flameout may occur on either or both engines due to fuel contamination.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "Only the ENG FUEL FILTER R message has shown during the flight:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "NOTE2"
+                ],
+                "conditionalCheckNo": []
+              },
+              {
+                "name": "NOTE2",
+                "expectedValue": "Erratic right engine operation and flameout may occur on either or both engines due to fuel contamination.",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name": "ENG FUEL VALVE L",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: One or more of these occur in the left engine:\n- The engine fuel valve is not in the command position\n- The fuel spar valve is not in the commanded position",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "If the ENG FUEL VALVE L message shows when the fuel control switch is moved to CUTOFF, the engine may continue to run for approximately 10 seconds.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "On the ground:",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Do not attempt engine start.",
+                "isAutomatic": false
+              }
+            ]
+          },
+          {
+            "name": "ENG FUEL VALVE R",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: One or more of these occur in the left engine:\n- The engine fuel valve is not in the command position\n- The fuel spar valve is not in the commanded position",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "If the ENG FUEL VALVE R message shows when the fuel control switch is moved to CUTOFF, the engine may continue to run for approximately 10 seconds.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "On the ground:",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Do not attempt engine start.",
+                "isAutomatic": false
+              }
+            ]
+          },
+          {
+            "name": "ENG IDLE DISAGREE",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: One engine is at approach idle and the other engine is at minimum idle.",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name": "Volcanic Ash",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: Volcanic as is suspected when one or more of these occur: \n- A static discharge around the windshield \n- A bright glow in the engine inlets \n- Smoke dust on the flight dock \n- An acrid odor \n \nObjective: To exit the ash cloud and restart engines if needed.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Exit the volcanic ash as quickly as possible. Consider a 180 degree turn. Consider a descending turn.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Don the oxygen masks and smoke goggles, if needed.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Establish crew communications, if needed.",
+                "isAutomatic": false
+              },
+              {
+                "name": "Autothrottle disconnect switch",
+                "expectedValue": "Push",
+                "isAutomatic": false
+              },
+              {
+                "name": "If conditions allow, run the engines at idle. Thrust levers (both)",
+                "expectedValue": "Idle",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "This step reduces possible engine damage or flameout, or both, by decreasing EGT.",
+                "isAutomatic": true
+              },
+              {
+                "name": "ENGINE ANTI-ICE selectors (both)",
+                "expectedValue": "ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "WING ANTI-ICE selector",
+                "expectedValue": "ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "RECIRC FANS switches (both)",
+                "expectedValue": "Off",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "APU selector (if APU available)",
+                "expectedValue": "START, then ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Volcanic ash can cause non-normal system reactions such as: \n- Engine malfunctions, increasing EGT, engine stall or flameout \n- Decrease or loss of airspeed indications \n- EQUIP COOLING OVRD message \n- FIRE CARGO FWD or AFT message",
+                "isAutomatic": true
+              },
+              {
+                "name": "Engines run normally",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Plan to land at the nearest suitable airport.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Engines are flamed out or stalled, or EGT is rapidly approaching or exceeding the limit:",
+                "expectedValue": "",
+                "isAutomatic": true,
+                "conditionalChecksYes": [
+                  "FUEL CONTROL switches (both)",
+                  "RAM AIR TURBINE switch",
+                  "PLAINTEXT1",
+                  "PLAINTEXT2",
+                  "PLAINTEXT3",
+                  "Fuel CENTER PUMPS switches (both)",
+                  " Fuel CENTER PUMPS switches (both)",
+                  "PLAINTEXT4",
+                  "PRIMARY FLIGHT COMPUTERS disconnect switch",
+                  "PLAINTEXT5",
+                  "PLAINTEXT6"
+                ]
+              },
+              {
+                "name": "FUEL CONTROL switches (both)",
+                "expectedValue": "CUTOFF, then RUN",
+                "isAutomatic": true
+              },
+              {
+                "name": "RAM AIR TURBINE switch",
+                "expectedValue": "Push and hold for 1 second",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "For a dual engine in-flight start, do not manually abort the start if the EGT indication turns red. Autostart allows EGT to exceed the in-flight start limit, however autostart aborts the start before EGT becomes too high for continued engine operation.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue": "Set airspeed above 270 knots.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT3",
+                "expectedValue": "Engines can accelerate to idle very slowly, especially at high altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes. \n \nIf N2 is steadily increasing and EGT stays within limits, do not interrupt the start.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Fuel CENTER PUMPS switches (both)",
+                "expectedValue": "off",
+                "isAutomatic": false
+              },
+              {
+                "name": " Fuel CENTER PUMPS switches (both)",
+                "expectedValue": "ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT4",
+                "expectedValue": "When the HEAT PITOT L+C+R message blanks:",
+                "isAutomatic": false
+              },
+              {
+                "name": "PRIMARY FLIGHT COMPUTERS disconnect switch",
+                "expectedValue": "DISC, then AUTO \n \nThis step restores the flight control normal mode.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT5",
+                "expectedValue": "Re-engage the autopilot as needed when the flight control normal mode is restored.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT6",
+                "expectedValue": "Plan to land at the nearest suitable airport.",
+                "isAutomatic": false
+              }
+            ],
+            "subChecklists": []
           }
         ]
       },
       {
         "name": "Fire protection",
-        "checks": [
+        "subChecklists": [
           {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
+            "name": "BOTTLE DISCH, DET FIRE ...",
+            "subChecklists":[
+              {
+                "name":"BOTTLE 1 DISCH ENG",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The engine fire extinguisher bottle 1 pressure is low.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name":"BOTTLE 2 DISCH ENG",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The engine fire extinguisher bottle 2 pressure is low.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name":"BOTTLE DISCH APU",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: The APU fire extinguisher bottle pressure is low.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name":"BOTTLE DISCH CARGO",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: Both rapid discharge cargo fire extinguisher bottle pressures are low.",
+                    "isAutomatic": true
+                  }
+                ]
+              },
+              {
+                "name":"DET FIRE APU",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: APU fire detection is failed.",
+                    "isAutomatic": true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "APU is running:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Plan to shut down the APU as soon as practical."
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "APU is NOT running:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue": "Do not start the APU unless use is needed."
+                  }
+                ]
+              },
+              {
+                "name":"DET FIRE CARGO AFT",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: Aft lower cargo compartment smoke detection is failed.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name":"DET FIRE CARGO FWD",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: Forward lower cargo compartment smoke detection is failed.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name":"DER FIRE ENG L",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: Left engine fire and overheat detection is failed.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name":"DET FIRE ENG R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: Right engine fire and overheat detection is failed.",
+                    "isAutomatic":true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "FIRE APU",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: Fire is detected in the APU.",
+                "isAutomatic":true
+              },
+              {
+                "name": "APU fire switch.....Confirm",
+                "expectedValue": "Pull, rotate to the stop and hold for 1 second",
+                "isAutomatic":true
+              },
+              {
+                "name": "FIRE APU message stays shown:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1"
+                ],
+                "conditionalChecksNo": []
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Plan to land at the nearest suitable airport",
+                "isAutomatic":true
+                
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nAPU SHUTDOWN",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "FIRE CARGO AFT",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: Smoke is detected in the aft lower cargo compartment.",
+                "isAutomatic":true
+              },
+              {
+                "name": "AFT CARGO FIRE ARM switch.......Conifrm",
+                "expectedValue":"ARMED",
+                "isAutomatic":true
+              },
+              {
+                "name": "CARGO FIRE DITCH switch",
+                "expectedValue":"Push and hold for 1 second",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"On the ground:",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Warning! Inform ground personnel NOT to open any cargo door until all passengers and crew have exited the airplane and fire fighting equipment is nearby",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue":"",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"In flight:",
+                "isAutomatic":true
+              },
+              {
+                "name": "LDG ALT selector",
+                "expectedValue":"PULL ON, Set 8000",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Plan to land at the nearest suitable airport",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklist\nLANDING ALTITUDE",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"When leaving cruise altitude for landing:",
+                "isAutomatic":false
+              },
+              {
+                "name": "LDG ALT selector",
+                "expectedValue":"Push off",
+                "isAutomatic":false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue":"",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"-------------DEFFERED ITEMS-------------",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"==> APPROACH CHECKLIST",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Warning! Inform ground personnel NOT to open any cargo door until all passengers and crew have exited the airplane and fire fighting equipment is nearby",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "FIRE CARGO FWD",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: Smoke is detected in the aft lower cargo compartment.",
+                "isAutomatic":true
+              },
+              {
+                "name": "AFT CARGO FIRE ARM switch.......Conifrm",
+                "expectedValue":"ARMED",
+                "isAutomatic":true
+              },
+              {
+                "name": "CARGO FIRE DITCH switch",
+                "expectedValue":"Push and hold for 1 second",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"On the ground:",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Warning! Inform ground personnel NOT to open any cargo door until all passengers and crew have exited the airplane and fire fighting equipment is nearby",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue":"",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"In flight:",
+                "isAutomatic":true
+              },
+              {
+                "name": "LDG ALT selector",
+                "expectedValue":"PULL ON, Set 8000",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Plan to land at the nearest suitable airport",
+                "isAutomatic":false
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Equipment cooling normal mode is inoperative. After 30 minutes of operation at low altitude and low cabin differential pressure electronic equipment and displays may fail.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklists:\nEQUIP COOLING OVRD\nLANDING ALTITUDE",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"When leaving cruise altitude for landing:",
+                "isAutomatic":false
+              },
+              {
+                "name": "LDG ALT selector",
+                "expectedValue":"Push off",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"-------------DEFFERED ITEMS-------------",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"==> APPROACH CHECKLIST",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Warning! Inform ground personnel NOT to open any cargo door until all passengers and crew have exited the airplane and fire fighting equipment is nearby",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "FIRE ENG L",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Fire is detected in the left engine.",
+                "isAutomatic":true
+              },
+              {
+                "name": "L A/T ARM switch...........Confirm",
+                "expectedValue": "OFF",
+                "isAutomatic": true
+              },
+              {
+                "name": "Left thrust lever............Confirm",
+                "expectedValue": "Idle",
+                "isAutomatic": true
+              },
+              {
+                "name": "L FUEL CONTROL switch...........Confirm",
+                "expectedValue": "CUTOFF",
+                "isAutomatic": true
+              },
+              {
+                "name": "Left engine fire switch............Confirm",
+                "expectedValue":"Pull",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"FIRE ENG L message stays shown:",
+                "isAutomatic":true
+              },
+              {
+                "name": "Left engine fire switch",
+                "expectedValue":"Rotate to the stop and hold for 1 second",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"After 30 seconds, FIRE ENG L message stays shown:",
+                "isAutomatic":true
+              },
+              {
+                "name": "Left engine fire switch",
+                "expectedValue":"Rotate to the stop and hold for 1 second",
+                "isAutomatic":true
+              },
+              {
+                "name": "APU selector (if APU available)",
+                "expectedValue":"START, then ON",
+                "isAutomatic":true
+              },
+              {
+                "name": "Transponder mode selector",
+                "expectedValue":"TA ONLY",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Plan to land at the nearest suitable airport",
+                "isAutomatic":false
+              },
+              {
+                "name": "Landing using flaps 20",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "GND PROX FLAP OVRD switch",
+                  "NOTE2"
+                ]
+              },
+              {
+                "name": "GND PROX FLAP OVRD switch",
+                "expectedValue": "OVRD",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE2",
+                "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around",
+                "isAutomatic": true
+              },
+              {
+                "name": "Landing using flaps 30 (if performance allows)",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "NOTE3"
+                ]
+              },
+              {
+                "name": "NOTE3",
+                "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": false
+              },
+              {
+                "name": "NOTE1",
+                "expectedValue": "Check the Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                "isAutomatic": true
+              },
+              {
+                "name": "Inhibited checklist",
+                "expectedValue": "AUTOTHROTTLE L",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name": "FIRE ENG R",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Fire is detected in the right engine.",
+                "isAutomatic":true
+              },
+              {
+                "name": "R A/T ARM switch...........Confirm",
+                "expectedValue": "OFF",
+                "isAutomatic": true
+              },
+              {
+                "name": "Right thrust lever............Confirm",
+                "expectedValue": "Idle",
+                "isAutomatic": true
+              },
+              {
+                "name": "R FUEL CONTROL switch...........Confirm",
+                "expectedValue": "CUTOFF",
+                "isAutomatic": true
+              },
+              {
+                "name": "Right engine fire switch............Confirm",
+                "expectedValue":"Pull",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"FIRE ENG R message stays shown:",
+                "isAutomatic":true
+              },
+              {
+                "name": "Right engine fire switch",
+                "expectedValue":"Rotate to the stop and hold for 1 second",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"After 30 seconds, FIRE ENG R message stays shown:",
+                "isAutomatic":true
+              },
+              {
+                "name": "Right engine fire switch",
+                "expectedValue":"Rotate to the stop and hold for 1 second",
+                "isAutomatic":true
+              },
+              {
+                "name": "APU selector (if APU available)",
+                "expectedValue":"START, then ON",
+                "isAutomatic":true
+              },
+              {
+                "name": "Transponder mode selector",
+                "expectedValue":"TA ONLY",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Plan to land at the nearest suitable airport",
+                "isAutomatic":false
+              },
+              {
+                "name": "Landing using flaps 20",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "GND PROX FLAP OVRD switch",
+                  "NOTE2"
+                ]
+              },
+              {
+                "name": "GND PROX FLAP OVRD switch",
+                "expectedValue": "OVRD",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE2",
+                "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around",
+                "isAutomatic": true
+              },
+              {
+                "name": "Landing using flaps 30 (if performance allows)",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "NOTE3"
+                ]
+              },
+              {
+                "name": "NOTE3",
+                "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": false
+              },
+              {
+                "name": "NOTE1",
+                "expectedValue": "Check the Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                "isAutomatic": true
+              },
+              {
+                "name": "Inhibited checklist",
+                "expectedValue": "AUTOTHROTTLE R",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name": "Fire Eng Tailpipe L",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: A left engine tailpipe fire occurs on the ground with no engine fire warning",
+                "isAutomatic": true
+              },
+              {
+                "name": "L FUEL CONTROL switch........Confirm",
+                "expectedValue": "CUTOFF",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Advise the cabin",
+                "isAutomatic": false
+              },
+              {
+                "name": "Bleed air is available",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "L START selector",
+                  "PLAINTEXT1",
+                  "PLAINTEXT2",
+                  " L START selector"
+                ]
+              },
+              {
+                "name": "L START selector",
+                "expectedValue": "START",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Advise the tower",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue": "When the tailpipe is extinguished.",
+                "isAutomatic": false
+              },
+              {
+                "name": " L START selector",
+                "expectedValue": "NORM",
+                "isAutomatic": true
+              },
+              {
+                "name": "Bleed air is not available",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Advise the tower",
+                "isAutomatic": false
+              }
+            ],
+            "subChecklists": []
+          },
+          {
+            "name": "Fire Eng Tailpipe R",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: A right engine tailpipe fire occurs on the ground with no engine fire warning",
+                "isAutomatic": true
+              },
+              {
+                "name": "R FUEL CONTROL switch........Confirm",
+                "expectedValue": "CUTOFF",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Advise the cabin",
+                "isAutomatic": false
+              },
+              {
+                "name": "Bleed air is available",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "R START selector",
+                  "PLAINTEXT1",
+                  "PLAINTEXT2",
+                  " R START selector"
+                ]
+              },
+              {
+                "name": "R START selector",
+                "expectedValue": "START",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Advise the tower",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue": "When the tailpipe is extinguished.",
+                "isAutomatic": false
+              },
+              {
+                "name": " R START selector",
+                "expectedValue": "NORM",
+                "isAutomatic": true
+              },
+              {
+                "name": "Bleed air is not available",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Advise the tower",
+                "isAutomatic": false
+              }
+            ],
+            "subChecklists": []
+          },
+          {
+            "name": "FIRE WHEEL WELL",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Fire is detected in a main wheel well.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Do not exceed the gear EXTEND limit spees (270K/.82M)",
+                "isAutomatic":false
+              },
+              {
+                "name": "Landing gear level",
+                "expectedValue":"ON",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"This attempts to remove and extinguish the fire source.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Plan to land at the nearest suitable airport",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Flight with gear down increases fuel consumption and decreases climb performance. Refer to the Gear Down performance tables in the Performance Inflight chapter for flight planning.",
+                "isAutomatic":true
+              },
+              {
+                "name": "Gear must be retracted for airplane performance:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                   "PLAINTEXT1",
+                   "PLAINTEXT2",
+                   "Landing gear lever"
+                ]
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue":"When the FIRE WHEEL WELL message blanks:",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT2",,
+                "expectedValue":"Wait 20 minutes. This ensures the fire is extinguished.",
+                "isAutomatic":false
+              },
+              {
+                "name": "Landing gear lever",
+                "expectedValue":"UP",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "OVERHEAT ...",
+            "subChecklists":[]
+          },
+          {
+            "name": "Smoke, Fire or Fumes",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: Smoke, fire or fumes occurs",
+                "isAutomatic": true
+              },
+              {
+                "name": "Objective",
+                "expectedValue": "To remove power from the ignition source. To land the airplane as soon as possible, if needed.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Diversion may be needed",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Don oxygen masks and smoke goggles, if needed.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Establish crew and cabin communications.",
+                "isAutomatic": false
+              },
+              {
+                "name": "IFE/PASS SEATS switch",
+                "expectedValue": "Off",
+                "isAutomatic": false
+              },
+              {
+                "name": "RECIRC FANS switches (both)",
+                "expectedValue": "Off",
+                "isAutomatic": true
+              },
+              {
+                "name": "GASPER switch",
+                "expectedValue": "Off",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "APU BLEED AIR switch",
+                "expectedValue": "Off",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Any time the smoke or fumes becomes the greatest threat, do the SMOKE OR FUMES REMOVAL checklist.",
+                "isAutomatic": false
+              },
+              {
+                "name": "Source of the smoke, fire or fumes can be traced to the LDS-Mounted Portable EFB (as installed) and can ne extinguished quickly.",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "EFB Main Menu",
+                  "LDS-EFB Control Panel",
+                  "ACDC CONV circuit breaker D20 (as installed)"
+                ]
+              },
+              {
+                "name": "EFB Main Menu",
+                "expectedValue": "Shutdown",
+                "isAutomatic": false
+              },
+              {
+                "name": "LDS-EFB Control Panel",
+                "expectedValue": "OFF",
+                "isAutomatic": false
+              },
+              {
+                "name": "ACDC CONV circuit breaker D20 (as installed)",
+                "expectedValue": "Pull",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Source of the smoke, fire or fumes is obvious (not LDS-Mounted Portable EFB) and can be extinguished quickly",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1",
+                  "Source is visually confirmed to be extinguished and smoke or fumes are decreasing"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Isolate and extinguish the source of the smoke, fire or fumes\n If practical, remove power from the affected equipment by switch or circuit breaker in the flight deck or cabin.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Source is visually confirmed to be extinguished and smoke or fumes are decreasing",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1",
+                  "PLAINTEXT2",
+                  "PLAINTEXT3"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Continue the flight at the captain's discretion",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue": "Restore unpowered items at the captain's discretion",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT3",
+                "expectedValue": "Do the SMOKE OR FUMES REMOVAL checklist, if needed",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Smoke or fumes continue or are increasing",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1",
+                  "CABIN/UTILITY switch",
+                  "PLAINTEXT2",
+                  "PLAINTEXT3",
+                  "PLAINTEXT4",
+                  "C BLEED AIR ISLN switch",
+                  "L PACK switch",
+                  "L TRIM AIR switch",
+                  "Inhibited checklists",
+                  "PLAINTEXT5",
+                  "Smoke or fumes continue or are increasing",
+                  "PLAINTEXT6"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Advise the cabin that the main cabin lighting will be turned off.",
+                "isAutomatic": false
+              },
+              {
+                "name": "CABIN/UTILITY switch",
+                "expectedValue": "OFF",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue": "Initiate a diversion to the nearest suitable airport while continuing the checklist",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT3",
+                "expectedValue": "Consider an immediate landing if the smoke, fire or fumes situation becomes uncontrollable.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT4",
+                "expectedValue": "Do not delay landing in an attempt to complete the following steps.",
+                "isAutomatic": false
+              },
+              {
+                "name": "C BLEED AIR ISLN switch",
+                "expectedValue": "Off",
+                "isAutomatic": false
+              },
+              {
+                "name": "L PACK sitch",
+                "expectedValue": "Off",
+                "isAutomatic": false
+              },
+              {
+                "name": "L TRIM AIR switch",
+                "expectedValue": "Off",
+                "isAutomatic": false
+              },
+              {
+                "name": "Inhibited checklists",
+                "expectedValue": "PACK L, TRIM AIR L",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT5",
+                "expectedValue": "Wait 2 minutes unless the smoke or fumes are increasing",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Smoke or fumes continue or are increasing",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "L PACK switch",
+                  "L TRIM AIR switch",
+                  "R PACK switch",
+                  "R TRIM AIR switch",
+                  "Inhibited checklists",
+                  "PLAINTEXT7",
+                  "Smoke or fumes continue or are increasing"
+                ]
+              },
+              {
+                "name": "L PACK switch",
+                "expectedValue": "AUTO",
+                "isAutomatic": true
+              },
+              {
+                "name": "L TRIM AIR switch",
+                "expectedValue": "ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "R PACK switch",
+                "expectedValue": "Off",
+                "isAutomatic": false
+              },
+              {
+                "name": "R TRIM AIR switch",
+                "expectedValue": "Off",
+                "isAutomatic": false
+              },
+              {
+                "name": "Inhibited checklists",
+                "expectedValue": "PACK R, TRIM AIR R",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT7",
+                "expectedValue": "Wait 2 minutes unless the smoke or fumes are increasing",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Smoke or fumes continue are increasing",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "C BLEED AIR ISLN switch",
+                  "R PACK switch",
+                  "R TRIM AIR switch",
+                  "PLAINTEXT8"
+                ]
+              },
+              {
+                "name": "C BLEED AIR ISLN switch",
+                "expectedValue": "AUTO",
+                "isAutomatic": true
+              },
+              {
+                "name": "R PACK switch",
+                "expectedValue": "AUTO",
+                "isAutomatic": true
+              },
+              {
+                "name": "R TRIM AIR switch",
+                "expectedValue": "ON",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT8",
+                "expectedValue": "Consider an immediate landing.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT6",
+                "expectedValue": "Do the SMOKE OR FUMES REMOVAL checklist if needed",
+                "isAutomatic": true
+              }
+            ],
+            "subChecklists": []
+          },
+          {
+            "name": "Smoke or fumes removal",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: Smoke or fumes removal is needed.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Do this checklist only when directed by the SMOKE, FIRE OR FUMES checklist.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Do not delay landing in an attempt to complete the following steps",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Close the flight deck door.",
+                "isAutomatic": false
+              },
+              {
+                "name": "EQUIP COOLING switch",
+                "expectedValue": "Off",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "After 30 minutes of operation at low altitute and low cabin differential pressure, electronic equipment and displays may fail.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Inhibited checklist",
+                "expectedValue": "EQUIP COOLING OVRD",
+                "isAutomatic": true
+              },
+              {
+                "name": "Most smoke or fumes are in the cabin forward of mid-wing",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "AFT OUTFLOW VALVE switch",
+                  "AFT OUTFLOW VALVE MANUAL switch",
+                  "Inhibited checklist"
+                ]
+              },
+              {
+                "name": "AFT OUTFLOW VALVE switch",
+                "expectedValue": "MAN",
+                "isAutomatic": true
+              },
+              {
+                "name": "AFT OUTFLOW VALVE MANUAL switch",
+                "expectedValue": "Hold in CLOSE until the AFT outflow valve indication shows fully closed",
+                "isAutomatic": false
+              },
+              {
+                "name": "Inhibition checklist",
+                "expectedValue": "OUTFLOW VALVE AFT",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Most smoke or fumes are in the cabin aft of mid-wing",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "FWD OUTFLOW VALVE switch",
+                  "FWD OUTFLOW VALVE MANUAL switch",
+                  "Inhibited checklist"
+                ]
+              },
+              {
+                "name": "FWD OUTFLOW VALVE switch",
+                "expectedValue": "MAN",
+                "isAutomatic": true
+              },
+              {
+                "name": "FWD OUTFLOW VALVE MANUAL switch",
+                "expectedValue": "Hold in CLOSE until the FWD outflow valve indication shows fully closed",
+                "isAutomatic": false
+              },
+              {
+                "name": "Inhibited checklist",
+                "expectedValue": "OUTFLOW VALVE FWD",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Return to the SMOKE, FIRE OR FUMES checklist and do the rest of the steps",
+                "isAutomatic": false
+              }
+            ],
+            "subChecklists": []
+          },
+          {
+            "name": "SMOKE LAVATORY",
+            "checks":[]
+          },
+          {
+            "name": "SMOKE REST UPR DR 4",
+            "checks":[]
+          },
+          {
+            "name": "SMOKE REST UPR DR 5",
+            "checks":[]
+          },
+          {
+            "name": "SMOKE LAV/COMPT",
+            "checks":[]
           }
         ]
       },
@@ -6857,3 +11015,4 @@
       }
     ]
   }
+]
