@@ -2624,6 +2624,22 @@
           },
           {
             "name": "Ditching",
+            "deferredChecks":[
+              "PLAINTEXT1",
+              "PLAINTEXT2",
+              "GND PROX GEAR OVRD switch",
+              "PACK switches (both)",
+              "OUTFLOW VALVE switches (both)",
+              "PLAINTEXT3",
+              "OUTFLOW VALVE MANUAL switches (both)",
+              "NO SMOKING AND SEAT BELTS SELECTORS",
+              "PLAINTEXT4",
+              "Landing gear level",
+              "Flaps",
+              "PLAINTEXT5",
+              "PLAINTEXT6",
+              "PLAINTEXT7"
+            ],
             "checks": [
               {
                 "name": "PLAINTEXT",
@@ -2641,12 +2657,12 @@
                 "isAutomatic": true
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT1",
                 "expectedValue": "==> APPROACH CHECKLIST",
                 "isAutomatic": true
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT2",
                 "expectedValue": "When below 5,000 feet:",
                 "isAutomatic": false
               },
@@ -2676,7 +2692,7 @@
                 "isAutomatic": true
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT3",
                 "expectedValue": "==> APPROACH CHECKLIST",
                 "isAutomatic": true
               },
@@ -2696,7 +2712,7 @@
                 "isAutomatic": true
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT4",
                 "expectedValue": "When on final approach (omit LANDING) checklist:",
                 "isAutomatic": false
               },
@@ -2721,17 +2737,17 @@
                 "isAutomatic": true
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT5",
                 "expectedValue": "Advise the cabin of imminent touchdown.",
                 "isAutomatic": true
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT6",
                 "expectedValue": "Maintain airspeed at VREF 30 to touchdown. Flare airplane to achieve the minimum rate of descent at touchdown.",
                 "isAutomatic": true
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT7",
                 "expectedValue": "After impact, place both fuel control switches to CUTOFF, and override and pull the APU fire switch.",
                 "isAutomatic": true
               }
@@ -11380,7 +11396,7 @@
                     "name": "NOTE",
                     "expectedValue":"Check the Non-Normal Configuration Landing Distance tables for END SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source.",
                     "isAutomatic":true
-                  },
+                  }
                 ]
               },
               {
@@ -11475,7 +11491,7 @@
                     "name": "PLAINTEXT",
                     "expectedValue":"Monitor airspeed during extension.",
                     "isAutomatic":true
-                  },
+                  }
                 ]
               },
               {
@@ -11661,67 +11677,1465 @@
           },
           {
             "name": "PITCH DOWN AUTHORITY",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Pitch down authority is restricted.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Slower airspeeds assist nose down pitch control. The airplane is approaching its nose down pitch control limit.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Avoid speedbrake use and rapid thrust increases in flight. Only limited elevator authority is availale to counter nose up pitch.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Do not arm the speedbrake lever.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Slowly extend the speedbrakes after landing.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue":"."
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Check the Non-Normal Configuration Landing Distance tables in the Performance Inflight-QRM chapter or other approved source.",
+                "isAutomatic":true
+              }
+            ]
           },
           {
             "name": "PITCH UP AUTHORITY",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Pitch up and flare authority is restricted.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Do not extend the flaps any further until on approach. The airplane is approaching its nose up pitch control limit.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Pitch down authority is restricted.",
+                "isAutomatic":true
+              },
+              {
+                "name": "GND PROX FLAP OVRD switch",
+                "expectedValue":"OVRD",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Do not use autoland.",
+                "isAutomatic":false
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Use flaps 5 and VREF 30 + 40 for landing. This gives better pitch up control authority.",
+                "isAutomatic":false
+              },
+              {
+                "name":"PageBreak"
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Flap position is 20 or greater:",
+                "isAutomatic":false
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Use flaps 20 and VREF 30 + 20 for landing. Higher approach speeds give better pitch up control authority.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Check the Non-Normal Configuration Landing Distance tables for END SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source.",
+                "isAutomatic":true
+              }
+            ]
           },
           {
             "name": "PRI FLIGHT COMPUTERS",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The flight control system is operating in the direct mode.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Do NOT accomplish this step if direct mode is desired",
+                "isAutomatic":false
+              },  
+              {
+                "name": "PRIMARY FLIGHT COMPUTERS disconnect switch",
+                "expectedValue":"DISC, then AUTO",
+                "isAutomatic":true
+              }, 
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"PRI FLIGHT COMPUTERS message stays shown:",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Avoid abrupt control inputs. The airplane response is changed by simplified elevator feel and rudder ratio systems.",
+                "isAutomatic":true
+              },
+              {
+                "name": "GND PROI FLAP OVRD switch",
+                "expectedValue":"OVRD",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Inoperative items:\n- Autopilot inop\n- Envelope protection functions inop\n- Yaw damping inop\n- Rudder manual trim cancel switch inop",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Manual control inputs are needed to compensate for asymmetrical thrust conditions.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Pitch trim moves slower than in normal mode.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Use flaps 20 and VREF 20 for landing and flaps 5 for landing. This ensures sufficient pitch trim capability for landing.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Do not arm the speedbrake lever. This prevents inadvertent in-flight speedbrake extesnion.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Manually extend the speedbrakes after landing.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Check the Non-Normal Configuration Landing Distance tables in the Performance Inflight-QRH chapter or other approved source.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklists:\nAUTO SPEEDBRAKE\nTHRUST ASYM COMP",
+                "isAutomatic":true
+              }
+            ]
           },
           {
             "name": "SPEEDBRAKE EXTENDED",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The speedbrakes are extended and one or more of these occur:\n- The radio altitude is between 15 and 800 feet\n- The flap lever is in a landing setting\n- A thrust lever is not at idle",
+                "isAutomatic":true
+              }
+            ]
           },
           {
             "name": "SPOILERS",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"One or more spoiler pairs are failed.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Roll rate may be reduced in flight. Speedbrake effectivness may be reducer in flight and during landing.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Check the Non-Normal Configuration Landing Distance tables in the Performance Inflight-QRH chapter or other approved source.",
+                "isAutomatic":true
+              }
+            ]
           },
           {
             "name": "STAB GREENBAND",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The nose gear pressure sensor disagrees with the computed stabilizer greenband and all doors are closed.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"To verift the stabilizer greenband and airplane leading are correct.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Verify that takeoff thrust, takeoff flaps, gross weight, and CG are entered correctly.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Reset stab trim, if needed.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"The STAB GREENBAND message stays shown:",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Verify airplane leading.",
+                "isAutomatic":false
+              }
+            ]
           },
           {
             "name": "STABILIZER",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: One of these occusrs:\n- Stabilizer movement without a signal to trim\n- The stabilizer is failed",
+                "isAutomatic":true
+              },
+              {
+                "name": "STAB cutout switches (both)",
+                "expectedValue":"CUTOUT",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Do not exceed the current airspeed.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"The stabilizer is inoperative. Pitch trim is available in the normal flight control mode.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Use flaps 20 and VREF 30 + 20 for landing. Higher approach speeds give better pitch up control authority.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Check the Non-Normal Configuration Landing Distance tables in the Performance Inflight-QRH chapter or other approved source.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklist:\nFLIGHT CONTROLS",
+                "isAutomatic":true
+            }
+            ]
           },
           {
             "name": "STABILIZER C",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The center stabilizer control path is failed.",
+                "isAutomatic":true
+              },
+              {
+                "name": "C STAB cutout switch",
+                "expectedValue":"CUTOUT",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"The captain's control wheel pitch trim switches may be inoperative.",
+                "isAutomatic":true
+              }
+            ]
           },
           {
             "name": "STABILIZER CUTOUT",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Both stabilizer cutout switches are in CUTOUT.",
+                "isAutomatic":true
+              }
+            ]
           },
           {
             "name": "STABILIZER R",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The right stabilizer control path is failed.",
+                "isAutomatic":true
+              },
+              {
+                "name": "R STAB cutout switch",
+                "expectedValue":"CUTOUT",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"The first officer's control wheel pitch trim switches may be inoperative.",
+                "isAutomatic":true
+              }
+            ]
           },
           {
             "name": "THRUST ASYM COMP",
-            "checks":[]
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condiiton: Thrust asymmetry compensation is failed or off.",
+                "isAutomatic":true
+              },
+              {
+                "name": "THRUST ASYM COMP switch",
+                "expectedValue":"Off, then AUTO",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"THRUST ASYM COMP message stays shown:",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Manual control inputs are needed to compensate for asymmetrical thrust conditions.",
+                "isAutomatic":true
+              }
+            ]
           }
         ]
       },
       {
         "name": "Flight instruments, displays",
-        "checks": [
+        "subChecklists": [
           {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
+            "name": "AIRSPEED UNRELIABLE",
+            "deferredChecks": [
+              "ALTN FLAPS ARM switch",
+              "Alternate flaps selector"
+            ],
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: Airspeed or Mach indications are suspected to be unreliable. (Items which can indicate unreliable airspeed are listed in the Additional Information section.)",
+                "isAutomatic": true
+              },
+              {
+                "name": "Objective",
+                "expectedValue": "To identify a reliable airspeed indication, if possible, or to continue the flight using the Flight With Unreliable Airspeed table in the Performance Inflight chapter.",
+                "isAutomatic": true
+              },
+              {
+                "name": "Autopilot disengage switch",
+                "expectedValue": "Push",
+                "isAutomatic": true
+              },
+              {
+                "name": "A/T ARM switches (both)",
+                "expectedValue": "OFF",
+                "isAutomatic": true
+              },
+              {
+                "name": "F/D switches (both)",
+                "expectedValue": "OFF",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Set the following gear up pitch attitude and thrust.",
+                "isAutomatic": false
+              },
+              {
+                "name": "Flaps extended",
+                "expectedValue": "10 degrees 85% N1",
+                "isAutomatic": true
+              },
+              {
+                "name": "Flaps up",
+                "expectedValue": "4 degrees 70% N1",
+                "isAutomatic": true
+              },
+              {
+                "name": "Airplane cannot be trimmed to the desired pitch attitude",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PRIMARY FLIGHT COMPUTERS disconnect switch"
+                ]
+              },
+              {
+                "name": "PRIMARY FLIGHT COMPUTERS disconnect switch",
+                "expectedValue": "DISC",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "If, at anytime, the airplane cannot be trimmed to the desired pitch attitude, disconnect the PRIMARY FLIGHT COMPUTERS.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "The following are reliable: \n- Attitude \n- N1 \n- Ground speed \n- Radio altitude",
+                "isAutomatic": false
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Stick shaker, overspeed warning, and AIRSPEED LOW alerts may sound erroneously or simultaneously",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "The flight path vector, and pitch limit indicator are unreliable",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Refer to the Flight With Unreliable Airspeed table in the Performance Inflight chapter and set the pitch attitude and thrust setting for the current airplane configuration and phase of flight.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "When in trim and stabilized",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXt",
+                "expectedValue": "Cross check the captain, first officer, and standby airspeed indicators",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "An airspeed indication that differs by more than 20 knots or .03 Mach from the airspeed shown in the table should be considered unreliable.",
+                "isAutomatic": true
+              },
+              {
+                "name": "Reliable airspeed indication can be determined",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Use the most reliable airspeed source for the rest of the flight.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Reliable airspeed indication cannot be determined",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue": "Set pitch attitude and thrust from the Flight With Unreliable Airspeed table in the Performance Inflight chapter for the airplane configuration and phase of flight, as needed",
+                "isAutomatic": false
+              },
+              {
+                "name": "GND PROX FLAP OVRD switch",
+                "expectedValue": "OVRD",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Maintain visual conditions if possible",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Plan to reduce gross weight to less than Maximum Landing Weight before extending flaps, Manouever margin can be limited while flaps are extending from UP to 5",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Plan more time for alternate slat and flaps extension.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Use flaps 20 and VREF 20 for landing. The alternate mode is limited to a maximum of flaps 20.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Establis landing configuration early.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Radio altitude reference is available below 2,500 feet AGL.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Use electronic and visual glideslope indicators, where available, for approach and landing.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Do not use the autopilot, autothrottle, or flight directors.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Do not use TO/GA for a go-around or missed approach.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Check the Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
+                "isAutomatic": true
+              },
+              {
+                "name": "Transponder mode selector",
+                "expectedValue": "TA ONLY",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Altitude is unreliable",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "XPDR switch is on the transponder panel",
+                  "ALT SOURCE selector is on the transponder panel"
+                ]
+              },
+              {
+                "name": "XPDR switch is on the transponder panel",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "Transponder mode selector"
+                ]
+              },
+              {
+                "name": "Transponder mode selector",
+                "expectedValue": "ALT OFF",
+                "isAutomatic": true
+              },
+              {
+                "name": "ALT SOURCE selector is on the transponder pane",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "Transponder mode selector"
+                ]
+              },
+              {
+                "name": "Transponder mode selector",
+                "expectedValue": "ALT RPTG OFF",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "Inhibited checklist",
+                "expectedValue": "FLAP/SLAT CONTROL",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "----------DEFERRED ITEMS----------",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "==> APPROACH CHECKLIST",
+                "isAutomatic": true
+              },
+              {
+                "name": "ALTN FLAPS ARM switch",
+                "expectedValue": "ALTN",
+                "isAutomatic": true
+              },
+              {
+                "name": "Alternate flaps selector",
+                "expectedValue": "EXT",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "----------ADDITIONAL INFORMATION----------",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "One or more of the following may be evidence of unreliable airspeed or Mach indications: \n- Speed/altitude information not consistent with pitch attitude and thrust setting. \n- Airspeed or Mach failure flags \n- PFD current airspeed box amber \n- An amber line through one or more PFD flight mode annunciations \n- Blank or fluctuating airspeed display",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "One or more of the following may be evidence of unreliable airspeed or Mach indications (continued): \n- Variation between captain and first officer airspeed displays \n- Radome damage or loss \n- Overspeed warning \n- Simultaneous overspeed and stall warnings.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "One or more of the following EICAS messages may show: \nAIR DATA SYS \nAIRSPEED LOW \nGND PROX SYS \nHEAT PITOT C \nHEAT PITOT L \nHEAT PITOT R \nHEAT PITOT L+C+R \nOVERSPEED \nSGL SOURCE AIR DATA \nSGL SOURCE DISPLAYS \nWINDSHEAR SYS",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name": "ALTN ALTITUDE",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Both pilots' AIR DATA/ATT source switches are in ALTN",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Both PFDs show the SAARU attitude information.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "BARO SET DISAGREE",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The captain's and first officer's barometric settings disagree.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "CHKL INCOMPLETE NORM",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: A normal checklist needs to be completed.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "CHKL NON-NORMAL",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: There is a hidden non-normal checklist. All of these occur:\n- A non-normal checklist is not complete\n- The ECL is not displayed\n- The related EICAS message is not shown",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "DISPLAY SELECT PNL",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Left, center, or right CDU control of the display select panel is used.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "EFIS CONTROL PNL L",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: One of these occurs:\n- The left EFIS control panel is failed\n- CDU control of the left EFIS is used",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Backup control of the left EFIS is accessed from the left CDU menu page.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "EFIS CONTROL PNL R",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: One of these occurs:\n- The right EFIS control panel is failed\n- CDU control of the right EFIS is used",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Backup control of the right EFIS is accessed from the right CDU menu page.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "SGL SOURCE AIR DATA",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Both PFDs use the same air data source.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "SGL SOURCE DISPLAYS",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: some or all display units use a single source of display data.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Both PFDs and NDs or just both NDs show information generated from a single source. The lower center display unit may be blank or may not be capable of showing all normal formats. The left EFIS control panel controls either the right PFD or ND or the right ND only.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "SGL SOURCE RAD ALT",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Both PFDs use the same radio altimeter source.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Autothrottle retard during flare is inoperative.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "SINGLE SOURCE F/D",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Both PFDs use the same flight director source",
+                "isAutomatic":true
+              }
+            ]
           }
         ]
       },
       {
         "name": "Flight management, navigation",
-        "checks": [
+        "subChecklists":[
           {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
+            "name":"FMC ...",
+            "subChecklists":[
+              {
+                "name": "FMC",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: One of these occurs:\n- The FMC selector is in L and the left FMC is failed\n- The FMC selector is in R and the right FMC is failed\n- Both FMCs are failed",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"LNAV and VNAV modes are inoperative. Select different autopilot roll and pitch modes.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"LNAV can be re-engaged. Plan to enter new waypoints by latitude and longtitude into any CDU.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Manually tune navigation radios through the CDUs",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Refer to the Flap Maneuvering Speed table below:\nFLAP POSITION\t\t\tMANEUVER SPEED\nFLAPS UP............VREF 30 + 80\nFLAPS 1............VREF 30 + 60\nFLAPS 5............VREF 30 + 40\nFLAPS 15............VREF 30 + 20\nFLAPS 20............VREF 30 + 20\nFLAPS 25............VREF 25\nFLAPS 30............VREF 30\n",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "LOG ALT selector",
+                    "expectedValue":"PULL ON, set manually",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\nLANDING ALTITUDE",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "FMC L",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"The left FMC is failed.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "FMC R",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The right FMC is failed.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "FMC MESSAGE",
+                "checks": [
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: An alert message is in the FMC scratchpad.",
+                    "isAutomatic":true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name":"ADS-B OUT L",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Posiiton data is not available to the left transponder",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"If ADS-B operation is needed, select the right transponder.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"ADS-B OUT R",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Posiiton data is not available to the right transponder",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"If ADS-B operation is needed, select the left transponder.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"AIR DATA SYS",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The three air data sources disagree.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Avoid abrupt control inputs. The airplane response is changed by simplified elevator feel and rudder ratio systems.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Crosscheck airspeed and altitude on the PFDs and standby flight instruments for accuracy. Each display is receiving data from an independent source.",
+                "isAutomatic":false
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Normal pitch altitude and thrust settings are available in the Flight With Unreliable Airspeed table in the Performance Inflight chapter",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Select alternate air data/attitude source if airspeed or altitude on respective PFD is detemined to be in error and airspeed or altitude on opposite side PFD is verified to be correct.",
+                "isAutomatic":true
+              },
+              {
+                "name": "GND PROX FLAP OVRD switch",
+                "expectedValue":"OVRD",
+                "isAutomatic":true
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Inoperative items:\n- Envelope protection functions inop\n- Autopilot inop\n- Flight directors inop\n- Autothrottles inop\n- PFD flap maneuvering speeds inop: Refer to the Flap Maneuvering Speed table below:\nFLAP POSITION\t\t\tMANEUVER SPEED\nFLAPS UP............VREF 30 + 80\nFLAPS 1............VREF 30 + 60\nFLAPS 5............VREF 30 + 40\nFLAPS 15............VREF 30 + 20\nFLAPS 20............VREF 30 + 20\nFLAPS 25............VREF 25\nFLAPS 30............VREF 30\n",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Yaw damper is degraded.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Manual control inputs are needed to compensate for asymmetrical thrust conditions.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Do not use the flight path vector.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Use flaps 20 and VREF 20 for landing. This ensures sufficient pitch control for landing.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Do not arm the speedbrake lever. This prevents inadvertent in-flight speedbrake extesnion.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Manually extend the speedbrakes after landing.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Some or all ground proximity alerts are not available. Ground proximity alerts that occur are valid.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Some or all windshear alerts are not available. Windshear alerts that occur are valid.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklists:\nAUTO SPEEDBRAKE\nFLIGHT CONTROL MODE\nTHRUST ASYM COMP\nGND PROX SYS\nWINDSHEAR SYS",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"GPS",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Both GPS receivers are failed.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"The FMC uses inertial inputs only, unless radio updating is enabled.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"ADS-B is inoperative.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"If radio updating is allowed:\n- Select the FMC REF NAV DATA page\n- Select OFF for RAD NAV INHIBIT",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"GPS L",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The left GPS receiver is failed.",
+                "isAutomatic":true
+              },
+              {
+                "name": "XPNDR selector is on the transponder panel:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                   "XPNDR selector"
+                ]
+              },
+              {
+                "name": "XPNDR selector",
+                "expectedValue":"R",
+                "isAutomatic":false
+              },
+              {
+                "name": "XPNDR switch is on the transponder panel:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                   "XPNDR switch"
+                ]
+              },
+              {
+                "name": "XPNDR switch",
+                "expectedValue":"RIGHT",
+                "isAutomatic":false
+              }
+            ]
+          },
+          {
+            "name":"GPS R",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The right GPS receiver is failed.",
+                "isAutomatic":true
+              },
+              {
+                "name": "XPNDR selector is on the transponder panel:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                   "XPNDR selector"
+                ]
+              },
+              {
+                "name": "XPNDR selector",
+                "expectedValue":"L",
+                "isAutomatic":false
+              },
+              {
+                "name": "XPNDR switch is on the transponder panel:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                   "XPDR switch"
+                ]
+              },
+              {
+                "name": "XPDR switch",
+                "expectedValue":"LEFT",
+                "isAutomatic":false
+              }
+            ]
+          },
+          {
+            "name":"ILS ANTENNA",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Two or more ILS receivers do not use the correct antenna",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"AFDS may have difficulty capturing or tracking localizer or glideslope. The airplane path may be lower than indicated by glideslope pointer.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"INSUFFICIENT FUEL",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: FMC estimated fuel at the destination is less than the enetered RESERVES fuel.",
+                "isAutomatic":true
+              },
+              {
+                "name": "The INSUFFICIENT FUEL message may be caused by a fuel leak.",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"A fuel leak should be suspected if one or more of the following are true:\n- The total fuel remaining on EICAS is less than the planned fuel remaining.\n- An engine has excessive fuel flow.\n- One main tank is abnormally low compared to the other main tank and to the expected fuel remaining in the tanks.\n- On progress page 2, the totalizer is less than the calculated fuel.\n\t-The TOTALIZER fuel is the sum of the individual tank quantitties.\n\t- The CALCULATED fuel is the totalizer value at engine start minus fuel used.\n\t- Fuel used is calculated using the engine fuel flow sensors.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "Fuel leak is suspected:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue":"Do the FUEL LEAK checklist.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Verify that the active route and FMC data are correct.",
+                "isAutomatic":false
+              },
+              {
+                "name": "Verify that there is sufficient fuel to complete the flight.",
+                "expectedValue":"",
+                "isAutomatic":false
+              }
+            ]
+          },
+          {
+            "name":"NAV ADIRU INERTIAL",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The ADIRU cannot supply correct attitude, position, heading, track, and groundspeed data.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Heading information shows for 3 minutes after the NAV ADIRU INERTIAL message shows. If the airplane is in the polar region, heading information is removed immediately.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"GPS continues to give position and track information.",
+                "isAutomatic":true
+              },
+              {
+                "name": "ND map display orientation changes from heading up to track up.",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "ALT SOURCE selector is on the transponder pane",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                   "Transponder ALT SOURCE selector"
+                ]
+              },
+              {
+                "name": "Transponder ALT SOURCE selector",
+                "expectedValue":"ALTN",
+                "isAutomatic":false
+              },
+              {
+                "name": "XPDR switch is on the transponder panel",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "XPDR switch"
+                ]
+              },
+              {
+                "name": "XPDR switch",
+                "expectedValue":"RIGHT",
+                "isAutomatic":false
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Inoperative items:\n-FMC VNAV pages inop\n- FMC performance predictions inop\n- ND wind direction/speed and wind arrow inop\n- Autobrake inop\n- RFD flap maneuvering speeds inop: Refer to the Flap Maneuvering Speed table below:\nFLAP POSITION\t\t\tMANEUVER SPEED\nFLAPS UP............VREF 30 + 80\nFLAPS 1............VREF 30 + 60\nFLAPS 5............VREF 30 + 40\nFLAPS 15............VREF 30 + 20\nFLAPS 20............VREF 30 + 20\nFLAPS 25............VREF 25\nFLAPS 30............VREF 30\n",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Inoperative AFDS modes:\n- LNAV\n- VNAV\n- TO/GA\n- LOC\n- GS\n- FPA\n- TRK HOLD/SEL",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"When the heading blanks and the SET HDG line shows on POS INIT page 1:",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Enter the heading.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Re-engage the autopilot.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Crosscheck heading periodically for drift with the magnetic compass and update heading as necessary. If magnetic compass information is unreliable or unavailable, track information may be used.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"VOR course deviation is available in the ND VOR mode. ILS localizer and glideslope deviation raw data is available on both the PFD and the ND.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"If GPS is not available, the following additional items are inoperative:\n- ND map mode\n- Active leg course and distance\n- Direct to waypoint function\n- Alternate page DIVERT NOW function\n- Navigation radio autotuning",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"NAV UNABLE RNP",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The required navigational performance is not sufficient.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"On the ground:",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Message may show with GPS disabled.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"In flight:",
+                "isAutomatic":true
+              },
+              {
+                "name": "On a procedure or an airway with an RNP alerting requirement:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                   "PLAINTEXT1",
+                   "On a procedure or an airway without an RNP alerting requirement:",
+                   "NOTE1",
+                   "NOTE2"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue":"Select alternate procedure or airway. During an approach, start a go-around unless suitable visual references can be established and maintained.",
+                "isAutomatic":true
+              },
+              {
+                "name": "On a procedure or an airway without an RNP alerting requirement:",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                   "PLAINTEXT2"
+                ]
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue":"Verify position.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE1",
+                "expectedValue":"The FMC uses inertial inputs only, unless radio updating is enabled.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE2",
+                "expectedValue":"If radio updating is allowed:\n- Select the FMC REF NAV DATA page\n- Select OFF for RAD NAV INHIBIT",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"SINGLE SOURCE ILS",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Both pilots' displays use the same ILS source.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"TRANSPONDER L",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: A left transponder fault occurs.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"TRANSPONDER R",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: A right transponder fault occurs.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"VNAV STEP CLIMB",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: An FMC-predicted or manually-entered VNAV step climb point has sequenced and a climb has not started.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Objective: To update the VNAV profile so the FMC fuel and ETA predictions are accurate.",
+                "isAutomatic":true
+              },
+              {
+                "name": "Stop climb is already completed:",
+                "expectedValue":"",
+                "isAutomatic":false,
+                "conditionalChecksYes":[
+                  "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue":"Enter the current altitude as the cruise altitude on the VNAV CRZ page, even if it is already shown. This step updates the FMC predictions.",
+                "isAutomatic":true
+              },
+              {
+                "name": "Stop climb is already completed:",
+                "expectedValue":"",
+                "isAutomatic":false,
+                "conditionalChecksYes":[
+                  "PLAINTEXT2"
+                ]
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue":"Start a step climb.",
+                "isAutomatic":false
+              },
+              {
+                "name": "Stop climb is already completed:",
+                "expectedValue":"",
+                "isAutomatic":false,
+                "conditionalChecksYes":[
+                  "PLAINTEXT3",
+                  "PLAINTEXT4"
+
+                ]
+              },
+              {
+                "name": "PLAINTEXT3",
+                "expectedValue":"Enter a planned step climb altitude on the RTE LEGS page.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT4",
+                "expectedValue":"Enter the current altitude as the cruise altitude on the VNAV CRZ page, even if it is already shown. This step updates the FMC predictions.",
+                "isAutomatic":false
+              },
+              {
+                "name": "Stop climb is already completed:",
+                "expectedValue":"",
+                "isAutomatic":false,
+                "conditionalChecksYes":[
+                  "PLAINTEXT5",
+                  "PLAINTEXT6"
+                ]
+              },
+              {
+                "name": "PLAINTEXT5",
+                "expectedValue":"Enter a step size of 0 on the VNAV CRZ page.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT6",
+                "expectedValue":"Enter the current altitude as the cruise altitude on the VNAV CRZ page, even if it is already shown. This step updates the FMC predictions.",
+                "isAutomatic":false
+              }
+            ]
+            
           }
         ]
       },
