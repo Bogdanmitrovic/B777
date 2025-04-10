@@ -263,6 +263,8 @@ public class ChecklistRenderer : MonoBehaviour
                 Destroy(pageButtons.transform.GetChild(i).gameObject);
             }
         }
+        pageButtons.transform.GetChild(0).GetComponent<Button>().onClick.RemoveAllListeners();
+        pageButtons.transform.GetChild(1).GetComponent<Button>().onClick.RemoveAllListeners();
 
         pageButtons.SetActive(false);
     }
