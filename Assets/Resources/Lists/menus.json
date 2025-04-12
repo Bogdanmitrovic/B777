@@ -15052,6 +15052,7 @@
                 "expectedValue":"This prevents a potential fire hazard.",
                 "isAutomatic":true
               },
+              
               {
                 "name": "NOTE",
                 "expectedValue":"The APU is not available for the rest of the flight.",
@@ -15068,31 +15069,2124 @@
       },
       {
         "name": "Hydraulics, RAT",
-        "checks": [
+        "subChecklists": [
           {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
+            "name": "HYD PRESS ...",
+            "subChecklists":[
+              {
+                "name": "HYD PRESS DEM C1",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The C1 demand pump output pressure is low when commanded on.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "C1 AIR DEMAND pump selector",
+                    "expectedValue":"ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"HYD PRESS DEM C1 message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "C1 AIR DEMAND pump selector",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "HYD PRESS DEM C2",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The C2 demand pump output pressure is low when commanded on.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "C2 AIR DEMAND pump selector",
+                    "expectedValue":"ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"HYD PRESS DEM C2 message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "C2 AIR DEMAND pump selector",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "HYD PRESS DEM L",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The left demand pump output pressure is low when commanded on.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L AIR DEMAND pump selector",
+                    "expectedValue":"ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"HYD PRESS DEM L message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L AIR DEMAND pump selector",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "HYD PRESS DEM R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The right demand pump output pressure is low when commanded on.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "R AIR DEMAND pump selector",
+                    "expectedValue":"ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"HYD PRESS DEM R message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "R AIR DEMAND pump selector",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "HYD PRESS PRI C1",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The C1 primary pump pressure is low.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "C1 ELEC PRIMARY pump switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "HYD PRESS PRI C2",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The C2 primary pump pressure is low.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "C2 ELEC PRIMARY pump switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "HYD PRESS PRI L",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The left primary pump pressure is low.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L ENG PRIMARY pump switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Left thrust reverser may be inoperative.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "HYD PRESS PRI R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The right primary pump pressure is low.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "R ENG PRIMARY pump switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Right thrust reverser may be inoperative.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "HYD PRESS SYS C",
+                "deferredChecks":[
+                  "PLAINTEXT",
+                  "Landing gear level",
+                  "ALTN GEAR extend switch"
+                ],
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The center hydraulic system pressure is low.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Objective: To restore system pressure and configure for landing using alternate systems, if needed.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "C1 od C2 AIR DEMAND pump selector",
+                    "expectedValue":"ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"HYD PRESS SYS C message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "C2 ELEC PRIMARY pump switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "C1 and C2 AIR DEMAND pump selectors",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue":"OVRD",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Inhibited checklists:\n-AUTO SPEEDBRAKE\nSPOILERS",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Inoperative items:\n- Primary flap and slat operation inop:\n Plan more time for slower flap and slat operation.\n- Main landing gear hydraulic operation inop:\nAlternate gear extension is needed.\n- Main gear steering inop:\nTires may scrub during turns.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"The slats will extend beyond midrange when airspeed is below 256 knots. For go-around do not exceed 256 knots until slats retract to midrange.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Use flops 20 and VREF 20 for landing. This ensures adequate go-around performance due to slower slat/flap operation in secondary mode.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"The roll rate may be reduced in flight. Speedbrake effectiveness may be reduced in flight during landing.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Do not arm the speedbrake lever. This prevents inadvertent in-flight speedbrake extesnion.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Manually extend the speedbrakes after landing.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"For go-around, do not exceed the gear EXTEND limit speed (270K/.82M)",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Check the Non-Normal Configuration Landing Distance tables in the Performance Inflight-QRH chapter or other approved source.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"-------------DEFFERED ITEMS-------------",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"==> APPROACH CHECKLIST",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Start flap extension as needed.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"==> APPROACH CHECKLIST",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Inhibited checklists:\nFLAPS PRIMARY FAIL\nSLATS PRIMARY FAIL",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "Landing gear level",
+                    "expectedValue":"ON",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "ALTN GEAR extend switch",
+                    "expectedValue":"Push to DOWN and hold until all gear show down or in transit",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"A reduction of airspeed is below 240 knots may be necessary for landing",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\nGEAR DOOR",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "HYD PRESS SYS L",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The left hydraulic system pressure is low",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L ELEC DEMAND pump selector",
+                    "expectedValue":"ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"HYD PRESS SYS L message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L ENG PRIMARY pump switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L ELEC DEMAND pump selector",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"The left thrust reverser is inoperative.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Roll rate may be reduced in flight. Speedbrake effectivness may be reducer in flight and during landing.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Check the Non-Normal Configuration Landing Distance tables in the Performance Inflight-QRH chapter or other approved source.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\nSPOILERS",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "HYD PRESS SYS L+C",
+                "deferredChecks":[
+                  "ALTN GEAR extend switch",
+                  "Landing gear lever",
+                  "PLAINTEXT"
+                ],
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The left and center hydraulic system pressures are low.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Objective: To restore system pressure and configure for landing using alternate systems, if needed.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L ELEC DEMAND pump selector",
+                    "expectedValue":"ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "C1 or C2 AIR DEMAND pump selector",
+                    "expectedValue":"ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"HYD PRESS SYS L+C message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L ENG PRIMARY pump switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "C2 ELEC PRIMARY pump switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L ELEC DEMAND pump selector",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "C1 and C2 AIR DEMAND pump selectors",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Handling qualities are degraded. Pitch and roll control capability is reduced with fewer operating control surfaces.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Plan to land at the nearest suitable airport",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue":"OVRD",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Inhibited checklists:\nAUTO SPEEDBRAKE\nFLIGHT CONTROLS\nSPOILERS",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Inoperative items:\n- Multiple flight control surfaces inop:\nHandling qualities are degraded.\n- Primary flap and slat operation inop:\nPlan more time for slower flap and slat operation\n- Main landing gear hydraulic operation inop:\nAlternate gear extension is needed\n- Left thrust reverser is available\n- Main gear steering inop:\nTires may scrub during turns",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"The slats will extend beyond midrange when airspeed is below 256 knots. For go-around do not exceed 256 knots until slats retract to midrange.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Use flaps 20 and VREF 30 + 20 for landing. Higher approach speeds improve airplane maneuvering characteristics."
+                    ,
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Crosswind limit for landing is 20 knots.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Roll rate may be reduced in flight. Speedbrake effectivness may be reducer in flight and during landing.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Do not arm the speedbrake lever. This prevents inadvertent in-flight speedbrake extesnion.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Manually extend the speedbrakes after landing.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"For go-around, do not exceed the gear EXTEND limit speed (270K/.82M)",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Check the Non-Normal Configuration Landing Distance tables in the Performance Inflight-QRH chapter or other approved source.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"-------------DEFFERED ITEMS-------------",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"==> APPROACH CHECKLIST",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Start flap extension as needed.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Inhibited checklists:\nFLAPS PRIMARY FAIL\nSLATS PRIMARY FAIL",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "Landing gear lever",
+                    "expectedValue":"DN",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "ALTN GEAR extend switch",
+                    "expectedValue":"Push to DOWN and hold until all gear show down or in transit",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"A reduction of airspeed is below 240 knots may be necessary for landing gear to lock down",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"==> APPROACH CHECKLIST",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\n GEAR DOOR",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "HYD PRESS SYS L+C+R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: All hydraulic system pressures are low.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "HYD PRESS SYS L+R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The left and right hydraulic system pressures are low.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Objective: To restore system pressure and configure for landing using alternate systems, if needed.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Do not exceed .87 Mach. This ensres sufficient roll control.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "L ELEC DEMAND pump selector",
+                    "expectedValue":"ON",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "R ELEC DEMAND pump selector",
+                    "expectedValue":"ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"HYD PRESS SYS L+R message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L ENG PRIMARY pump switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "R ENG PRIMARY pump switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "L ELEC DEMAND pump selector",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "R ELEC DEMAND pump selector",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Handling qualities are degraded. Pitch and roll control capability is reduced with fewer operating control surfaces.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Plan to land at the nearest suitable airport",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue":"OVRD",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Inoperative items:\n- Multiple flight control surfaces inop:\nHandling qualities are degraded\n- Left and right thrust reversers inop:\nManual braking is available\n- Autobrake inop:\nManual braking is available\n- Normal brakes are inop:\nAlternate brakes are available",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Use flaps 20 and VREF 30 + 20 for landing. Higher approach speeds improve airplane maneuvering characteristics.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Crosswind limit for landing is 20 knots.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Roll rate may be reduced in flight. Speedbrake effectivness may be reducer in flight and during landing.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Check the Non-Normal Configuration Landing Distance tables in the Performance Inflight-QRH chapter or other approved source.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Inhibited checklists:\nFLIGHT CONTROLS\nSPOILERS",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "HYD PRESS SYS R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The right hydraulic system pressure is low.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "R ELEC DEMAND pump selector",
+                    "expectedValue":"ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"HYD PRESS SYS R message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "R ENG PRIMARY pump switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "R ELEC DEMAND pump selector",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Inoperative items:\n- Right thrust reverser inop:\nLeft thrust reverser is available\n- Autobrake inop:\nManual braking is available\n- Normal brakes inop:\nAlternate brakes are available",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Roll rate may be reduced in flight. Speedbrake effectivness may be reducer in flight and during landing.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Check the Non-Normal Configuration Landing Distance tables in the Performance Inflight-QRH chapter or other approved source.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\nSPOILERS",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "HYD PRESS SYS R+C",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The right and center hydraulic system pressures are low.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Objective: To restore system pressure and configure for landing using alternate systems, if needed.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Do not exceed .87 Mach. This ensres sufficient roll control.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "C1 or C2 AIR DEMAND pump selector",
+                    "expectedValue":"ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "R ELEC DEMAND pump selector",
+                    "expectedValue":"ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"HYD PRESS SYS R+C message stays shown:",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": " STAB cutout switches (both)",
+                    "expectedValue":"CUTOUT",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":" This keeps the STABILIZER message blank.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":" Do not exceed the current airspeed. Nose down elevatro authority is limited",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": " C2 ELEC PRIMARY pump switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": " R ENG PRIMARY pump switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": " C1 and C2 AIR DEMAND pump selectors",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": " R ELEC DEMAND pump selector",
+                    "expectedValue":"OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":" Handling qualities are degraded. Pitch and roll control capability is reduced with fewer operating control surfaces.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":" Plan to land at the nearest suitable airport",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": " GND PROX FLAP OVRD switch",
+                    "expectedValue":"OVRD",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":" Inhibited checklists:\nAUTO SPEEDBRAKE\nFLIGHT CONTROLS\nSPOILERS\nSTABILIZER",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":" Inoperative items:\n- Multiple flight control surfaces inop:\nHandling qualities are degraded.\n- Stabilizer inop:\nPitch trim is available in the normal flight control mode.\n- Primary flap and slat operation inop:\nPlan more time for flap and slat operation",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":" Inoperative items:\n- Main landing gear hydraulic operation inop:\nAlternate gear extension is needed.\n- Right thrust reverser inop:\nLeft thrust reverser is available.\n- Autobrake inop:\nManual braking is available\n- Normal brakes and alternate brakes from center hydraulic source are inop:\nAlternate brakes from the reserve hydraulic source are available\n- Main gear steering inop:\nTire may scrub during turns",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":" Use flaps 20 and VREF 30 + 20 for landing. Higher approach speeds to improve airplane maneucering characteristics.",
+                    "isAutomatic":true
+                  },  
+                  {
+                    "name": "NOTE",
+                    "expectedValue":" Crosswind limit for landing is 20 knots.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":" Roll rate may be reduced in flight. Speedbrake effectivness may be reducer in flight and during landing.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":" Do not arm the speedbrake lever. This prevents inadvertent in-flight speedbrake extesnion.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":" Manually extend the speedbrakes after landing.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":" For go-around, do not exceed the gear EXTEND limit speed (270K/.82M)",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":" Check the Non-Normal Configuration Landing Distance tables in the Performance Inflight-QRH chapter or other approved source.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":" -------------DEFFERED ITEMS-------------",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":" ==> APPROACH CHECKLIST",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":" Start flap extension as needed.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":" Inhibited checklists:\nFLAPS PRIMARY FAIL\nSLATS PRIMARY FAIL",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": " Landing gear lever",
+                    "expectedValue":"DN",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": " ALTN GEAR extend switch",
+                    "expectedValue":"Push to DOWN and hold until all gear show down or in transit",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":" A reduction of airspeed is below 240 knots may be necessary for landing",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":" ==> APPROACH CHECKLIST",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":" Inhibited checklists:\nGEAR DOOR",
+                    "isAutomatic":true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "HYD QTY ...",
+            "subChecklists":[
+              {
+                "name":"HYD QTY LOW C",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The center hydraulic quanitity is low.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Nose wheel steering may be slow to react. Excessive force on the nose wheel sterring tiller may cause abrupt tiller movement in the opposite direction.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name":"HYD QTY LOW L",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The left hydraulic quantity is low.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name":"HYD QTY LOW L+C",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The left and center hydraulic quantities are low.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Plan to land at the nearest suitable airport",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Nose wheel steering may be slow to react. Excessive force on the nose wheel sterring tiller may cause abrupt tiller movement in the opposite direction.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name":"HYD QTY LOW L+C+R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: All three hydraulic quantities are low.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Plan to land at the nearest suitable airport",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Nose wheel steering may be slow to react. Excessive force on the nose wheel sterring tiller may cause abrupt tiller movement in the opposite direction.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name":"HYD QTY LOW L+R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The left and right hydraulic quantities are low.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Plan to land at the nearest suitable airport",
+                    "isAutomatic":false
+                  }
+                ]
+              },
+              {
+                "name":"HYD QTY LOW R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The right hydraulic quantities are low.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name":"HYD QTY LOW R+C",
+                "deferredChecks":[
+                  "ALTN GEAR extend switch",
+                  "Landing gear lever",
+                  "PLAINTEXT",
+                  "NOTE"
+                ],
+                "checks":[
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue":"Condition: The right and center hydraulic quantities are low.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue":"Objective: To prevent fluid loss through the brake system.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "C1 ELEC PRIMARY pump switch",
+                    "expectedValue":"Off",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue":"Plan to land at the nearest suitable airport",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue":"Nose wheel steering may be slow to react. Excessive force on the nose wheel sterring tiller may cause abrupt tiller movement in the opposite direction.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE1",
+                    "expectedValue":"Do not taxi with loss of steering.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Inoperative item:\n- Nose landing gear hydraulic operation inop\n- Alternate gear extension is needed",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue":"Inhibited checklist:\nRESERVE BRAKES/STRG",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"-------------DEFFERED ITEMS-------------",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"==> APPROACH CHECKLIST",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "Landing gear lever",
+                    "expectedValue":"DN",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "ALTN GEAR extend switch",
+                    "expectedValue":"Push to DOWN and hold until all gear show down or in transit",
+                    "isAutomatic":false
+                  },
+
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"==> APPROACH CHECKLIST",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"A reduction of airspeed is below 240 knots may be necessary for landing gear to lock down",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\nGEAR DOOR",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"==> LANDING CHECKLIST",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "C1 ELEC PRIMARY pump switch",
+                    "expectedValue":"ON",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"This step restores alternate brakes from the reserve hydraulic source and may restore steering.",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"==> LANDING CHECKLIST",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"In the event of a go-around and missed approach, consider turning off the C1 ELEC PRIMARY pump",
+                    "isAutomatic":true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "HYD AUTO CONTROL C",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Both of the following occur:\n- Automatic control of both center demand pumps fails\n- Center system indications fail",
+                "isAutomatic":true
+              },
+              {
+                "name": "C1 AIR DEMAND pump selector",
+                "expectedValue":"ON",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "HYD AUTO CONTROL L",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Both of the following occur:\n- Automatic control of both left demand pumps fails\n- Left hydraulic system indications fail",
+                "isAutomatic":true
+              },
+              {
+                "name": "L ELEC DEMAND pump selector",
+                "expectedValue":"ON",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "HYD AUTO CONTROL R",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Both of the following occur:\n- Automatic control of both right demand pumps fails\n- Right hydraulic system indications fail",
+                "isAutomatic":true
+              },
+              {
+                "name": "R ELEC DEMAND pump selector",
+                "expectedValue":"ON",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "HYD OVERHEAT DEM C1",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The C1 demand pump temperature is high.",
+                "isAutomatic":true
+              },
+              {
+                "name": "C1 AIR DEMAND pump selector",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklist:\nHYD PRESS DEM C1",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "HYD OVERHEAT DEM C2",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The C2 demand pump temperature is high.",
+                "isAutomatic":true
+              },
+              {
+                "name": "C2 AIR DEMAND pump selector",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklist:\nHYD PRESS DEM C2",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "HYD OVERHEAT DEM L",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The left demand pump temperature is high.",
+                "isAutomatic":true
+              },
+              {
+                "name": "L ELEC DEMAND pump selector",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklist:\nHYD PRESS DEM L",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "HYD OVERHEAT DEM R",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The right demand pump temperature is high.",
+                "isAutomatic":true
+              },
+              {
+                "name": "R ELEC DEMAND pump selector",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklist:\nHYD PRESS DEM R",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "HYD OVERHEAT PRI C1",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The C1 primary pump temperature is high.",
+                "isAutomatic":true
+              },
+              {
+                "name": "C1 ELEC PRIMARY pump switch",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklist:\nHYD PRESS PRI C1",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "HYD OVERHEAT PRI C2",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The C2 primary pump temperature is high.",
+                "isAutomatic":true
+              },
+              {
+                "name": "C2 ELEC DEMAND pump switch",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklist:\nHYD PRESS PRI C2",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "HYD OVERHEAT PRI L",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The left primary pump temperature is high.",
+                "isAutomatic":true
+              },
+              {
+                "name": "L ELEC PRIMARY pump switch",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Left thrust reverser may be inoperative.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklist:\nHYD PRESS PRI L",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "HYD OVERHEAT PRI R",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The right primary pump temperature is high.",
+                "isAutomatic":true
+              },
+              {
+                "name": "R ENG BLEED AIR switch",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Right thrust reverser may be inoperative.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklist:\nHYD PRESS PRI R",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "RAT UNLOCKED",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The ram air turbine is not stowed and locked.",
+                "isAutomatic":true
+              }
+            ]
           }
         ]
       },
       {
         "name": "Landing gear",
-        "checks": [
+        "subChecklists": [
           {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
+            "name": "ANTISKID",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: An antiskid system fault occurs.",
+                "isAutomatic":true
+              },
+              {
+                "name": "AUTOBRAKE selector",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"The autobrake system is inoperative.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Use minimum braking consistent with runway length and conditions to reduce the possibility of tire blowout.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Do not apply the brakes until the nose wheel is on the ground and the speedbrakes have extended.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Brake initially using light steady pedal pressure. Increase pressure as ground speed decreases. Do not pump the brakes.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Check the Non-Normal Configuration Landing Distance tables in the Performance Inflight-QRH chapter or other approved source.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "AUTOBRAKE",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: One of these occurs:\n- The autobrake system is disarmed\n- The autobrake system is failed",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "BRAKE SOURCE",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Normal and alternate brake system pressures are low, and reserve hydraulic source for alternate brake system is low.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Only accumulator pressure is available for braking. During landing rollout, apply steady, increasing brake pressure and hold to a full stop. Do not taxi.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "BRAKE TEMP",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: One or more brake temperatures are high.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"On the ground:",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":" Minimize taxiing",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":" Unless needed, do not set the parking brake.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":" Wheel fuse plugs can melt.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Refer to the Recommended Brake Cooling Schedule table in the Performance Inflight chapter for the needed cooling time and precausions.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"In flight:",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":" Do not exceed the gear EXTEND limit spees (270K/.82M)",
+                "isAutomatic":false
+              },
+              {
+                "name": " Landing gear lever",
+                "expectedValue":"DN",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":" When the BRAKE TEMP message blanks:",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":" Wait 8 minutes.",
+                "isAutomatic":false
+              },
+              {
+                "name": "Landing gear lever",
+                "expectedValue":"UP",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "GEAR DISAGREE",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The gear position disagrees with the landing gear lever position.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"To extend the gear using alternate gear extension, or land on the available gear",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Do not exceed the gear EXTEND limit spees (270K/.82M)",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Landing gear lever is UP:",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":" Flight with gear down increases fuel consumption and decreases climb performance. Refer to the Gear Down performance tables in the Performance Inflight chapter for flight planning.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklists:\nAUTO SPEEDBRAKE\nGEAR DOOR",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Landing gear lever is DN:",
+                "isAutomatic":true
+              },
+              {
+                "name": " ALTN GEAR extend switch",
+                "expectedValue":"Push to DOWN and hold until all gear show down or in transit",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":" A reduction of airspeed is below 240 knots may be necessary for landing gear to lock down",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":" Inhibited checklist:\nGEAR DOOR",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Wait 30 seconds.",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Any gear indicate UP or in transit:",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"   Plan to land on available gear.",
+                "isAutomatic":false
+              },
+              {
+                "name": "   GND PROX FLAP OVRD switch",
+                "expectedValue":"OVRD",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"   Use flaps 30 for landing. This gives the slowest landing speed",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"   Do not arm the speedbrake lever.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"When stopping distance is critical, extend the speedbrakes after all gear, or the nose, or the engine nacell have contacted the runway.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Do not use the thrust reversers unless stopping distance is critical.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"When at pattern altitude:",
+                "isAutomatic":false
+              },
+              {
+                "name": "OUTFLOW VALVE switches (both)",
+                "expectedValue":"MAN",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Use momentary actuation of the outflow valve manual switches to avoid large and rapid pressurization changes. Values can take up to 6 seconds to move the first time.",
+                "isAutomatic":false
+              },
+              {
+                "name": "OUTFLOW VALVE MANUAL switches (both)",
+                "expectedValue":"Move to OPEN until the outflow valve indications show fully open to depressurize the airplane",
+                "isAutomatic":true
+              },
+              {
+                "name": "Fuel PUMPS switches (all)",
+                "expectedValue":"Off",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklists:\nCABIN ALTITUDE AUTO\nFUEL PRESS ENG L\nFUEL PRESS ENG R",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "GEAR DOOR",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: One or more gear doors are not closed",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Do not exceed the gear EXTEND limit spees (270K/.82M)",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "GEAR LEVER LOCKED ON",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: The landing gear lever cannot move to UP",
+                "isAutomatic": true
+              },
+              {
+                "name": "Landing gear lever LOCK OVRD switch",
+                "expectedValue": "Push and hold",
+                "isAutomatic": false
+              },
+              {
+                "name": "Landing gear lever",
+                "expectedValue": "UP",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name": "MAIN GEAR BRACE L",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The left main gear is down with one brace unlocked",
+                "isAutomatic":true
+              },
+              {
+                "name": "GND PROX GEAR OVRD switch",
+                "expectedValue":"OVRD",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Use flaps 30 for landing. This gives the slowest landing speed.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Do not arm the speedbrake lever.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Manually extend the speedbrakes after landing.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"When at pattern altitude:",
+                "isAutomatic":false
+              },
+              {
+                "name": "Fuel PUMPS switches (all)",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklsits:\nFUEL PRESS ENG L\nFUEL PRESS ENG R",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "MAIN GEAR BRACE R",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The right main gear is down with one brace unlocked",
+                "isAutomatic":true
+              },
+              {
+                "name": "GND PROX GEAR OVRD switch",
+                "expectedValue":"OVRD",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Use flaps 30 for landing. This gives the slowest landing speed.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Do not arm the speedbrake lever.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Manually extend the speedbrakes after landing.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"When at pattern altitude:",
+                "isAutomatic":false
+              },
+              {
+                "name": "Fuel PUMPS switches (all)",
+                "expectedValue":"OFF",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Inhibited checklsits:\nFUEL PRESS ENG L\nFUEL PRESS ENG R",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "MAIN GEAR STEERING",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Main gear steering does not lock",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "RESERVE BRAKES/STRG",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: One or more of these are possibly not available:\n- Alternate brakes from the reserve hydraulic source\n- Normal nose gear extension\n- Nose wheel steering",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Plan for possible alternate gear extension. Do not taxi with loss of steering.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "TAIL SKID",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The tailskid is not in the commanded position.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "TIRE PRESS",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"One or more tire pressures are not normal",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"If it can be determined that a main gear tire is flat, do not use the autobrake.",
+                "isAutomatic":true
+              }
+            ]
           }
         ]
       },
       {
         "name": "Warning systems, tail strike",
-        "checks": [
+        "subChecklists": [
           {
-            "name": "",
-            "expectedValue": "",
-            "isAutomatic": false
+            "name": "CONFIG ...",
+            "subChecklists":[
+              {
+                "name": "CONFIG DOORS",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: An entry, forward cargo, or aft cargo door is not closed and latched and locked during takeoff",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "CONFIG FLAPS",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The flaps are not in a takeoff position during takeoff.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "CONFIG GEAR",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: A landing gear is not down and locked and one of these occurs:\n- Below 800 feet radio altitude and a thrust lever is at or near idle\n- The flaps are in a landing position",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "CONFIG GEAR STEERING",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: Main gear steering is not locked during takeoff.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "CONFIG PARKING BRAKE",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"The parkiing brake is set during takeoff.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "CONFIG RUDDER",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: Rudder trim is not centered during takeoff.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "CONFIG SPOILERS",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: One of these occurs:\n- The speedbrake lever is not down during takeoff\n-The speedbrake lever is extended beyond ARMED in flight with climb thrust or greater",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "CONFIG STABILIZER",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The stabilizer is not in the greenband during takeoff.",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "CONFIG WARNING SYS",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: A configuration warning system fault",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Radio altitude voice callouts and other aural alerts may not be available.",
+                    "isAutomatic":true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "AIRSPEED LOW",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Airpseed is less than minimum maneuvering speed.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "ALTITUDE ALERT",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: A deviation from the MCP set altitude occurs.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "ALTITUDE CALLOUTS",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Altitiude and minimums voice callouts during approach are not available.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "GND PROX SYS",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: A ground proximity warning system fault occurs.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Some or all ground proximity alerts are not available. Ground proximity alerts that occur are valid.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "OVERSPEED",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Airspeed is more than Vmo/Mmo.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "PILOT RESPONSE",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Pilot action is not detected during a specific time.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "TAIL STRIKE",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: A tail strike is suspected or confirmed.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "Caution! Continued pressurization of the airplane can cause further structural damage.",
+                "isAutomatic": true
+              },
+              {
+                "name": "OUTFLOW VALVE switches (both)",
+                "expectedValue": "MAN",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Use momentary actuation of the outflow valve manual switches to avoid large and rapid pressurization changes. Values can take up to 6 seconds to move the first time.",
+                "isAutomatic": true
+              },
+              {
+                "name": "OUTFLOW VALVE MANUAL switches (both)",
+                "expectedValue": "Move to OPEN until the outflow valve indications show fully open to depressurize the airplane",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Plan to land at the nearest suitable airport.",
+                "isAutomatic": false
+              },
+              {
+                "name": "Inhibited checklist",
+                "expectedValue": "CABIN ALTITUDE AUTO",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name": "TCAS",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: TCAS is failed.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "TCAS OFF",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: TCAS modes TA or TA/RA are not selected.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "TCAS RA CAPTAIN",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: TCAS cannot show RA guidance on the captain's PFD.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "TCAS RA F/D",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: TCAS cannot show RA guidance on the first officer's PFD.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "TERR OVRD",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The ground proximity terrain override switch is in OVRD.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "TERR POS",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Terrain position data is lost.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Position data for the ND terrain map and look-ahead terrain alerts are lost. Ground proximity alerts that occur are valid.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name": "WINDSHEAR SYS",
+            "checks":[
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: A windshear system fault occurs.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Some or all windshear alerts are not available. Windshear alerts that occur are valid.",
+                "isAutomatic":true
+              }
+            ]
           }
         ]
       }
