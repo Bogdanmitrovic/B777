@@ -465,8 +465,8 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Motor the engine for 30 seconds",
-                    "expectedValue": "",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Motor the engine for 30 seconds",
                     "isAutomatic": false
                   },
                   {
@@ -501,8 +501,8 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Set airspeed above 270 knots",
-                    "expectedValue": "",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Set airspeed above 270 knots",
                     "isAutomatic": false
                   },
                   {
@@ -537,8 +537,8 @@
                     "name": "PageBreak"
                   },
                   {
-                    "name": "When the HEAT PILOT L+C+R message blanks: ",
-                    "expectedValue": "",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "When the HEAT PILOT L+C+R message blanks:",
                     "isAutomatic": false
                   },
                   {
@@ -625,6 +625,11 @@
                     "name": "PLAINTEXT3",
                     "expectedValue": "Do not interrupt autostart. Only abort the start if: \n- There is no oil pressure indication after the EGT increase \n- EGT quickly nears or exceeds the start limit \n- No further autostart attempts are needed.",
                     "isAutomatic": false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Autostart is off:",
+                    "isAutomatic": true
                   },
                   {
                     "name": "L FUEL CONTROL switch",
@@ -902,7 +907,7 @@
                 "checks": [
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue": "Condition: One or more of these occur in the left engine:\n- Engine indications are abnormal\n-Engine indications are quickly nearing or show an exceedance\n- Abnormal engine noises are heard, possibli with airframe vibration\n- There is no response to thrust lever movement or the response is abnormal\n- Flames in the engine inlet or exhaust are reported",
+                    "expectedValue": "Condition: One or more of these occur in the left engine:\n- Engine indications are abnormal\n-Engine indications are quickly nearing or show an exceedance\n- Abnormal engine noises are heard, possibly with airframe vibration\n- There is no response to thrust lever movement or the response is abnormal\n- Flames in the engine inlet or exhaust are reported",
                     "isAutomatic": true
                   },
                   {
@@ -1018,8 +1023,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklist:",
-                    "expectedValue": "AUTOTHROTTLE L",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE L",
                     "isAutomatic": true
                   },
                   {
@@ -1058,8 +1063,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Plan to land at the nearest suitable airport",
-                    "expectedValue": "",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Plan to land at the nearest suitable airport",
                     "isAutomatic": false
                   },
                   {
@@ -1110,8 +1115,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklist",
-                    "expectedValue": "AUTOTHROTTLE L",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE L",
                     "isAutomatic": true
                   }
                 ],
@@ -1238,8 +1243,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklist:",
-                    "expectedValue": "AUTOTHROTTLE L",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE L",
                     "isAutomatic": true
                   },
                   {
@@ -1278,8 +1283,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Plan to land at the nearest suitable airport",
-                    "expectedValue": "",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Plan to land at the nearest suitable airport",
                     "isAutomatic": false
                   },
                   {
@@ -1330,8 +1335,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklist",
-                    "expectedValue": "AUTOTHROTTLE L",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE L",
                     "isAutomatic": true
                   }
                 ],
@@ -1452,8 +1457,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklists",
-                    "expectedValue": "AUTOTHROTTLE L, ENG FAIL L",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\nAUTOTHROTTLE L\n ENG FAIL L",
                     "isAutomatic": true
                   }
                 ],
@@ -1574,8 +1579,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklists",
-                    "expectedValue": "AUTOTHROTTLE R, ENG FAIL R",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\nAUTOTHROTTLE L\n ENG FAIL L",
                     "isAutomatic": true
                   }
                 ],
@@ -1826,8 +1831,12 @@
                   },
                   {
                     "name": "PLAINTEXT1",
-                    "expectedValue": "Isolate and extinguish the source of the smoke, fire or fumes\n If practical, remove power from the affected equipment by switch or circuit breaker in the flight deck or cabin.",
+                    "expectedValue": "Isolate and extinguish the source of the smoke, fire or fumes",
                     "isAutomatic": false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"If practical, remove power from the affected equipment by switch or circuit breaker in the flight deck or cabin."
                   },
                   {
                     "name": "PageBreak",
@@ -1929,8 +1938,8 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Inhibited checklists",
-                    "expectedValue": "PACK L, TRIM AIR L",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\nPACK L\nTRIM AIR L",
                     "isAutomatic": false
                   },
                   {
@@ -1978,8 +1987,8 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Inhibited checklists",
-                    "expectedValue": "PACK R, TRIM AIR R",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\nPACK R\nTRIM AIR R",
                     "isAutomatic": true
                   },
                   {
@@ -2026,7 +2035,7 @@
                   {
                     "name": "PLAINTEXT6",
                     "expectedValue": "Do the SMOKE OR FUMES REMOVAL checklist if needed",
-                    "isAutomatic": true
+                    "isAutomatic": false
                   }
                 ],
                 "subChecklists": []
@@ -2070,8 +2079,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklist",
-                    "expectedValue": "EQUIP COOLING OVRD",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist: EQUIP COOLING OVRD",
                     "isAutomatic": true
                   },
                   {
@@ -2095,8 +2104,8 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Inhibition checklist",
-                    "expectedValue": "OUTFLOW VALVE AFT",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\nOUTFLOW VALVE AFT",
                     "isAutomatic": true
                   },
                   {
@@ -2125,8 +2134,8 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Inhibited checklist",
-                    "expectedValue": "OUTFLOW VALVE FWD",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\nOUTFLOW VALVE FWD",
                     "isAutomatic": true
                   },
                   {
@@ -2166,7 +2175,11 @@
                   },
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue": "Do if conditions allow a crew member to leave the seat. \nFLIGHT DECK ACCESS SYSTEM switch.....OFF \nThe door can be locked with the deadbolt."
+                    "expectedValue": "Do if conditions allow a crew member to leave the seat. \nFLIGHT DECK ACCESS SYSTEM switch.....OFF"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "The door can be locked with the deadbolt."
                   }
                 ],
                 "subChecklists": []
@@ -2380,7 +2393,7 @@
               },
               {
                 "name": "PLAINTEXT",
-                "expectedValue": "The following are reliable: \n- Attitude \n- N1 \n- Ground speed \n- Radio altitude",
+                "expectedValue": "The following are reliable \n- Attitude \n- N1 \n- Ground speed \n- Radio altitude",
                 "isAutomatic": false
               },
               {
@@ -2396,7 +2409,7 @@
               {
                 "name": "PLAINTEXT",
                 "expectedValue": "Refer to the Flight With Unreliable Airspeed table in the Performance Inflight chapter and set the pitch attitude and thrust setting for the current airplane configuration and phase of flight.",
-                "isAutomatic": true
+                "isAutomatic": false
               },
               {
                 "name": "PageBreak",
@@ -2565,8 +2578,8 @@
                 "isAutomatic": true
               },
               {
-                "name": "Inhibited checklist",
-                "expectedValue": "FLAP/SLAT CONTROL",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nFLAP/SLAT CONTROL",
                 "isAutomatic": true
               },
               {
@@ -2588,6 +2601,9 @@
                 "name": "Alternate flaps selector",
                 "expectedValue": "EXT",
                 "isAutomatic": false
+              },
+              {
+"name":"PageBreak"
               },
               {
                 "name": "PLAINTEXT",
@@ -2707,8 +2723,8 @@
                 "isAutomatic": true
               },
               {
-                "name": "Inhibited checklists",
-                "expectedValue": "PACK L \nPACK R \nCABIN ALTITUDE AUTO",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nPACK L \nPACK R \nCABIN ALTITUDE AUTO",
                 "isAutomatic": true
               },
               {
@@ -2823,7 +2839,7 @@
               {
                 "name": "Related fire switch",
                 "expectedValue": "Rotate to the stop and hold for 1 second",
-                "isAutomatic": true
+                "isAutomatic": false
               }
             ],
             "subChecklists": []
@@ -2860,8 +2876,8 @@
                 "isAutomatic": false
               },
               {
-                "name": "Inhibited checklists",
-                "expectedValue": "FUEL PUMP CENTER L \nFUEL PUMP CENTER R \nFUEL SCAVENGE SYS",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklists:\nFUEL PUMP CENTER L \nFUEL PUMP CENTER R \nFUEL SCAVENGE SYS",
                 "isAutomatic": true
               },
               {
@@ -2947,8 +2963,8 @@
               },
               {
                 "name": "PLAINTEXT",
-                "expectedValue": "An engine/main tank leak is confirmed if one or both of the following are true: - Fuel spray is observed from an engine, strut, or wing \n- A change in fuel imbalance of 500 kgs within 30 minutes or less",
-                "isAutomatic": true
+                "expectedValue": "An engine/main tank leak is confirmed if one or both of the following are true\n- Fuel spray is observed from an engine, strut, or wing \n- A change in fuel imbalance of 500 kgs within 30 minutes or less",
+                "isAutomatic": false
               },
               {
                 "name": "Engine/main tank leak is confirmed",
@@ -3029,8 +3045,8 @@
                 "isAutomatic": true
               },
               {
-                "name": "FUEL QTY LOW message shows",
-                "expectedValue": "",
+                "name": "PLAINTEXT",
+                "expectedValue": "FUEL QTY LOW message shows",
                 "isAutomatic": true
               },
               {
@@ -3054,7 +3070,7 @@
               {
                 "name": "PLAINTEXT3",
                 "expectedValue": "Plan to land at the nearest suitable airport.",
-                "isAutomatic": true
+                "isAutomatic": false
               },
               {
                 "name": "PageBreak",
@@ -3161,8 +3177,8 @@
                 "isAutomatic": true
               },
               {
-                "name": "Inhibited checklist",
-                "expectedValue": "FUEL IMBALANCE",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nFUEL IMBALANCE",
                 "isAutomatic": true
               },
               {
@@ -3200,8 +3216,8 @@
                 "isAutomatic": true
               },
               {
-                "name": "Inhibited checklists",
-                "expectedValue": "AUTOTHROTTLE L\nAUTOTHROTTLE R\nFUEL DISAGREE",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklists:\nAUTOTHROTTLE L\nAUTOTHROTTLE R\nFUEL DISAGREE",
                 "isAutomatic": true
               },
               {
@@ -3289,8 +3305,8 @@
                 "isAutomatic": true
               },
               {
-                "name": "Inhibited checklist",
-                "expectedValue": "FUEL DISAGREE",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nFUEL DISAGREE",
                 "isAutomatic": true
               },
               {
@@ -3336,7 +3352,7 @@
               },
               {
                 "name": "PLAINTEXT",
-                "expectedValue": "Reasons that a fuel leak should be suspected: \n-A visual observation of fuel spray \n- The total fuel quantity is decreasing at an abnormal rate \n- An engine has excessive fuel flow \n- The FUEL DISAGREE message shows on EICAS \n- The FUEL IMBALANCE message shows on EICAS \n-The FUEL QTY LOW message shows on EICAS \n- The INSUFFICIENT FUEL message shows on EICAS",
+                "expectedValue": "Reasons that a fuel leak should be suspected: \n- A visual observation of fuel spray \n- The total fuel quantity is decreasing at an abnormal rate \n- An engine has excessive fuel flow \n- The FUEL DISAGREE message shows on EICAS \n- The FUEL IMBALANCE message shows on EICAS \n-The FUEL QTY LOW message shows on EICAS \n- The INSUFFICIENT FUEL message shows on EICAS",
                 "isAutomatic": true
               }
             ],
@@ -3367,8 +3383,8 @@
             "name": "Ice crystal icing",
             "checks": [
               {
-                "name": "Contidion",
-                "expectedValue": "Engine ice crystal icing or TAT probe icing is suspected. Ice crystal icing conditions exist when in visible moisture, and one or more of the following indications are present: \n- Amber or red weather rader returns below the airplane \n- Appearance of liquid water on the windshield at temperatures too cold for rain (the sound is different than rain) \n- The autothrottle disconnects or is unable to maintain the selected airspeed \n- TAT indication on EICAS stays near 0 degrees C \n- Abnormal engine vibration indications",
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: Engine ice crystal icing or TAT probe icing is suspected. Ice crystal icing conditions exist when in visible moisture, and one or more of the following indications are present: \n- Amber or red weather rader returns below the airplane \n- Appearance of liquid water on the windshield at temperatures too cold for rain (the sound is different than rain) \n- The autothrottle disconnects or is unable to maintain the selected airspeed \n- TAT indication on EICAS stays near 0 degrees C \n- Abnormal engine vibration indications",
                 "isAutomatic": true
               },
               {
@@ -3382,8 +3398,8 @@
                 "isAutomatic": true
               },
               {
-                "name": "Objective",
-                "expectedValue": "To exit the ice crystal icing conditions and reduce the operational effects of the icing.",
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To exit the ice crystal icing conditions and reduce the operational effects of the icing.",
                 "isAutomatic": true
               },
               {
@@ -3427,12 +3443,12 @@
               },
               {
                 "name": "PLAINTEXT",
-                "expectedValue": "When in ice crystal icing conditions, the following can be unreliable: \n- Reference/target N1 indications and reference N1 \n- TAS, TAT, SAT, ECON SPD, and LRC",
+                "expectedValue": "When in ice crystal icing conditions, the following can be unreliable \n- Reference/target N1 indications and reference N1 \n- TAS, TAT, SAT, ECON SPD, and LRC",
                 "isAutomatic": false
               },
               {
                 "name": "PLAINTEXT",
-                "expectedValue": "When ice crystal icing conditions are no longer present:",
+                "expectedValue": "When ice crystal icing conditions are no longer present",
                 "isAutomatic": false
               },
               {
@@ -3457,7 +3473,7 @@
               },
               {
                 "name": "PLAINTEXT",
-                "expectedValue": "An erroneous TAT indication can occur as a result of ice crystals blocking the sensor. The erroneous indication can last from one minute to more than 20 minutes. TAT normally should increase approximately 2 degrees Celsius per 1000 ft of descent.",
+                "expectedValue": ":An erroneous TAT indication can occur as a result of ice crystals blocking the sensor. The erroneous indication can last from one minute to more than 20 minutes. TAT normally should increase approximately 2 degrees Celsius per 1000 ft of descent.",
                 "isAutomatic": true
               }
             ],
@@ -3693,7 +3709,7 @@
               {
                 "name": "PLAINTEXT",
                 "expectedValue": "Use momentary actuation of the outflow valve manual switches to avoid large and rapid pressurization changes. Values can take up to 6 seconds to move the first time.",
-                "isAutomatic": true
+                "isAutomatic": false
               },
               {
                 "name": "OUTFLOW VALVE MANUAL switches (both)",
@@ -3706,8 +3722,8 @@
                 "isAutomatic": false
               },
               {
-                "name": "Inhibited checklist",
-                "expectedValue": "CABIN ALTITUDE AUTO",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nCABIN ALTITUDE AUTO",
                 "isAutomatic": true
               }
             ],
@@ -3797,7 +3813,7 @@
               {
                 "name": "PLAINTEXT1",
                 "expectedValue": "Plan to land at the nearest suitable airport.",
-                "isAutomatic": true
+                "isAutomatic": false
               },
               {
                 "name": "PageBreak",
@@ -3825,7 +3841,7 @@
               {
                 "name": "FUEL CONTROL switches (both)",
                 "expectedValue": "CUTOFF, then RUN",
-                "isAutomatic": true
+                "isAutomatic": false
               },
               {
                 "name": "RAM AIR TURBINE switch",
@@ -4153,12 +4169,12 @@
                     "conditionalChecksNo": []
                   },
                   {
-                    "name": "PageBreak"
-                  },
-                  {
                     "name": "L FWD WINDOW HEAT switch",
                     "expectedValue": "OFF",
                     "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak"
                   },
                   {
                     "name": "PLAINTEXT1",
@@ -4179,7 +4195,7 @@
                   {
                     "name": "PLAINTEXT2",
                     "expectedValue": "Plan to land at the nearest suitable airport.",
-                    "isAutomatic": true
+                    "isAutomatic": false
                   },
                   {
                     "name": "Airplane altitude is above 10,000 feet:",
@@ -4229,13 +4245,14 @@
                     ],
                     "conditionalChecksNo": []
                   },
-                  {
-                    "name": "PageBreak"
-                  },
+                  
                   {
                     "name": "R FWD WINDOW HEAT switch",
                     "expectedValue": "OFF",
                     "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak"
                   },
                   {
                     "name": "PLAINTEXT1",
@@ -4306,13 +4323,14 @@
                     ],
                     "conditionalChecksNo": []
                   },
-                  {
-                    "name": "PageBreak"
-                  },
+                  
                   {
                     "name": "L SIDE WINDOW HEAT switch",
                     "expectedValue": "OFF",
                     "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak"
                   },
                   {
                     "name": "PLAINTEXT1",
@@ -4384,12 +4402,12 @@
                     "conditionalChecksNo": []
                   },
                   {
-                    "name": "PageBreak"
-                  },
-                  {
                     "name": "R SIDE WINDOW HEAT switch",
                     "expectedValue": "OFF",
                     "isAutomatic": true
+                  },
+                  {
+                    "name": "PageBreak"
                   },
                   {
                     "name": "PLAINTEXT1",
@@ -4691,7 +4709,7 @@
               {
                 "name": "OUTFLOW VALVE MANUAL switches (both)",
                 "expectedValue": "Move to OPEN until the outflow valve indications show fully open to depressurize the airplane",
-                "isAutomatic": true
+                "isAutomatic": false
               },
               {
                 "name": "PLAINTEXT",
@@ -4700,7 +4718,7 @@
               },
               {
                 "name": "PLAINTEXT",
-                "expectedValue": "Inhibited checklists:\nCABINA ALTITUDE AUTO\nLANDING ALTITUDE"
+                "expectedValue": "Inhibited checklists:\nCABIN ALTITUDE AUTO\nLANDING ALTITUDE"
               }
             ]
           },
@@ -4779,14 +4797,9 @@
                 "isAutomatic": false
               },
               {
-                "name": "Airplane altitude is above 10,000 feet:",
-                "expectedValue": "",
-                "isAutomatic": false,
-                "conditionalChecksYes": [
-                  "PLAINTEXT3",
-                  "PLAINTEXT4"
-                ],
-                "conditionalChecksNo": []
+                "name": "PLAINTEXT",
+                "expectedValue": "Airplane altitude is above 10,000 feet:",
+                "isAutomatic": true
               },
               {
                 "name": "PLAINTEXT3",
@@ -5485,7 +5498,7 @@
                   },
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue": "During daylight:\n- Install the flight deck sunvisors\n- Advise the cabin to close the cabin winndow shades",
+                    "expectedValue": "During daylight\n- Install the flight deck sunvisors\n- Advise the cabin to close the cabin winndow shades",
                     "isAutomatic": false
                   },
                   {"name": "PageBreak"},
@@ -5691,7 +5704,7 @@
               },
               {
                 "name": "PLAINTEXT",
-                "expectedValue": "To descend:\n- Move the thrust levers to idle\n- Extend the speedbrakes\n- If structural integrity is in doubt, limit airspeed and avoid high maneuvering loads.\n - Descend at Vmo/Mmo",
+                "expectedValue": "To descend\n- Move the thrust levers to idle\n- Extend the speedbrakes\n- If structural integrity is in doubt, limit airspeed and avoid high maneuvering loads.\n - Descend at Vmo/Mmo",
                 "isAutomatic": false
               }
             ]
@@ -5722,6 +5735,7 @@
               {"name": "PageBreak"},
               {"name": "NOTE", "expectedValue": "The recommended cabin rate is approximately 500 FPM for climbs and descents."},
               {"name": "NOTE", "expectedValue": "The recommended cabin altitude in cruise is:\n\tFLIGHT LEVEL               CABIN ALTITUDE\n\tUp to 230         Landing Field Elevation\n\tUp to 260                            2000\n\tUp to 300                            4000\n\tUp to 350                            6000\n\tAbove 350                            8000"},
+              {"name":"PageBreak"},
               {
                 "name": "PLAINTEXT",
                 "expectedValue": "-------------DEFFERED ITEMS-------------",
@@ -5799,7 +5813,7 @@
               },
               {
                 "name": "PLAINTEXT",
-                "expectedValue": "The EQUIP COOLING OVRD message blanks",
+                "expectedValue": "The EQUIP COOLING OVRD message blanks:",
                 "isAutomatic": true
               },
               {
@@ -5809,7 +5823,7 @@
               },
               {
                 "name": "PLAINTEXT",
-                "expectedValue": "EQUIP COOLING OVRD message shows again",
+                "expectedValue": "EQUIP COOLING OVRD message shows again:",
                 "isAutomatic": true
               },
               {
@@ -5942,7 +5956,7 @@
         "name": "Anti-ice, rain",
         "subChecklists": [
           {
-            "name": "Anti-Ice",
+            "name": "Anti-Ice ...",
             "subChecklists":[
               {
                 "name":"Anti-Ice Eng L",
@@ -6137,6 +6151,494 @@
               {
                 "name":"Anti-Ice Wing",
                 "checks":[]
+              }
+            ]
+          },
+          {
+            "name":"HEAT PITOT C",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The center pitot probe heat is failed.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"The standby air data is unreliable in icing conditions.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"HEAT PITOT L",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The left pitot probe heat is failed.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"The standby air data is unreliable in icing conditions.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"HEAT PITOT L+C+R",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The left, center and right pitot probe heat is failed.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"The air data is unreliable in icing conditions.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"HEAT PITOT R",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The right pitot probe heat is failed.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"The standby air data is unreliable in icing conditions.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"ICE CRYSTAL ICING",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Condition: Engine ice crystal icing or TAT probe icing is suspected. Ice crystal icing conditions exist when in visible moisture, and one or more of the following indications are present: \n- Amber or red weather rader returns below the airplane \n- Appearance of liquid water on the windshield at temperatures too cold for rain (the sound is different than rain) \n- The autothrottle disconnects or is unable to maintain the selected airspeed \n- TAT indication on EICAS stays near 0 degrees C \n- Abnormal engine vibration indications",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "(Additional items that can indicate ice crystal icing are listed in the Additional Information section.)",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To exit the ice crystal icing conditions and reduce the operational effects of the icing.",
+                "isAutomatic": true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue": "TAT probe icing can cause one or more of the following abnormal engine indications: \n- Reference/target N1 indications blank \n- Reference/target N1 indications decrease while flying at a constant altitude and airspeed.",
+                "isAutomatic": true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "Minimize time above amber and red weather radar returns, if conditions allow, exit the ice crystal icing conditions",
+                "isAutomatic": false
+              },
+              {
+                "name": "Autothrottle is unable to maintain the selected airspeed and TAT indication stays near 0 degrees C",
+                "expectedValue": "",
+                "isAutomatic": false,
+                "conditionalChecksYes": [
+                  "A/T ARM switches (both)",
+                  "Thrust levers (both)"
+                ]
+              },
+              {
+                "name": "A/T ARM switches (both)",
+                "expectedValue": "OFF",
+                "isAutomatic": false
+              },
+              {
+                "name": "Thrust levers (both)",
+                "expectedValue": "Set to maintain airspeed and airplane flight path",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "When in ice crystal icing conditions, the following can be unreliable \n- Reference/target N1 indications and reference N1 \n- TAS, TAT, SAT, ECON SPD, and LRC",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "When ice crystal icing conditions are no longer present",
+                "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "The autothrottle can be activated if needed.",
+                "isAutomatic": false
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue": "",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "---------ADDITIONAL INFIRMATION---------",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": "One or more of the following can indicate ice crystal icing: \n- Light to moderate turbulence \n- Static discharge around the windshield (St. Elmo's fire) \n- Smell of sulfur \n- Smell of ozone \n- Humidity increase'",
+                "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue": ":An erroneous TAT indication can occur as a result of ice crystals blocking the sensor. The erroneous indication can last from one minute to more than 20 minutes. TAT normally should increase approximately 2 degrees Celsius per 1000 ft of descent.",
+                "isAutomatic": true
+              }
+            ]
+          },
+          {
+            "name":"ICE DETECTORS",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: The ice detectors are failed.",
+                "isAutomatic":true
+              },
+              {
+                "name": "NOTE",
+                "expectedValue":"Run the engine and wing anti-ice systems manually.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"ICING ENG",
+            "checks": [
+
+            ]
+          },
+          {
+            "name":"ICING WING",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Ice is detected and one of these occurs:\n- The wing anti-ice selector is OFF\n- The wing anti-ice takeoff inhibit is active",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"WINDOW HEAT",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Two or more window heats are off.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"WINDOW HEAT L FWD",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Primary window heat for the left forward window is inoperative.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Objective: To reset the system or remove power to prevent arcing.",
+                "isAutomatic":true
+              },
+              {
+                "name": "Left forward windows is arcing, shattered or cracked:",
+                "expectedValue":"",
+                "isAutomatic":true,
+                "conditionalChecksYes":[
+                  "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue":"Do the WINDOW DAMAGE FWD L checklist.",
+                "isAutomatic":false
+              },
+              {
+                "name": "Left forward window is NOT  arcing, shattered, or cracked:",
+                "expectedValue":"",
+                "isAutomatic":true,
+                "conditionalChecksYes":[
+                  "L FWD WINDOW HEAT switch",
+                  "PLAINTEXT2",
+                  "PLAINTEXT3",
+                  "PLAINTEXT4"
+                ]
+              },
+              {
+                "name": "L FWD WINDOW HEAT switch",
+                "expectedValue":"Off",
+                "isAutomatic":false
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue":"Wait 10 seconds.",
+                "isAutomatic":true
+              },
+              {
+                "name": "L FWD WINDOW HEAT switch",
+                "expectedValue":"ON",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT3",
+                "expectedValue":"WINDOW HEAT L FWD message stays shown:",
+                "isAutomatic":true
+              },
+              {
+                "name": "L FWD WINDOW HEAT switch",
+                "expectedValue":"Off",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT4",
+                "expectedValue":"The left forward window is defogged by the backup system.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"WINDOW HEAT L SIDE",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Window heat for the left side window is inoperative.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Objective: To reset the system or remove power to prevent arcing.",
+                "isAutomatic":true
+              },
+              {
+                "name": "Left side windows is arcing, shattered or cracked:",
+                "expectedValue":"",
+                "isAutomatic":true,
+                "conditionalChecksYes":[
+                  "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue":"Do the WINDOW DAMAGE SIDE L checklist.",
+                "isAutomatic":false
+              },
+              {
+                "name": "Side forward window is NOT  arcing, shattered, or cracked:",
+                "expectedValue":"",
+                "isAutomatic":true,
+                "conditionalChecksYes":[
+                  "L SIDE WINDOW HEAT switch",
+                  "PLAINTEXT2",
+                  "PLAINTEXT3",
+                  "PLAINTEXT4"
+                ]
+              },
+              {
+                "name": "L SIDE WINDOW HEAT switch",
+                "expectedValue":"Off",
+                "isAutomatic":false
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue":"Wait 10 seconds.",
+                "isAutomatic":true
+              },
+              {
+                "name": "L SIDE WINDOW HEAT switch",
+                "expectedValue":"ON",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT3",
+                "expectedValue":"WINDOW HEAT L SIDE message stays shown:",
+                "isAutomatic":true
+              },
+              {
+                "name": "L SIDE WINDOW HEAT switch",
+                "expectedValue":"Off",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT4",
+                "expectedValue":"The left Side window is defogged by the backup system.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"WINDOW HEAT R FWD",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Primary window heat for the right forward window is inoperative.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Objective: To reset the system or remove power to prevent arcing.",
+                "isAutomatic":true
+              },
+              {
+                "name": "Right forward windows is arcing, shattered or cracked:",
+                "expectedValue":"",
+                "isAutomatic":true,
+                "conditionalChecksYes":[
+                  "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue":"Do the WINDOW DAMAGE FWD R checklist.",
+                "isAutomatic":false
+              },
+              {
+                "name": "Right forward window is NOT  arcing, shattered, or cracked:",
+                "expectedValue":"",
+                "isAutomatic":true,
+                "conditionalChecksYes":[
+                  "R FWD WINDOW HEAT switch",
+                  "PLAINTEXT2",
+                  "PLAINTEXT3",
+                  "PLAINTEXT4"
+                ]
+              },
+              {
+                "name": "R FWD WINDOW HEAT switch",
+                "expectedValue":"Off",
+                "isAutomatic":false
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue":"Wait 10 seconds.",
+                "isAutomatic":true
+              },
+              {
+                "name": "R FWD WINDOW HEAT switch",
+                "expectedValue":"ON",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT3",
+                "expectedValue":"WINDOW HEAT R FWD message stays shown:",
+                "isAutomatic":true
+              },
+              {
+                "name": "R FWD WINDOW HEAT switch",
+                "expectedValue":"Off",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT4",
+                "expectedValue":"The right forward window is defogged by the backup system.",
+                "isAutomatic":true
+              }
+            ]
+          },
+          {
+            "name":"WINDOW HEAT R SIDE",
+            "checks": [
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Condition: Window heat for the right side window is inoperative.",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"Objective: To reset the system or remove power to prevent arcing.",
+                "isAutomatic":true
+              },
+              {
+                "name": "Right side windows is arcing, shattered or cracked:",
+                "expectedValue":"",
+                "isAutomatic":true,
+                "conditionalChecksYes":[
+                  "PLAINTEXT1"
+                ]
+              },
+              {
+                "name": "PLAINTEXT1",
+                "expectedValue":"Do the WINDOW DAMAGE SIDE R checklist.",
+                "isAutomatic":false
+              },
+              {
+                "name": "Side forward window is NOT  arcing, shattered, or cracked:",
+                "expectedValue":"",
+                "isAutomatic":true,
+                "conditionalChecksYes":[
+                  "R SIDE WINDOW HEAT switch",
+                  "PLAINTEXT2",
+                  "PLAINTEXT3",
+                  "PLAINTEXT4"
+                ]
+              },
+              {
+                "name": "R SIDE WINDOW HEAT switch",
+                "expectedValue":"Off",
+                "isAutomatic":false
+              },
+              {
+                "name": "PageBreak"
+              },
+              {
+                "name": "PLAINTEXT2",
+                "expectedValue":"Wait 10 seconds.",
+                "isAutomatic":true
+              },
+              {
+                "name": "R SIDE WINDOW HEAT switch",
+                "expectedValue":"ON",
+                "isAutomatic":false
+              },
+              {
+                "name": "PLAINTEXT3",
+                "expectedValue":"WINDOW HEAT R SIDE message stays shown:",
+                "isAutomatic":true
+              },
+              {
+                "name": "R SIDE WINDOW HEAT switch",
+                "expectedValue":"Off",
+                "isAutomatic":true
+              },
+              {
+                "name": "PLAINTEXT4",
+                "expectedValue":"The right Side window is defogged by the backup system.",
+                "isAutomatic":true
               }
             ]
           }
@@ -6348,8 +6850,8 @@
                 "name": "Elec Backup Gen L",
                 "checks":[
                   {
-                    "name":"Condition",
-                    "expectedValue":"The left backup generator is failed",
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Condition: The left backup generator is failed",
                     "isAutomatic":true
                   },
                   {
@@ -6363,8 +6865,8 @@
                 "name": "Elec Backup Gen R",
                 "checks":[
                   {
-                    "name":"Condition",
-                    "expectedValue":"The right backup generator is failed",
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Condition: The right backup generator is failed",
                     "isAutomatic":true
                   },
                   {
@@ -6378,8 +6880,8 @@
                 "name": "Elec Backup Sys",
                 "checks":[
                   {
-                    "name":"Condition",
-                    "expectedValue":"The backup power system is failed",
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Condition: The backup power system is failed",
                     "isAutomatic":true
                   },
                   {
@@ -6432,6 +6934,16 @@
                 "name": "APU selector",
                 "expectedValue": "START, then ON",
                 "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"iNHIBITED CHECKLIST:\nELEC GEN OFF L",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
               },
               {
                 "name": "PLAINTEXT",
@@ -6506,6 +7018,16 @@
                 "name": "APU selector",
                 "expectedValue": "START, then ON",
                 "isAutomatic": true
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"iNHIBITED CHECKLIST:\nELEC GEN OFF R",
+                "isAutomatic":true
+              },
+              {
+                "name": "PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
               },
               {
                 "name": "PLAINTEXT",
@@ -6600,7 +7122,7 @@
               {
                 "name": "DRIVE DISC switch.......Confitm",
                 "expectedValue": "Push and hold for 1 second",
-                "isAutomatic": true
+                "isAutomatic": false
               },
               {
                 "name": "APU selector (if APU available)",
@@ -6630,7 +7152,7 @@
               {
                 "name": "DRIVE DISC switch.......Confitm",
                 "expectedValue": "Push and hold for 1 second",
-                "isAutomatic": true
+                "isAutomatic": false
               },
               {
                 "name": "APU selector (if APU available)",
@@ -6660,7 +7182,7 @@
               {
                 "name": "APU GEN switch",
                 "expectedValue": "Off, then ON",
-                "isAutomatic": true
+                "isAutomatic": false
               }
             ]
           },
@@ -6685,7 +7207,7 @@
               {
                 "name": "GEN CTRL switch",
                 "expectedValue": "Off, then ON",
-                "isAutomatic": true
+                "isAutomatic": false
               },
               {
                 "name": "PLAINTEXT",
@@ -6720,7 +7242,7 @@
               {
                 "name": "GEN CTRL switch",
                 "expectedValue": "Off, then ON",
-                "isAutomatic": true
+                "isAutomatic": false
               },
               {
                 "name": "PLAINTEXT",
@@ -6847,8 +7369,8 @@
                     "name": "PageBreak"
                   },
                   {
-                    "name": "When the HEAT PILOT L+C+R message blanks: ",
-                    "expectedValue": "",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "When the HEAT PILOT L+C+R message blanks: ",
                     "isAutomatic": false
                   },
                   {
@@ -6888,6 +7410,11 @@
                   {
                     "name":"PLAINTEXT",
                     "expectedValue": "If airframe vibrations with abnormal left engine indications exist, do the Eng Svr Damage/Sep L checklist."
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"If the left engine has seperated, do the Eng Svr Damage/Sep L checklist.",
+                    "isAutomatic":false
                   },
                   {
                     "name":"L A/T ARM switch...........Confirm",
@@ -6931,8 +7458,13 @@
                   },
                   {
                     "name":"PLAINTEXT1",
-                    "expectedValue": "Engine can accelerate to idle very slowly, especially at high altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.\n\n If N2 is steadily increasing ang EGT stays within limits, do not interrupt the start.",
+                    "expectedValue": "Engine can accelerate to idle very slowly, especially at high altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.",
                     "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"If N2 is steadily increasing ang EGT stays within limits, do not interrupt the start.",
+                    "isAutomatic":true
                   },
                   {
                     "name":"PageBreak"
@@ -6973,6 +7505,11 @@
                     "name":"L FUEL CONTROL switch",
                     "expectedValue": "RUN",
                     "isAutomatic":false
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
                   },
                   {
                     "name":"PLAINTEXT5",
@@ -7081,7 +7618,7 @@
                   {
                     "name":"GND PROX FLAP OVRD switch",
                     "expectedValue": "OVRD",
-                    "isAutomatic":false
+                    "isAutomatic":true
                   },
                   {
                     "name":"NOTE1",
@@ -7210,7 +7747,7 @@
                   {
                     "name": "PLAINTEXT",
                     "expectedValue": "Plan to land at the nearest suitable airport",
-                    "isAutomatic": true
+                    "isAutomatic": false
                   },
                   {
                     "name": "Landing using flops 20",
@@ -7255,8 +7792,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklists",
-                    "expectedValue": "AUTOTHROTTLE L, ENG FAIL L",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists: \nAUTOTHROTTLE L\nENG FAIL L",
                     "isAutomatic": true
                   }
                 ],
@@ -7377,8 +7914,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklists",
-                    "expectedValue": "AUTOTHROTTLE R, ENG FAIL R",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\nAUTOTHROTTLE R\n ENG FAIL R",
                     "isAutomatic": true
                   }
                 ],
@@ -7578,8 +8115,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklist:",
-                    "expectedValue": "AUTOTHROTTLE L",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE L",
                     "isAutomatic": true
                   },
                   {
@@ -7670,8 +8207,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklist",
-                    "expectedValue": "AUTOTHROTTLE L",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE L",
                     "isAutomatic": true
                   }
                 ],
@@ -7798,8 +8335,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklist:",
-                    "expectedValue": "AUTOTHROTTLE L",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE R",
                     "isAutomatic": true
                   },
                   {
@@ -7890,8 +8427,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklist",
-                    "expectedValue": "AUTOTHROTTLE L",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE R",
                     "isAutomatic": true
                   }
                 ],
@@ -8441,6 +8978,11 @@
                     "isAutomatic": false
                   },
                   {
+                    "name": "PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
                     "name": "Landing using flops 20",
                     "expectedValue": "",
                     "isAutomatic": false,
@@ -8579,6 +9121,11 @@
                     "name": "PLAINTEXT6",
                     "expectedValue": "Plan to land at the nearest suitable airport",
                     "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
                   },
                   {
                     "name": "Landing using flops 20",
@@ -8739,11 +9286,74 @@
                 "subChecklists": []
               },
               {
-                "name": "Eng autostart off",
-                "checks":[{
-                  "name": "PLAINTEXT",
-                  "expectedValue": "Condition: The engine autostart switch if OFF."
-                }]
+                "name": "ENG AUTOSTART L",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: During a ground start of the left engine, one of these occurs:\n- Autostart did not start the engine\n- Fuel control switch is in RUN at low engin RPM with the autotart switch OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch",
+                    "expectedValue":"CUTOFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue":"START",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Motor the engine for 30 seconds",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue":"NORM",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "ENG AUTOSTART R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: During a ground start of the left engine, one of these occurs:\n- Autostart did not start the engine\n- Fuel control switch is in RUN at low engin RPM with the autotart switch OFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L FUEL CONTROL switch",
+                    "expectedValue":"CUTOFF",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue":"START",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Motor the engine for 30 seconds",
+                    "isAutomatic":true
+                  },
+                  {
+                    "name": "L START selector",
+                    "expectedValue":"NORM",
+                    "isAutomatic":true
+                  }
+                ]
+              },
+              {
+                "name": "ENG AUTOSTART OFF",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: The engine autostart switch is OFF",
+                    "isAutomatic":true
+                  }
+                ]
               },
               {
                 "name": "Eng in-flight start L",
@@ -8809,7 +9419,7 @@
                   },
                   {
                     "name": "PLAINTEXT3",
-                    "expectedValue": "Do not interrupt autostart. Only abort the start if: \n- There is no oil pressure indication after the EGT increase \n- EGT quickly nears or exceeds the start limit \n- No further autostart attempts are needed.",
+                    "expectedValue": "Do not interrupt autostart. Only abort the start if \n- There is no oil pressure indication after the EGT increase \n- EGT quickly nears or exceeds the start limit \n- No further autostart attempts are needed.",
                     "isAutomatic": false
                   },
                   {
@@ -8818,8 +9428,13 @@
                     "isAutomatic": false
                   },
                   {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Autostart is off:",
+                    "isAutomatic":true
+                  },
+                  {
                     "name": "PLAINTEXT4",
-                    "expectedValue": "Abort the start if: \n- EGT does not rise within 30 seconds after selecting RUN \n- N2 is not increasing \n- EGT quickly nears or exceeds the start limit",
+                    "expectedValue": "Abort the start if \n- EGT does not rise within 30 seconds after selecting RUN \n- N2 is not increasing \n- EGT quickly nears or exceeds the start limit",
                     "isAutomatic": false
                   },
                   {
@@ -8961,12 +9576,11 @@
                     "isAutomatic": false,
                     "conditionalChecksYes": [
                       "Monitor EGT during start to prevent an EGT exceedance. Autostart allows EGT to exceed the in-flight start limit.",
-                      "Do not interrupt autostart. Only abort the start if: .....",
+                      "PLAINTEXT7",
+                      "PLAINTEXT6",
                       "L FUEL CONTROL switch"
                     ],
                     "conditionalChecksNo": [
-                      "Abort the start if: .....",
-                      "Crossbleed indication (X-BLD or XB) shows:"
                     ]
                   },
                   {
@@ -8980,8 +9594,8 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "Do not interrupt autostart. Only abort the start if: .....",
-                    "expectedValue": "",
+                    "name": "PLAINTEXT7",
+                    "expectedValue": "Do not interrupt autostart. Only abort the start if:\n- There is no oil pressure indication after the EGT increase \n- EGT quickly nears or exceeds the start limit \n- No further autostart attempts are needed.",
                     "isAutomatic": false
                   },
                   {
@@ -8990,8 +9604,8 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Abort the start if:\n- EGT does not rise within 30 seconds after selecting RUN\n- N2 is not increasing\n- EGT quickly nears or exceeds the start limit",
-                    "expectedValue": "",
+                    "name": "PLAINTEXT6",
+                    "expectedValue": "Abort the start if:\n- EGT does not rise within 30 seconds after selecting RUN\n- N2 is not increasing\n- EGT quickly nears or exceeds the start limit",
                     "isAutomatic": false
                   },
                   {
@@ -9317,7 +9931,7 @@
               {
                 "name": "PLAINTEXT",
                 "expectedValue": "This step prevents exceeding the thrust limits when switching to the alternate mode.",
-                "isAutomatic":false
+                "isAutomatic":true
               },
               {
                 "name": "PLAINTEXT",
@@ -9332,7 +9946,7 @@
               {
                 "name": "PLAINTEXT",
                 "expectedValue": "Activate the autothrottle.",
-                "isAutomatic":true
+                "isAutomatic":false
               },
               {
                 "name": "PageBreak"
@@ -9381,7 +9995,7 @@
               {
                 "name": "PLAINTEXT",
                 "expectedValue": "This step prevents exceeding the thrust limits when switching to the alternate mode.",
-                "isAutomatic":false
+                "isAutomatic":true
               },
               {
                 "name": "PLAINTEXT",
@@ -9396,7 +10010,7 @@
               {
                 "name": "PLAINTEXT",
                 "expectedValue": "Activate the autothrottle.",
-                "isAutomatic":true
+                "isAutomatic":false
               },
               {
                 "name": "PageBreak"
@@ -9657,7 +10271,7 @@
               {
                 "name": "PLAINTEXT1",
                 "expectedValue": "Plan to land at the nearest suitable airport.",
-                "isAutomatic": true
+                "isAutomatic": false
               },
               {
                 "name": "PageBreak",
@@ -9685,7 +10299,7 @@
               {
                 "name": "FUEL CONTROL switches (both)",
                 "expectedValue": "CUTOFF, then RUN",
-                "isAutomatic": true
+                "isAutomatic": false
               },
               {
                 "name": "RAM AIR TURBINE switch",
@@ -9709,8 +10323,13 @@
               },
               {
                 "name": "PLAINTEXT3",
-                "expectedValue": "Engines can accelerate to idle very slowly, especially at high altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes. \n \nIf N2 is steadily increasing and EGT stays within limits, do not interrupt the start.",
+                "expectedValue": "Engines can accelerate to idle very slowly, especially at high altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.",
                 "isAutomatic": false
+              },
+              {
+                "name": "PLAINTEXT",
+                "expectedValue":"If N2 is steadily increasing and EGT stays within limits, do not interrupt the start.",
+                "isAutomatic":true
               },
               {
                 "name": "PageBreak",
@@ -9818,7 +10437,8 @@
                   },
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue": "Plan to shut down the APU as soon as practical."
+                    "expectedValue": "Plan to shut down the APU as soon as practical.",
+                    "isAutomatic": false
                   },
                   {
                     "name": "PLAINTEXT",
@@ -9898,7 +10518,7 @@
               {
                 "name": "PLAINTEXT1",
                 "expectedValue": "Plan to land at the nearest suitable airport",
-                "isAutomatic":true
+                "isAutomatic":false
                 
               },
               {
@@ -9969,7 +10589,7 @@
               {
                 "name": "LDG ALT selector",
                 "expectedValue":"Push off",
-                "isAutomatic":false
+                "isAutomatic":true
               },
               {
                 "name": "PageBreak",
@@ -10199,8 +10819,8 @@
                 "isAutomatic": true
               },
               {
-                "name": "Inhibited checklist",
-                "expectedValue": "AUTOTHROTTLE L",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE L",
                 "isAutomatic": true
               }
             ]
@@ -10321,8 +10941,8 @@
                 "isAutomatic": true
               },
               {
-                "name": "Inhibited checklist",
-                "expectedValue": "AUTOTHROTTLE R",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE R",
                 "isAutomatic": true
               }
             ]
@@ -10501,6 +11121,11 @@
                 "isAutomatic":true
               },
               {
+                "name": "PageBreak",
+                "expectedValue":"",
+                "isAutomatic":true
+              },
+              {
                 "name": "Gear must be retracted for airplane performance:",
                 "expectedValue": "",
                 "isAutomatic": false,
@@ -10564,6 +11189,11 @@
                   "isAutomatic":true
                 },
                 {
+                  "name": "PageBreak",
+                  "expectedValue":"",
+                  "isAutomatic":true
+                },
+                {
                   "name": "NOTE",
                   "expectedValue":"Do not use FMC performance predictions with an engine at reduced thrust.",
                   "isAutomatic":true
@@ -10606,6 +11236,11 @@
                     "isAutomatic":true
                   },
                   {
+                    "name": "PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
                     "name": "PLAINTEXT",
                     "expectedValue":"Plan to land at the nearest suitable airport",
                     "isAutomatic":false
@@ -10630,11 +11265,6 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "PageBreak",
-                    "expectedValue": "",
-                    "isAutomatic": false
-                  },
-                  {
                     "name": "Landing using flops 30 (if performance allows)",
                     "expectedValue": "",
                     "isAutomatic": false,
@@ -10648,13 +11278,18 @@
                     "isAutomatic": true
                   },
                   {
+                    "name": "PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
                     "name": "NOTE4",
                     "expectedValue": "Check tne Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklist:",
-                    "expectedValue": "AUTOTHROTTLE L",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE L",
                     "isAutomatic": true
                   }
                 ]
@@ -10690,6 +11325,11 @@
                 {
                   "name": "NOTE",
                   "expectedValue":"Run the left engine at a thrust setting that keeps the OVERHEAT ENG R message blank.",
+                  "isAutomatic":true
+                },
+                {
+                  "name": "PageBreak",
+                  "expectedValue":"",
                   "isAutomatic":true
                 },
                 {
@@ -10735,6 +11375,11 @@
                     "isAutomatic":true
                   },
                   {
+                    "name": "PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
                     "name": "PLAINTEXT1",
                     "expectedValue":"Plan to land at the nearest suitable airport",
                     "isAutomatic":false
@@ -10759,11 +11404,6 @@
                     "isAutomatic": true
                   },
                   {
-                    "name": "PageBreak",
-                    "expectedValue": "",
-                    "isAutomatic": false
-                  },
-                  {
                     "name": "Landing using flops 30 (if performance allows)",
                     "expectedValue": "",
                     "isAutomatic": false,
@@ -10777,13 +11417,18 @@
                     "isAutomatic": true
                   },
                   {
+                    "name": "PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
                     "name": "NOTE4",
                     "expectedValue": "Check tne Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRM chapter or other approved source.",
                     "isAutomatic": true
                   },
                   {
-                    "name": "Inhibited checklist:",
-                    "expectedValue": "AUTOTHROTTLE R",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE R",
                     "isAutomatic": true
                   }
                 ]
@@ -10920,7 +11565,7 @@
               {
                 "name": "PLAINTEXT3",
                 "expectedValue": "Do the SMOKE OR FUMES REMOVAL checklist, if needed",
-                "isAutomatic": true
+                "isAutomatic": false
               },
               {
                 "name": "PageBreak",
@@ -10992,8 +11637,8 @@
                 "isAutomatic": false
               },
               {
-                "name": "Inhibited checklists",
-                "expectedValue": "PACK L, TRIM AIR L",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nPACK L\nTRIM AIR L",
                 "isAutomatic": false
               },
               {
@@ -11041,8 +11686,8 @@
                 "isAutomatic": false
               },
               {
-                "name": "Inhibited checklists",
-                "expectedValue": "PACK R, TRIM AIR R",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklists:\nPACK R\nTRIM AIR R",
                 "isAutomatic": true
               },
               {
@@ -11089,7 +11734,7 @@
               {
                 "name": "PLAINTEXT6",
                 "expectedValue": "Do the SMOKE OR FUMES REMOVAL checklist if needed",
-                "isAutomatic": true
+                "isAutomatic": false
               }
             ],
             "subChecklists": []
@@ -11133,8 +11778,8 @@
                 "isAutomatic": true
               },
               {
-                "name": "Inhibited checklist",
-                "expectedValue": "EQUIP COOLING OVRD",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nEQUIP COOLING OVRD",
                 "isAutomatic": true
               },
               {
@@ -11188,8 +11833,8 @@
                 "isAutomatic": false
               },
               {
-                "name": "Inhibited checklist",
-                "expectedValue": "OUTFLOW VALVE FWD",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nOUTFLOW VALVE FWD",
                 "isAutomatic": true
               },
               {
@@ -11331,6 +11976,11 @@
                     "isAutomatic":true
                   },
                   {
+                    "name": "PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
                     "name": "Flap position is between 5 and 20:",
                     "expectedValue": "",
                     "isAutomatic": false,
@@ -11468,6 +12118,11 @@
                     "isAutomatic":true
                   },
                   {
+                    "name": "PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":true
+                  },
+                  {
                     "name": "PLAINTEXT",
                     "expectedValue":"-------------DEFFERED ITEMS-------------",
                     "isAutomatic":true
@@ -11526,7 +12181,7 @@
                     "name":"PageBreak"
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "NOTE",
                     "expectedValue":"Check the Non-Normal Configuration Landing Distance tables for END SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source.",
                     "isAutomatic":true
                   },
@@ -11761,7 +12416,7 @@
                 "isAutomatic":false
               },
               {
-                "name": "PLAINTEXT",
+                "name": "NOTE",
                 "expectedValue":"Check the Non-Normal Configuration Landing Distance tables for END SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source.",
                 "isAutomatic":true
               }
@@ -12300,8 +12955,8 @@
                 "isAutomatic": true
               },
               {
-                "name": "Inhibited checklist",
-                "expectedValue": "FLAP/SLAT CONTROL",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nFLAP/SLAT CONTROL",
                 "isAutomatic": true
               },
               {
@@ -13548,8 +14203,8 @@
                     "isAutomatic":true
                   },
                   {
-                    "name": "Inhibited checklist:",
-                    "expectedValue":"Inhibited checklist:\nFUEL JETTISON",
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\nInhibited checklist:\nFUEL JETTISON",
                     "isAutomatic":true
                   }
                 ]
@@ -13828,8 +14483,8 @@
                 "isAutomatic": true
               },
               {
-                "name": "Inhibited checklist",
-                "expectedValue": "FUEL IMBALANCE",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nFUEL IMBALANCE",
                 "isAutomatic": true
               },
               {
@@ -13867,8 +14522,8 @@
                 "isAutomatic": true
               },
               {
-                "name": "Inhibited checklists",
-                "expectedValue": "AUTOTHROTTLE L\nAUTOTHROTTLE R\nFUEL DISAGREE",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nAUTOTHROTTLE L\nAUTOTHROTTLE R\nFUEL DISAGREE",
                 "isAutomatic": true
               },
               {
@@ -13956,8 +14611,8 @@
                 "isAutomatic": true
               },
               {
-                "name": "Inhibited checklist",
-                "expectedValue": "FUEL DISAGREE",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nFUEL DISAGREE",
                 "isAutomatic": true
               },
               {
@@ -14184,6 +14839,9 @@
                 "isAutomatic":true
               },
               {
+                "name":"PageBreak"
+              },
+              {
                 "name": "Fuel leak is suspected:",
                 "expectedValue":"",
                 "isAutomatic":false,
@@ -14380,6 +15038,9 @@
                 "isAutomatic":true
               },
               {
+                "name":"PageBreak"
+              },
+              {
                 "name": "Landing using flaps 30 (if performance allows):",
                 "expectedValue":"",
                 "isAutomatic":false,
@@ -14401,6 +15062,9 @@
                 "name": "PLAINTEXT",
                 "expectedValue":"Inhibited checklists:\nFUEL LEAK\nAUTOTHROTTLE L",
                 "isAutomatic":true
+              },
+              {
+                "name":"PageBreak"
               },
               {
                 "name": "Left engine fuel leak is NOT confirmed:",
@@ -14584,6 +15248,9 @@
                 "isAutomatic":true
               },
               {
+                "name":"PageBreak"
+              },
+              {
                 "name": "Landing using flaps 30 (if performance allows):",
                 "expectedValue":"",
                 "isAutomatic":false,
@@ -14605,6 +15272,9 @@
                 "name": "PLAINTEXT",
                 "expectedValue":"Inhibited checklists:\nFUEL LEAK\nAUTOTHROTTLE R",
                 "isAutomatic":true
+              },
+              {
+                "name":"PageBreak"
               },
               {
                 "name": "Right engine fuel leak is NOT confirmed:",
@@ -17102,8 +17772,8 @@
                 "isAutomatic": false
               },
               {
-                "name": "Inhibited checklist",
-                "expectedValue": "CABIN ALTITUDE AUTO",
+                "name": "PLAINTEXT",
+                "expectedValue": "Inhibited checklist:\nCABIN ALTITUDE AUTO",
                 "isAutomatic": true
               }
             ]
