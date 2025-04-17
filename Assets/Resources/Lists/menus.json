@@ -605,10 +605,6 @@
                       "PLAINTEXT3",
                       "L FUEL CONTROL switch",
                       "PLAINTEXT4"
-                    ],
-                    "conditionalChecksNo": [
-                      "Abort the start if: .....",
-                      "Crossbleed indication (X-BLD or XB) shows:"
                     ]
                   },
                   {

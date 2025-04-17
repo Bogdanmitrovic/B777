@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using Unity.VisualScripting;
@@ -44,7 +45,7 @@ public class CheckRenderer : MonoBehaviour
     {
         checkTextComponent.text = Text(_characterCount, _splitNameLimit);
         SetColors();
-        checkmarkImage.enabled = (check.Checked || check.Overridden ) && !check.IsNote && !check.expectedValue.Contains(":");
+        checkmarkImage.enabled = (check.Checked || check.Overridden ) && !check.IsNote && !check.expectedValue.Contains(":") && !check.expectedValue.Contains("--") && !check.expectedValue.Contains("==>");
         checkmarkBackgroundImage.enabled = !check.isAutomatic && !check.IsNote && !check.expectedValue.Contains(":");
         outline.enabled = check.IsSelected;
     }
@@ -60,107 +61,198 @@ public class CheckRenderer : MonoBehaviour
         checkmarkBackgroundImage.color = check.Overridden ? new Color(0f, 0f, 0f, 1f) : new Color(1f, 1f, 1f, .5f);
         checkmarkBackgroundImage.GetComponent<Outline>().enabled = check.Overridden;
     }
-
 private string Text(int characterCount, int splitNameLimit)
 {
-    if (check.IsNote)
-        return "NOTE: " + check.expectedValue;
+    if (check.IsNote) return $"NOTE: {check.expectedValue}";
     if (check.IsPlainText)
-        return check.expectedValue;
-        
-    var stringBuilder = new StringBuilder();
-    var indentString = new string(' ', indentation * 3);
-    var count = indentString.Length;
-    stringBuilder.Append(indentString);
-    
-    // Format the name part with proper wrapping
-    var words = check.name.Split(' ');
-    for (int i = 0; i < words.Length; i++)
     {
-        var word = words[i];
-        if (word.Contains('\n'))
-        {
-            var split = word.Split('\n');
-            stringBuilder.Append('\n');
-            stringBuilder.Append(indentString);
-            stringBuilder.Append(split[1]);
-            count = indentString.Length + split[1].Length;
-        }
-        else
-        {
-            // Check if adding this word would exceed splitNameLimit
-            if (count + word.Length >= splitNameLimit && count > indentString.Length)
-            {
-                stringBuilder.Append('\n');
-                stringBuilder.Append(indentString);
-                count = indentString.Length;
-            }
-            
-            stringBuilder.Append(word);
-            count += word.Length;
-        }
+        return WrapPlainText(check.expectedValue, characterCount);
+    }    
+    // Split name using constant limit
+    List<string> nameLines = SplitTextIntoLines(check.name, splitNameLimit);
+    
+    // Split expected value with progressively increasing limits
+    List<string> valueLines = SplitExpectedValueWithProgressiveLimits(check.expectedValue, splitNameLimit);
+    
+    StringBuilder checkText = new StringBuilder();
+    
+    // First line: name + dots + value
+    string firstLineName = nameLines.Count > 0 ? nameLines[0] : "";
+    string firstLineValue = valueLines.Count > 0 ? valueLines[0] : "";
+    string dots = GenerateDots(characterCount, firstLineName, firstLineValue);
+    checkText.Append(firstLineName + dots + firstLineValue);
+    
+    // Handle remaining lines by combining them or right-aligning as needed
+    int maxLines = Math.Max(nameLines.Count, valueLines.Count);
+    for (int i = 1; i < maxLines; i++)
+    {
+        checkText.Append("\n");
         
-        if (i != words.Length - 1)
+        string nameLine = i < nameLines.Count ? nameLines[i] : "";
+        string valueLine = i < valueLines.Count ? valueLines[i] : "";
+        
+        if (!string.IsNullOrEmpty(nameLine) && !string.IsNullOrEmpty(valueLine))
         {
-            if (count + 1 >= splitNameLimit) // +1 for space
-            {
-                stringBuilder.Append('\n');
-                stringBuilder.Append(indentString);
-                count = indentString.Length;
-            }
-            else
-            {
-                stringBuilder.Append(' ');
-                count++;
-            }
+            // Both name and value have content on this line - combine them with dots
+            string lineDots = GenerateSpaces(characterCount, nameLine, valueLine);
+            checkText.Append(nameLine + lineDots + valueLine);
+        }
+        else if (!string.IsNullOrEmpty(nameLine))
+        {
+            // Only name has content
+            checkText.Append(nameLine);
+        }
+        else if (!string.IsNullOrEmpty(valueLine))
+        {
+            // Only value has content - right align it
+            int spacesNeeded = characterCount - valueLine.Length;
+            checkText.Append(new string(' ', spacesNeeded) + valueLine);
         }
     }
     
-    // Add expected value, right aligned
-    var remainingSpace = characterCount - count;
-    
-    if (remainingSpace >= check.expectedValue.Length + 3) // At least a few dots
-    {
-        // Case 1: Everything fits on one line with dots
-        stringBuilder.Append(new string('.', remainingSpace - check.expectedValue.Length));
-        stringBuilder.Append(check.expectedValue);
-    }
-    else
-    {
-        // Case 2: Not enough space for expected value on current line
-        
-        // Add dots to fill the current line
-        if (remainingSpace > 0)
-        {
-            stringBuilder.Append(new string('.', remainingSpace));
-        }
-        
-        // Start a new line for the expected value
-        stringBuilder.Append('\n');
-        stringBuilder.Append(indentString);
-        
-        // Calculate how many characters fit per line after indentation
-        int charsPerLine = characterCount - indentString.Length;
-        
-        // Right align the expected value on the new line(s)
-        for (int i = 0; i < check.expectedValue.Length; i += charsPerLine)
-        {
-            if (i > 0)
-            {
-                stringBuilder.Append('\n');
-                stringBuilder.Append(indentString);
-            }
-            
-            int chunkLength = Math.Min(charsPerLine, check.expectedValue.Length - i);
-            string chunk = check.expectedValue.Substring(i, chunkLength);
-            
-            // Right align the chunk on the line
-            stringBuilder.Append(chunk.PadLeft(charsPerLine));
-        }
-    }
-    
-    return stringBuilder.ToString();
+    return checkText.ToString();
 }
+
+private List<string> SplitTextIntoLines(string text, int splitLimit)
+{
+    List<string> lines = new List<string>();
+    if (string.IsNullOrEmpty(text)) return lines;
+    
+    StringBuilder currentLine = new StringBuilder();
+    int currentLineLength = 0;
+    string[] words = text.Split(' ');
+    
+    foreach (string word in words)
+    {
+        // Check if adding this word would exceed the line limit
+        if (currentLineLength + word.Length + (currentLineLength > 0 ? 1 : 0) > splitLimit && currentLineLength > 0)
+        {
+            // Add current line to results and start a new line
+            lines.Add(currentLine.ToString());
+            currentLine.Clear();
+            currentLineLength = 0;
+        }
+        
+        // Add space if not at the beginning of a line
+        if (currentLineLength > 0)
+        {
+            currentLine.Append(' ');
+            currentLineLength++;
+        }
+        
+        currentLine.Append(word);
+        currentLineLength += word.Length;
+    }
+    
+    // Add the last line if there's anything in it
+    if (currentLine.Length > 0)
+    {
+        lines.Add(currentLine.ToString());
+    }
+    
+    return lines;
+}
+
+private List<string> SplitExpectedValueWithProgressiveLimits(string text, int baseLimit)
+{
+    List<string> lines = new List<string>();
+    if (string.IsNullOrEmpty(text)) return lines;
+    
+    StringBuilder currentLine = new StringBuilder();
+    int currentLineLength = 0;
+    string[] words = text.Split(' ');
+    int currentLineIndex = 0;
+    int currentLineLimit = baseLimit;
+    
+    foreach (string word in words)
+    {
+        // Check if adding this word would exceed the current line's limit
+        if (currentLineLength + word.Length + (currentLineLength > 0 ? 1 : 0) > currentLineLimit && currentLineLength > 0)
+        {
+            // Add current line to results and start a new line
+            lines.Add(currentLine.ToString());
+            currentLine.Clear();
+            currentLineLength = 0;
+            
+            // Double the limit for the next line
+            currentLineIndex++;
+            currentLineLimit = baseLimit * (int)Math.Pow(2, currentLineIndex);
+        }
+        
+        // Add space if not at the beginning of a line
+        if (currentLineLength > 0)
+        {
+            currentLine.Append(' ');
+            currentLineLength++;
+        }
+        
+        currentLine.Append(word);
+        currentLineLength += word.Length;
+    }
+    
+    // Add the last line if there's anything in it
+    if (currentLine.Length > 0)
+    {
+        lines.Add(currentLine.ToString());
+    }
+    
+    return lines;
+}
+
+private string GenerateDots(int totalLength, string leftText, string rightText)
+{
+    int leftLength = leftText.Length;
+    int rightLength = rightText.Length;
+    int dotsNeeded = totalLength - leftLength - rightLength;
+    
+    // Ensure we have at least one dot
+    dotsNeeded = Math.Max(1, dotsNeeded);
+    
+    return new string('.', dotsNeeded);
+}
+private string GenerateSpaces(int totalLength, string leftText, string rightText)
+{
+    int leftLength = leftText.Length;
+    int rightLength = rightText.Length;
+    int dotsNeeded = totalLength - leftLength - rightLength;
+    
+    // Ensure we have at least one dot
+    dotsNeeded = Math.Max(1, dotsNeeded);
+    
+    return new string(' ', dotsNeeded);
+}
+private string WrapPlainText(string text, int lineLength)
+{
+    if (string.IsNullOrEmpty(text)) return string.Empty;
+    
+    StringBuilder result = new StringBuilder();
+    int currentLineLength = 0;
+    string[] words = text.Split(' ');
+    
+    foreach (string word in words)
+    {
+        // If adding this word would exceed the line length
+        if (currentLineLength + word.Length + (currentLineLength > 0 ? 1 : 0) > lineLength && currentLineLength > 0)
+        {
+            // Start a new line
+            result.Append('\n');
+            currentLineLength = 0;
+        }
+        
+        // Add space if not at beginning of line
+        if (currentLineLength > 0)
+        {
+            result.Append(' ');
+            currentLineLength++;
+        }
+        
+        result.Append(word);
+        currentLineLength += word.Length;
+    }
+    
+    return result.ToString();
+}
+
     public void SetTextSize(int characterCount, int splitNameLimit)
     {
         _characterCount = characterCount;

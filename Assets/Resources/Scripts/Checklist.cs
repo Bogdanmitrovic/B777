@@ -72,13 +72,13 @@ public class Checklist
 
     private void CheckChecked(int index, bool checkedValue)
     {
-        Debug.Log("Checklist: " + name + " Check: " + checks[index].name + " Checked: " + checkedValue);
+        //Debug.Log("Checklist: " + name + " Check: " + checks[index].name + " Checked: " + checkedValue);
         OnCheckChecked?.Invoke();
-        var sameNameChecks = checks.FindAll(check => check.name == checks[index].name && check.expectedValue == checks[index].expectedValue);
-        var sameNameDifferentChecked = sameNameChecks.FindAll(check => check.Checked != checkedValue);
-        sameNameDifferentChecked.ForEach(check => check.TriggerOverride());
-        //checks.FindAll(check => check.name == checks[index].name && check.Checked != checkedValue)
-            //.ForEach(check => check.TriggerCheck());
+        checks.FirstOrDefault(check => check.name == checks[index].name && check.expectedValue == checks[index].expectedValue &&
+                              check.Checked != checkedValue)?.TriggerCheck();    
+
+        //checks.FindAll(check => check.name == checks[index    ].name && check.Checked != checkedValue)
+        //.ForEach(check => check.TriggerCheck());
     }
 
     public void SetListeners()
@@ -100,19 +100,37 @@ public class Checklist
         if (conditionalChecksYes != null)
             foreach (var check in conditionalChecksYes)
             {
+                Check first = null;
+                for (var i = index + 1; i < checks.Count && first == null; i++)
+                    if(checks[i].name == check)
+                        first = checks[i];
+                if (first == null) continue;
                 if (state == ConditionalState.No)
-                    checks.First(ch => ch.name == check).TriggerOverride();
+                    foreach (var ch in checks.Where(ch =>
+                                 ch.name == first.name && ch.expectedValue == first.expectedValue))
+                        ch.TriggerOverride();
                 else
-                    checks.First(ch => ch.name == check).TriggerReset();
+                    foreach (var ch in checks.Where(ch =>
+                                 ch.name == first.name && ch.expectedValue == first.expectedValue))
+                        ch.TriggerReset();
             }
 
         if (conditionalChecksNo != null)
             foreach (var check in conditionalChecksNo)
             {
+                Check first = null;
+                for (var i = index + 1; i < checks.Count && first == null; i++)
+                    if(checks[i].name == check)
+                        first = checks[i];
+                if (first == null) continue;
                 if (state == ConditionalState.Yes)
-                    checks.First(ch => ch.name == check).TriggerOverride();
+                    foreach (var ch in checks.Where(ch =>
+                                 ch.name == first.name && ch.expectedValue == first.expectedValue))
+                        ch.TriggerOverride();
                 else
-                    checks.First(ch => ch.name == check).TriggerReset();
+                    foreach (var ch in checks.Where(ch =>
+                                 ch.name == first.name && ch.expectedValue == first.expectedValue))
+                        ch.TriggerReset();
             }
         var sameNameChecks = checks.FindAll(check => check.name == checks[index].name && check.expectedValue == checks[index].expectedValue);
         var sameNameDifferentChecked = sameNameChecks.FindAll(check => check.ConditionalState != state);
