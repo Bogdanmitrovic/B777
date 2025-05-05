@@ -243,13 +243,19 @@ public class ChecklistRenderer : MonoBehaviour
            
             pageButton.transform.GetChild(0).GetComponent<TMP_Text>().text = (i + 1).ToString();
             pageButton.GetComponent<Button>().onClick.AddListener((() => { HandlePageButtonPress(iCopy + 1); }));
-            
+            if (i == 0)
+            {
+                ColorBlock cb = pageButton.GetComponent<Button>().colors;
+                cb.normalColor = new Color(.2f, .2f, .3f);
+                pageButton.GetComponent<Button>().colors = cb;
+            }
             RectTransform pageButtonRect = pageButton.GetComponent<RectTransform>();
 
             pageButtonRect.localScale = Vector3.one;
             pageButtonRect.sizeDelta =
                 new Vector2(pageButtonRect.sizeDelta.x, (pageButtonsRect.sizeDelta.y - 200) / _pagesCount);
             _highestPage = i + 1;
+            
         }
     }
 
@@ -271,10 +277,21 @@ public class ChecklistRenderer : MonoBehaviour
 
     public void HandlePreviousPage()
     {
-        //TODO ponekad se vraca 3 puta jednim klikom?
         if (_currentPage < 2)
             return;
         _currentPage--;
+
+        ColorBlock cb;
+        for (int i = 1; i < pageButtons.transform.childCount - 1; i++)
+        {
+            cb = pageButtons.transform.GetChild(i).GetComponent<Button>().colors;
+            cb.normalColor = new Color(.3f, .3f, .4f);
+            pageButtons.transform.GetChild(i).GetComponent<Button>().colors = cb;
+        }
+        cb = pageButtons.transform.GetChild(_currentPage).GetComponent<Button>().colors;
+        cb.normalColor = new Color(.2f, .2f, .3f);
+        pageButtons.transform.GetChild(_currentPage).GetComponent<Button>().colors = cb;
+
         Debug.Log("TRENUTNA: " + _currentPage);
         LoadPage();
     }
@@ -284,6 +301,18 @@ public class ChecklistRenderer : MonoBehaviour
         if (_currentPage >= _highestPage)
             return;
         _currentPage++;
+        
+        ColorBlock cb;
+        for (int i = 1; i < pageButtons.transform.childCount - 1; i++)
+        {
+            cb = pageButtons.transform.GetChild(i).GetComponent<Button>().colors;
+            cb.normalColor = new Color(.3f, .3f, .4f);
+            pageButtons.transform.GetChild(i).GetComponent<Button>().colors = cb;
+        }
+        cb = pageButtons.transform.GetChild(_currentPage).GetComponent<Button>().colors;
+        cb.normalColor = new Color(.2f, .2f, .3f);
+        pageButtons.transform.GetChild(_currentPage).GetComponent<Button>().colors = cb;
+
         Debug.Log("TRENUTNA: " + _currentPage);
         LoadPage();
     }
@@ -291,6 +320,18 @@ public class ChecklistRenderer : MonoBehaviour
     public void HandlePageButtonPress(int pageNumber)
     {
         _currentPage = pageNumber;
+        
+        ColorBlock cb;
+        for (int i = 1; i < pageButtons.transform.childCount - 1; i++)
+        {
+            cb = pageButtons.transform.GetChild(i).GetComponent<Button>().colors;
+            cb.normalColor = new Color(.3f, .3f, .4f);
+            pageButtons.transform.GetChild(i).GetComponent<Button>().colors = cb;
+        }
+        cb = pageButtons.transform.GetChild(_currentPage).GetComponent<Button>().colors;
+        cb.normalColor = new Color(.2f, .2f, .3f);
+        pageButtons.transform.GetChild(_currentPage).GetComponent<Button>().colors = cb;
+
         LoadPage();
     }
 
