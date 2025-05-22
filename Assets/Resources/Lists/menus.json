@@ -2634,6 +2634,7 @@
               "PLAINTEXT1",
               "PLAINTEXT2",
               "GND PROX GEAR OVRD switch",
+              "GND PROX TERR OVRD switch",
               "PACK switches (both)",
               "OUTFLOW VALVE switches (both)",
               "PLAINTEXT3",
@@ -5697,7 +5698,7 @@
           {
             "name": "Cabin altitude auto",
             "deferredChecks":[
-"OUTFLOW VALVE MANUAL switches (both)",
+" OUTFLOW VALVE MANUAL switches (both)",
 "PLAINTEXT3",
 "PLAINTEXT4",
 "PLAINTEXT5",
@@ -5750,7 +5751,7 @@
                 "isAutomatic": false
               },
               {
-                "name": "OUTFLOW VALVE MANUAL switches (both)",
+                "name": " OUTFLOW VALVE MANUAL switches (both)",
                 "expectedValue": "Move to OPEN until the outflow valve indications show fully open to depressurize the airplane",
                 "isAutomatic": false
               }
@@ -13540,7 +13541,7 @@
                 "isAutomatic": false
               },
               {
-                "name": "PLAINTEXt",
+                "name": "PLAINTEXT",
                 "expectedValue": "Cross check the captain, first officer, and standby airspeed indicators",
                 "isAutomatic": false
               },
@@ -17520,17 +17521,21 @@
                 "deferredChecks":[
                   "ALTN GEAR extend switch",
                   "Landing gear lever",
-                  "PLAINTEXT",
-                  "NOTE"
+                  "PLAINTEXT1",
+                  "PLAINTEXT2",
+                  "PLAINTEXT3",
+                  "PLAINTEXT4",
+                  "NOTE",
+                  " C1 ELEC PRIMARY pump switch"
                 ],
                 "checks":[
                   {
-                    "name": "PLAINTEXT1",
+                    "name": "PLAINTEXT",
                     "expectedValue":"Condition: The right and center hydraulic quantities are low.",
                     "isAutomatic":false
                   },
                   {
-                    "name": "PLAINTEXT1",
+                    "name": "PLAINTEXT",
                     "expectedValue":"Objective: To prevent fluid loss through the brake system.",
                     "isAutomatic":false
                   },
@@ -17540,7 +17545,7 @@
                     "isAutomatic":false
                   },
                   {
-                    "name": "PLAINTEXT1",
+                    "name": "PLAINTEXT",
                     "expectedValue":"Plan to land at the nearest suitable airport",
                     "isAutomatic":false
                   },
@@ -17563,7 +17568,7 @@
                     "isAutomatic":false
                   },
                   {
-                    "name": "PLAINTEXT1",
+                    "name": "PLAINTEXT",
                     "expectedValue":"Inhibited checklist:\nRESERVE BRAKES/STRG",
                     "isAutomatic":false
                   },
@@ -17597,27 +17602,27 @@
                     "isAutomatic":true
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT1",
                     "expectedValue":"A reduction of airspeed is below 240 knots may be necessary for landing gear to lock down",
                     "isAutomatic":false
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT2",
                     "expectedValue":"Inhibited checklist:\nGEAR DOOR",
                     "isAutomatic":false
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT3",
                     "expectedValue":"==> LANDING CHECKLIST",
                     "isAutomatic":true
                   },
                   {
-                    "name": "C1 ELEC PRIMARY pump switch",
+                    "name": " C1 ELEC PRIMARY pump switch",
                     "expectedValue":"ON",
                     "isAutomatic":false
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT4",
                     "expectedValue":"This step restores alternate brakes from the reserve hydraulic source and may restore steering.",
                     "isAutomatic":false
                   },
