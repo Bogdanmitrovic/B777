@@ -31,6 +31,9 @@ public class Checklist
         if (deferredChecks == null || deferredChecks.Count == 0)
             return false;
         var notDone = checks.FindAll(check => !check.IsDone);
+        if (notDone.Count < 1)
+            return false;
+        
         return notDone.All(check => deferredChecks.Contains(check.name));
     }
 
@@ -96,7 +99,6 @@ public class Checklist
         Debug.Log("Conditional check " + index + " is " + state);
         var conditionalChecksYes = checks[index].conditionalChecksYes;
         var conditionalChecksNo = checks[index].conditionalChecksNo;
-        OnCheckChecked?.Invoke();
         if (conditionalChecksYes != null)
             foreach (var check in conditionalChecksYes)
             {
@@ -132,6 +134,7 @@ public class Checklist
                                  ch.name == first.name && ch.expectedValue == first.expectedValue))
                         ch.TriggerReset();
             }
+        OnCheckChecked?.Invoke();
         var sameNameChecks = checks.FindAll(check => check.name == checks[index].name && check.expectedValue == checks[index].expectedValue);
         var sameNameDifferentChecked = sameNameChecks.FindAll(check => check.ConditionalState != state);
         sameNameDifferentChecked.ForEach(check => check.TriggerConditionCheck(state));

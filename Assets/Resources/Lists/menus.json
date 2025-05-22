@@ -1,7 +1,6 @@
 [
   {
     "name": "Normal Menu",
-    "checks": [],
     "subChecklists": [
       {
         "name": "Preflight",
@@ -24,12 +23,12 @@
           {
             "name": "Parking brake",
             "expectedValue": "Set",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Fuel control switches",
             "expectedValue": "CUTOFF",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Taxi and takeoff briefing",
@@ -69,12 +68,12 @@
           {
             "name": "Beacon",
             "expectedValue": "ON",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Trasponder",
             "expectedValue": "XPNDR",
-            "isAutomatic": true
+            "isAutomatic": false
           }
         ]
       },
@@ -94,12 +93,12 @@
           {
             "name": "Autobrake",
             "expectedValue": "RTO",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Flaps",
             "expectedValue": "___",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Ground crew clearance",
@@ -155,7 +154,7 @@
           {
             "name": "Flaps",
             "expectedValue": "___",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Trim",
@@ -173,7 +172,7 @@
           {
             "name": "Transponder",
             "expectedValue": "TA/RA",
-            "isAutomatic": true
+            "isAutomatic": false
           }
         ]
       },
@@ -248,17 +247,17 @@
           {
             "name": "Speedbrake",
             "expectedValue": "ARMED",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Landing gear",
             "expectedValue": "DOWN",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Flaps",
             "expectedValue": "___",
-            "isAutomatic": true
+            "isAutomatic": false
           }
         ]
       },
@@ -268,32 +267,32 @@
           {
             "name": "Speedbrake",
             "expectedValue": "DOWN",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "strobe and landing lights",
             "expectedValue": "OFF",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Weather radar",
             "expectedValue": "Off",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Flaps",
             "expectedValue": "UP",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Transponder",
             "expectedValue": "XPNDR",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "NOTE",
             "expectedValue": "Carry out Engine Out Taxi In unless there are overriding safety or operational considerations",
-            "isAutomatic": true
+            "isAutomatic": false
           }
         ]
       },
@@ -303,42 +302,42 @@
           {
             "name": "Parking brake",
             "expectedValue": "Set",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Fuel control switches",
             "expectedValue": "CUTOFF",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Doors",
             "expectedValue": "Manual",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Seat belt signs",
             "expectedValue": "OFF",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Hydraulic panel",
             "expectedValue": "Set",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Fuel pumps",
             "expectedValue": "Off",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Beacon",
             "expectedValue": "Off",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Transponder",
             "expectedValue": "2000, STBY",
-            "isAutomatic": true
+            "isAutomatic": false
           }
         ]
       },
@@ -348,17 +347,17 @@
           {
             "name": "ADIRU",
             "expectedValue": "OFF",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Emergency lights",
             "expectedValue": "OFF",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Packs",
             "expectedValue": "OFF",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "PCA available",
@@ -368,17 +367,17 @@
           {
             "name": "EXT PWR",
             "expectedValue": "ON",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "APU",
             "expectedValue": "OFF",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "Battery",
             "expectedValue": "OFF",
-            "isAutomatic": true
+            "isAutomatic": false
           },
           {
             "name": "F/D access switch",
@@ -981,12 +980,12 @@
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
-                      "GND PROI FLAP OVRD switch",
+                      "GND PROX FLAP OVRD switch",
                       "NOTE3"
                     ]
                   },
                   {
-                    "name": "GND PROI FLAP OVRD switch",
+                    "name": "GND PROX FLAP OVRD switch",
                     "expectedValue": "DVRD",
                     "isAutomatic": false
                   },
@@ -1001,7 +1000,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 30 (if performance allows)",
+                    "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -1180,7 +1179,7 @@
                     "conditionalChecksYes": [
                       "Transponder mode selector",
                       "NOTE2",
-                      "Landing using flops 20",
+                      "Landing using flaps 20",
                       "Landing using flaps 30 (if performance allows)",
                       "NOTE4",
                       "Inhibited checklist"
@@ -1197,16 +1196,16 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 20",
+                    "name": "Landing using flaps 20",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
-                      "GND PROI FLAP OVRD switch",
+                      "GND PROX FLAP OVRD switch",
                       "NOTE3"
                     ]
                   },
                   {
-                    "name": "GND PROI FLAP OVRD switch",
+                    "name": "GND PROX FLAP OVRD switch",
                     "expectedValue": "DVRD",
                     "isAutomatic": false
                   },
@@ -1221,7 +1220,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 30 (if performance allows)",
+                    "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -1411,7 +1410,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 20",
+                    "name": "Landing using flaps 20",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -1533,7 +1532,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 20",
+                    "name": "Landing using flaps 20",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -1737,8 +1736,8 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Objective",
-                    "expectedValue": "To remove power from the ignition source. To land the airplane as soon as possible, if needed.",
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Objective: To remove power from the ignition source. To land the airplane as soon as possible, if needed.",
                     "isAutomatic": false
                   },
                   {
@@ -2325,8 +2324,8 @@
                 "isAutomatic": false
               },
               {
-                "name": "Objective",
-                "expectedValue": "To identify a reliable airspeed indication, if possible, or to continue the flight using the Flight With Unreliable Airspeed table in the Performance Inflight chapter.",
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To identify a reliable airspeed indication, if possible, or to continue the flight using the Flight With Unreliable Airspeed table in the Performance Inflight chapter.",
                 "isAutomatic": false
               },
               {
@@ -2418,7 +2417,7 @@
                 "isAutomatic": false
               },
               {
-                "name": "PLAINTEXt",
+                "name": "PLAINTEXT",
                 "expectedValue": "Cross check the captain, first officer, and standby airspeed indicators",
                 "isAutomatic": false
               },
@@ -2581,12 +2580,7 @@
               {
                 "name": "PLAINTEXT",
                 "expectedValue": "----------DEFERRED ITEMS----------",
-                "isAutomatic": false
-              },
-              {
-                "name": "PLAINTEXT",
-                "expectedValue": "==> APPROACH CHECKLIST",
-                "isAutomatic": false
+                "isAutomatic": true
               },
               {
                 "name": "ALTN FLAPS ARM switch",
@@ -2666,12 +2660,12 @@
               {
                 "name": "PLAINTEXT",
                 "expectedValue": "----------DEFERRED ITEMS----------",
-                "isAutomatic": false
+                "isAutomatic": true
               },
               {
                 "name": "PLAINTEXT1",
                 "expectedValue": "==> APPROACH CHECKLIST",
-                "isAutomatic": false
+                "isAutomatic": true
               },
               {
                 "name": "PLAINTEXT2",
@@ -2706,7 +2700,7 @@
               {
                 "name": "PLAINTEXT3",
                 "expectedValue": "==> APPROACH CHECKLIST",
-                "isAutomatic": false
+                "isAutomatic": true
               },
               {
                 "name": "OUTFLOW VALVE MANUAL switches (both)",
@@ -2731,11 +2725,6 @@
               {
                 "name": "PageBreak",
                 "expectedValue": "",
-                "isAutomatic": false
-              },
-              {
-                "name": "PLAINTEXT",
-                "expectedValue": "==> APPROACH CHECKLIST",
                 "isAutomatic": false
               },
               {
@@ -2908,8 +2897,8 @@
                 "isAutomatic": false
               },
               {
-                "name": "Objective",
-                "expectedValue": "To confirm there is a fuel leak. If confirmed, to isolate the leak to one of the following: -engine \n- main tank \n- center tank",
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To confirm there is a fuel leak. If confirmed, to isolate the leak to one of the following: -engine \n- main tank \n- center tank",
                 "isAutomatic": false
               },
               {
@@ -5069,7 +5058,7 @@
                   },
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue": "The air supply controller automatically isolates the heat source within approixmately 3 minutes by closing the bleed and isolation valves.",
+                    "expectedValue": "The air supply controller automatically isolates the heat source within apPROXxmately 3 minutes by closing the bleed and isolation valves.",
                     "isAutomatic": false
                   },
                   {
@@ -5099,7 +5088,7 @@
                   },
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue": "The air supply controller automatically isolates the heat source within approixmately 5 minutes by closing the bleed and isolation valves.",
+                    "expectedValue": "The air supply controller automatically isolates the heat source within apPROXxmately 5 minutes by closing the bleed and isolation valves.",
                     "isAutomatic": false
                   },
                   {
@@ -5129,7 +5118,7 @@
                   },
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue": "The air supply controller automatically isolates the heat source within approixmately 5 minutes by closing the bleed and isolation valves.",
+                    "expectedValue": "The air supply controller automatically isolates the heat source within apPROXxmately 5 minutes by closing the bleed and isolation valves.",
                     "isAutomatic": false
                   },
                   {
@@ -5707,6 +5696,14 @@
           },
           {
             "name": "Cabin altitude auto",
+            "deferredChecks":[
+"OUTFLOW VALVE MANUAL switches (both)",
+"PLAINTEXT3",
+"PLAINTEXT4",
+"PLAINTEXT5",
+"PLAINTEXT6"
+
+            ],
             "checks": [
               {
                 "name": "PLAINTEXT",
@@ -5733,22 +5730,22 @@
               {"name": "NOTE", "expectedValue": "The recommended cabin altitude in cruise is:\n\tFLIGHT LEVEL               CABIN ALTITUDE\n\tUp to 230         Landing Field Elevation\n\tUp to 260                            2000\n\tUp to 300                            4000\n\tUp to 350                            6000\n\tAbove 350                            8000"},
               {"name":"PageBreak"},
               {
-                "name": "PLAINTEXT",
-                "expectedValue": "-------------DEFFERED ITEMS-------------",
-                "isAutomatic": false
+                "name": "PLAINTEXT3",
+                "expectedValue": "-------------DEFERRED ITEMS-------------",
+                "isAutomatic": true
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT4",
                 "expectedValue": "==> APPROACH CHECKLIST",
-                "isAutomatic": false
+                "isAutomatic": true
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT5",
                 "expectedValue": "When at pattern altitude:",
                 "isAutomatic": false
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT6",
                 "expectedValue": "Use momentary actuation of the outflow valve manual switches to avoid large and rapid pressurization changes.",
                 "isAutomatic": false
               },
@@ -5846,6 +5843,12 @@
           },
           {
             "name": "Outflow valve aft",
+            "deferredChecks":[
+              " AFT OUTFLOW VALVE MANUAL switch",
+              "PLAINTEXT3",
+              "PLAINTEXT4",
+              "PLAINTEXT5"
+            ],
             "checks": [
               {
                 "name": "PLAINTEXT",
@@ -5869,27 +5872,22 @@
               },
               {"name": "PageBreak"},
               {
-                "name": "PLAINTEXT",
-                "expectedValue": "-------------DEFFERED ITEMS-------------",
-                "isAutomatic": false
+                "name": "PLAINTEXT3",
+                "expectedValue": "-------------DEFERRED ITEMS-------------",
+                "isAutomatic": true
               },
               {
-                "name": "PLAINTEXT",
-                "expectedValue": "==> APPROACH CHECKLIST",
-                "isAutomatic": false
-              },
-              {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT4",
                 "expectedValue": "When at pattern altitude:",
                 "isAutomatic": false
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT5",
                 "expectedValue": "Use momentary actuation of the outflow valve manual switches to avoid large and rapid pressurization changes.",
                 "isAutomatic": false
               },
               {
-                "name": "AFT OUTFLOW VALVE MANUAL switch",
+                "name": " AFT OUTFLOW VALVE MANUAL switch",
                 "expectedValue": "Move to OPEN until the outflow valve indications show fully open",
                 "isAutomatic": false
               }
@@ -5897,6 +5895,12 @@
           },
           {
             "name": "Outflow valve fwd",
+            "deferredChecks": [
+              " FWD OUTFLOW VALVE MANUAL switch",
+              "PLAINTEXT3",
+              "PLAINTEXT4",
+              "PLAINTEXT5"
+            ],
             "checks": [
               {
                 "name": "PLAINTEXT",
@@ -5920,27 +5924,22 @@
               },
               {"name": "PageBreak"},
               {
-                "name": "PLAINTEXT",
-                "expectedValue": "-------------DEFFERED ITEMS-------------",
-                "isAutomatic": false
+                "name": "PLAINTEXT3",
+                "expectedValue": "-------------DEFERRED ITEMS-------------",
+                "isAutomatic": true
               },
               {
-                "name": "PLAINTEXT",
-                "expectedValue": "==> APPROACH CHECKLIST",
-                "isAutomatic": false
-              },
-              {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT4",
                 "expectedValue": "When at pattern altitude:",
                 "isAutomatic": false
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT5",
                 "expectedValue": "Use momentary actuation of the outflow valve manual switches to avoid large and rapid pressurization changes.",
                 "isAutomatic": false
               },
               {
-                "name": "FWD OUTFLOW VALVE MANUAL switch",
+                "name": " FWD OUTFLOW VALVE MANUAL switch",
                 "expectedValue": "Move to OPEN until the outflow valve indications show fully open",
                 "isAutomatic": false
               }
@@ -5958,8 +5957,8 @@
                 "name":"Anti-Ice Eng L",
                 "checks":[
                   {
-                    "name":"Condition",
-                    "expectedValue":"The left engine anti-ice valve is closed when commanded open.",
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Condition: The left engine anti-ice valve is closed when commanded open.",
                     "isAutomatic":false
                   },
                   {
@@ -6043,8 +6042,8 @@
                 "name":"Anti-Ice Eng R",
                 "checks":[
                   {
-                    "name":"Condition",
-                    "expectedValue":"The right engine anti-ice valve is closed when commanded open.",
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Condition: The right engine anti-ice valve is closed when commanded open.",
                     "isAutomatic":false
                   },
                   {
@@ -6126,27 +6125,294 @@
               },
               {
                 "name":"Anti-Ice Leak Eng L",
-                "checks":[]
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: A bleed air leak occurs in the left engine anti-ice dust."
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Objective: To reduce he flow of bleed air throught the leak."
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"The engine anti-ice system automatically isolates the host source within approximately 2 minutes by closing the engine anti-ice valve."
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Avoid icing conditions."
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Wait 2 minutes."
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"ANTI-ICE LEAK ENG L message stays shown:"
+                  },
+                  {
+                    "name": "L A/T ARM switch",
+                    "expectedValue":"OFF"
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue":""
+                  },
+                  {
+                    "name": "Left thrust lever",
+                    "expectedValue":"Retard slowly until the ANTI-ICE LEAK ENG L message blanks or the thrust lever is at idle"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\n-AUTOTHROTTLE L"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"ANTI-ICE LEAK ENG L message blanks:"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Run the left engine at a thrust setting that keeps the ANTI-ICE LEAK ENG L message blank."
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Do not use FMC performance predictions with an engine at reduced thrust."
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue":""
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue":"TA ONLY"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"ANTI-ICE LEAK ENG L message stays shown:"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Run the left engine at idle for the rest of the flight."
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Do not use FMC performance predictions with an engine at reduced thrust."
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue":"TA ONLY"
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue":""
+                  },
+                  {
+                    "name": "Landing using flaps 20:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                       "NOTE2",
+                       "GND PROX FLAP OVRD switch"
+                    ]
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue":"OVRD"
+                  },
+                  {
+                    "name": "NOTE2",
+                    "expectedValue":"Use flaps 20 and VREF 20 for landing and flaps 5 for go-around."
+                  },
+                  {
+                    "name": "Landing using flaps 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE3"
+                    ]
+                  },
+                  {
+                    "name": "NOTE3",
+                    "expectedValue":"Use flaps 30 and VREF 30 for landing and flaps 20 for go-around"
+                  }
+                ]
               },
               {
                 "name":"Anti-Ice Leak Eng R",
-                "checks":[]
-              },
+"checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: A bleed air leak occurs in the right engine anti-ice dust."
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Objective: To reduce he flow of bleed air throught the leak."
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"The engine anti-ice system automatically isolates the host source within approximately 2 minutes by closing the engine anti-ice valve."
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Avoid icing conditions."
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Wait 2 minutes."
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"ANTI-ICE LEAK ENG R message stays shown:"
+                  },
+                  {
+                    "name": "R A/T ARM switch",
+                    "expectedValue":"OFF"
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue":""
+                  },
+                  {
+                    "name": "Left thrust lever",
+                    "expectedValue":"Retard slowly until the ANTI-ICE LEAK ENG R message blanks or the thrust lever is at idle"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Inhibited checklist:\n-AUTOTHROTTLE R"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"ANTI-ICE LEAK ENG R message blanks:"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Run the left engine at a thrust setting that keeps the ANTI-ICE LEAK ENG R message blank."
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Do not use FMC performance predictions with an engine at reduced thrust."
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue":""
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue":"TA ONLY"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"ANTI-ICE LEAK ENG R message stays shown:"
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Run the right engine at idle for the rest of the flight."
+                  },
+                  {
+                    "name": "NOTE",
+                    "expectedValue":"Do not use FMC performance predictions with an engine at reduced thrust."
+                  },
+                  {
+                    "name": "Transponder mode selector",
+                    "expectedValue":"TA ONLY"
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue":""
+                  },
+                  {
+                    "name": "Landing using flaps 20:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                       "NOTE2",
+                       "GND PROX FLAP OVRD switch"
+                    ]
+                  },
+                  {
+                    "name": "GND PROX FLAP OVRD switch",
+                    "expectedValue":"OVRD"
+                  },
+                  {
+                    "name": "NOTE2",
+                    "expectedValue":"Use flaps 20 and VREF 20 for landing and flaps 5 for go-around."
+                  },
+                  {
+                    "name": "Landing using flaps 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "NOTE3"
+                    ]
+                  },
+                  {
+                    "name": "NOTE3",
+                    "expectedValue":"Use flaps 30 and VREF 30 for landing and flaps 20 for go-around"
+                  }
+                ]              },
               {
                 "name":"Anti-Ice Loss Eng L",
-                "checks":[]
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: Anti-ice bleed air for the left engine is not available."
+                  }
+                ]
               },
               {
                 "name":"Anti-Ice Loss Eng R",
-                "checks":[]
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: Anti-ice bleed air for the right engine is not available."
+                  }
+                ]
               },
               {
                 "name":"Anti-Ice On",
-                "checks":[]
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: All of these occur:\n- An anti-ice selector is ON\n- TAT is more than 10 degrees C\n- Ice is not detected"
+                  },
+                  {
+                    "name": "ENGINE ANTI-ICE selectors (both)",
+                    "expectedValue":"AUTO or OFF"
+                  },
+                  {
+                    "name": "WING ANTI-ICE selector",
+                    "expectedValue":"AUTO or OFF"
+                  }
+                ]
               },
               {
                 "name":"Anti-Ice Wing",
-                "checks":[]
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Condition: One or both wing anti-ice valves are failed closed."
+                  },
+                  {
+                    "name": "WING ANTI-ICE selector",
+                    "expectedValue":"OFF, then ON"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"ANTI-ICE WING message blanks:"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"Run wing anti-ice manually"
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"ANTI-ICE WING message stays shown:"
+                  },
+                  {
+                    "name": "WING ANTI-ICE selector",
+                    "expectedValue":"OFF"
+                  }
+                ]
               }
             ]
           },
@@ -6294,7 +6560,7 @@
               },
               {
                 "name": "PLAINTEXT",
-                "expectedValue": "---------ADDITIONAL INFIRMATION---------",
+                "expectedValue": "---------ADDITIONAL INFORMATION---------",
                 "isAutomatic": false
               },
               {
@@ -6647,8 +6913,8 @@
             "name": "Autopilot",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue":"One or more of these occur:\n- The autopilot is in a degraded mode other than the selected mode\n- The engaged roll mode is failed\n- The engaged pitch mode is failed\n-The autopilot is in flight envelope protection",
+                "name":"PLAINTEXT",
+                "expectedValue":"Condition: One or more of these occur:\n- The autopilot is in a degraded mode other than the selected mode\n- The engaged roll mode is failed\n- The engaged pitch mode is failed\n-The autopilot is in flight envelope protection",
                 "isAutomatic":false
               }
             ]
@@ -6657,8 +6923,8 @@
             "name": "Autopilot Disc",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue":"All autopilots are disengaged.",
+                "name":"PLAINTEXT",
+                "expectedValue":"Condition: All autopilots are disengaged.",
                 "isAutomatic":false
               }
             ]
@@ -6667,8 +6933,8 @@
             "name": "Autothrottle Disc",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue":"Both autothrottles are disconnected.",
+                "name":"PLAINTEXT",
+                "expectedValue":"Condition: Both autothrottles are disconnected.",
                 "isAutomatic":false
               }
             ]
@@ -6677,8 +6943,8 @@
             "name": "Autothrottle L",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue":"The left autothrottle is inoperative",
+                "name":"PLAINTEXT",
+                "expectedValue":"Condition: The left autothrottle is inoperative",
                 "isAutomatic":false
               },{
                 "name":"L A/T ARM switch...........Confirm",
@@ -6695,8 +6961,8 @@
             "name": "Autothrotthle R",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue":"The right autothrottle is inoperative",
+                "name":"PLAINTEXT",
+                "expectedValue":"Condition: The right autothrottle is inoperative",
                 "isAutomatic":false
               },{
                 "name":"R A/T ARM switch...........Confirm",
@@ -6713,8 +6979,8 @@
             "name": "No Autoland",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue":"The autoland system is not available.",
+                "name":"PLAINTEXT",
+                "expectedValue":"Condition: The autoland system is not available.",
                 "isAutomatic":false
               }
             ]
@@ -6723,8 +6989,8 @@
             "name": "No Land 3",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue":"The autoland system does not have redundancy for a triple channel autoland.",
+                "name":"PLAINTEXT",
+                "expectedValue":"Condition: The autoland system does not have redundancy for a triple channel autoland.",
                 "isAutomatic":false
               }
             ]
@@ -6738,8 +7004,8 @@
             "name": "Datalink lost",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue": "The ACARS datalink is temporarily lost.",
+                "name":"PLAINTEXT",
+                "expectedValue": "Condition: The ACARS datalink is temporarily lost.",
                 "isAutomatic":false
               }
             ]
@@ -6748,8 +7014,8 @@
             "name": "Datalink sys",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue": "The datalink system is failed.",
+                "name":"PLAINTEXT",
+                "expectedValue": "Condition: The datalink system is failed.",
                 "isAutomatic":false
               }
             ]
@@ -6758,8 +7024,8 @@
             "name": "Radio transmit",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue": "A microphone switch is on and causes a radio to transmit for 30 seconds or more.",
+                "name":"PLAINTEXT",
+                "expectedValue": "Condition: A microphone switch is on and causes a radio to transmit for 30 seconds or more.",
                 "isAutomatic":false
               },
               {
@@ -6788,8 +7054,8 @@
             "name": "Satcom",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue": "The SATCOM system is failed.",
+                "name":"PLAINTEXT",
+                "expectedValue": "Condition: The SATCOM system is failed.",
                 "isAutomatic":false
               }
             ]
@@ -6798,8 +7064,8 @@
             "name": "Satcom Datalink",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue": "The SATCOM datalink is failed.",
+                "name":"PLAINTEXT",
+                "expectedValue": "Condition: The SATCOM datalink is failed.",
                 "isAutomatic":false
               }
             ]
@@ -6808,8 +7074,8 @@
             "name": "Satcom Voice",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue": "SATCOM voice communication is failed.",
+                "name":"PLAINTEXT",
+                "expectedValue": "Condition: SATCOM voice communication is failed.",
                 "isAutomatic":false
               }
             ]
@@ -6818,8 +7084,8 @@
             "name": "Satvoice Lost",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue": "SATCOM voice communication is temporarily lost.",
+                "name":"PLAINTEXT",
+                "expectedValue": "Condition: SATCOM voice communication is temporarily lost.",
                 "isAutomatic":false
               }
             ]
@@ -6828,8 +7094,8 @@
             "name": "VHF Datalink",
             "checks": [
               {
-                "name":"Condition",
-                "expectedValue": "The VHF datalink is failed.",
+                "name":"PLAINTEXT",
+                "expectedValue": "Condition: The VHF datalink is failed.",
                 "isAutomatic":false
               }
             ]
@@ -7447,8 +7713,10 @@
                       "PLAINTEXT4",
                       "L FUEL CONTROL switch",
                       "PLAINTEXT5",
-                      "PLAINTEXT6"
-
+                      "PLAINTEXT6",
+                      "PLAINTEXT7",
+                      "L START selector",
+                      "Crossbleed indication (X-BLD or XB) is blank:"
                     ],
                     "conditionalChecksNo": []
                   },
@@ -7458,7 +7726,7 @@
                     "isAutomatic":false
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT7",
                     "expectedValue":"If N2 is steadily increasing ang EGT stays within limits, do not interrupt the start.",
                     "isAutomatic":false
                   },
@@ -7647,6 +7915,268 @@
                 ]
               },
               {
+                "name":"ENG FAIL R",
+                "checks":[
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Condition: Right engine speed is below idle.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Objective: To restart the engine if needed, or configure for single engine operation.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "If thrust is lost on BOTH engines, do the Dual Eng Fail/Stall checklist."
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "If airframe vibrations with abnormal right engine indications exist, do the Eng Svr Damage/Sep R checklist."
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue":"If the right engine has seperated, do the Eng Svr Damage/Sep R checklist.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"R A/T ARM switch...........Confirm",
+                    "expectedValue": "OFF"
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name":"Right thrust lever............Confirm",
+                    "expectedValue": "Idle"
+                  },
+                  {
+                    "name":"R FUEL CONTROL switch...........Confirm",
+                    "expectedValue": "CUTOFF"
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "A restart can be attempted if there is N1 rotation and no abnormal airframe vibration.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "Restart is needed:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT1",
+                      "Crossbleed indication (X-BLD or XB) shows:",
+                      "PLAINTEXT2",
+                      "PLAINTEXT3",
+                      "PLAINTEXT4",
+                      "R FUEL CONTROL switch",
+                      "PLAINTEXT5",
+                      "PLAINTEXT6",
+                      "PLAINTEXT7",
+                      "R START selector"
+
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"PLAINTEXT1",
+                    "expectedValue": "Engine can accelerate to idle very slowly, especially at high altitudes. The time from fuel control switch to RUN to stabilized idle can take up to two and a half minutes.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PLAINTEXT7",
+                    "expectedValue":"If N2 is steadily increasing ang EGT stays within limits, do not interrupt the start.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "Crossbleed indication (X-BLD or XB) shows:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "R START selector"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"R START selector",
+                    "expectedValue": "START",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT2",
+                    "expectedValue": "Autostart is on:",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT3",
+                    "expectedValue": "Monitor EGT during start to prevent an EGT exceedance. Autostart allows EGT to exceed the in-flight start limit.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name":"PLAINTEXT4",
+                    "expectedValue": "Do not interrupt autostart. Only abort the start if: \n- There is no oil pressure indication after the EGT increase \n- EGT quickly nears or exceeds the start limit \n- No further autostart attempts are needed.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"R FUEL CONTROL switch",
+                    "expectedValue": "RUN",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "PageBreak",
+                    "expectedValue":"",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT5",
+                    "expectedValue": "Autostart is off:",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT6",
+                    "expectedValue": "Abort the start if: \n- EGT does not rise within 30 seconds after selecting RUN \n- N2 is not increasing \n- EGT quickly nears or exceeds the start limit",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "Crossbleed indication (X-BLD or XB) shows:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "PLAINTEXT7",
+                      "R FUEL CONTROL switch"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"PLAINTEXT7",
+                    "expectedValue": "When at maximum monitoring:",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"R FUEL CONTROL switch",
+                    "expectedValue": "RUN",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "Crossbleed indication (X-BLD or XB) is blank:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "R FUEL CONTROL switch"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"R FUEL CONTROL switch",
+                    "expectedValue": "RUN",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue": "Inhibited checklist: AUTOTHROTTLE R",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "Engine stays failed:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "R FUEL CONTROL switch........Confirm",
+                      "R START selector",
+                      "APU selector (if APU available)",
+                      "Transponder mode selector",
+                      "PLAINTEXT8"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"R FUEL CONTROL switch........Confirm",
+                    "expectedValue": "CUTOFF",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"R START selector",
+                    "expectedValue": "NORM",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name":"APU selector (if APU available)",
+                    "expectedValue": "START, then ON",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"Transponder mode selector",
+                    "expectedValue": "TA ONLY",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PLAINTEXT8",
+                    "expectedValue": "Plan to land at the nearest suitable airport.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name": "Landing using flaps 20:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROX FLAP OVRD switch",
+                      "NOTE1",
+                      "NOTE3"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"GND PROX FLAP OVRD switch",
+                    "expectedValue": "OVRD",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"NOTE1",
+                    "expectedValue": "Use flaps 20 and VREF 20 for landing and flaps 5 for go-around.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"PageBreak"
+                  },
+                  {
+                    "name": "Landing using flaps 30 (if performance allows)",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "GND PROX FLAP OVRD switch",
+                      "NOTE2"
+                    ],
+                    "conditionalChecksNo": []
+                  },
+                  {
+                    "name":"NOTE2",
+                    "expectedValue": "Use flaps 30 and VREF 30 for landing and flaps 20 for go-around.",
+                    "isAutomatic":false
+                  },
+                  {
+                    "name":"NOTE3",
+                    "expectedValue": "Check the Non-Normal Configuration Landing Distance tables for ENG SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source.",
+                    "isAutomatic":false
+                  }
+                ]
+              },
+              {
                 "name":"ENG SHUTDOWN",
                 "checks":[
                   {
@@ -7669,7 +8199,7 @@
                 "checks":[
                   {
                     "name":"PLAINTEXT",
-                    "expectedValue":"Condition: The ritght engine was shut down by the fuel control switches or the engine fire switches."
+                    "expectedValue":"Condition: The right engine was shut down by the fuel control switches or the engine fire switches."
                   }
                 ]
               },
@@ -7746,7 +8276,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 20",
+                    "name": "Landing using flaps 20",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -7868,7 +8398,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 20",
+                    "name": "Landing using flaps 20",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -7974,7 +8504,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "RIght thrust lever",
+                    "name": "Right thrust lever",
                     "expectedValue":"Retard until N1 stays below the amber line",
                     "isAutomatic": false
                   },
@@ -8052,7 +8582,7 @@
                     "conditionalChecksYes": [
                       "Transponder mode selector",
                       "NOTE2",
-                      "Landing using flops 20",
+                      "Landing using flaps 20",
                       "Landing using flaps 30 (if performance allows)",
                       "NOTE4",
                       "Inhibited checklist"
@@ -8069,16 +8599,16 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 20",
+                    "name": "Landing using flaps 20",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
-                      "GND PROI FLAP OVRD switch",
+                      "GND PROX FLAP OVRD switch",
                       "NOTE3"
                     ]
                   },
                   {
-                    "name": "GND PROI FLAP OVRD switch",
+                    "name": "GND PROX FLAP OVRD switch",
                     "expectedValue": "DVRD",
                     "isAutomatic": false
                   },
@@ -8093,7 +8623,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 30 (if performance allows)",
+                    "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -8272,7 +8802,7 @@
                     "conditionalChecksYes": [
                       "Transponder mode selector",
                       "NOTE2",
-                      "Landing using flops 20",
+                      "Landing using flaps 20",
                       "Landing using flaps 30 (if performance allows)",
                       "NOTE4",
                       "Inhibited checklist"
@@ -8289,16 +8819,16 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 20",
+                    "name": "Landing using flaps 20",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
-                      "GND PROI FLAP OVRD switch",
+                      "GND PROX FLAP OVRD switch",
                       "NOTE3"
                     ]
                   },
                   {
-                    "name": "GND PROI FLAP OVRD switch",
+                    "name": "GND PROX FLAP OVRD switch",
                     "expectedValue": "DVRD",
                     "isAutomatic": false
                   },
@@ -8313,7 +8843,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 30 (if performance allows)",
+                    "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -8526,16 +9056,16 @@
                     "name":"PageBreak"
                   },
                   {
-                    "name": "Landing using flops 20",
+                    "name": "Landing using flaps 20",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
-                      "GND PROI FLAP OVRD switch",
+                      "GND PROX FLAP OVRD switch",
                       "NOTE3"
                     ]
                   },
                   {
-                    "name": "GND PROI FLAP OVRD switch",
+                    "name": "GND PROX FLAP OVRD switch",
                     "expectedValue": "DVRD",
                     "isAutomatic": false
                   },
@@ -8545,7 +9075,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 30 (if performance allows)",
+                    "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -8663,16 +9193,16 @@
                     "name":"PageBreak"
                   },
                   {
-                    "name": "Landing using flops 20",
+                    "name": "Landing using flaps 20",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
-                      "GND PROI FLAP OVRD switch",
+                      "GND PROX FLAP OVRD switch",
                       "NOTE3"
                     ]
                   },
                   {
-                    "name": "GND PROI FLAP OVRD switch",
+                    "name": "GND PROX FLAP OVRD switch",
                     "expectedValue": "DVRD",
                     "isAutomatic": false
                   },
@@ -8682,7 +9212,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 30 (if performance allows)",
+                    "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -8746,16 +9276,16 @@
                     "name":"PageBreak"
                   },
                   {
-                    "name": "Landing using flops 20",
+                    "name": "Landing using flaps 20",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
-                      "GND PROI FLAP OVRD switch",
+                      "GND PROX FLAP OVRD switch",
                       "NOTE3"
                     ]
                   },
                   {
-                    "name": "GND PROI FLAP OVRD switch",
+                    "name": "GND PROX FLAP OVRD switch",
                     "expectedValue": "DVRD",
                     "isAutomatic": false
                   },
@@ -8765,7 +9295,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 30 (if performance allows)",
+                    "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -8834,16 +9364,16 @@
                     "name":"PageBreak"
                   },
                   {
-                    "name": "Landing using flops 20",
+                    "name": "Landing using flaps 20",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
-                      "GND PROI FLAP OVRD switch",
+                      "GND PROX FLAP OVRD switch",
                       "NOTE3"
                     ]
                   },
                   {
-                    "name": "GND PROI FLAP OVRD switch",
+                    "name": "GND PROX FLAP OVRD switch",
                     "expectedValue": "DVRD",
                     "isAutomatic": false
                   },
@@ -8853,7 +9383,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 30 (if performance allows)",
+                    "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -8979,16 +9509,16 @@
                     "isAutomatic":false
                   },
                   {
-                    "name": "Landing using flops 20",
+                    "name": "Landing using flaps 20",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
-                      "GND PROI FLAP OVRD switch",
+                      "GND PROX FLAP OVRD switch",
                       "NOTE3"
                     ]
                   },
                   {
-                    "name": "GND PROI FLAP OVRD switch",
+                    "name": "GND PROX FLAP OVRD switch",
                     "expectedValue": "DVRD",
                     "isAutomatic": false
                   },
@@ -8998,7 +9528,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 30 (if performance allows)",
+                    "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -9124,16 +9654,16 @@
                     "isAutomatic":false
                   },
                   {
-                    "name": "Landing using flops 20",
+                    "name": "Landing using flaps 20",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
-                      "GND PROI FLAP OVRD switch",
+                      "GND PROX FLAP OVRD switch",
                       "NOTE3"
                     ]
                   },
                   {
-                    "name": "GND PROI FLAP OVRD switch",
+                    "name": "GND PROX FLAP OVRD switch",
                     "expectedValue": "DVRD",
                     "isAutomatic": false
                   },
@@ -9143,7 +9673,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 30 (if performance allows)",
+                    "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -9847,8 +10377,68 @@
                     "isAutomatic": false
                   }
                 ]
+              },
+              {
+                "name": "Eng starter cutout R",
+                "checks":[
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Condition: One of these occurs in the right engine:\n- The start valve fails to close\n- The start selector stays in start",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Objective: To ensure start selector is in normal or to remove bleed air source from the starter and prevent possible asymmetrical ice buildup on the wings.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "R START selector",
+                    "expectedValue": "NORM",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "ENG STARTER CUTOUT R message stays shown:",
+                    "expectedValue": "",
+                    "isAutomatic": false,
+                    "conditionalChecksYes": [
+                      "R ENG BLEED AIR switch",
+                      "R BLEED AIR ISLN switch",
+                      "PLAINTEXT1",
+                      "PLAINTEXT2",
+                      "WING ANTI-ICE selector"
+                    ],
+                    "conditionalCheckNo": []
+                  },
+                  {
+                    "name": "R ENG BLEED AIR switch",
+                    "expectedValue": "Off",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PageBreak"
+                  },
+                  {
+                    "name": "PLAINTEXT1",
+                    "expectedValue": "On the ground:",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT2",
+                    "expectedValue": "Disconnect the ground air source if it is in use.",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "WING ANTI-ICE selector",
+                    "expectedValue": "OFF",
+                    "isAutomatic": false
+                  },
+                  {
+                    "name": "PLAINTEXT",
+                    "expectedValue": "Inhibited checklists:\nBLEED LOSS WING R\nPACK R",
+                    "isAutomatic": false
+                  }
+                ]
               }
-              
             ]
           },
           {
@@ -10526,6 +11116,11 @@
           },
           {
             "name": "FIRE CARGO AFT",
+            "deferredChecks":[
+              "PLAINTEXT3",
+              "PLAINTEXT4",
+              "NOTE3"
+            ],
             "checks":[
               {
                 "name": "PLAINTEXT",
@@ -10593,17 +11188,17 @@
                 "isAutomatic":false
               },
               {
-                "name": "PLAINTEXT",
-                "expectedValue":"-------------DEFFERED ITEMS-------------",
-                "isAutomatic":false
+                "name": "PLAINTEXT3",
+                "expectedValue":"-------------DEFERRED ITEMS-------------",
+                "isAutomatic":true
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT4",
                 "expectedValue":"==> APPROACH CHECKLIST",
-                "isAutomatic":false
+                "isAutomatic":true
               },
               {
-                "name": "NOTE",
+                "name": "NOTE3",
                 "expectedValue":"Warning! Inform ground personnel NOT to open any cargo door until all passengers and crew have exited the airplane and fire fighting equipment is nearby",
                 "isAutomatic":false
               }
@@ -10611,6 +11206,11 @@
           },
           {
             "name": "FIRE CARGO FWD",
+            "deferredChecks":[
+              "PLAINTEXT3",
+              "PLAINTEXT4",
+              "NOTE3"
+            ],
             "checks":[
               {
                 "name": "PLAINTEXT",
@@ -10618,7 +11218,7 @@
                 "isAutomatic":false
               },
               {
-                "name": "AFT CARGO FIRE ARM switch.......Conifrm",
+                "name": "FWD CARGO FIRE ARM switch.......Conifrm",
                 "expectedValue":"ARMED",
                 "isAutomatic":false
               },
@@ -10683,17 +11283,17 @@
                 "isAutomatic":false
               },
               {
-                "name": "PLAINTEXT",
-                "expectedValue":"-------------DEFFERED ITEMS-------------",
-                "isAutomatic":false
+                "name": "PLAINTEXT3",
+                "expectedValue":"-------------DEFERRED ITEMS-------------",
+                "isAutomatic":true
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT4",
                 "expectedValue":"==> APPROACH CHECKLIST",
-                "isAutomatic":false
+                "isAutomatic":true
               },
               {
-                "name": "NOTE",
+                "name": "NOTE3",
                 "expectedValue":"Warning! Inform ground personnel NOT to open any cargo door until all passengers and crew have exited the airplane and fire fighting equipment is nearby",
                 "isAutomatic":false
               }
@@ -11142,7 +11742,7 @@
                 "isAutomatic":false
               },
               {
-                "name": "Landing gear lever",
+                "name": "Landing gear level",
                 "expectedValue":"UP",
                 "isAutomatic":false
               }
@@ -11204,12 +11804,12 @@
                   "expectedValue": "",
                   "isAutomatic": false,
                   "conditionalChecksYes": [
-                     "L FUEL CONTROL switch",
+                     "L FUEL CONTROL switch...........Confirm",
                      "APU selector (if APU available)",
                      "Transponder mode selector",
                      "PLAINTEXT1",
                      "Landing using flaps 20",
-                     "GND PROI FLAP OVRD switch",
+                     "GND PROX FLAP OVRD switch",
                      "NOTE3",
                      "Landing using flaps 30 (if performance allows)",
                      "NOTE4",
@@ -11246,12 +11846,12 @@
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
-                      "GND PROI FLAP OVRD switch",
+                      "GND PROX FLAP OVRD switch",
                       "NOTE3"
                     ]
                   },
                   {
-                    "name": "GND PROI FLAP OVRD switch",
+                    "name": "GND PROX FLAP OVRD switch",
                     "expectedValue": "DVRD",
                     "isAutomatic": false
                   },
@@ -11261,7 +11861,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 30 (if performance allows)",
+                    "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -11348,7 +11948,7 @@
                      "Transponder mode selector",
                      "PLAINTEXT1",
                      "Landing using flaps 20",
-                     "GND PROI FLAP OVRD switch",
+                     "GND PROX FLAP OVRD switch",
                      "NOTE3",
                      "Landing using flaps 30 (if performance allows)",
                      "NOTE5",
@@ -11385,7 +11985,7 @@
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
-                      "GND PROI FLAP OVRD switch",
+                      "GND PROX FLAP OVRD switch",
                       "NOTE3"
                     ]
                   },
@@ -11400,7 +12000,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "Landing using flops 30 (if performance allows)",
+                    "name": "Landing using flaps 30 (if performance allows)",
                     "expectedValue": "",
                     "isAutomatic": false,
                     "conditionalChecksYes": [
@@ -11440,8 +12040,8 @@
                 "isAutomatic": false
               },
               {
-                "name": "Objective",
-                "expectedValue": "To remove power from the ignition source. To land the airplane as soon as possible, if needed.",
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To remove power from the ignition source. To land the airplane as soon as possible, if needed.",
                 "isAutomatic": false
               },
               {
@@ -12119,31 +12719,38 @@
                     "isAutomatic":false
                   },
                   {
-                    "name": "PLAINTEXT",
-                    "expectedValue":"-------------DEFFERED ITEMS-------------",
-                    "isAutomatic":false
+                    "name": "PLAINTEXT8",
+                    "expectedValue":"-------------DEFERRED ITEMS-------------",
+                    "isAutomatic":true
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT6",
                     "expectedValue":"==> APPROACH CHECKLIST",
-                    "isAutomatic":false
+                    "isAutomatic":true
                   },
                   {
-                    "name": "ALTN FLAPS ARM switch",
+                    "name": " ALTN FLAPS ARM switch",
                     "expectedValue":"ALTN",
                     "isAutomatic":false
                   },
                   {
-                    "name": "Alternate flaps selector",
+                    "name": " Alternate flaps selector",
                     "expectedValue":"EXT",
                     "isAutomatic":false
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT7",
                     "expectedValue":"Monitor airspeed during extension.",
                     "isAutomatic":false
                   }
+                ],
+                "deferredChecks":[
+                  "PLAINTEXT6",
+                  " ALTN FLAPS ARM switch",
+                  " Alternate flaps selector",
+                  "PLAINTEXT7"
                 ]
+                
               },
               {
                 "name": "SLATS DRIVE",
@@ -12189,25 +12796,158 @@
               },
               {
                 "name": "SLATS PRIMARY FAIL",
-                "checks":[]
+                "checks":[
+                  {
+                    "name":"PLAINTEXT",
+                    "expectedValue":"Condition: The slats primary mode is failed."
+                  },
+                  {
+                    "name":"NOTE",
+                    "expectedValue":"Plan more time for slower flap operation."
+                  },
+                  {
+                    "name":"NOTE",
+                    "expectedValue":"The slats will extend beyond midrange when airspeed is below 256 knots. For go-around do not exceed 256 knots until slats retract to midrange."
+                  }
+                ]
               }
             ]
           },
           {
             "name": "AUTO SPEEDBRAKE",
-            "checks":[]
+            "checks":[
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"Condition: An automatic speedbrake fault occurs."
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Do not arm the speedbrake lever. This prevents inadvertent in-flight speedbrake extesnion."
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"Manually extend the speedbrakes after landing."
+              }
+            ]
           },
           {
             "name": "FLIGHT CONTROL MODE",
-            "checks":[]
+            "checks":[
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"The flight control system is in the secondary mode."
+              },
+              {
+                "name":"PRIMARY FLIGHT COMPUTERS disconnect switch",
+                "expectedValue":"DISC, then AUTO"
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"FLIGHT CONTROL MODE message stays shown:"
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"Avoid abrupt control inputs. The airplane response is changed by simplified elevator feel and rudder ratio systems."
+              },
+              {
+                "name":"GND PROX FLAP OVRD switch",
+                "expectedValue":"OVRD"
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Inoperative items: \n- Autopilot inop\n- Envelope protection functions inop"
+              },
+              {
+                "name":"PageBreak",
+                "expectedValue":""
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"The yaw damper is degraded."
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Manual control inputs are needed to compensate for asymmetrical thrust conditions."
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Use flaps 20 and VREF 20 for landing. This ensures sufficient pitch trim capability for landing."
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Do not arm the speedbrake lever. This prevents inadvertent in-flight speedbrake extesnion."
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Manually extend the speedbrakes after landing."
+              },
+              {
+                "name":"PageBreak",
+                "expectedValue":""
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Check the Non-Normal Configuration Landing Distance tables for END SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source."
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"Inhibited checklists:\nAUTO SPEEDBRAKE\nTHRUST ASYM COMP"
+              }
+            ]
           },
           {
             "name": "FLIGHT CONTROLS",
-            "checks":[]
+            "checks":[
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"Condition: One or more of these occur:\n- Two or more flight control surfaces are inoperative\n- Other faults in the flight control system are detected"
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"Handling qualities are degraded. Pitch and roll control capability is reduced with fewer operating control surfaces."
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"Plan to land at the nearest suitable airport"
+              },
+              {
+                "name":"GND PROX FLAP OVRD switch",
+                "expectedValue":"OVRD"
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Use flaps 20 and VREF 30 + 20 for landing. Higher approach speeds improve airplane maneuvering characteristics."
+              },
+              {
+                "name":"PageBreak",
+                "expectedValue":""
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Crosswind limit for landing is 20 knots."
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Roll rate may be reduced in flight. Speedbrake effectivness may be reducer in flight and during landing."
+              },
+              {
+                "name":"NOTE",
+                "expectedValue":"Check the Non-Normal Configuration Landing Distance tables for END SHUTDOWN L, R in the Performance Inflight-QRH chapter or other approved source."
+              },
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"Inhibited checklist: \nSPOILERS"
+              }
+            ]
           },
           {
             "name": "FLT CONTROL VALVE",
-            "checks":[]
+            "checks":[
+              {
+                "name":"PLAINTEXT",
+                "expectedValue":"Condition: One or more of these occur:\n- One or more flight control shutoff valves are failed closed\n- One or more flight control shutoff switches are in shutoff"
+              }
+            ]
           },
           {
             "name": "JAMMED FLIGHT CONTROLS",
@@ -12447,7 +13187,7 @@
                 "isAutomatic":false
               },
               {
-                "name": "GND PROI FLAP OVRD switch",
+                "name": "GND PROX FLAP OVRD switch",
                 "expectedValue":"OVRD",
                 "isAutomatic":false
               },
@@ -12539,7 +13279,7 @@
               },
               {
                 "name": "PLAINTEXT",
-                "expectedValue":"To verift the stabilizer greenband and airplane leading are correct.",
+                "expectedValue":"To verify the stabilizer greenband and airplane leading are correct.",
                 "isAutomatic":false
               },
               {
@@ -12693,7 +13433,12 @@
             "name": "AIRSPEED UNRELIABLE",
             "deferredChecks": [
               "ALTN FLAPS ARM switch",
-              "Alternate flaps selector"
+              "Alternate flaps selector",
+              "PLAINTEXT6",
+              "PLAINTEXT2",
+              "PLAINTEXT3",
+              "PLAINTEXT4",
+              "PLAINTEXT5"
             ],
             "checks": [
               {
@@ -12702,8 +13447,8 @@
                 "isAutomatic": false
               },
               {
-                "name": "Objective",
-                "expectedValue": "To identify a reliable airspeed indication, if possible, or to continue the flight using the Flight With Unreliable Airspeed table in the Performance Inflight chapter.",
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To identify a reliable airspeed indication, if possible, or to continue the flight using the Flight With Unreliable Airspeed table in the Performance Inflight chapter.",
                 "isAutomatic": false
               },
               {
@@ -12956,14 +13701,9 @@
                 "isAutomatic": false
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT6",
                 "expectedValue": "----------DEFERRED ITEMS----------",
-                "isAutomatic": false
-              },
-              {
-                "name": "PLAINTEXT",
-                "expectedValue": "==> APPROACH CHECKLIST",
-                "isAutomatic": false
+                "isAutomatic": true
               },
               {
                 "name": "ALTN FLAPS ARM switch",
@@ -12976,12 +13716,12 @@
                 "isAutomatic": false
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT2",
                 "expectedValue": "----------ADDITIONAL INFORMATION----------",
                 "isAutomatic": false
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT3",
                 "expectedValue": "One or more of the following may be evidence of unreliable airspeed or Mach indications: \n- Speed/altitude information not consistent with pitch attitude and thrust setting. \n- Airspeed or Mach failure flags \n- PFD current airspeed box amber \n- An amber line through one or more PFD flight mode annunciations \n- Blank or fluctuating airspeed display",
                 "isAutomatic": false
               },
@@ -12991,7 +13731,7 @@
                 "isAutomatic": false
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT4",
                 "expectedValue": "One or more of the following may be evidence of unreliable airspeed or Mach indications (continued): \n- Variation between captain and first officer airspeed displays \n- Radome damage or loss \n- Overspeed warning \n- Simultaneous overspeed and stall warnings.",
                 "isAutomatic": false
               },
@@ -13001,7 +13741,7 @@
                 "isAutomatic": false
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT5",
                 "expectedValue": "One or more of the following EICAS messages may show: \nAIR DATA SYS \nAIRSPEED LOW \nGND PROX SYS \nHEAT PITOT C \nHEAT PITOT L \nHEAT PITOT R \nHEAT PITOT L+C+R \nOVERSPEED \nSGL SOURCE AIR DATA \nSGL SOURCE DISPLAYS \nWINDSHEAR SYS",
                 "isAutomatic": false
               }
@@ -13182,7 +13922,7 @@
                     "isAutomatic":false
                   },
                   {
-                    "name": "LOG ALT selector",
+                    "name": "LDG ALT selector",
                     "expectedValue":"PULL ON, set manually",
                     "isAutomatic":false
                   },
@@ -13950,7 +14690,7 @@
                 "checks":[
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue":"Condition: There is a fuel imbalace between the main tanks.",
+                    "expectedValue":"Condition: There is a fuel imbalance between the main tanks.",
                     "isAutomatic":false
                   },
                   {
@@ -14214,8 +14954,8 @@
                 "isAutomatic": false
               },
               {
-                "name": "Objective",
-                "expectedValue": "To confirm there is a fuel leak. If confirmed, to isolate the leak to one of the following: -engine \n- main tank \n- center tank",
+                "name": "PLAINTEXT",
+                "expectedValue": "Objective: To confirm there is a fuel leak. If confirmed, to isolate the leak to one of the following: -engine \n- main tank \n- center tank",
                 "isAutomatic": false
               },
               {
@@ -15557,9 +16297,15 @@
                 "isAutomatic":false
               },
               {
+                "name": "PageBreak"
+              },
+              {
                 "name": "PLAINTEXT",
                 "expectedValue":"A fuel leak should be suspected if one or more of the following ar: false:\n- The total fuel remaining on EICAS is less than the planned fuel remaining.\n- An engine has excessive fuel flow.\n- One main tank is abnormally low compared to the other main tank and to the expected fuel remaining in the tanks.\n- On progress page 2, the totalizer is less than the calculated fuel.\n\t-The TOTALIZER fuel is the sum of the individual tank quantitties.\n\t- The CALCULATED fuel is the totalizer value at engine start minus fuel used.\n\t- Fuel used is calculated using the engine fuel flow sensors.",
                 "isAutomatic":false
+              },
+              {
+                "name": "PageBreak"
               },
               {
                 "name": "Fuel leak is suspected:",
@@ -15918,7 +16664,7 @@
                 ],
                 "checks":[
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT1",
                     "expectedValue":"Condition: The center hydraulic system pressure is low.",
                     "isAutomatic":false
                   },
@@ -15933,7 +16679,7 @@
                     "isAutomatic":false
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT1",
                     "expectedValue":"HYD PRESS SYS C message stays shown:",
                     "isAutomatic":false
                   },
@@ -15956,7 +16702,7 @@
                     "name": "PageBreak"
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT2",
                     "expectedValue":"Inhibited checklists:\n-AUTO SPEEDBRAKE\nSPOILERS",
                     "isAutomatic":false
                   },
@@ -15975,7 +16721,7 @@
                   },
                   {
                     "name": "NOTE",
-                    "expectedValue":"Use flops 20 and VREF 20 for landing. This ensures adequate go-around performance due to slower slat/flap operation in secondary mode.",
+                    "expectedValue":"Use flaps 20 and VREF 20 for landing. This ensures adequate go-around performance due to slower slat/flap operation in secondary mode.",
                     "isAutomatic":false
                   },
                   {
@@ -16005,13 +16751,13 @@
                   },
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue":"-------------DEFFERED ITEMS-------------",
-                    "isAutomatic":false
+                    "expectedValue":"-------------DEFERRED ITEMS-------------",
+                    "isAutomatic":true
                   },
                   {
                     "name": "PLAINTEXT",
                     "expectedValue":"==> APPROACH CHECKLIST",
-                    "isAutomatic":false
+                    "isAutomatic":true
                   },
                   {
                     "name": "PLAINTEXT",
@@ -16024,7 +16770,7 @@
                   {
                     "name": "PLAINTEXT",
                     "expectedValue":"==> APPROACH CHECKLIST",
-                    "isAutomatic":false
+                    "isAutomatic":true
                   },
                   {
                     "name": "PLAINTEXT",
@@ -16236,8 +16982,8 @@
                   },
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue":"-------------DEFFERED ITEMS-------------",
-                    "isAutomatic":false
+                    "expectedValue":"-------------DEFERRED ITEMS-------------",
+                    "isAutomatic":true
                   },
                   {
                     "name": "PageBreak"
@@ -16245,7 +16991,7 @@
                   {
                     "name": "PLAINTEXT",
                     "expectedValue":"==> APPROACH CHECKLIST",
-                    "isAutomatic":false
+                    "isAutomatic":true
                   },
                   {
                     "name": "PLAINTEXT",
@@ -16278,7 +17024,7 @@
                   {
                     "name": "PLAINTEXT",
                     "expectedValue":"==> APPROACH CHECKLIST",
-                    "isAutomatic":false
+                    "isAutomatic":true
                   },
                   {
                     "name": "PLAINTEXT",
@@ -16461,6 +17207,17 @@
               },
               {
                 "name": "HYD PRESS SYS R+C",
+                "deferredChecks":[
+" Landing gear lever",
+" ALTN GEAR extend switch",
+"PLAINTEXT1",
+"PLAINTEXT2",
+"PLAINTEXT3",
+"PLAINTEXT4",
+"PLAINTEXT6",
+"PLAINTEXT5",
+"PLAINTEXT7"
+                ],
                 "checks":[
                   {
                     "name": "PLAINTEXT",
@@ -16611,25 +17368,25 @@
                     "isAutomatic":false
                   },
                   {
-                    "name": "PLAINTEXT",
-                    "expectedValue":" -------------DEFFERED ITEMS-------------",
-                    "isAutomatic":false
+                    "name": "PLAINTEXT1",
+                    "expectedValue":" -------------DEFERRED ITEMS-------------",
+                    "isAutomatic":true
                   },
                   {
                     "name": "PageBreak"
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT2",
                     "expectedValue":" ==> APPROACH CHECKLIST",
-                    "isAutomatic":false
+                    "isAutomatic":true
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT3",
                     "expectedValue":" Start flap extension as needed.",
                     "isAutomatic":false
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT4",
                     "expectedValue":" Inhibited checklists:\nFLAPS PRIMARY FAIL\nSLATS PRIMARY FAIL",
                     "isAutomatic":false
                   },
@@ -16644,7 +17401,7 @@
                     "isAutomatic":false
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT5",
                     "expectedValue":" A reduction of airspeed is below 240 knots may be necessary for landing",
                     "isAutomatic":false
                   },
@@ -16652,12 +17409,12 @@
                     "name": "PageBreak"
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT6",
                     "expectedValue":" ==> APPROACH CHECKLIST",
-                    "isAutomatic":false
+                    "isAutomatic":true
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT7",
                     "expectedValue":" Inhibited checklists:\nGEAR DOOR",
                     "isAutomatic":false
                   }
@@ -16812,13 +17569,13 @@
                   },
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue":"-------------DEFFERED ITEMS-------------",
-                    "isAutomatic":false
+                    "expectedValue":"-------------DEFERRED ITEMS-------------",
+                    "isAutomatic":true
                   },
                   {
                     "name": "PLAINTEXT",
                     "expectedValue":"==> APPROACH CHECKLIST",
-                    "isAutomatic":false
+                    "isAutomatic":true
                   },
                   {
                     "name": "Landing gear lever",
@@ -16837,7 +17594,7 @@
                   {
                     "name": "PLAINTEXT",
                     "expectedValue":"==> APPROACH CHECKLIST",
-                    "isAutomatic":false
+                    "isAutomatic":true
                   },
                   {
                     "name": "PLAINTEXT",
@@ -16852,7 +17609,7 @@
                   {
                     "name": "PLAINTEXT",
                     "expectedValue":"==> LANDING CHECKLIST",
-                    "isAutomatic":false
+                    "isAutomatic":true
                   },
                   {
                     "name": "C1 ELEC PRIMARY pump switch",
@@ -16870,7 +17627,7 @@
                   {
                     "name": "PLAINTEXT",
                     "expectedValue":"==> LANDING CHECKLIST",
-                    "isAutomatic":false
+                    "isAutomatic":  true
                   },
                   {
                     "name": "NOTE",

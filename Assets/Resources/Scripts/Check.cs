@@ -38,7 +38,7 @@ public class Check
                           (IsConditional && ConditionalState != ConditionalState.None) ||
                           (IsPlainText && expectedValue.Contains(":"));
 
-public bool IsNote => name.Contains("NOTE");
+    public bool IsNote => name.Contains("NOTE");
     public bool IsPlainText => name.Contains("PLAINTEXT");
     public bool IsPageBreak => name.Contains("PageBreak");
     public bool IsConditional => conditionalChecksYes != null || conditionalChecksNo != null;

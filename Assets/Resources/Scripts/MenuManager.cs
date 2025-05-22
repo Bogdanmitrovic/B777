@@ -27,6 +27,7 @@ public class MenuManager : MonoBehaviour
     // other
     public GameObject title;
     public TextAsset jsonFile;
+    public GameObject nouText;
 
     // private variables
     private readonly Dictionary<string, GameObject> _buttons = new();
@@ -168,6 +169,7 @@ public class MenuManager : MonoBehaviour
     private void ShowMenu(int menuNumber)
     {
         ShowMenu(_menus[menuNumber]);
+        nouText.SetActive(false);
     }
 
     public void ResetButtonFunctions(int index)
