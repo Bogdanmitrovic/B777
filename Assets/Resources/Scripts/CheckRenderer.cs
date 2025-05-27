@@ -45,8 +45,8 @@ public class CheckRenderer : MonoBehaviour
     {
         checkTextComponent.text = Text(_characterCount, _splitNameLimit);
         SetColors();
-        checkmarkImage.enabled = (check.Checked || check.Overridden ) && !check.IsNote && !check.expectedValue.Contains(":") && !check.expectedValue.Contains("--") && !check.expectedValue.Contains("==>");
-        checkmarkBackgroundImage.enabled = !check.isAutomatic && !check.IsNote && !check.expectedValue.Contains(":");
+        checkmarkImage.enabled = (check.Checked || check.Overridden ) && !check.IsNote && !check.expectedValue.Contains("Inhibited") && !check.expectedValue.Contains("Objective") && !check.expectedValue.Contains("Condition") && !check.expectedValue.Contains("--") && !check.expectedValue.Contains("==>");
+        checkmarkBackgroundImage.enabled = !check.isAutomatic && !check.IsNote && !check.expectedValue.Contains("Inhibited") && !check.expectedValue.Contains("Objective") && !check.expectedValue.Contains("Condition") && !check.expectedValue.Contains("--") && !check.expectedValue.Contains("==>");
         outline.enabled = check.IsSelected;
     }
 
@@ -55,7 +55,7 @@ public class CheckRenderer : MonoBehaviour
         if (check.IsNote)
             return;
         var color = check.Overridden ? new Color(.23f, .64f, .76f, 1) : check.Checked ? Color.green : Color.white;
-        if (check.isAutomatic && (check.expectedValue.Contains(':') || check.expectedValue.Contains("--") || check.expectedValue.Contains("==>")) && !check.Overridden) color = Color.white;
+        if (check.isAutomatic && (check.expectedValue.Contains("Inhibited") || check.expectedValue.Contains("Objective") || check.expectedValue.Contains("Condition") || check.expectedValue.Contains("--") || check.expectedValue.Contains("==>")) && !check.Overridden) color = Color.white;
         checkmarkImage.color = color;
         checkTextComponent.color = color;
         checkmarkBackgroundImage.color = check.Overridden ? new Color(0f, 0f, 0f, 1f) : new Color(1f, 1f, 1f, .5f);

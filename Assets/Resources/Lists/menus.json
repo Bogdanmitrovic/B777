@@ -2315,7 +2315,12 @@
             "name": "Airspeed unreliable",
             "deferredChecks": [
               "ALTN FLAPS ARM switch",
-              "Alternate flaps selector"
+              "Alternate flaps selector",
+              "PLAINTEXT2",
+              "PLAINTEXT3",
+              "PLAINTEXT4",
+              "PLAINTEXT5"
+
             ],
             "checks": [
               {
@@ -2596,12 +2601,12 @@
 "name":"PageBreak"
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT2",
                 "expectedValue": "----------ADDITIONAL INFORMATION----------",
-                "isAutomatic": false
+                "isAutomatic": true
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT3",
                 "expectedValue": "One or more of the following may be evidence of unreliable airspeed or Mach indications: \n- Speed/altitude information not consistent with pitch attitude and thrust setting. \n- Airspeed or Mach failure flags \n- PFD current airspeed box amber \n- An amber line through one or more PFD flight mode annunciations \n- Blank or fluctuating airspeed display",
                 "isAutomatic": false
               },
@@ -2611,7 +2616,7 @@
                 "isAutomatic": false
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT4",
                 "expectedValue": "One or more of the following may be evidence of unreliable airspeed or Mach indications (continued): \n- Variation between captain and first officer airspeed displays \n- Radome damage or loss \n- Overspeed warning \n- Simultaneous overspeed and stall warnings.",
                 "isAutomatic": false
               },
@@ -2621,7 +2626,7 @@
                 "isAutomatic": false
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT5",
                 "expectedValue": "One or more of the following EICAS messages may show: \nAIR DATA SYS \nAIRSPEED LOW \nGND PROX SYS \nHEAT PITOT C \nHEAT PITOT L \nHEAT PITOT R \nHEAT PITOT L+C+R \nOVERSPEED \nSGL SOURCE AIR DATA \nSGL SOURCE DISPLAYS \nWINDSHEAR SYS",
                 "isAutomatic": false
               }
@@ -14211,8 +14216,8 @@
                 "isAutomatic":false
               },
               {
-                "name": "The INSUFFICIENT FUEL message may be caused by a fuel leak.",
-                "expectedValue":"",
+                "name": "PLAINTEXT",
+                "expectedValue":"The INSUFFICIENT FUEL message may be caused by a fuel leak.",
                 "isAutomatic":false
               },
               {
@@ -14245,8 +14250,8 @@
                 "isAutomatic":false
               },
               {
-                "name": "Verify that there is sufficient fuel to complete the flight.",
-                "expectedValue":"",
+                "name": "PLAINTEXT",
+                "expectedValue":"Verify that there is sufficient fuel to complete the flight.",
                 "isAutomatic":false
               }
             ]
@@ -14270,8 +14275,8 @@
                 "isAutomatic":false
               },
               {
-                "name": "ND map display orientation changes from heading up to track up.",
-                "expectedValue":"",
+                "name": "PLAINTEXT",
+                "expectedValue":"ND map display orientation changes from heading up to track up.",
                 "isAutomatic":false
               },
               {
@@ -14701,12 +14706,12 @@
                   },
                   {
                     "name": "PLAINTEXT",
-                    "expectedValue":"If an engine has low fiel flow and unusual engine indications, the FUEL IMBALANCE message may show due to and engine malfunction instead of a fuel leak.",
+                    "expectedValue":"If an engine has low fuel flow and unusual engine indications, the FUEL IMBALANCE message may show due to and engine malfunction instead of a fuel leak.",
                     "isAutomatic":false
                   },
                   {
-                    "name": "The FUEL IMBALANCE message may be caused by a fuel leak or fuel imbalance",
-                    "expectedValue":"",
+                    "name": "PLAINTEXT",
+                    "expectedValue":"The FUEL IMBALANCE message may be caused by a fuel leak or fuel imbalance",
                     "isAutomatic":false
                   },
                   {

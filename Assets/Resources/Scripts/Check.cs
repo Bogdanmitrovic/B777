@@ -38,7 +38,7 @@ public class Check
     public bool IsDone => (IsPageBreak || Rendered) &&
                           (Checked || Overridden || IsNote || IsPageBreak ||
                            (IsConditional && ConditionalState != ConditionalState.None) ||
-                           (IsPlainText && expectedValue.Contains(":")));
+                           (IsPlainText && (expectedValue.Contains("--") || expectedValue.Contains("Inhibited") || expectedValue.Contains("Objective") || expectedValue.Contains("Condition") || expectedValue.Contains("==>"))));
 
     public bool IsNote => name.Contains("NOTE");
     public bool IsPlainText => name.Contains("PLAINTEXT");
