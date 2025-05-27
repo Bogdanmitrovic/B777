@@ -986,7 +986,7 @@
                   },
                   {
                     "name": "GND PROX FLAP OVRD switch",
-                    "expectedValue": "DVRD",
+                    "expectedValue": "OVRD",
                     "isAutomatic": false
                   },
                   {
@@ -1206,7 +1206,7 @@
                   },
                   {
                     "name": "GND PROX FLAP OVRD switch",
-                    "expectedValue": "DVRD",
+                    "expectedValue": "OVRD",
                     "isAutomatic": false
                   },
                   {
@@ -2646,7 +2646,7 @@
               "OUTFLOW VALVE MANUAL switches (both)",
               "NO SMOKING AND SEAT BELTS SELECTORS",
               "PLAINTEXT4",
-              "Landing gear level",
+              "Landing gear lever",
               "Flaps",
               "PLAINTEXT5",
               "PLAINTEXT6",
@@ -2734,7 +2734,7 @@
                 "isAutomatic": false
               },
               {
-                "name": "Landing gear level",
+                "name": "Landing gear lever",
                 "expectedValue": "UP",
                 "isAutomatic": false
               },
@@ -3339,7 +3339,7 @@
               {
                 "name": "PLAINTEXT",
                 "expectedValue": "---------ADDITIONAL INFORMATION---------",
-                "isAutomatic": false
+                "isAutomatic": true
               },
               {
                 "name": "PLAINTEXT",
@@ -3455,7 +3455,7 @@
               {
                 "name": "PLAINTEXT",
                 "expectedValue": "---------ADDITIONAL INFIRMATION---------",
-                "isAutomatic": false
+                "isAutomatic": true
               },
               {
                 "name": "PLAINTEXT",
@@ -6567,7 +6567,7 @@
               {
                 "name": "PLAINTEXT",
                 "expectedValue": "---------ADDITIONAL INFORMATION---------",
-                "isAutomatic": false
+                "isAutomatic": true
               },
               {
                 "name": "PLAINTEXT",
@@ -8615,7 +8615,7 @@
                   },
                   {
                     "name": "GND PROX FLAP OVRD switch",
-                    "expectedValue": "DVRD",
+                    "expectedValue": "OVRD",
                     "isAutomatic": false
                   },
                   {
@@ -8835,7 +8835,7 @@
                   },
                   {
                     "name": "GND PROX FLAP OVRD switch",
-                    "expectedValue": "DVRD",
+                    "expectedValue": "OVRD",
                     "isAutomatic": false
                   },
                   {
@@ -9072,7 +9072,7 @@
                   },
                   {
                     "name": "GND PROX FLAP OVRD switch",
-                    "expectedValue": "DVRD",
+                    "expectedValue": "OVRD",
                     "isAutomatic": false
                   },
                   {
@@ -9209,7 +9209,7 @@
                   },
                   {
                     "name": "GND PROX FLAP OVRD switch",
-                    "expectedValue": "DVRD",
+                    "expectedValue": "OVRD",
                     "isAutomatic": false
                   },
                   {
@@ -9292,7 +9292,7 @@
                   },
                   {
                     "name": "GND PROX FLAP OVRD switch",
-                    "expectedValue": "DVRD",
+                    "expectedValue": "OVRD",
                     "isAutomatic": false
                   },
                   {
@@ -9380,7 +9380,7 @@
                   },
                   {
                     "name": "GND PROX FLAP OVRD switch",
-                    "expectedValue": "DVRD",
+                    "expectedValue": "OVRD",
                     "isAutomatic": false
                   },
                   {
@@ -9525,7 +9525,7 @@
                   },
                   {
                     "name": "GND PROX FLAP OVRD switch",
-                    "expectedValue": "DVRD",
+                    "expectedValue": "OVRD",
                     "isAutomatic": false
                   },
                   {
@@ -9670,7 +9670,7 @@
                   },
                   {
                     "name": "GND PROX FLAP OVRD switch",
-                    "expectedValue": "DVRD",
+                    "expectedValue": "OVRD",
                     "isAutomatic": false
                   },
                   {
@@ -11220,7 +11220,7 @@
             "checks":[
               {
                 "name": "PLAINTEXT",
-                "expectedValue": "Condition: Smoke is detected in the aft lower cargo compartment.",
+                "expectedValue": "Condition: Smoke is detected in the fwd lower cargo compartment.",
                 "isAutomatic":false
               },
               {
@@ -11703,7 +11703,7 @@
                 "isAutomatic":false
               },
               {
-                "name": "Landing gear level",
+                "name": "Landing gear lever",
                 "expectedValue":"ON",
                 "isAutomatic":false
               },
@@ -11748,7 +11748,7 @@
                 "isAutomatic":false
               },
               {
-                "name": "Landing gear level",
+                "name": "Landing gear lever",
                 "expectedValue":"UP",
                 "isAutomatic":false
               }
@@ -11858,7 +11858,7 @@
                   },
                   {
                     "name": "GND PROX FLAP OVRD switch",
-                    "expectedValue": "DVRD",
+                    "expectedValue": "OVRD",
                     "isAutomatic": false
                   },
                   {
@@ -11997,7 +11997,7 @@
                   },
                   {
                     "name": "GND PROX FLAP OVRD switch",
-                    "expectedValue": "DVRD",
+                    "expectedValue": "OVRD",
                     "isAutomatic": false
                   },
                   {
@@ -13724,7 +13724,7 @@
               {
                 "name": "PLAINTEXT2",
                 "expectedValue": "----------ADDITIONAL INFORMATION----------",
-                "isAutomatic": false
+                "isAutomatic": true
               },
               {
                 "name": "PLAINTEXT3",
@@ -15396,7 +15396,7 @@
               {
                 "name": "PLAINTEXT",
                 "expectedValue": "---------ADDITIONAL INFORMATION---------",
-                "isAutomatic": false
+                "isAutomatic": true
               },
               {
                 "name": "PLAINTEXT",
@@ -16665,7 +16665,7 @@
                 "name": "HYD PRESS SYS C",
                 "deferredChecks":[
                   "PLAINTEXT",
-                  "Landing gear level",
+                  "Landing gear lever",
                   "ALTN GEAR extend switch"
                 ],
                 "checks":[
@@ -16784,7 +16784,7 @@
                     "isAutomatic":false
                   },
                   {
-                    "name": "Landing gear level",
+                    "name": "Landing gear lever",
                     "expectedValue":"ON",
                     "isAutomatic":false
                   },

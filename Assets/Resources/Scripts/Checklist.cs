@@ -143,14 +143,14 @@ public class Checklist
                 if (first == null) continue;
                 if (state == ConditionalState.No)
                     foreach (var ch in checks.Where(ch =>
-                                 ch.name == first.name && ch.expectedValue == first.expectedValue))
+                                 ch.name == first.name )) // && ch.expectedValue == first.expectedValue
                     {
                         ch.TriggerOverride();
                         ch.Rendered = true;
                     }
                 else
                     foreach (var ch in checks.Where(ch =>
-                                 ch.name == first.name && ch.expectedValue == first.expectedValue))
+                                 ch.name == first.name )) // && ch.expectedValue == first.expectedValue
                     {
                         ch.TriggerReset();
                         ch.Rendered = true;
@@ -167,11 +167,11 @@ public class Checklist
                 if (first == null) continue;
                 if (state == ConditionalState.Yes)
                     foreach (var ch in checks.Where(ch =>
-                                 ch.name == first.name && ch.expectedValue == first.expectedValue))
+                                 ch.name == first.name )) // && ch.expectedValue == first.expectedValue
                         ch.TriggerOverride();
                 else
                     foreach (var ch in checks.Where(ch =>
-                                 ch.name == first.name && ch.expectedValue == first.expectedValue))
+                                 ch.name == first.name)) //  && ch.expectedValue == first.expectedValue
                         ch.TriggerReset();
             }
 
