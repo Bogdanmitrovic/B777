@@ -144,11 +144,17 @@ public class Checklist
                 if (state == ConditionalState.No)
                     foreach (var ch in checks.Where(ch =>
                                  ch.name == first.name && ch.expectedValue == first.expectedValue))
+                    {
                         ch.TriggerOverride();
+                        ch.Rendered = true;
+                    }
                 else
                     foreach (var ch in checks.Where(ch =>
                                  ch.name == first.name && ch.expectedValue == first.expectedValue))
+                    {
                         ch.TriggerReset();
+                        ch.Rendered = true;
+                    }
             }
 
         if (conditionalChecksNo != null)
