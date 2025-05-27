@@ -17525,6 +17525,8 @@
                   "PLAINTEXT2",
                   "PLAINTEXT3",
                   "PLAINTEXT4",
+                  "PLAINTEXT7",
+                  "PLAINTEXT8",
                   "NOTE",
                   " C1 ELEC PRIMARY pump switch"
                 ],
@@ -17573,12 +17575,12 @@
                     "isAutomatic":false
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT7",
                     "expectedValue":"-------------DEFERRED ITEMS-------------",
                     "isAutomatic":true
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT8",
                     "expectedValue":"==> APPROACH CHECKLIST",
                     "isAutomatic":true
                   },

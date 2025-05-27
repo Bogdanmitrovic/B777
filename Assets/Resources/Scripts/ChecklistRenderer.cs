@@ -12,7 +12,7 @@ public class ChecklistRenderer : MonoBehaviour
 {
     public int characterCount = 50;
     public int splitNameLimit = 20;
-   // public int checksPerPage = 8;
+    // public int checksPerPage = 8;
 
     public GameObject checkPrefab;
     public GameObject conditionalCheckPrefab;
@@ -72,15 +72,15 @@ public class ChecklistRenderer : MonoBehaviour
         _pagesCount = 1;
         _currentChecklist.SetListeners();
         // znam da ovo ne treba ovde ali ne znam kako drugacije TODO da se ispravi
-        for (int i = titleContainer.transform.childCount - 1; i > 0 ; i--)
+        for (int i = titleContainer.transform.childCount - 1; i > 0; i--)
         {
             Destroy(titleContainer.transform.GetChild(i).gameObject);
         }
+
         titleContainer.transform.GetChild(0).GetComponentInChildren<TMP_Text>().text = checklist.name;
         titleContainer.transform.GetChild(0).GetComponentInChildren<Image>().enabled = false;
         checklist.OnCheckChecked += OnCheckboxCheck;
         var conditionalChecks = checklist.checks.Where(check => check.IsConditional).ToList();
-
 
 
         var indentCount = new Dictionary<string, int>();
@@ -89,25 +89,25 @@ public class ChecklistRenderer : MonoBehaviour
             var indent = 0;
             if (indentCount.TryGetValue(check.name, out var value))
                 indent = value;
-            if(check.conditionalChecksNo != null)
+            if (check.conditionalChecksNo != null)
                 foreach (var child in check.conditionalChecksNo)
                 {
                     indentCount[child] = indent + 1;
                 }
-            if(check.conditionalChecksYes != null)
+
+            if (check.conditionalChecksYes != null)
                 foreach (var child in check.conditionalChecksYes)
                 {
                     indentCount[child] = indent + 1;
                 }
         }
-        
-        
+
 
         for (var i = 0; i < checklist.checks.Count; i++)
         {
             checklist.checks[i].Index = i;
-            var indent = indentCount.ContainsKey(checklist.checks[i].name)? indentCount[checklist.checks[i].name] : 0;
-            
+            var indent = indentCount.ContainsKey(checklist.checks[i].name) ? indentCount[checklist.checks[i].name] : 0;
+
             if (checklist.checks[i].IsConditional)
             {
                 // instantiate conditional check
@@ -123,13 +123,14 @@ public class ChecklistRenderer : MonoBehaviour
                 {
                     _pagesCount++;
                 }
+
                 var checkObject = Instantiate(checkPrefab, checkContainer.transform);
                 var checkRenderer = checkObject.GetComponent<CheckRenderer>();
                 checkRenderer.check = checklist.checks[i];
                 checkRenderer.SetTextSize(characterCount, splitNameLimit);
                 checkRenderer.indentation = indent;
                 //checkObject.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta =
-                  //  new Vector2(checkObject.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta.x, (checklist.checks[i].expectedValue.Length / characterCount + 1) * 60);
+                //  new Vector2(checkObject.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta.x, (checklist.checks[i].expectedValue.Length / characterCount + 1) * 60);
                 //checkObject.GetComponent<RectTransform>().sizeDelta = new Vector2(checkObject.GetComponent<RectTransform>().sizeDelta.x, (checklist.checks[i].expectedValue.Length / characterCount + 1) * 60);
                 _checkObjects.Add(checkObject);
             }
@@ -146,10 +147,6 @@ public class ChecklistRenderer : MonoBehaviour
         }
 
         LoadPage();
-        if (_currentChecklist.IsDone())
-            ChecklistDone();
-        else
-            ChecklistNotDone();
     }
 
     public void UnloadCurrentChecklist()
@@ -192,6 +189,7 @@ public class ChecklistRenderer : MonoBehaviour
     public void ResetChecklist()
     {
         _currentChecklist?.Reset();
+        LoadPage();
         ChecklistNotDone();
     }
 
@@ -205,13 +203,13 @@ public class ChecklistRenderer : MonoBehaviour
         checklistStatus.SetActive(true);
         var isOverridden = _currentChecklist!.IsOverridden;
         var isCompleteExceptDeferred = _currentChecklist.IsDoneWithoutDeferred();
-        if(isOverridden)
+        if (isOverridden)
             checklistStatus.GetComponentInChildren<TMP_Text>().text = "CHECKLIST OVERRIDDEN";
         else if (isCompleteExceptDeferred)
             checklistStatus.GetComponentInChildren<TMP_Text>().text = "CHECKLIST COMPLETE EXCEPT DEFERRED";
         else
             checklistStatus.GetComponentInChildren<TMP_Text>().text = "CHECKLIST COMPLETE";
-        
+
         checklistStatus.GetComponent<Image>().color = isOverridden ? new Color(.23f, .64f, .76f, 1) : Color.green;
 
         // TODO vidi jel treba HideButtons da se napravi
@@ -240,7 +238,7 @@ public class ChecklistRenderer : MonoBehaviour
             var pageButton = Instantiate(pageNumberPrefab, pageButtons.transform);
             int iCopy = i;
             pageButton.transform.SetSiblingIndex(1 + i);
-           
+
             pageButton.transform.GetChild(0).GetComponent<TMP_Text>().text = (i + 1).ToString();
             pageButton.GetComponent<Button>().onClick.AddListener((() => { HandlePageButtonPress(iCopy + 1); }));
             if (i == 0)
@@ -249,13 +247,13 @@ public class ChecklistRenderer : MonoBehaviour
                 cb.normalColor = new Color(.2f, .2f, .3f);
                 pageButton.GetComponent<Button>().colors = cb;
             }
+
             RectTransform pageButtonRect = pageButton.GetComponent<RectTransform>();
 
             pageButtonRect.localScale = Vector3.one;
             pageButtonRect.sizeDelta =
                 new Vector2(pageButtonRect.sizeDelta.x, (pageButtonsRect.sizeDelta.y - 200) / _pagesCount);
             _highestPage = i + 1;
-            
         }
     }
 
@@ -269,6 +267,7 @@ public class ChecklistRenderer : MonoBehaviour
                 Destroy(pageButtons.transform.GetChild(i).gameObject);
             }
         }
+
         pageButtons.transform.GetChild(0).GetComponent<Button>().onClick.RemoveAllListeners();
         pageButtons.transform.GetChild(1).GetComponent<Button>().onClick.RemoveAllListeners();
 
@@ -288,6 +287,7 @@ public class ChecklistRenderer : MonoBehaviour
             cb.normalColor = new Color(.3f, .3f, .4f);
             pageButtons.transform.GetChild(i).GetComponent<Button>().colors = cb;
         }
+
         cb = pageButtons.transform.GetChild(_currentPage).GetComponent<Button>().colors;
         cb.normalColor = new Color(.2f, .2f, .3f);
         pageButtons.transform.GetChild(_currentPage).GetComponent<Button>().colors = cb;
@@ -301,7 +301,7 @@ public class ChecklistRenderer : MonoBehaviour
         if (_currentPage >= _highestPage)
             return;
         _currentPage++;
-        
+
         ColorBlock cb;
         for (int i = 1; i < pageButtons.transform.childCount - 1; i++)
         {
@@ -309,6 +309,7 @@ public class ChecklistRenderer : MonoBehaviour
             cb.normalColor = new Color(.3f, .3f, .4f);
             pageButtons.transform.GetChild(i).GetComponent<Button>().colors = cb;
         }
+
         cb = pageButtons.transform.GetChild(_currentPage).GetComponent<Button>().colors;
         cb.normalColor = new Color(.2f, .2f, .3f);
         pageButtons.transform.GetChild(_currentPage).GetComponent<Button>().colors = cb;
@@ -320,7 +321,7 @@ public class ChecklistRenderer : MonoBehaviour
     public void HandlePageButtonPress(int pageNumber)
     {
         _currentPage = pageNumber;
-        
+
         ColorBlock cb;
         for (int i = 1; i < pageButtons.transform.childCount - 1; i++)
         {
@@ -328,6 +329,7 @@ public class ChecklistRenderer : MonoBehaviour
             cb.normalColor = new Color(.3f, .3f, .4f);
             pageButtons.transform.GetChild(i).GetComponent<Button>().colors = cb;
         }
+
         cb = pageButtons.transform.GetChild(_currentPage).GetComponent<Button>().colors;
         cb.normalColor = new Color(.2f, .2f, .3f);
         pageButtons.transform.GetChild(_currentPage).GetComponent<Button>().colors = cb;
@@ -349,15 +351,19 @@ public class ChecklistRenderer : MonoBehaviour
             else if (nPageBreak == _currentPage)
             {
                 _checkObjects[i].SetActive(true);
+                _checkObjects[i].GetComponent<CheckRenderer>()?.SetCheckRendered();
+                _checkObjects[i].GetComponent<ConditionalCheckRenderer>()?.SetCheckRendered();
             }
             else
             {
                 _checkObjects[i].SetActive(false);
             }
-            
-            //_checkObjects[i].SetActive(i >= (_currentPage - 1) * checksPerPage && i < _currentPage * checksPerPage);
-
         }
+
+        if (_currentChecklist != null && _currentChecklist.IsDone())
+            ChecklistDone();
+        else
+            ChecklistNotDone();
     }
 
     public void SetPageComplete()

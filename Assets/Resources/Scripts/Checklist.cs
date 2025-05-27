@@ -13,7 +13,6 @@ public class Checklist
     [NonSerialized] public UnityAction OnCheckChecked;
     [NonSerialized] private int _checkSelectedIndex = -1;
     public List<string> deferredChecks = new();
-
     public bool IsMenu => subChecklists.Count > 0;
     public bool IsChecklist => !IsMenu;
     public bool IsOverridden => checks.TrueForAll(check => check.Overridden);
@@ -22,18 +21,52 @@ public class Checklist
     {
         if (deferredChecks == null || deferredChecks.Count == 0)
             return checks.TrueForAll(check => check.IsDone);
+        // take until check which has "DEFERRED CHECKS" in name
+        var deferredCheckIndex = -1;
+        for (var i = 0; i < checks.Count; i++)
+        {
+            if (checks[i].name.Equals("PageBreak")) continue;
+            if (!checks[i].expectedValue.Contains("DEFERRED ITEMS")) continue;
+            deferredCheckIndex = i;
+            break;
+        }
+
+        if (deferredCheckIndex == -1) return false;
+        for (var i = 0; i < deferredCheckIndex; i++)
+        {
+            if (!checks[i].IsDone) return false;
+        }
+
+        return true;
         var notDone = checks.FindAll(check => !check.IsDone);
         return notDone.All(check => deferredChecks.Contains(check.name));
     }
-    
+
     public bool IsDoneWithoutDeferred()
     {
-        if (deferredChecks == null || deferredChecks.Count == 0)
+        if (deferredChecks == null || deferredChecks.Count == 0 || checks.TrueForAll(check => check.IsDone))
             return false;
+        
+        var deferredCheckIndex = -1;
+        for (var i = 0; i < checks.Count; i++)
+        {
+            if (checks[i].name.Equals("PageBreak")) continue;
+            if (!checks[i].expectedValue.Contains("DEFERRED ITEMS")) continue;
+            deferredCheckIndex = i;
+            break;
+        }
+
+        if (deferredCheckIndex == -1) return false;
+        for (var i = 0; i < deferredCheckIndex; i++)
+        {
+            if (!checks[i].IsDone) return false;
+        }
+
+        return true;
         var notDone = checks.FindAll(check => !check.IsDone);
         if (notDone.Count < 1)
             return false;
-        
+
         return notDone.All(check => deferredChecks.Contains(check.name));
     }
 
@@ -77,8 +110,9 @@ public class Checklist
     {
         //Debug.Log("Checklist: " + name + " Check: " + checks[index].name + " Checked: " + checkedValue);
         OnCheckChecked?.Invoke();
-        checks.FirstOrDefault(check => check.name == checks[index].name && check.expectedValue == checks[index].expectedValue &&
-                              check.Checked != checkedValue)?.TriggerCheck();    
+        checks.FirstOrDefault(check => check.name == checks[index].name &&
+                                       check.expectedValue == checks[index].expectedValue &&
+                                       check.Checked != checkedValue)?.TriggerCheck();
 
         //checks.FindAll(check => check.name == checks[index    ].name && check.Checked != checkedValue)
         //.ForEach(check => check.TriggerCheck());
@@ -104,7 +138,7 @@ public class Checklist
             {
                 Check first = null;
                 for (var i = index + 1; i < checks.Count && first == null; i++)
-                    if(checks[i].name == check)
+                    if (checks[i].name == check)
                         first = checks[i];
                 if (first == null) continue;
                 if (state == ConditionalState.No)
@@ -122,7 +156,7 @@ public class Checklist
             {
                 Check first = null;
                 for (var i = index + 1; i < checks.Count && first == null; i++)
-                    if(checks[i].name == check)
+                    if (checks[i].name == check)
                         first = checks[i];
                 if (first == null) continue;
                 if (state == ConditionalState.Yes)
@@ -134,8 +168,10 @@ public class Checklist
                                  ch.name == first.name && ch.expectedValue == first.expectedValue))
                         ch.TriggerReset();
             }
+
         OnCheckChecked?.Invoke();
-        var sameNameChecks = checks.FindAll(check => check.name == checks[index].name && check.expectedValue == checks[index].expectedValue);
+        var sameNameChecks = checks.FindAll(check =>
+            check.name == checks[index].name && check.expectedValue == checks[index].expectedValue);
         var sameNameDifferentChecked = sameNameChecks.FindAll(check => check.ConditionalState != state);
         sameNameDifferentChecked.ForEach(check => check.TriggerConditionCheck(state));
     }

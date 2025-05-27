@@ -105,4 +105,9 @@ public class ConditionalCheckRenderer : MonoBehaviour
     {
         check.OnCheckDataChanged -= UpdateUI;
     }
+
+    public void SetCheckRendered()
+    {
+        check.Rendered = true;
+    }
 }

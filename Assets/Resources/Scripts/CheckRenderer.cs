@@ -263,4 +263,9 @@ private string WrapPlainText(string text, int lineLength)
     {
         check.OnCheckDataChanged -= UpdateUI;
     }
+
+    public void SetCheckRendered()
+    {
+        check.Rendered = true;
+    }
 }

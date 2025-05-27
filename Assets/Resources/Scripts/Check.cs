@@ -15,6 +15,7 @@ public class Check
     [NonSerialized] public bool Overridden;
     [NonSerialized] public int Index;
     [NonSerialized] public bool IsSelected;
+    [NonSerialized] public bool Rendered = false;
     [NonSerialized] public ConditionalState ConditionalState;
 
     public UnityAction OnCheckDataChanged;
@@ -34,9 +35,10 @@ public class Check
         ConditionalState = ConditionalState.None;
     }
 
-    public bool IsDone => Checked || Overridden || IsNote || IsPageBreak ||
-                          (IsConditional && ConditionalState != ConditionalState.None) ||
-                          (IsPlainText && expectedValue.Contains(":"));
+    public bool IsDone => (IsPageBreak || Rendered) &&
+                          (Checked || Overridden || IsNote || IsPageBreak ||
+                           (IsConditional && ConditionalState != ConditionalState.None) ||
+                           (IsPlainText && expectedValue.Contains(":")));
 
     public bool IsNote => name.Contains("NOTE");
     public bool IsPlainText => name.Contains("PLAINTEXT");
@@ -61,6 +63,7 @@ public class Check
 
     public void TriggerReset()
     {
+        Rendered = false;
         Checked = isAutomatic;
         Overridden = false;
         IsSelected = false;
