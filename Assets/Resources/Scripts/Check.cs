@@ -50,6 +50,7 @@ public class Check
         if (IsNote) return;
         Checked = false;
         Overridden = true;
+        if (IsConditional) TriggerConditionCheck(ConditionalState.No);
         OnCheckDataChanged?.Invoke();
     }
 
