@@ -7223,13 +7223,13 @@
                 "expectedValue": "",
                 "isAutomatic": false,
                 "conditionalChecksYes": [
-                  "Attempt only one reset per flight (2)",
+                  "PLAINTEXT2",
                   "L BUS TIE switch"
                 ],
                 "conditionalChecksNo": []
               },
               {
-                "name": "PLAINTEXT",
+                "name": "PLAINTEXT2",
                 "expectedValue": "Attempt only one reset per flight (2)",
                 "isAutomatic": false
               },
@@ -9932,7 +9932,8 @@
                       "PLAINTEXT2",
                       "PLAINTEXT3",
                       "L FUEL CONTROL switch",
-                      "PLAINTEXT4"
+                      "PLAINTEXT4",
+                      "PLAINTEXT5"
                     ],
                     "conditionalChecksNo": [
                       "Abort the start if: .....",
@@ -9960,7 +9961,7 @@
                     "isAutomatic": false
                   },
                   {
-                    "name": "PLAINTEXT",
+                    "name": "PLAINTEXT5",
                     "expectedValue":"Autostart is off:",
                     "isAutomatic":false
                   },
