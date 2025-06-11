@@ -74,3 +74,4 @@ crashlytics-build.properties
 ProjectSettings/ProjectVersion.txt
 
 Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+mono_crash.*
